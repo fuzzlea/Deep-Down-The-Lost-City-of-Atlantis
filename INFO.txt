@@ -1,3 +1,5 @@
+** DO NOT DELETE nt.nt FILES **
+
 let AJ control the following folders (and subfolders):
 	Scenes
 	Scripts

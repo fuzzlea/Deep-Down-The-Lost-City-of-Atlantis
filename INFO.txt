@@ -1,0 +1,8 @@
+let AJ control the following folders (and subfolders):
+	Scenes
+	Scripts
+	Saves
+
+HAYDEN & PEYTON put the assets you create inside the "Assets" folder
+under whatever subcategory they fit in. If an asset doesn't fit
+in a subcategory, ask AJ, or just throw it in "Singles (Misc)"

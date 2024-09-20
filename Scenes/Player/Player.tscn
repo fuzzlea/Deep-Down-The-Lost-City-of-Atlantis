@@ -143,7 +143,9 @@ sprite_frames = SubResource("SpriteFrames_cuph1")
 animation = &"WalkUp"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-2, 1)
 shape = SubResource("CapsuleShape2D_2v8r3")
+debug_color = Color(0.826959, 0.340239, 0.534014, 0.42)
 
 [node name="Camera2D" type="Camera2D" parent="."]

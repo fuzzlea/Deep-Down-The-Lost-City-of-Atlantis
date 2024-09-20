@@ -25,6 +25,15 @@ window/size/mode=2
 
 project/assembly_name="New Game Project"
 
+[file_customization]
+
+folder_colors={
+"res://Assets/": "red",
+"res://Saves/": "purple",
+"res://Scenes/": "blue",
+"res://Scripts/": "green"
+}
+
 [input]
 
 Player-MoveUp={

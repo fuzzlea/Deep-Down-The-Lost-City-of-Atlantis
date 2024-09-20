@@ -33,20 +33,20 @@ func setDirection():
 	var movementInput : Vector2 = getMovementInput()
 	if movementInput.x > 0:
 		if movementInput.y < 0:
-			#Direction = "UpRight"
+			Direction = "UpRight"
 			return
 		elif movementInput.y > 0:
-			#Direction = "DownRight"
+			Direction = "DownRight"
 			return
 		else:
 			Direction = "Right"
 			return
 	if movementInput.x < 0:
 		if movementInput.y < 0:
-			#Direction = "UpLeft"
+			Direction = "UpLeft"
 			return
 		elif movementInput.y > 0:
-			#Direction = "DownLeft"
+			Direction = "DownLeft"
 			return
 		else:
 			Direction = "Left"

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://8vda2srjaiwx"]
+[gd_scene load_steps=4 format=3 uid="uid://8vda2srjaiwx"]
 
 [ext_resource type="Texture2D" uid="uid://jlbioq6h7ojd" path="res://icon.svg" id="1_mw0ux"]
 [ext_resource type="PackedScene" uid="uid://c63bbgxpu1o61" path="res://Scenes/Player/Player.tscn" id="2_a4hjb"]
+[ext_resource type="PackedScene" uid="uid://cgwxc505nmthr" path="res://Scenes/Enemies/Crab.tscn" id="3_eya51"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -23,3 +24,7 @@ texture = ExtResource("1_mw0ux")
 
 [node name="Player" parent="." instance=ExtResource("2_a4hjb")]
 z_index = 1
+position = Vector2(255, 82)
+
+[node name="Crab" parent="." instance=ExtResource("3_eya51")]
+position = Vector2(518, 215)

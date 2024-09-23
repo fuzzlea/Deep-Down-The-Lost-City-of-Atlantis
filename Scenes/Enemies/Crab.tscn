@@ -43,10 +43,14 @@ radius = 22.0227
 [sub_resource type="CircleShape2D" id="CircleShape2D_ouncq"]
 radius = 35.0
 
-[node name="Crab" type="CharacterBody2D"]
+[node name="Crab" type="RigidBody2D"]
 collision_layer = 2
+collision_mask = 2
+gravity_scale = 0.0
+linear_damp = 4.0
 script = ExtResource("1_50g5v")
-States = ["Idle", "Moving", "Attacking"]
+States = ["Idle", "Moving"]
+AIUpdateTime = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -18)

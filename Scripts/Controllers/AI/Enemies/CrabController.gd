@@ -29,9 +29,9 @@ func moveRandomly():
 	
 	match randDirection:
 		"Left":
-			apply_central_impulse(Vector2(-500,0))
+			apply_central_impulse(Vector2(-250,0))
 		"Right":
-			apply_central_impulse(Vector2(500,0))
+			apply_central_impulse(Vector2(250,0))
 	
 	currentlyMoving = false
 

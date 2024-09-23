@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8m76n2xwyncu"
-path="res://.godot/imported/Sand.png-c88dd9d413441ab16517d00bf79666dd.ctex"
+uid="uid://cpcyw1kd2u5j1"
+path="res://.godot/imported/BeachTilest.png-50ef0fd8ce6937fd6f2d47106cc8d314.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Environment/Sand.png"
-dest_files=["res://.godot/imported/Sand.png-c88dd9d413441ab16517d00bf79666dd.ctex"]
+source_file="res://Assets/Environment/BeachTilest.png"
+dest_files=["res://.godot/imported/BeachTilest.png-50ef0fd8ce6937fd6f2d47106cc8d314.ctex"]
 
 [params]
 

@@ -8,7 +8,7 @@ extends CharacterBody2D
 # Const #
 
 const ACCEL : float = 10.0 # Player Acceleration Value
-const SPEED : float = 250.0
+const SPEED : float = 80.0
 
 # Onready #
 

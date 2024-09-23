@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://d35yf54ssvtup"]
-
-[ext_resource type="Texture2D" uid="uid://dskphvsxk8mde" path="res://Assets/Weapons/WaterGun01.png" id="1_1xhje"]
-[ext_resource type="Script" path="res://Scripts/Controllers/Weapons/WaterGun01Controller.gd" id="2_o6fu3"]
-
-[node name="WaterGun01" type="Sprite2D"]
-scale = Vector2(2.875, 2.875)
-texture = ExtResource("1_1xhje")
-script = ExtResource("2_o6fu3")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dskphvsxk8mde"
-path="res://.godot/imported/WaterGun01.png-93fb507fb63fda451f89b81b10af025e.ctex"
+uid="uid://ce287xw4w076n"
+path="res://.godot/imported/Alantis.png-e85232a0b198106db1e06fb90b983a90.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Weapons/WaterGun01.png"
-dest_files=["res://.godot/imported/WaterGun01.png-93fb507fb63fda451f89b81b10af025e.ctex"]
+source_file="res://Assets/Environment/Alantis.png"
+dest_files=["res://.godot/imported/Alantis.png-e85232a0b198106db1e06fb90b983a90.ctex"]
 
 [params]
 

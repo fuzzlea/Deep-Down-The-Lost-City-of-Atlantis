@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8m76n2xwyncu"
-path="res://.godot/imported/Sand.png-c88dd9d413441ab16517d00bf79666dd.ctex"
+uid="uid://crnedjck8t7ib"
+path="res://.godot/imported/Crab.png-6ae5804a8b800b9a89afab07e8343007.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Environment/Sand.png"
-dest_files=["res://.godot/imported/Sand.png-c88dd9d413441ab16517d00bf79666dd.ctex"]
+source_file="res://Assets/Enemies/Crab/Crab.png"
+dest_files=["res://.godot/imported/Crab.png-6ae5804a8b800b9a89afab07e8343007.ctex"]
 
 [params]
 

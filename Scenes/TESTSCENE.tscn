@@ -75,4 +75,4 @@ z_index = 1
 position = Vector2(627, 356)
 
 [node name="Crab" parent="." instance=ExtResource("3_eya51")]
-position = Vector2(552, 360)
+position = Vector2(633, 360)

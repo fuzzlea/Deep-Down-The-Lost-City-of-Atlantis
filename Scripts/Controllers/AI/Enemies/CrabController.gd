@@ -14,6 +14,7 @@ extends RigidBody2D
 # Var #
 
 var currentlyMoving : bool = false
+var currentlyOnWall : bool = false
 
 # Func #
 
@@ -54,9 +55,22 @@ func update(): # This function will run every set amount of seconds (AIUpdateTim
 
 # Connectors #
 
+func _process(float):
+	
+	if currentlyOnWall:
+		moveRandomly()
+
 func _ready(): # This function runs when the scene is instantiated
 	AI_Timer.wait_time = AIUpdateTime
 	AI_Timer.start()
 
 func _on_ai_timer_timeout(): # This function runs every time the timer 'AI_Timer' finishes
 	update()
+
+func _on_hit_range_body_entered(body: Node2D): # This function runs whenever something enters the HitRange
+	if body is TileMap:
+		currentlyOnWall = true
+
+func _on_hit_range_body_exited(body: Node2D): # This function runs whenever something leaves the HitRange
+	if body is TileMap:
+		currentlyOnWall = false

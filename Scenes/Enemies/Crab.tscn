@@ -41,7 +41,7 @@ animations = [{
 radius = 5.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ouncq"]
-radius = 35.0
+radius = 19.0
 
 [node name="Crab" type="RigidBody2D"]
 collision_layer = 2
@@ -63,13 +63,15 @@ shape = SubResource("CircleShape2D_bxtah")
 debug_color = Color(0.629421, 0.508102, 0.422822, 0.42)
 
 [node name="HitRange" type="Area2D" parent="."]
-monitoring = false
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitRange"]
 shape = SubResource("CircleShape2D_ouncq")
-metadata/_edit_lock_ = true
 
 [node name="AI_Timer" type="Timer" parent="."]
 wait_time = 5.0
 
+[connection signal="body_entered" from="HitRange" to="." method="_on_hit_range_body_entered"]
+[connection signal="body_exited" from="HitRange" to="." method="_on_hit_range_body_exited"]
 [connection signal="timeout" from="AI_Timer" to="." method="_on_ai_timer_timeout"]

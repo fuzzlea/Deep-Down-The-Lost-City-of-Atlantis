@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cgwxc505nmthr"]
+[gd_scene load_steps=10 format=3 uid="uid://cgwxc505nmthr"]
 
 [ext_resource type="Script" path="res://Scripts/Controllers/AI/Enemies/CrabController.gd" id="1_50g5v"]
 [ext_resource type="Texture2D" uid="uid://crnedjck8t7ib" path="res://Assets/Enemies/Crab/Crab.png" id="1_je1ak"]
@@ -14,6 +14,10 @@ region = Rect2(16, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_o52rb"]
 atlas = ExtResource("1_je1ak")
 region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_itow0"]
+atlas = ExtResource("1_je1ak")
+region = Rect2(64, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ri3o5"]
 animations = [{
@@ -35,13 +39,21 @@ animations = [{
 "loop": true,
 "name": &"Moving",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_itow0")
+}],
+"loop": true,
+"name": &"Pushed",
+"speed": 1.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bxtah"]
 radius = 5.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ouncq"]
-radius = 19.0
+radius = 9.0
 
 [node name="Crab" type="RigidBody2D"]
 collision_layer = 2
@@ -52,11 +64,12 @@ linear_damp = 4.0
 script = ExtResource("1_50g5v")
 States = ["Idle", "Moving"]
 AIUpdateTime = 1
+metadata/Pushed = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_ri3o5")
-animation = &"Idle"
+animation = &"Pushed"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_bxtah")
@@ -65,6 +78,8 @@ debug_color = Color(0.629421, 0.508102, 0.422822, 0.42)
 [node name="HitRange" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 2
+monitoring = false
+metadata/Pushable = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitRange"]
 shape = SubResource("CircleShape2D_ouncq")

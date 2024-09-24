@@ -8,11 +8,12 @@ extends CharacterBody2D
 # Const #
 
 const ACCEL : float = 10.0 # Player Acceleration Value
-const SPEED : float = 80.0
+var SPEED : float = 80.0 # Set as var so i can manipulate
 
 # Onready #
 
 @onready var AnimatedSprite : AnimatedSprite2D = $AnimatedSprite2D
+@onready var Camera : Camera2D = $Camera2D
 
 # Vars #
 
@@ -21,6 +22,22 @@ var moveInput : Vector2 # The Player Movement Input Vector
 var prevState : String # The players previous state
 var prevDir : String # The players previous direction
 var currentMovementControls : bool = true
+
+## PUSHING ##
+var currentPushDB : bool = false
+var timeBetweenPush : float = 0.5
+var pushForce : float = -115
+var areasInPushRange : Array = []
+var pushDirectionHashmap : Dictionary = {
+	"Up": Vector2(0,-1),
+	"Down": Vector2(0,1),
+	"Left": Vector2(-1,0),
+	"Right": Vector2(1,0),
+	"UpLeft": Vector2(-0.5,-0.5),
+	"UpRight": Vector2(0.5,-0.5),
+	"DownLeft": Vector2(-0.5,0.5),
+	"DownRight": Vector2(0.5,0.5)
+}
 
 # Func #
 
@@ -64,6 +81,10 @@ func setState(): # This function sets the export var 'State' of the player
 		State = "Walk"
 	else:
 		State = "Idle"
+		
+	if currentPushDB == true:
+		State = "Push"
+	
 	if prevState != State || prevDir != Direction: # Check when the state or direction changes, animate & update those previous variables
 		animatePlayer()
 		prevState = State
@@ -91,6 +112,35 @@ func _physics_process(delta): # This function runs on every physics frame of the
 		var movementInput = getMovementInput()
 		
 		velocity = lerp(velocity, movementInput * SPEED, delta * ACCEL) # Smoothly update the velocity of the player
-		setState()
-		setDirection()
 		move_and_slide() # A godot built in function for CharacterBody2D nodes to allow for phsyics based positioning
+	
+	## PUSHING ##
+	if Input.is_action_just_pressed("Player-Push"): # Check if the player pushes the key for the push mechanic
+		if currentPushDB == false: # Make sure the player is able to push
+			if areasInPushRange.size() <= 0: return # Make sure something pushable is in range
+			
+			currentPushDB = true
+			velocity = getMovementInput() * pushForce # Move the player back for a little bounce
+			
+			var itemToPush : RigidBody2D = areasInPushRange[0].get_parent() # Get the item to push
+			var dirToPush : Vector2 = pushDirectionHashmap[Direction] * abs(pushForce) # Get the direction to push that item
+			
+			itemToPush.apply_central_impulse(dirToPush) # Apply a force to the item, emulating a push
+			itemToPush.set_meta("Pushed", true) # Set the metadata of the pushed item
+			
+			await get_tree().create_timer(timeBetweenPush).timeout # Wait timeBetweenPush
+			
+			currentPushDB = false
+			itemToPush.set_meta("Pushed", false) 
+	
+	## GLOBAL ##
+	setState()
+	setDirection()
+
+func _on_push_range_area_entered(area: Area2D): # This function adds everything that is pushable to an array
+	if area.get_meta("Pushable"):
+		areasInPushRange.insert(0, area)
+
+func _on_push_range_area_exited(area: Area2D): # This function removes the item from the array
+	if area.get_meta("Pushable"):
+		areasInPushRange.erase(area)

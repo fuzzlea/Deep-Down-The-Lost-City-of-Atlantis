@@ -10,6 +10,7 @@ extends RigidBody2D
 
 @onready var AI_Timer : Timer = $AI_Timer
 @onready var AnimSprite : AnimatedSprite2D = $AnimatedSprite2D
+@onready var HitRange : Area2D = $HitRange
 
 # Var #
 

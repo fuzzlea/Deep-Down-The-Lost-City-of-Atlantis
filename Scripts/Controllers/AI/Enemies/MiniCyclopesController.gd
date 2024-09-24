@@ -4,7 +4,7 @@ extends RigidBody2D
 
 @export var State : String
 @export var States : Array
-@export var AIUpdateTime : float = 1.0
+@export var AIUpdateTime : float = 0.5
 
 # Onready #
 
@@ -35,9 +35,9 @@ func moveRandomly():
 	
 	match randDirection:
 		"Left":
-			apply_central_impulse(Vector2(-100,0))
+			apply_central_impulse(Vector2(0,-100))
 		"Right":
-			apply_central_impulse(Vector2(100,0))
+			apply_central_impulse(Vector2(0,100))
 	
 	currentlyMoving = false
 

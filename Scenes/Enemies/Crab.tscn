@@ -15,7 +15,7 @@ region = Rect2(16, 0, 16, 16)
 atlas = ExtResource("1_je1ak")
 region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_itow0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_yk6jg"]
 atlas = ExtResource("1_je1ak")
 region = Rect2(64, 0, 16, 16)
 
@@ -42,11 +42,11 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_itow0")
+"texture": SubResource("AtlasTexture_yk6jg")
 }],
 "loop": true,
 "name": &"Pushed",
-"speed": 1.0
+"speed": 3.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bxtah"]
@@ -63,13 +63,13 @@ lock_rotation = true
 linear_damp = 4.0
 script = ExtResource("1_50g5v")
 States = ["Idle", "Moving"]
-AIUpdateTime = 1
 metadata/Pushed = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_ri3o5")
-animation = &"Pushed"
+animation = &"Idle"
+frame_progress = 0.270387
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_bxtah")

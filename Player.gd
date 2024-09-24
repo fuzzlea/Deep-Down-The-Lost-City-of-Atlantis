@@ -26,8 +26,18 @@ var currentMovementControls : bool = true
 ## PUSHING ##
 var currentPushDB : bool = false
 var timeBetweenPush : float = 0.5
-var pushForce : float = -150
+var pushForce : float = -115
 var areasInPushRange : Array = []
+var pushDirectionHashmap : Dictionary = {
+	"Up": Vector2(0,-1),
+	"Down": Vector2(0,1),
+	"Left": Vector2(-1,0),
+	"Right": Vector2(1,0),
+	"UpLeft": Vector2(-0.5,-0.5),
+	"UpRight": Vector2(0.5,-0.5),
+	"DownLeft": Vector2(-0.5,0.5),
+	"DownRight": Vector2(0.5,0.5)
+}
 
 # Func #
 
@@ -105,30 +115,32 @@ func _physics_process(delta): # This function runs on every physics frame of the
 		move_and_slide() # A godot built in function for CharacterBody2D nodes to allow for phsyics based positioning
 	
 	## PUSHING ##
-	if Input.is_action_just_pressed("Player-Push"):
-		if currentPushDB == false:
-			if areasInPushRange.size() <= 0: return
+	if Input.is_action_just_pressed("Player-Push"): # Check if the player pushes the key for the push mechanic
+		if currentPushDB == false: # Make sure the player is able to push
+			if areasInPushRange.size() <= 0: return # Make sure something pushable is in range
 			
 			currentPushDB = true
-			velocity = getMovementInput() * pushForce
+			velocity = getMovementInput() * pushForce # Move the player back for a little bounce
 			
-			var itemToPush : RigidBody2D = areasInPushRange[0].get_parent()
-			var dirToPush : Vector2 = (itemToPush.global_position - global_position).normalized() * abs(pushForce)
+			var itemToPush : RigidBody2D = areasInPushRange[0].get_parent() # Get the item to push
+			var dirToPush : Vector2 = pushDirectionHashmap[Direction] * abs(pushForce) # Get the direction to push that item
 			
-			itemToPush.apply_central_impulse(dirToPush)
+			itemToPush.apply_central_impulse(dirToPush) # Apply a force to the item, emulating a push
+			itemToPush.set_meta("Pushed", true) # Set the metadata of the pushed item
 			
-			await get_tree().create_timer(timeBetweenPush).timeout
+			await get_tree().create_timer(timeBetweenPush).timeout # Wait timeBetweenPush
 			
 			currentPushDB = false
+			itemToPush.set_meta("Pushed", false) 
 	
 	## GLOBAL ##
 	setState()
 	setDirection()
 
-func _on_push_range_area_entered(area: Area2D) -> void:
+func _on_push_range_area_entered(area: Area2D): # This function adds everything that is pushable to an array
 	if area.get_meta("Pushable"):
 		areasInPushRange.insert(0, area)
 
-func _on_push_range_area_exited(area: Area2D) -> void:
+func _on_push_range_area_exited(area: Area2D): # This function removes the item from the array
 	if area.get_meta("Pushable"):
 		areasInPushRange.erase(area)

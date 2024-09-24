@@ -64,6 +64,7 @@ linear_damp = 4.0
 script = ExtResource("1_50g5v")
 States = ["Idle", "Moving"]
 AIUpdateTime = 1
+metadata/Pushed = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3)

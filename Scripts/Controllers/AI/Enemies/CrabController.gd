@@ -15,6 +15,7 @@ extends RigidBody2D
 # Var #
 
 var currentlyMoving : bool = false
+var ableToMove : bool = true
 var nextDirection = null
 
 # Func #
@@ -23,6 +24,8 @@ func pickRandomState():
 	return States[randi_range(0,States.size() - 1)]
 
 func moveRandomly():
+	
+	if not ableToMove: return
 	
 	if currentlyMoving: return
 	
@@ -59,8 +62,20 @@ func update(): # This function will run every set amount of seconds (AIUpdateTim
 # Connectors #
 
 func _ready(): # This function runs when the scene is instantiated
+	
 	AI_Timer.wait_time = AIUpdateTime
 	AI_Timer.start()
+
+func _process(_delta : float):
+	
+	if get_meta("Pushed") == true:
+		
+		AnimSprite.play("Pushed")
+		ableToMove = false
+		
+	else:
+		
+		ableToMove = true
 
 func _on_ai_timer_timeout(): # This function runs every time the timer 'AI_Timer' finishes
 	update()

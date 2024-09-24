@@ -8,11 +8,12 @@ extends CharacterBody2D
 # Const #
 
 const ACCEL : float = 10.0 # Player Acceleration Value
-const SPEED : float = 80.0
+var SPEED : float = 80.0 # Set as var so i can manipulate
 
 # Onready #
 
 @onready var AnimatedSprite : AnimatedSprite2D = $AnimatedSprite2D
+@onready var Camera : Camera2D = $Camera2D
 
 # Vars #
 
@@ -21,6 +22,12 @@ var moveInput : Vector2 # The Player Movement Input Vector
 var prevState : String # The players previous state
 var prevDir : String # The players previous direction
 var currentMovementControls : bool = true
+
+## PUSHING ##
+var currentPushDB : bool = false
+var timeBetweenPush : float = 0.5
+var pushForce : float = -150
+var areasInPushRange : Array = []
 
 # Func #
 
@@ -64,6 +71,10 @@ func setState(): # This function sets the export var 'State' of the player
 		State = "Walk"
 	else:
 		State = "Idle"
+		
+	if currentPushDB == true:
+		State = "Push"
+	
 	if prevState != State || prevDir != Direction: # Check when the state or direction changes, animate & update those previous variables
 		animatePlayer()
 		prevState = State
@@ -91,6 +102,33 @@ func _physics_process(delta): # This function runs on every physics frame of the
 		var movementInput = getMovementInput()
 		
 		velocity = lerp(velocity, movementInput * SPEED, delta * ACCEL) # Smoothly update the velocity of the player
-		setState()
-		setDirection()
 		move_and_slide() # A godot built in function for CharacterBody2D nodes to allow for phsyics based positioning
+	
+	## PUSHING ##
+	if Input.is_action_just_pressed("Player-Push"):
+		if currentPushDB == false:
+			if areasInPushRange.size() <= 0: return
+			
+			currentPushDB = true
+			velocity = getMovementInput() * pushForce
+			
+			var itemToPush : RigidBody2D = areasInPushRange[0].get_parent()
+			var dirToPush : Vector2 = (itemToPush.global_position - global_position).normalized() * abs(pushForce)
+			
+			itemToPush.apply_central_impulse(dirToPush)
+			
+			await get_tree().create_timer(timeBetweenPush).timeout
+			
+			currentPushDB = false
+	
+	## GLOBAL ##
+	setState()
+	setDirection()
+
+func _on_push_range_area_entered(area: Area2D) -> void:
+	if area.get_meta("Pushable"):
+		areasInPushRange.insert(0, area)
+
+func _on_push_range_area_exited(area: Area2D) -> void:
+	if area.get_meta("Pushable"):
+		areasInPushRange.erase(area)

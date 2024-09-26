@@ -2,20 +2,29 @@ extends RigidBody2D
 
 @export var KelpLineNode : Node2D
 
+@onready var Particles : CPUParticles2D = $CPUParticles2D
+@onready var Sprite : Sprite2D = $Sprite2D
+
 var Cuttables = [
 	"Crab"
 ]
 
 var KelpLine : Array
 
-func playParticles(where):
-	pass
+func deleteKelp(kelp : RigidBody2D):
+	kelp.queue_free()
+
+func playParticles(where : RigidBody2D):
+	var cpuParticle : CPUParticles2D = where.get_child(0)
+	cpuParticle.emitting = true
+	cpuParticle.finished.connect(deleteKelp.bind(where))
 
 func cut(_whatCut):
 	if KelpLine.size() > 0:
 		for kelp : RigidBody2D in KelpLine:
-			kelp.queue_free()
-	else: queue_free()
+			playParticles(kelp)
+			kelp.get_child(1).visible = false
+	else: Sprite.visible = false
 
 func _ready():
 	if KelpLineNode:

@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://8vda2srjaiwx"]
+[gd_scene load_steps=8 format=3 uid="uid://8vda2srjaiwx"]
 
 [ext_resource type="Texture2D" uid="uid://ce287xw4w076n" path="res://Assets/Environment/Alantis.png" id="1_s8bq8"]
 [ext_resource type="PackedScene" uid="uid://c63bbgxpu1o61" path="res://Scenes/Player/Player.tscn" id="2_a4hjb"]
 [ext_resource type="PackedScene" uid="uid://cgwxc505nmthr" path="res://Scenes/Enemies/Crab.tscn" id="3_eya51"]
 [ext_resource type="PackedScene" uid="uid://bxsdn16tqpb2x" path="res://Scenes/Enemies/MiniCyclopes.tscn" id="4_ijnuf"]
+[ext_resource type="PackedScene" uid="uid://deacb8bdaifpi" path="res://Scenes/Singles (Misc)/Puzzle Mechanics/Recievers/Kelp.tscn" id="5_rec2c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2h1wa"]
 texture = ExtResource("1_s8bq8")
@@ -79,26 +80,34 @@ position = Vector2(580, 372)
 z_index = 1
 position = Vector2(498, 364)
 
-[node name="Crab2" parent="." instance=ExtResource("3_eya51")]
-z_index = 1
-position = Vector2(465, 295)
-
-[node name="Crab3" parent="." instance=ExtResource("3_eya51")]
-z_index = 1
-position = Vector2(628, 349)
-
-[node name="Crab4" parent="." instance=ExtResource("3_eya51")]
-z_index = 1
-position = Vector2(635, 293)
-
 [node name="Mini Cyclopes" parent="." instance=ExtResource("4_ijnuf")]
 z_index = 1
 position = Vector2(568, 341)
 
-[node name="Mini Cyclopes2" parent="." instance=ExtResource("4_ijnuf")]
-z_index = 1
-position = Vector2(515, 318)
+[node name="KelpLine" type="Node2D" parent="."]
+position = Vector2(535, 263)
 
-[node name="Mini Cyclopes3" parent="." instance=ExtResource("4_ijnuf")]
+[node name="Kelp" parent="KelpLine" node_paths=PackedStringArray("KelpLineNode") instance=ExtResource("5_rec2c")]
 z_index = 1
-position = Vector2(559, 304)
+position = Vector2(3, 0)
+KelpLineNode = NodePath("..")
+
+[node name="Kelp2" parent="KelpLine" instance=ExtResource("5_rec2c")]
+z_index = 1
+position = Vector2(3, -16)
+
+[node name="Kelp3" parent="KelpLine" instance=ExtResource("5_rec2c")]
+z_index = 1
+position = Vector2(3, -32)
+
+[node name="Kelp4" parent="KelpLine" instance=ExtResource("5_rec2c")]
+z_index = 1
+position = Vector2(3, -48)
+
+[node name="Kelp5" parent="KelpLine" instance=ExtResource("5_rec2c")]
+z_index = 1
+position = Vector2(3, -64)
+
+[node name="Kelp6" parent="KelpLine" instance=ExtResource("5_rec2c")]
+z_index = 1
+position = Vector2(3, -80)

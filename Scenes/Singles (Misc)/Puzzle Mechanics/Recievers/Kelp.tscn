@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://deacb8bdaifpi"]
+
+[ext_resource type="Texture2D" uid="uid://hifayjpikbx0" path="res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Kelp.png" id="1_sj3m2"]
+[ext_resource type="Script" path="res://Scripts/Controllers/Puzzle Mechanics/Recievers/KelpController.gd" id="2_qv77d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rqh4q"]
+size = Vector2(16, 16)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_spoem"]
+radius = 3.0
+height = 16.0
+
+[node name="Kelp" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("2_qv77d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_sj3m2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rqh4q")
+
+[node name="HitRange" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitRange"]
+shape = SubResource("CapsuleShape2D_spoem")
+
+[connection signal="area_entered" from="HitRange" to="." method="_on_hit_range_area_entered"]

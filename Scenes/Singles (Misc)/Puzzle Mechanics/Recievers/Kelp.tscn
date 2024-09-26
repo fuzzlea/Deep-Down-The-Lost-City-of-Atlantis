@@ -28,4 +28,10 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitRange"]
 shape = SubResource("CapsuleShape2D_spoem")
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 3
+lifetime = 0.25
+one_shot = true
+
 [connection signal="area_entered" from="HitRange" to="." method="_on_hit_range_area_entered"]

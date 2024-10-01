@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+INVENTORY="*res://Scripts/Globals/Inventory.gd"
 CAMERA="*res://Scripts/Globals/CameraController.gd"
 
 [display]

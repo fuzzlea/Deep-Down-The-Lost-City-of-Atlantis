@@ -103,6 +103,22 @@ func disablePlayerControls(): # This will disable the player controls so they ca
 func enablePlayerControls(): # This will enable the player controls so they can move
 	currentMovementControls = true
 
+## COLLECTABLES ##
+
+func pickUpCollectable(collectable : Sprite2D):
+	var itemName = collectable.get_meta("CollectableName")
+	INVENTORY.addToInventory(itemName, 1)
+	
+	var tweenToPlayer = get_tree().create_tween().set_trans(Tween.TRANS_SINE)
+	tweenToPlayer.tween_property(collectable, "global_position", global_position, 0.1)
+	
+	await tweenToPlayer.finished
+	
+	var sizeTween = get_tree().create_tween().set_trans(Tween.TRANS_SINE)
+	sizeTween.tween_property(collectable, "scale", Vector2(0,0), 0.2)
+	sizeTween.tween_property(collectable.get_child(0), "scale", Vector2(0,0), 0.2)
+	sizeTween.tween_callback(func (): collectable.queue_free())
+
 # Connectors #
 
 func _ready():
@@ -148,3 +164,7 @@ func _on_push_range_area_entered(area: Area2D): # This function adds everything 
 func _on_push_range_area_exited(area: Area2D): # This function removes the item from the array
 	if area.get_meta("Pushable"):
 		areasInPushRange.erase(area)
+
+func _on_collectable_range_area_entered(area: Area2D) -> void:
+	if area.get_parent().get_meta("Collectable"):
+		pickUpCollectable(area.get_parent())

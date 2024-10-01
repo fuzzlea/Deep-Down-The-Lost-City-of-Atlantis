@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3doegw7008ca"]
+[gd_scene load_steps=6 format=3 uid="uid://b3doegw7008ca"]
 
-[ext_resource type="Texture2D" uid="uid://cfnjvdqwm4cw5" path="res://Assets/Singles (Misc)/Collectibles/Tidal Mosaic Tile.png" id="1_uhm4w"]
+[ext_resource type="Texture2D" uid="uid://d33eotkbt13ku" path="res://Assets/Singles (Misc)/Collectibles/Atlantean Chess Piece.png" id="1_hdjxy"]
 [ext_resource type="Texture2D" uid="uid://dq4sxm8t7y672" path="res://Assets/Singles (Misc)/spotlight_5.png" id="2_nmvf2"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_p1gww"]
@@ -10,11 +10,16 @@ blend_mode = 1
 _data = [Vector2(0, 0.901099), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ei630"]
+radius = 11.0
+
 [node name="Collectable" type="Sprite2D"]
-texture = ExtResource("1_uhm4w")
+texture = ExtResource("1_hdjxy")
+metadata/Collectable = true
+metadata/CollectableName = "Test"
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-modulate = Color(1, 1, 1, 0.313726)
+modulate = Color(1, 1, 1, 0.0745098)
 z_index = -1
 material = SubResource("CanvasItemMaterial_p1gww")
 amount = 20
@@ -33,3 +38,9 @@ scale_amount_min = 0.4
 scale_amount_max = 0.4
 scale_amount_curve = SubResource("Curve_y3khw")
 color = Color(0.950841, 0.890045, 0.677971, 1)
+
+[node name="Area2D" type="Area2D" parent="."]
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ei630")

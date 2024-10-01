@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3doegw7008ca"]
+
+[ext_resource type="Texture2D" uid="uid://cfnjvdqwm4cw5" path="res://Assets/Singles (Misc)/Collectibles/Tidal Mosaic Tile.png" id="1_uhm4w"]
+[ext_resource type="Texture2D" uid="uid://dq4sxm8t7y672" path="res://Assets/Singles (Misc)/spotlight_5.png" id="2_nmvf2"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_p1gww"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_y3khw"]
+_data = [Vector2(0, 0.901099), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Collectable" type="Sprite2D"]
+texture = ExtResource("1_uhm4w")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+modulate = Color(1, 1, 1, 0.313726)
+z_index = -1
+material = SubResource("CanvasItemMaterial_p1gww")
+amount = 20
+speed_scale = 0.5
+texture = ExtResource("2_nmvf2")
+emission_shape = 1
+emission_sphere_radius = 0.1
+direction = Vector2(0, 0)
+spread = 0.0
+gravity = Vector2(0, 0)
+angular_velocity_min = -14.55
+angular_velocity_max = 145.45
+radial_accel_min = 100.0
+radial_accel_max = 100.0
+scale_amount_min = 0.4
+scale_amount_max = 0.4
+scale_amount_curve = SubResource("Curve_y3khw")
+color = Color(0.950841, 0.890045, 0.677971, 1)

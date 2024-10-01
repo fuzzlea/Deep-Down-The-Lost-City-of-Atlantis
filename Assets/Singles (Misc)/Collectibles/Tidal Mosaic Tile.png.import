@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvt8aa6gbl4ms"
-path="res://.godot/imported/Shells.png-56c26ddc4fb95ddef25f9d3506c6e59e.ctex"
+uid="uid://cfnjvdqwm4cw5"
+path="res://.godot/imported/Tidal Mosaic Tile.png-fcade1074053c3cc85f781b4b95ec345.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Items/Shells.png"
-dest_files=["res://.godot/imported/Shells.png-56c26ddc4fb95ddef25f9d3506c6e59e.ctex"]
+source_file="res://Assets/Singles (Misc)/Collectibles/Tidal Mosaic Tile.png"
+dest_files=["res://.godot/imported/Tidal Mosaic Tile.png-fcade1074053c3cc85f781b4b95ec345.ctex"]
 
 [params]
 

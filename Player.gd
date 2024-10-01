@@ -105,6 +105,10 @@ func enablePlayerControls(): # This will enable the player controls so they can 
 
 # Connectors #
 
+func _ready():
+	CAMERA.CurrentCamera = Camera
+	CAMERA.Player = self
+
 func _physics_process(delta): # This function runs on every physics frame of the game
 	
 	## MOVEMENT ##

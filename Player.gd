@@ -15,6 +15,9 @@ var SPEED : float = 80.0 # Set as var so i can manipulate
 @onready var AnimatedSprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var Camera : Camera2D = $Camera2D
 
+@onready var UI : CanvasLayer = $UI
+@onready var RelicWheelUI : TextureRect = $UI/RelicWheel
+
 # Vars #
 
 ## MOVEMENT ##
@@ -38,6 +41,28 @@ var pushDirectionHashmap : Dictionary = {
 	"DownLeft": Vector2(-0.5,0.5),
 	"DownRight": Vector2(0.5,0.5)
 }
+
+## Relic Wheel ##
+var relicWheelOpen : bool :
+	set(value):
+		if value == true:
+			
+			var relicWheelTween = get_tree().create_tween().set_trans(Tween.TRANS_CIRC)
+			relicWheelTween.tween_property(RelicWheelUI, "position", Vector2(272,615), 0.2)
+			
+			disablePlayerControls()
+			CAMERA.zoomTo(global_position, Vector2(4,4), {"Time": 0.4, "Transition": Tween.TRANS_SINE})
+			
+		elif value == false:
+			
+			var relicWheelTween = get_tree().create_tween().set_trans(Tween.TRANS_CIRC)
+			relicWheelTween.tween_property(RelicWheelUI, "position", Vector2(272,815), 0.2)
+			
+			var camTween = await(CAMERA.resetCameraBackToPlayer())
+			
+			await camTween
+			
+			enablePlayerControls()
 
 # Func #
 
@@ -109,21 +134,18 @@ func pickUpCollectable(collectable : Sprite2D):
 	var itemName = collectable.get_meta("CollectableName")
 	INVENTORY.addToInventory(itemName, 1)
 	
-	var tweenToPlayer = get_tree().create_tween().set_trans(Tween.TRANS_SINE)
-	tweenToPlayer.tween_property(collectable, "global_position", global_position, 0.1)
-	
-	await tweenToPlayer.finished
-	
-	var sizeTween = get_tree().create_tween().set_trans(Tween.TRANS_SINE)
-	sizeTween.tween_property(collectable, "scale", Vector2(0,0), 0.2)
-	sizeTween.tween_property(collectable.get_child(0), "scale", Vector2(0,0), 0.2)
-	sizeTween.tween_callback(func (): collectable.queue_free())
+	var itemTween = get_tree().create_tween().set_trans(Tween.TRANS_BACK).set_parallel(true)
+	itemTween.tween_property(collectable, "scale", Vector2(0,0), 0.5)
+	itemTween.tween_property(collectable.get_child(0), "modulate", Color(0,0,0,0), 0.5)
+	itemTween.tween_callback(func(): collectable.queue_free)
 
 # Connectors #
 
 func _ready():
 	CAMERA.CurrentCamera = Camera
 	CAMERA.Player = self
+	
+	relicWheelOpen = false
 
 func _physics_process(delta): # This function runs on every physics frame of the game
 	
@@ -152,6 +174,12 @@ func _physics_process(delta): # This function runs on every physics frame of the
 			
 			currentPushDB = false
 			itemToPush.set_meta("Pushed", false) 
+	
+	## Relic Wheel ##
+	if Input.is_action_just_pressed("Player-RelicWheel"):
+		relicWheelOpen = true
+	if Input.is_action_just_released("Player-RelicWheel"):
+		relicWheelOpen = false
 	
 	## GLOBAL ##
 	setState()

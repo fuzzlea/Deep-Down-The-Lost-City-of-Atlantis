@@ -423,6 +423,8 @@ gradient = SubResource("Gradient_n53dn")
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
 script = ExtResource("1_rpehc")
+State = null
+Direction = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true

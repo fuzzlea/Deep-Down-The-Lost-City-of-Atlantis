@@ -57,10 +57,12 @@ var pushDirectionHashmap : Dictionary = {
 
 var relicWheelOpen : bool :
 	set(value):
+		relicWheelOpen = value
+		
 		if value == true:
 			
 			var relicWheelTween = get_tree().create_tween().set_trans(Tween.TRANS_CIRC)
-			relicWheelTween.tween_property(RelicWheelUI, "position", Vector2(272,615), 0.2)
+			relicWheelTween.tween_property(RelicWheelUI, "position", Vector2(get_viewport().size.x / 2 - (RelicWheelUI.size.x / 2) , get_viewport().size.y - (RelicWheelUI.size.y + 40)), 0.2)
 			
 			disablePlayerControls()
 			CAMERA.zoomTo(global_position, Vector2(4,4), {"Time": 0.4, "Transition": Tween.TRANS_SINE})
@@ -68,7 +70,7 @@ var relicWheelOpen : bool :
 		elif value == false:
 			
 			var relicWheelTween = get_tree().create_tween().set_trans(Tween.TRANS_CIRC)
-			relicWheelTween.tween_property(RelicWheelUI, "position", Vector2(272,815), 0.2)
+			relicWheelTween.tween_property(RelicWheelUI, "position", Vector2(get_viewport().size.x / 2 - (RelicWheelUI.size.x / 2), get_viewport().size.y), 0.2)
 			
 			var camTween = await(CAMERA.resetCameraBackToPlayer())
 			
@@ -79,11 +81,11 @@ var relicWheelOpen : bool :
 var relicWheelSelected : int = 0
 
 var relicsForWheel = {
-	"Pressure Gloves" = {"Img": "res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Button.png"},
-	"Aqua Lobber" = {"Img": "res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Button.png"},
-	"Hydro Battery" = {"Img": "res://Assets/Singles (Misc)/Collectibles/Relics/Hydro Battery.png"},
-	"Golden Magnet" = {"Img": "res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Button.png"},
-	"Poseidons Trident" = {"Img": "res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Button.png"},
+	"0" = {"Name": "Pressure Gloves", "Img": "res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Button.png", "RelicSet": "Push"},
+	"1" = {"Name": "Aqua Lobber", "Img": "res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Button.png", "RelicSet": "Lobber"},
+	"2" = {"Name": "Hydro Battery", "Img": "res://Assets/Singles (Misc)/Collectibles/Relics/Hydro Battery.png", "RelicSet": "Battery"},
+	"3" = {"Name": "Golden Magnet", "Img": "res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Button.png", "RelicSet": "Magnet"},
+	"4" = {"Name": "Poseidons Trident", "Img": "res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Button.png", "RelicSet": "Trident"},
 }
 
 # Func #
@@ -183,9 +185,30 @@ func initRelicWheel():
 	for relic in relicsForWheel:
 		var newTemplate : MarginContainer = RelicWheelTemplate.duplicate()
 		newTemplate.visible = true
+		newTemplate.name = relic
 		newTemplate.get_child(0).get_child(0).texture = load(relicsForWheel[relic]["Img"])
 		newTemplate.get_child(0).texture_normal = load("res://Assets/Singles (Misc)/Collectibles/Relics/Relic Border.png")
 		RelicWheelHBOX.add_child(newTemplate)
+
+func relicWheelScroll(updown : String):
+	match updown:
+		"Up":
+			relicWheelSelected += 1
+			relicWheelSelected = clamp(relicWheelSelected, 0, relicsForWheel.size() - 1)
+		"Down":
+			relicWheelSelected -= 1
+			relicWheelSelected = clamp(relicWheelSelected, 0, relicsForWheel.size() - 1)
+		_:
+			pass
+	
+	RelicSelected = relicsForWheel[str(relicWheelSelected)]["RelicSet"]
+	print(RelicSelected)
+	
+	for relic : MarginContainer in RelicWheelHBOX.get_children():
+		relic.scale = Vector2(1,1)
+		
+		if relic.name == str(relicWheelSelected):
+			relic.scale = Vector2(1.2,1.2)
 
 # Connectors #
 
@@ -195,6 +218,7 @@ func _ready():
 	
 	relicWheelOpen = false
 	initRelicWheel()
+	relicWheelScroll("None")
 
 func _physics_process(delta): # This function runs on every physics frame of the game
 	
@@ -212,11 +236,20 @@ func _physics_process(delta): # This function runs on every physics frame of the
 			
 			useRelicAbility() # Use the ability of the relic selected
 	
-	## Relic Wheel ##
+	## RELIC WHEEL ##
+	
 	if Input.is_action_just_pressed("Player-RelicWheel"):
 		relicWheelOpen = true
 	if Input.is_action_just_released("Player-RelicWheel"):
 		relicWheelOpen = false
+	
+	if Input.is_action_just_pressed("Player-RelicWheelScrollUp"):
+		if relicWheelOpen == false: return
+		relicWheelScroll("Down")
+	
+	if Input.is_action_just_pressed("Player-RelicWheelScrollDown"):
+		if relicWheelOpen == false: return
+		relicWheelScroll("Up")
 	
 	## GLOBAL ##
 	setState()

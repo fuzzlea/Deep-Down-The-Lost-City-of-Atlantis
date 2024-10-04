@@ -20,7 +20,7 @@ var SPEED : float = 80.0 # Set as var so i can manipulate
 @onready var RelicWheelUI : TextureRect = $UI/RelicWheel
 @onready var RelicWheelHBOX : HBoxContainer = $UI/RelicWheel/HBoxContainer
 
-@onready var Templates : Node = $Templates
+@onready var Templates : Node2D = $Templates
 @onready var RelicWheelTemplate = $Templates/RelicWheelButton
 
 # Vars #
@@ -81,7 +81,7 @@ var relicWheelSelected : int = 0
 var relicsForWheel = {
 	"Pressure Gloves" = {"Img": "res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Button.png"},
 	"Aqua Lobber" = {"Img": "res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Button.png"},
-	"Hydro Battery" = {"Img": "res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Button.png"},
+	"Hydro Battery" = {"Img": "res://Assets/Singles (Misc)/Collectibles/Relics/Hydro Battery.png"},
 	"Golden Magnet" = {"Img": "res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Button.png"},
 	"Poseidons Trident" = {"Img": "res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Button.png"},
 }
@@ -183,8 +183,9 @@ func initRelicWheel():
 	for relic in relicsForWheel:
 		var newTemplate : MarginContainer = RelicWheelTemplate.duplicate()
 		newTemplate.visible = true
+		newTemplate.get_child(0).get_child(0).texture = load(relicsForWheel[relic]["Img"])
+		newTemplate.get_child(0).texture_normal = load("res://Assets/Singles (Misc)/Collectibles/Relics/Relic Border.png")
 		RelicWheelHBOX.add_child(newTemplate)
-		print(relicsForWheel[relic])
 
 # Connectors #
 

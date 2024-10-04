@@ -4,6 +4,7 @@ extends CharacterBody2D
 
 @export var State : String = "Idle"
 @export var Direction : String = "Down"
+@export var RelicSelected : String = "Push"
 
 # Const #
 
@@ -17,20 +18,30 @@ var SPEED : float = 80.0 # Set as var so i can manipulate
 
 @onready var UI : CanvasLayer = $UI
 @onready var RelicWheelUI : TextureRect = $UI/RelicWheel
+@onready var RelicWheelHBOX : HBoxContainer = $UI/RelicWheel/HBoxContainer
+
+@onready var Templates : Node = $Templates
+@onready var RelicWheelTemplate = $Templates/RelicWheelButton
 
 # Vars #
 
 ## MOVEMENT ##
+
 var moveInput : Vector2 # The Player Movement Input Vector
 var prevState : String # The players previous state
 var prevDir : String # The players previous direction
 var currentMovementControls : bool = true
 
+## RELICS ##
+
+var currentRelicDB : bool = false
+
 ## PUSHING ##
-var currentPushDB : bool = false
+
 var timeBetweenPush : float = 0.5
 var pushForce : float = -115
 var areasInPushRange : Array = []
+
 var pushDirectionHashmap : Dictionary = {
 	"Up": Vector2(0,-1),
 	"Down": Vector2(0,1),
@@ -42,7 +53,8 @@ var pushDirectionHashmap : Dictionary = {
 	"DownRight": Vector2(0.5,0.5)
 }
 
-## Relic Wheel ##
+## RELIC WHEEL ##
+
 var relicWheelOpen : bool :
 	set(value):
 		if value == true:
@@ -63,6 +75,16 @@ var relicWheelOpen : bool :
 			await camTween
 			
 			enablePlayerControls()
+
+var relicWheelSelected : int = 0
+
+var relicsForWheel = {
+	"Pressure Gloves" = {"Img": "res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Button.png"},
+	"Aqua Lobber" = {"Img": "res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Button.png"},
+	"Hydro Battery" = {"Img": "res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Button.png"},
+	"Golden Magnet" = {"Img": "res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Button.png"},
+	"Poseidons Trident" = {"Img": "res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Button.png"},
+}
 
 # Func #
 
@@ -107,8 +129,8 @@ func setState(): # This function sets the export var 'State' of the player
 	else:
 		State = "Idle"
 		
-	if currentPushDB == true:
-		State = "Push"
+	if currentRelicDB == true:
+		State = RelicSelected
 	
 	if prevState != State || prevDir != Direction: # Check when the state or direction changes, animate & update those previous variables
 		animatePlayer()
@@ -139,6 +161,31 @@ func pickUpCollectable(collectable : Sprite2D):
 	itemTween.tween_property(collectable.get_child(0), "modulate", Color(0,0,0,0), 0.5)
 	itemTween.tween_callback(func(): collectable.queue_free)
 
+## RELICS ##
+
+func useRelicAbility():
+	if RelicSelected == "Push":
+		currentRelicDB = true
+		velocity = getMovementInput() * pushForce # Move the player back for a little bounce
+		
+		var itemToPush : RigidBody2D = areasInPushRange[0].get_parent() # Get the item to push
+		var dirToPush : Vector2 = pushDirectionHashmap[Direction] * abs(pushForce) # Get the direction to push that item
+		
+		itemToPush.apply_central_impulse(dirToPush) # Apply a force to the item, emulating a push
+		itemToPush.set_meta("Pushed", true) # Set the metadata of the pushed item
+		
+		await get_tree().create_timer(timeBetweenPush).timeout # Wait timeBetweenPush
+		
+		currentRelicDB = false
+		itemToPush.set_meta("Pushed", false)
+
+func initRelicWheel():
+	for relic in relicsForWheel:
+		var newTemplate : MarginContainer = RelicWheelTemplate.duplicate()
+		newTemplate.visible = true
+		RelicWheelHBOX.add_child(newTemplate)
+		print(relicsForWheel[relic])
+
 # Connectors #
 
 func _ready():
@@ -146,6 +193,7 @@ func _ready():
 	CAMERA.Player = self
 	
 	relicWheelOpen = false
+	initRelicWheel()
 
 func _physics_process(delta): # This function runs on every physics frame of the game
 	
@@ -157,23 +205,11 @@ func _physics_process(delta): # This function runs on every physics frame of the
 		move_and_slide() # A godot built in function for CharacterBody2D nodes to allow for phsyics based positioning
 	
 	## PUSHING ##
-	if Input.is_action_just_pressed("Player-Push"): # Check if the player pushes the key for the push mechanic
-		if currentPushDB == false: # Make sure the player is able to push
-			if areasInPushRange.size() <= 0: return # Make sure something pushable is in range
+	if Input.is_action_just_pressed("Player-Push"): # Check if the player pushes the key for the mechanic of whatever relic they have selected
+		if currentRelicDB == false: # Make sure the player is able to use their relic
+			if areasInPushRange.size() <= 0: return # Make sure something is in range
 			
-			currentPushDB = true
-			velocity = getMovementInput() * pushForce # Move the player back for a little bounce
-			
-			var itemToPush : RigidBody2D = areasInPushRange[0].get_parent() # Get the item to push
-			var dirToPush : Vector2 = pushDirectionHashmap[Direction] * abs(pushForce) # Get the direction to push that item
-			
-			itemToPush.apply_central_impulse(dirToPush) # Apply a force to the item, emulating a push
-			itemToPush.set_meta("Pushed", true) # Set the metadata of the pushed item
-			
-			await get_tree().create_timer(timeBetweenPush).timeout # Wait timeBetweenPush
-			
-			currentPushDB = false
-			itemToPush.set_meta("Pushed", false) 
+			useRelicAbility() # Use the ability of the relic selected
 	
 	## Relic Wheel ##
 	if Input.is_action_just_pressed("Player-RelicWheel"):

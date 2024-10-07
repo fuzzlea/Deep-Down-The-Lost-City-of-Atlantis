@@ -35,6 +35,7 @@ var currentMovementControls : bool = true
 ## RELICS ##
 
 var currentRelicDB : bool = false
+var aquaLobberScene = preload("res://Scenes/Singles (Misc)/AquaLobber.tscn")
 
 ## PUSHING ##
 
@@ -81,11 +82,11 @@ var relicWheelOpen : bool :
 var relicWheelSelected : int = 0
 
 var relicsForWheel = {
-	"0" = {"Name": "Pressure Gloves", "Img": "res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Button.png", "RelicSet": "Push"},
-	"1" = {"Name": "Aqua Lobber", "Img": "res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Button.png", "RelicSet": "Lobber"},
-	"2" = {"Name": "Hydro Battery", "Img": "res://Assets/Singles (Misc)/Collectibles/Relics/Hydro Battery.png", "RelicSet": "Battery"},
-	"3" = {"Name": "Golden Magnet", "Img": "res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Button.png", "RelicSet": "Magnet"},
-	"4" = {"Name": "Poseidons Trident", "Img": "res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Button.png", "RelicSet": "Trident"},
+	"0" = {"Name": "Pressure Gloves", "Img": "res://Assets/Singles (Misc)/Collectibles/Relics/Pressure Gloves.png", "RelicSet": "Push"},
+	"1" = {"Name": "Aqua Lobber", "Img": "res://Assets/Singles (Misc)/Collectibles/Relics/Aqua Lobber.png", "RelicSet": "Lobber"},
+	"2" = {"Name": "Golden Magnet", "Img": "res://Assets/Singles (Misc)/Collectibles/Relics/Golden Magnet.png", "RelicSet": "Magnet"},
+	"3" = {"Name": "Hydro Battery", "Img": "res://Assets/Singles (Misc)/Collectibles/Relics/Hydro Battery.png", "RelicSet": "Battery"},
+	"4" = {"Name": "Poseidons Trident", "Img": "res://Assets/Singles (Misc)/Collectibles/Relics/Poseidons Trident.png", "RelicSet": "Trident"},
 }
 
 # Func #
@@ -166,20 +167,38 @@ func pickUpCollectable(collectable : Sprite2D):
 ## RELICS ##
 
 func useRelicAbility():
-	if RelicSelected == "Push":
-		currentRelicDB = true
-		velocity = getMovementInput() * pushForce # Move the player back for a little bounce
-		
-		var itemToPush : RigidBody2D = areasInPushRange[0].get_parent() # Get the item to push
-		var dirToPush : Vector2 = pushDirectionHashmap[Direction] * abs(pushForce) # Get the direction to push that item
-		
-		itemToPush.apply_central_impulse(dirToPush) # Apply a force to the item, emulating a push
-		itemToPush.set_meta("Pushed", true) # Set the metadata of the pushed item
-		
-		await get_tree().create_timer(timeBetweenPush).timeout # Wait timeBetweenPush
-		
-		currentRelicDB = false
-		itemToPush.set_meta("Pushed", false)
+	match RelicSelected:
+		"Push":
+			if areasInPushRange.size() <= 0: return # Make sure something is in range
+			
+			currentRelicDB = true
+			velocity = getMovementInput() * pushForce # Move the player back for a little bounce
+			
+			var itemToPush : RigidBody2D = areasInPushRange[0].get_parent() # Get the item to push
+			var dirToPush : Vector2 = pushDirectionHashmap[Direction] * abs(pushForce) # Get the direction to push that item
+			
+			itemToPush.apply_central_impulse(dirToPush) # Apply a force to the item, emulating a push
+			itemToPush.set_meta("Pushed", true) # Set the metadata of the pushed item
+			
+			await get_tree().create_timer(timeBetweenPush).timeout # Wait timeBetweenPush
+			
+			currentRelicDB = false
+			itemToPush.set_meta("Pushed", false)
+		"Lobber":
+			
+			currentRelicDB = true
+			
+			var newLobber : RigidBody2D = aquaLobberScene.instantiate()
+			get_tree().current_scene.add_child(newLobber)
+			
+			newLobber.global_position = global_position
+			
+			var forceVector = pushDirectionHashmap[Direction]
+			newLobber.apply_central_force(forceVector * 10)
+			
+			await get_tree().create_timer(1).timeout
+			
+			currentRelicDB = false
 
 func initRelicWheel():
 	for relic in relicsForWheel:
@@ -202,13 +221,12 @@ func relicWheelScroll(updown : String):
 			pass
 	
 	RelicSelected = relicsForWheel[str(relicWheelSelected)]["RelicSet"]
-	print(RelicSelected)
 	
 	for relic : MarginContainer in RelicWheelHBOX.get_children():
-		relic.scale = Vector2(1,1)
+		get_tree().create_tween().tween_property(relic, "scale", Vector2(1,1), 0.1).set_trans(Tween.TRANS_BACK)
 		
 		if relic.name == str(relicWheelSelected):
-			relic.scale = Vector2(1.2,1.2)
+			get_tree().create_tween().tween_property(relic, "scale", Vector2(1.2,1.2), 0.1).set_trans(Tween.TRANS_BACK)
 
 # Connectors #
 
@@ -232,8 +250,6 @@ func _physics_process(delta): # This function runs on every physics frame of the
 	## PUSHING ##
 	if Input.is_action_just_pressed("Player-Push"): # Check if the player pushes the key for the mechanic of whatever relic they have selected
 		if currentRelicDB == false: # Make sure the player is able to use their relic
-			if areasInPushRange.size() <= 0: return # Make sure something is in range
-			
 			useRelicAbility() # Use the ability of the relic selected
 	
 	## RELIC WHEEL ##

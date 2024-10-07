@@ -6,7 +6,8 @@ extends RigidBody2D
 @onready var Sprite : Sprite2D = $Sprite2D
 
 var Cuttables = [
-	"Crab"
+	"Crab",
+	"AquaLobber"
 ]
 
 var KelpLine : Array

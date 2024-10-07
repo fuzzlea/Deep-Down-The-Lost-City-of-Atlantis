@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://c63bbgxpu1o61"]
+[gd_scene load_steps=58 format=3 uid="uid://c63bbgxpu1o61"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_rpehc"]
 [ext_resource type="Texture2D" uid="uid://dqa8nlcufe1hs" path="res://Assets/Player/Spritesheet/Diver.png" id="2_ditjv"]
@@ -36,6 +36,38 @@ region = Rect2(0, 80, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_xi5ur"]
 atlas = ExtResource("2_ditjv")
 region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4w02"]
+atlas = ExtResource("2_ditjv")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pt4ar"]
+atlas = ExtResource("2_ditjv")
+region = Rect2(112, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70lqr"]
+atlas = ExtResource("2_ditjv")
+region = Rect2(112, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qawm"]
+atlas = ExtResource("2_ditjv")
+region = Rect2(112, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjf57"]
+atlas = ExtResource("2_ditjv")
+region = Rect2(112, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gp2mp"]
+atlas = ExtResource("2_ditjv")
+region = Rect2(112, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nsei"]
+atlas = ExtResource("2_ditjv")
+region = Rect2(112, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0pcfi"]
+atlas = ExtResource("2_ditjv")
+region = Rect2(112, 48, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bnts3"]
 atlas = ExtResource("2_ditjv")
@@ -229,6 +261,70 @@ animations = [{
 }],
 "loop": true,
 "name": &"IdleUpRight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4w02")
+}],
+"loop": true,
+"name": &"LobberDown",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pt4ar")
+}],
+"loop": true,
+"name": &"LobberDownLeft",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70lqr")
+}],
+"loop": true,
+"name": &"LobberDownRight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qawm")
+}],
+"loop": true,
+"name": &"LobberLeft",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjf57")
+}],
+"loop": true,
+"name": &"LobberRight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gp2mp")
+}],
+"loop": true,
+"name": &"LobberUp",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nsei")
+}],
+"loop": true,
+"name": &"LobberUpLeft",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0pcfi")
+}],
+"loop": true,
+"name": &"LobberUpRight",
 "speed": 5.0
 }, {
 "frames": [{
@@ -429,7 +525,7 @@ script = ExtResource("1_rpehc")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_cuph1")
-animation = &"IdleDown"
+animation = &"LobberDownLeft"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
@@ -509,6 +605,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 6.4
+offset_top = 6.4
+offset_right = -6.4
+offset_bottom = -6.4
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_vuiyn")

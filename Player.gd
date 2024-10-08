@@ -172,6 +172,7 @@ func useRelicAbility():
 			if areasInPushRange.size() <= 0: return # Make sure something is in range
 			
 			currentRelicDB = true
+			
 			velocity = getMovementInput() * pushForce # Move the player back for a little bounce
 			
 			var itemToPush : RigidBody2D = areasInPushRange[0].get_parent() # Get the item to push
@@ -190,8 +191,8 @@ func useRelicAbility():
 			
 			if get_tree().current_scene.get_node("AquaLobber"):
 				var bubble = get_tree().current_scene.get_node("AquaLobber")
-				
 				bubble.emit_signal("popBubble")
+			else: pass
 			
 			var newLobber : RigidBody2D = aquaLobberScene.instantiate()
 			get_tree().current_scene.add_child(newLobber)

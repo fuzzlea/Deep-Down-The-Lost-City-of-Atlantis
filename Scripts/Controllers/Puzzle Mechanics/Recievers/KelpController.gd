@@ -27,6 +27,12 @@ func cut(_whatCut):
 			playParticles(kelp)
 			kelp.get_child(1).visible = false
 	else: Sprite.visible = false
+	
+	var tween = CAMERA.zoomTo(global_position, Vector2(4,4), {"Time": 1, "Transition": Tween.TRANS_SINE})
+	
+	await tween.finished
+	
+	CAMERA.resetCameraBackToPlayer()
 
 func _ready():
 	if KelpLineNode:
@@ -42,5 +48,6 @@ func _on_hit_range_area_entered(area: Area2D) -> void:
 		match parentOfCollider.name:
 			"AquaLobber":
 				parentOfCollider.emit_signal("popBubble")
+				return
 			_:
 				pass

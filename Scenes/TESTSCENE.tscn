@@ -118,8 +118,9 @@ rotation = 1.57079
 
 [node name="Kelp" parent="KelpLine" node_paths=PackedStringArray("KelpLineNode") instance=ExtResource("5_rec2c")]
 z_index = 1
-position = Vector2(3, 0)
+position = Vector2(3, 6.10352e-05)
 KelpLineNode = NodePath("..")
+KelpImagePath = "res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Kelp Base.png"
 
 [node name="Kelp2" parent="KelpLine" instance=ExtResource("5_rec2c")]
 z_index = 1
@@ -136,6 +137,44 @@ position = Vector2(3, -48)
 [node name="Kelp5" parent="KelpLine" instance=ExtResource("5_rec2c")]
 z_index = 1
 position = Vector2(3, -64)
+
+[node name="KelpLine2" type="Node2D" parent="."]
+position = Vector2(540, 312)
+rotation = 3.14159
+
+[node name="Kelp" parent="KelpLine2" node_paths=PackedStringArray("KelpLineNode") instance=ExtResource("5_rec2c")]
+z_index = 1
+position = Vector2(3, 6.10352e-05)
+KelpLineNode = NodePath("..")
+KelpImagePath = "res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Kelp Base.png"
+
+[node name="Kelp2" parent="KelpLine2" instance=ExtResource("5_rec2c")]
+z_index = 1
+position = Vector2(3, -16)
+
+[node name="Kelp3" parent="KelpLine2" instance=ExtResource("5_rec2c")]
+z_index = 1
+position = Vector2(3, -32)
+
+[node name="Kelp4" parent="KelpLine2" instance=ExtResource("5_rec2c")]
+z_index = 1
+position = Vector2(3, -48)
+
+[node name="Kelp5" parent="KelpLine2" instance=ExtResource("5_rec2c")]
+z_index = 1
+position = Vector2(3, -64)
+
+[node name="Kelp6" parent="KelpLine2" instance=ExtResource("5_rec2c")]
+z_index = 1
+position = Vector2(3.00034, -80)
+
+[node name="Kelp7" parent="KelpLine2" instance=ExtResource("5_rec2c")]
+z_index = 1
+position = Vector2(3.00034, -96)
+
+[node name="Kelp8" parent="KelpLine2" instance=ExtResource("5_rec2c")]
+z_index = 1
+position = Vector2(3.00034, -112)
 
 [node name="Collectable" parent="." instance=ExtResource("6_8a4hv")]
 position = Vector2(494, 342)

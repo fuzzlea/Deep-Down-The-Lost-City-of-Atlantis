@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 @export var KelpLineNode : Node2D
+@export var KelpImagePath : String = "res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Kelp.png"
 
 @onready var Particles : CPUParticles2D = $CPUParticles2D
 @onready var Sprite : Sprite2D = $Sprite2D
@@ -30,9 +31,16 @@ func cut(_whatCut):
 func _ready():
 	if KelpLineNode:
 		KelpLine = KelpLineNode.get_children()
+		Sprite.texture = load(KelpImagePath)
 
 func _on_hit_range_area_entered(area: Area2D) -> void:
 	var parentOfCollider = area.get_parent()
 	
 	if Cuttables.find(parentOfCollider.name) >= 0 && KelpLineNode:
 		cut(parentOfCollider)
+		
+		match parentOfCollider.name:
+			"AquaLobber":
+				parentOfCollider.emit_signal("popBubble")
+			_:
+				pass

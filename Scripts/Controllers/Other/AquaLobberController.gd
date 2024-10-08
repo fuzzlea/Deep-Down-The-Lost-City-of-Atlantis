@@ -1,7 +1,22 @@
 extends RigidBody2D
 
-func _ready():
-	print("Ready")
+@onready var AnimSpr : AnimatedSprite2D = $AnimatedSprite2D
 
-func _on_visible_on_screen_notifier_2d_screen_exited():
+signal popBubble
+
+func killBubble():
+	AnimSpr.play("Pop")
+	name = "deadAquaLobber"
+	
+	await AnimSpr.animation_finished
+	
 	queue_free()
+
+func _ready() -> void:
+	AnimSpr.play("Float")
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	killBubble()
+
+func _on_pop_bubble() -> void:
+	killBubble()

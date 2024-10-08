@@ -1,24 +1,68 @@
-[gd_scene load_steps=6 format=3 uid="uid://bouv5pauss0vk"]
+[gd_scene load_steps=12 format=3 uid="uid://bouv5pauss0vk"]
 
 [ext_resource type="Script" path="res://Scripts/Controllers/Other/AquaLobberController.gd" id="1_xo0la"]
-[ext_resource type="Texture2D" uid="uid://3u4cegkmsjh5" path="res://Assets/Items/Shell01.png" id="1_y3hf8"]
+[ext_resource type="Texture2D" uid="uid://dqa8nlcufe1hs" path="res://Assets/Player/Spritesheet/Diver.png" id="2_sjcig"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ip6p7"]
+atlas = ExtResource("2_sjcig")
+region = Rect2(0, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tnhk"]
+atlas = ExtResource("2_sjcig")
+region = Rect2(16, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fn8hm"]
+atlas = ExtResource("2_sjcig")
+region = Rect2(32, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6e0ha"]
+atlas = ExtResource("2_sjcig")
+region = Rect2(48, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_joj8a"]
+atlas = ExtResource("2_sjcig")
+region = Rect2(64, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxe32"]
+atlas = ExtResource("2_sjcig")
+region = Rect2(80, 128, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4yru7"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_y3hf8")
+"texture": SubResource("AtlasTexture_ip6p7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8tnhk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fn8hm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6e0ha")
 }],
 "loop": true,
-"name": &"default",
+"name": &"Float",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_joj8a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxe32")
+}],
+"loop": false,
+"name": &"Pop",
 "speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f83t5"]
-radius = 9.0
+radius = 0.01
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_57har"]
-radius = 11.0
+radius = 8.06226
 
 [node name="AquaLobber" type="RigidBody2D"]
 z_index = 2
@@ -33,11 +77,14 @@ script = ExtResource("1_xo0la")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4yru7")
+animation = &"Pop"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_f83t5")
+disabled = true
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(0.7, 0.7)
 
 [node name="HitRange" type="Area2D" parent="."]
 collision_layer = 2
@@ -48,4 +95,6 @@ metadata/Pushable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitRange"]
 shape = SubResource("CircleShape2D_57har")
 
+[connection signal="popBubble" from="." to="." method="_on_pop_bubble"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="area_entered" from="HitRange" to="." method="_on_hit_range_area_entered"]

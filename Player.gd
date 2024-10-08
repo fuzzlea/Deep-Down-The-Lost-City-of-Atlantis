@@ -188,13 +188,19 @@ func useRelicAbility():
 			
 			currentRelicDB = true
 			
+			if get_tree().current_scene.get_node("AquaLobber"):
+				var bubble = get_tree().current_scene.get_node("AquaLobber")
+				
+				bubble.emit_signal("popBubble")
+			
 			var newLobber : RigidBody2D = aquaLobberScene.instantiate()
 			get_tree().current_scene.add_child(newLobber)
 			
+			newLobber.name = "AquaLobber"
 			newLobber.global_position = global_position
 			
 			var forceVector = pushDirectionHashmap[Direction]
-			newLobber.apply_central_force(forceVector * 10)
+			newLobber.apply_central_force(forceVector * 6)
 			
 			await get_tree().create_timer(1).timeout
 			

@@ -613,6 +613,8 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_vuiyn")
 
+[connection signal="disableMovement" from="." to="." method="_on_disable_movement"]
+[connection signal="enableMovement" from="." to="." method="_on_enable_movement"]
 [connection signal="area_entered" from="PushRange" to="." method="_on_push_range_area_entered"]
 [connection signal="area_exited" from="PushRange" to="." method="_on_push_range_area_exited"]
 [connection signal="area_entered" from="CollectableRange" to="." method="_on_collectable_range_area_entered"]

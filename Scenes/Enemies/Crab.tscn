@@ -87,6 +87,8 @@ shape = SubResource("CircleShape2D_ouncq")
 [node name="AI_Timer" type="Timer" parent="."]
 wait_time = 5.0
 
+[connection signal="disableMovement" from="." to="." method="_on_disable_movement"]
+[connection signal="enableMovement" from="." to="." method="_on_enable_movement"]
 [connection signal="body_entered" from="HitRange" to="." method="_on_hit_range_body_entered"]
 [connection signal="body_exited" from="HitRange" to="." method="_on_hit_range_body_exited"]
 [connection signal="timeout" from="AI_Timer" to="." method="_on_ai_timer_timeout"]

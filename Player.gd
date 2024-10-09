@@ -1,5 +1,10 @@
 extends CharacterBody2D
 
+# Signals #
+
+signal disableMovement
+signal enableMovement
+
 # Exports #
 
 @export var State : String = "Idle"
@@ -66,16 +71,11 @@ var relicWheelOpen : bool :
 			relicWheelTween.tween_property(RelicWheelUI, "position", Vector2(get_viewport().size.x / 2 - (RelicWheelUI.size.x / 2) , get_viewport().size.y - (RelicWheelUI.size.y + 40)), 0.2)
 			
 			disablePlayerControls()
-			CAMERA.zoomTo(global_position, Vector2(4,4), {"Time": 0.4, "Transition": Tween.TRANS_SINE})
 			
 		elif value == false:
 			
 			var relicWheelTween = get_tree().create_tween().set_trans(Tween.TRANS_CIRC)
 			relicWheelTween.tween_property(RelicWheelUI, "position", Vector2(get_viewport().size.x / 2 - (RelicWheelUI.size.x / 2), get_viewport().size.y), 0.2)
-			
-			var camTween = await(CAMERA.resetCameraBackToPlayer())
-			
-			await camTween
 			
 			enablePlayerControls()
 
@@ -126,7 +126,10 @@ func setDirection(): # This function sets the export var 'Direction' depending o
 		return
 
 func setState(): # This function sets the export var 'State' of the player
+	if currentMovementControls == false: return
+	
 	var movementInput : Vector2 = getMovementInput()
+	
 	if movementInput != Vector2.ZERO: # If the player is moving
 		State = "Walk"
 	else:
@@ -167,6 +170,8 @@ func pickUpCollectable(collectable : Sprite2D):
 ## RELICS ##
 
 func useRelicAbility():
+	if relicWheelOpen == true: return
+	
 	match RelicSelected:
 		"Push":
 			if areasInPushRange.size() <= 0: return # Make sure something is in range
@@ -189,7 +194,7 @@ func useRelicAbility():
 			
 			currentRelicDB = true
 			
-			if get_tree().current_scene.get_node("AquaLobber"):
+			if get_tree().current_scene.get_node_or_null("AquaLobber"):
 				var bubble = get_tree().current_scene.get_node("AquaLobber")
 				bubble.emit_signal("popBubble")
 			else: pass
@@ -289,3 +294,9 @@ func _on_push_range_area_exited(area: Area2D): # This function removes the item 
 func _on_collectable_range_area_entered(area: Area2D) -> void:
 	if area.get_parent().get_meta("Collectable"):
 		pickUpCollectable(area.get_parent())
+
+func _on_enable_movement() -> void:
+	enablePlayerControls()
+
+func _on_disable_movement() -> void:
+	disablePlayerControls()

@@ -12,6 +12,8 @@ func moveCameraTo(where : Vector2, waitTime : int = 0, tweenInfo : Dictionary = 
 	"Transition": Tween.TRANS_SINE
 }):
 	
+	Player.emit_signal("disableMovement")
+	
 	CurrentCamera.reparent(get_tree().current_scene)
 	
 	var newCamTween = get_tree().create_tween().set_trans(tweenInfo.Transition)
@@ -27,14 +29,18 @@ func moveCameraTo(where : Vector2, waitTime : int = 0, tweenInfo : Dictionary = 
 	CurrentCamera.position = Vector2(0,0)
 	CurrentCamera.reparent(Player)
 	
+	Player.emit_signal("enableMovement")
+	
 	return newCamTween
 
 func zoomTo(where : Vector2 = Vector2(0,0) , howFar : Vector2 = Vector2(3,3), tweenInfo : Dictionary = {
 	"Time": 1,
 	"Transition": Tween.TRANS_SINE
-}, reset : bool = false):
+}, _reset : bool = false):
 	
 	CurrentCamera.reparent(get_tree().current_scene)
+	
+	Player.emit_signal("disableMovement")
 	
 	var cameraTween = get_tree().create_tween().set_trans(tweenInfo.Transition).set_parallel(true)
 	cameraTween.tween_property(CurrentCamera, "global_position", where, tweenInfo.Time)
@@ -44,13 +50,16 @@ func zoomTo(where : Vector2 = Vector2(0,0) , howFar : Vector2 = Vector2(3,3), tw
 
 func resetCameraBackToPlayer():
 	
+	Player.emit_signal("disableMovement")
+	
 	var cameraTween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_parallel(true)
-	cameraTween.tween_property(CurrentCamera, "zoom", Vector2(3,3), 0.25)
+	cameraTween.tween_property(CurrentCamera, "zoom", Vector2(3,3), 0.5)
 	cameraTween.tween_property(CurrentCamera, "position", Vector2(0,0), 0.5)
 	cameraTween.tween_property(CurrentCamera, "global_position", Player.global_position, 0.5)
 	
 	await cameraTween.finished
 	
 	CurrentCamera.reparent(Player)
+	Player.emit_signal("enableMovement")
 	
 	return cameraTween

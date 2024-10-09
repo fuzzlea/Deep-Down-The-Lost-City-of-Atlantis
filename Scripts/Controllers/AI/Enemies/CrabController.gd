@@ -1,10 +1,16 @@
 extends RigidBody2D
 
+# Signal #
+
+signal disableMovement
+signal enableMovement
+
 # Exports #
 
 @export var State : String
 @export var States : Array
 @export var AIUpdateTime : float = 1.0
+@export var ForceDirection : String = "null"
 
 # Onready #
 
@@ -17,6 +23,7 @@ extends RigidBody2D
 var currentlyMoving : bool = false
 var ableToMove : bool = true
 var nextDirection = null
+var currentlyDisabled : bool = false
 
 # Func #
 
@@ -49,9 +56,11 @@ func update(): # This function will run every set amount of seconds (AIUpdateTim
 	var newState = pickRandomState()
 	State = newState
 	
+	if ForceDirection != "null": State = "Moving"
+	
 	AnimSprite.play(State)
 	
-	match newState:
+	match State:
 		"Moving":
 			moveRandomly()
 		"Idle":
@@ -63,10 +72,15 @@ func update(): # This function will run every set amount of seconds (AIUpdateTim
 
 func _ready(): # This function runs when the scene is instantiated
 	
+	if ForceDirection != "null":
+		nextDirection = ForceDirection
+	
 	AI_Timer.wait_time = AIUpdateTime
 	AI_Timer.start()
 
 func _process(_delta : float):
+	
+	if currentlyDisabled: return
 	
 	if get_meta("Pushed") == true:
 		
@@ -76,6 +90,9 @@ func _process(_delta : float):
 	else:
 		
 		ableToMove = true
+	
+	if ForceDirection != "null":
+		nextDirection = ForceDirection
 
 func _on_ai_timer_timeout(): # This function runs every time the timer 'AI_Timer' finishes
 	update()
@@ -90,3 +107,11 @@ func _on_hit_range_body_entered(body: Node2D): # This function runs whenever som
 func _on_hit_range_body_exited(body: Node2D): # This function runs whenever something leaves the HitRange
 	if body is TileMap:
 		nextDirection = null
+
+func _on_enable_movement() -> void:
+	ableToMove = true
+	currentlyDisabled = false
+
+func _on_disable_movement() -> void:
+	ableToMove = false
+	currentlyDisabled = true

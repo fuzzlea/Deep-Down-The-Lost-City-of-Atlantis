@@ -67,7 +67,9 @@ var relicWheelOpen : bool :
 	set(value):
 		if CAMERA.Busy: return
 		relicWheelOpen = value
+		
 		initRelicWheel()
+		animatePlayer()
 		
 		if value == true:
 			

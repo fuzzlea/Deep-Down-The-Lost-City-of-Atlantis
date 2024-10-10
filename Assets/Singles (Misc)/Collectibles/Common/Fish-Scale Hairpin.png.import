@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drui7tnrid52a"
-path="res://.godot/imported/Golden Spork.png-d41fa669bce70a6c2e4a8173249d5d0d.ctex"
+uid="uid://bd6hy6x4ann7f"
+path="res://.godot/imported/Fish-Scale Hairpin.png-f93479551256e9ace35941539984cdbb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Singles (Misc)/Collectibles/Golden Spork.png"
-dest_files=["res://.godot/imported/Golden Spork.png-d41fa669bce70a6c2e4a8173249d5d0d.ctex"]
+source_file="res://Assets/Singles (Misc)/Collectibles/Common/Fish-Scale Hairpin.png"
+dest_files=["res://.godot/imported/Fish-Scale Hairpin.png-f93479551256e9ace35941539984cdbb.ctex"]
 
 [params]
 

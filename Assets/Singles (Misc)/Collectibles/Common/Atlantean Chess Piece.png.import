@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmjhd6mjf44ka"
-path="res://.godot/imported/Atlantean Bath Token.png-ba1e1df4db232f3a22b8cfc24c9a4d77.ctex"
+uid="uid://dyowwgo0ymnp1"
+path="res://.godot/imported/Atlantean Chess Piece.png-2ec864513a648fb0c0f59f470661d76d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Singles (Misc)/Collectibles/Atlantean Bath Token.png"
-dest_files=["res://.godot/imported/Atlantean Bath Token.png-ba1e1df4db232f3a22b8cfc24c9a4d77.ctex"]
+source_file="res://Assets/Singles (Misc)/Collectibles/Common/Atlantean Chess Piece.png"
+dest_files=["res://.godot/imported/Atlantean Chess Piece.png-2ec864513a648fb0c0f59f470661d76d.ctex"]
 
 [params]
 

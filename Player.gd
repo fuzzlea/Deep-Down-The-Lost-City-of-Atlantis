@@ -2,7 +2,9 @@ extends CharacterBody2D
 
 # Signals #
 
+@warning_ignore("unused_signal")
 signal disableMovement
+@warning_ignore("unused_signal")
 signal enableMovement
 
 # Exports #
@@ -175,6 +177,7 @@ func pickUpCollectable(collectable : Sprite2D):
 	var itemTween = get_tree().create_tween().set_trans(Tween.TRANS_BACK).set_parallel(true)
 	itemTween.tween_property(collectable, "scale", Vector2(0,0), 0.5)
 	itemTween.tween_property(collectable.get_child(0), "modulate", Color(0,0,0,0), 0.5)
+	@warning_ignore("standalone_expression")
 	itemTween.tween_callback(func(): collectable.queue_free)
 
 ## RELICS ##
@@ -184,8 +187,6 @@ func useRelicAbility():
 	
 	var unlockedRelic : bool = DATA.Data["Relics"][relicSetsToRelicNames[RelicSelected]][0]
 	if not unlockedRelic: return
-	
-	print(RelicSelected)
 	
 	match RelicSelected:
 		"Push":
@@ -246,6 +247,8 @@ func initRelicWheel():
 		
 		newTemplate.get_child(0).texture_normal = load("res://Assets/Singles (Misc)/Collectibles/Relics/Relic Border.png")
 		RelicWheelHBOX.add_child(newTemplate)
+	
+	relicWheelScroll("_")
 
 func relicWheelScroll(updown : String):
 	match updown:
@@ -261,10 +264,10 @@ func relicWheelScroll(updown : String):
 	RelicSelected = relicsForWheel[str(relicWheelSelected)]["RelicSet"]
 	
 	for relic : MarginContainer in RelicWheelHBOX.get_children():
-		get_tree().create_tween().tween_property(relic, "scale", Vector2(1,1), 0.1).set_trans(Tween.TRANS_BACK)
+		relic.create_tween().tween_property(relic, "scale", Vector2(1,1), 0.1).set_trans(Tween.TRANS_BACK)
 		
 		if relic.name == str(relicWheelSelected):
-			get_tree().create_tween().tween_property(relic, "scale", Vector2(1.2,1.2), 0.1).set_trans(Tween.TRANS_BACK)
+			relic.create_tween().tween_property(relic, "scale", Vector2(1.2,1.2), 0.1).set_trans(Tween.TRANS_BACK)
 
 # Connectors #
 

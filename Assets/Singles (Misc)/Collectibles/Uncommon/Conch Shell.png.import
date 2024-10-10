@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c44vkd16abyr7"
-path="res://.godot/imported/Tadpole Satue.png-aabff095fe18d1cf0c3115c369949ff9.ctex"
+uid="uid://bcevu48flh1fj"
+path="res://.godot/imported/Conch Shell.png-48d3e5a94aa1bf6f4e745531d09dc30f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Singles (Misc)/Collectibles/Common/Tadpole Satue.png"
-dest_files=["res://.godot/imported/Tadpole Satue.png-aabff095fe18d1cf0c3115c369949ff9.ctex"]
+source_file="res://Assets/Singles (Misc)/Collectibles/Uncommon/Conch Shell.png"
+dest_files=["res://.godot/imported/Conch Shell.png-48d3e5a94aa1bf6f4e745531d09dc30f.ctex"]
 
 [params]
 

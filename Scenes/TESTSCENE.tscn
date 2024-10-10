@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://8vda2srjaiwx"]
+[gd_scene load_steps=9 format=3 uid="uid://8vda2srjaiwx"]
 
 [ext_resource type="Texture2D" uid="uid://ce287xw4w076n" path="res://Assets/Environment/Alantis.png" id="1_s8bq8"]
 [ext_resource type="PackedScene" uid="uid://c63bbgxpu1o61" path="res://Scenes/Player/Player.tscn" id="2_a4hjb"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bxsdn16tqpb2x" path="res://Scenes/Enemies/MiniCyclopes.tscn" id="4_ijnuf"]
 [ext_resource type="PackedScene" uid="uid://deacb8bdaifpi" path="res://Scenes/Singles (Misc)/Puzzle Mechanics/Recievers/Kelp.tscn" id="5_rec2c"]
 [ext_resource type="PackedScene" uid="uid://b3doegw7008ca" path="res://Scenes/Singles (Misc)/Collectable.tscn" id="6_8a4hv"]
-[ext_resource type="Texture2D" uid="uid://cdu4pyw4ynhv0" path="res://Assets/Singles (Misc)/Collectibles/Ceremonial Sea Shell.png" id="7_vv83n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c8vo7"]
 texture = ExtResource("1_s8bq8")
@@ -178,9 +177,4 @@ position = Vector2(3.00034, -112)
 
 [node name="Collectable" parent="." instance=ExtResource("6_8a4hv")]
 position = Vector2(494, 342)
-metadata/CollectableName = "Chess Piece"
-
-[node name="Collectable2" parent="." instance=ExtResource("6_8a4hv")]
-position = Vector2(528, 362)
-texture = ExtResource("7_vv83n")
-metadata/CollectableName = "Shell"
+metadata/CollectableName = "Atlantean Chess Piece"

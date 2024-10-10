@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kfl78k1tv8dh"
-path="res://.godot/imported/Spoon.png-be30c64aa1abef515e714f5a7eea1785.ctex"
+uid="uid://b0rqdakwfpsal"
+path="res://.godot/imported/Atlantean Bath Token.png-6e7028a4b20e40ed12cbe3c5370d0829.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Singles (Misc)/Collectibles/Spoon.png"
-dest_files=["res://.godot/imported/Spoon.png-be30c64aa1abef515e714f5a7eea1785.ctex"]
+source_file="res://Assets/Singles (Misc)/Collectibles/Common/Atlantean Bath Token.png"
+dest_files=["res://.godot/imported/Atlantean Bath Token.png-6e7028a4b20e40ed12cbe3c5370d0829.ctex"]
 
 [params]
 

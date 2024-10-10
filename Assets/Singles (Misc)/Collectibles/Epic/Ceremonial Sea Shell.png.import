@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2050okk83h2u"
-path="res://.godot/imported/Fish-Scale Hairpin.png-227738d285291fba749a5cdfbd3022a0.ctex"
+uid="uid://bsxtgx3aufwe1"
+path="res://.godot/imported/Ceremonial Sea Shell.png-2ade6ab1d483a7652f7be04548f7f82f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Singles (Misc)/Collectibles/Fish-Scale Hairpin.png"
-dest_files=["res://.godot/imported/Fish-Scale Hairpin.png-227738d285291fba749a5cdfbd3022a0.ctex"]
+source_file="res://Assets/Singles (Misc)/Collectibles/Epic/Ceremonial Sea Shell.png"
+dest_files=["res://.godot/imported/Ceremonial Sea Shell.png-2ade6ab1d483a7652f7be04548f7f82f.ctex"]
 
 [params]
 

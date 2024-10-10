@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b3doegw7008ca"]
 
-[ext_resource type="Texture2D" uid="uid://d33eotkbt13ku" path="res://Assets/Singles (Misc)/Collectibles/Atlantean Chess Piece.png" id="1_hdjxy"]
+[ext_resource type="Texture2D" uid="uid://dyowwgo0ymnp1" path="res://Assets/Singles (Misc)/Collectibles/Common/Atlantean Chess Piece.png" id="1_5veyg"]
 [ext_resource type="Texture2D" uid="uid://dq4sxm8t7y672" path="res://Assets/Singles (Misc)/spotlight_5.png" id="2_nmvf2"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_p1gww"]
@@ -14,7 +14,7 @@ point_count = 2
 radius = 11.0
 
 [node name="Collectable" type="Sprite2D"]
-texture = ExtResource("1_hdjxy")
+texture = ExtResource("1_5veyg")
 metadata/Collectable = true
 metadata/CollectableName = "Test"
 

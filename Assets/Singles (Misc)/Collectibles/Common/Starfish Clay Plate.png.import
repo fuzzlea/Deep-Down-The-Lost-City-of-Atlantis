@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfnjvdqwm4cw5"
-path="res://.godot/imported/Tidal Mosaic Tile.png-fcade1074053c3cc85f781b4b95ec345.ctex"
+uid="uid://dfspw7ir5pg3a"
+path="res://.godot/imported/Starfish Clay Plate.png-9fb9fdbfdcac779732e1113e86261d0a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Singles (Misc)/Collectibles/Tidal Mosaic Tile.png"
-dest_files=["res://.godot/imported/Tidal Mosaic Tile.png-fcade1074053c3cc85f781b4b95ec345.ctex"]
+source_file="res://Assets/Singles (Misc)/Collectibles/Common/Starfish Clay Plate.png"
+dest_files=["res://.godot/imported/Starfish Clay Plate.png-9fb9fdbfdcac779732e1113e86261d0a.ctex"]
 
 [params]
 

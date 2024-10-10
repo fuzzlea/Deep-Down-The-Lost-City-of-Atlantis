@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kqd5s3slkt4m"
-path="res://.godot/imported/Coral Crown Fragment.png-5d0241c01a83c36fb9aef2582992c0b3.ctex"
+uid="uid://tci6s2uwon3i"
+path="res://.godot/imported/Coral Crown Fragment.png-313e49160dce72896cc8ddd8881dfde3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Singles (Misc)/Collectibles/Coral Crown Fragment.png"
-dest_files=["res://.godot/imported/Coral Crown Fragment.png-5d0241c01a83c36fb9aef2582992c0b3.ctex"]
+source_file="res://Assets/Singles (Misc)/Collectibles/Legendary/Coral Crown Fragment.png"
+dest_files=["res://.godot/imported/Coral Crown Fragment.png-313e49160dce72896cc8ddd8881dfde3.ctex"]
 
 [params]
 

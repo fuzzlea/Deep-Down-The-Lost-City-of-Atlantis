@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b11hhxgp38wys"
-path="res://.godot/imported/Sunfish Satue.png-7b770f81146ddae2e53cd2af41d4cdc2.ctex"
+uid="uid://c44vkd16abyr7"
+path="res://.godot/imported/Tadpole Statue.png-c527a1b71dfda5924b3fcd32e34b82b6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Singles (Misc)/Collectibles/Sunfish Satue.png"
-dest_files=["res://.godot/imported/Sunfish Satue.png-7b770f81146ddae2e53cd2af41d4cdc2.ctex"]
+source_file="res://Assets/Singles (Misc)/Collectibles/Common/Tadpole Statue.png"
+dest_files=["res://.godot/imported/Tadpole Statue.png-c527a1b71dfda5924b3fcd32e34b82b6.ctex"]
 
 [params]
 

@@ -10,7 +10,7 @@ extends Node
 		"Poseidons Trident": [false, "titleImage", "actualImage"],
 		
 	},
-	#"Relics": {},
+	#"Item": {},
 	#"Relics": {},
 	#"Relics": {},
 }

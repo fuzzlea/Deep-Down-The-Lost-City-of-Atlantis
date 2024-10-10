@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://deacb8bdaifpi" path="res://Scenes/Singles (Misc)/Puzzle Mechanics/Recievers/Kelp.tscn" id="3_40xs7"]
 [ext_resource type="PackedScene" uid="uid://cgwxc505nmthr" path="res://Scenes/Enemies/Crab.tscn" id="4_n4asd"]
 [ext_resource type="PackedScene" uid="uid://b3doegw7008ca" path="res://Scenes/Singles (Misc)/Collectable.tscn" id="6_djfop"]
-[ext_resource type="Texture2D" uid="uid://cv0x058h8kn4a" path="res://Assets/Singles (Misc)/Collectibles/Glass Coral Bead Necklace.png" id="7_mgr8q"]
+[ext_resource type="Texture2D" uid="uid://uxya43jb0sbl" path="res://Assets/Singles (Misc)/Collectibles/Common/Glass Coral Bead Necklace.png" id="7_x7hxo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g062d"]
 texture = ExtResource("1_p0u1e")
@@ -136,56 +136,48 @@ position = Vector2(378, 270)
 rotation = 3.14159
 mass = 1000.0
 freeze = true
-KelpLineNode = NodePath("")
 
 [node name="Kelp3" parent="KelpLine" instance=ExtResource("3_40xs7")]
 position = Vector2(378, 286)
 rotation = 3.14159
 mass = 1000.0
 freeze = true
-KelpLineNode = NodePath("")
 
 [node name="Kelp4" parent="KelpLine" instance=ExtResource("3_40xs7")]
 position = Vector2(378, 302)
 rotation = 3.14159
 mass = 1000.0
 freeze = true
-KelpLineNode = NodePath("")
 
 [node name="Kelp5" parent="KelpLine" instance=ExtResource("3_40xs7")]
 position = Vector2(378, 318)
 rotation = 3.14159
 mass = 1000.0
 freeze = true
-KelpLineNode = NodePath("")
 
 [node name="Kelp6" parent="KelpLine" instance=ExtResource("3_40xs7")]
 position = Vector2(378, 334)
 rotation = 3.14159
 mass = 1000.0
 freeze = true
-KelpLineNode = NodePath("")
 
 [node name="Kelp7" parent="KelpLine" instance=ExtResource("3_40xs7")]
 position = Vector2(378, 350)
 rotation = 3.14159
 mass = 1000.0
 freeze = true
-KelpLineNode = NodePath("")
 
 [node name="Kelp8" parent="KelpLine" instance=ExtResource("3_40xs7")]
 position = Vector2(378, 366)
 rotation = 3.14159
 mass = 1000.0
 freeze = true
-KelpLineNode = NodePath("")
 
 [node name="Kelp9" parent="KelpLine" instance=ExtResource("3_40xs7")]
 position = Vector2(378, 382)
 rotation = 3.14159
 mass = 1000.0
 freeze = true
-KelpLineNode = NodePath("")
 
 [node name="Crab" parent="." instance=ExtResource("4_n4asd")]
 z_index = 2
@@ -196,5 +188,5 @@ ForceDirection = "Right"
 [node name="Collectable" parent="." instance=ExtResource("6_djfop")]
 z_index = 2
 position = Vector2(584, 359)
-texture = ExtResource("7_mgr8q")
-metadata/CollectableName = "Glass Coral Bead"
+texture = ExtResource("7_x7hxo")
+metadata/CollectableName = "Glass Coral Bead Necklace"

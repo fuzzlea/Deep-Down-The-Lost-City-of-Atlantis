@@ -2,7 +2,9 @@ extends RigidBody2D
 
 # Signal #
 
+@warning_ignore("unused_signal")
 signal disableMovement
+@warning_ignore("unused_signal")
 signal enableMovement
 
 # Exports #

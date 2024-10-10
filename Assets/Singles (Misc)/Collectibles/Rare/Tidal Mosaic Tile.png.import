@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cv0x058h8kn4a"
-path="res://.godot/imported/Glass Coral Bead Necklace.png-9ab1e0fd9ebe4645ebab1c04865ccb6f.ctex"
+uid="uid://8jljge0uixie"
+path="res://.godot/imported/Tidal Mosaic Tile.png-7986375043aafa27a296bc21e366e4fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Singles (Misc)/Collectibles/Glass Coral Bead Necklace.png"
-dest_files=["res://.godot/imported/Glass Coral Bead Necklace.png-9ab1e0fd9ebe4645ebab1c04865ccb6f.ctex"]
+source_file="res://Assets/Singles (Misc)/Collectibles/Rare/Tidal Mosaic Tile.png"
+dest_files=["res://.godot/imported/Tidal Mosaic Tile.png-7986375043aafa27a296bc21e366e4fb.ctex"]
 
 [params]
 

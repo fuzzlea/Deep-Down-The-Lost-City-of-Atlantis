@@ -24,8 +24,11 @@ func playParticles(where : RigidBody2D):
 func cut(_whatCut):
 	if KelpLine.size() > 0:
 		for kelp : RigidBody2D in KelpLine:
-			playParticles(kelp)
+			kelp.collision_layer = 0
+			kelp.collision_mask = 0
 			kelp.get_child(1).visible = false
+			
+			playParticles(kelp)
 	else: Sprite.visible = false
 	
 	#var tween = CAMERA.zoomTo(global_position, Vector2(4,4), {"Time": 1, "Transition": Tween.TRANS_SINE})

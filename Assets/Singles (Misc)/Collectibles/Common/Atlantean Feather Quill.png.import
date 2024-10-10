@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgvkrk3up1x04"
-path="res://.godot/imported/Genrals Hat.png-56f66e4fbf0d9d42dcdc24fe9e0cefa2.ctex"
+uid="uid://8gar31m7x5k5"
+path="res://.godot/imported/Atlantean Feather Quill.png-069e0523fb890571636a47a76de2c075.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Singles (Misc)/Collectibles/Genrals Hat.png"
-dest_files=["res://.godot/imported/Genrals Hat.png-56f66e4fbf0d9d42dcdc24fe9e0cefa2.ctex"]
+source_file="res://Assets/Singles (Misc)/Collectibles/Common/Atlantean Feather Quill.png"
+dest_files=["res://.godot/imported/Atlantean Feather Quill.png-069e0523fb890571636a47a76de2c075.ctex"]
 
 [params]
 

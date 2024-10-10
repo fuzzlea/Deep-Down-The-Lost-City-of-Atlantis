@@ -2,6 +2,7 @@ extends RigidBody2D
 
 @onready var AnimSpr : AnimatedSprite2D = $AnimatedSprite2D
 
+@warning_ignore("unused_signal")
 signal popBubble
 
 func killBubble():

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dugbkwvph1m0u"
-path="res://.godot/imported/Fork.png-df6b4519dc84818ba1ad241bc009ace0.ctex"
+uid="uid://uxya43jb0sbl"
+path="res://.godot/imported/Glass Coral Bead Necklace.png-95056714ba131bda9225c9078da31cad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Singles (Misc)/Collectibles/Fork.png"
-dest_files=["res://.godot/imported/Fork.png-df6b4519dc84818ba1ad241bc009ace0.ctex"]
+source_file="res://Assets/Singles (Misc)/Collectibles/Common/Glass Coral Bead Necklace.png"
+dest_files=["res://.godot/imported/Glass Coral Bead Necklace.png-95056714ba131bda9225c9078da31cad.ctex"]
 
 [params]
 

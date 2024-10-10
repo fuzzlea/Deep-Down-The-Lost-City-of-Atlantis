@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cl1howxx0yvba"
-path="res://.godot/imported/Conch Shell.png-9fa4f03a453e59c84e3a7b29cd971f63.ctex"
+uid="uid://dc4ild0i6hgfr"
+path="res://.godot/imported/Atlantean Clay Idol.png-edc7ef972b532ee68be1d216161c07fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Singles (Misc)/Collectibles/Conch Shell.png"
-dest_files=["res://.godot/imported/Conch Shell.png-9fa4f03a453e59c84e3a7b29cd971f63.ctex"]
+source_file="res://Assets/Singles (Misc)/Collectibles/Common/Atlantean Clay Idol.png"
+dest_files=["res://.godot/imported/Atlantean Clay Idol.png-edc7ef972b532ee68be1d216161c07fe.ctex"]
 
 [params]
 

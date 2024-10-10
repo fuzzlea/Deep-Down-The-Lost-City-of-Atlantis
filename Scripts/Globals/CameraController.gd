@@ -3,6 +3,8 @@ extends Node
 @onready var CurrentCamera : Camera2D
 @onready var Player : CharacterBody2D
 
+@export var Busy : bool = false
+
 func setCamera(camera : Camera2D):
 	CurrentCamera = camera
 	CurrentCamera.make_current()
@@ -11,6 +13,8 @@ func moveCameraTo(where : Vector2, waitTime : int = 0, tweenInfo : Dictionary = 
 	"Time": 1,
 	"Transition": Tween.TRANS_SINE
 }):
+	
+	Busy = true
 	
 	Player.emit_signal("disableMovement")
 	
@@ -31,12 +35,15 @@ func moveCameraTo(where : Vector2, waitTime : int = 0, tweenInfo : Dictionary = 
 	
 	Player.emit_signal("enableMovement")
 	
+	Busy = false
 	return newCamTween
 
 func zoomTo(where : Vector2 = Vector2(0,0) , howFar : Vector2 = Vector2(3,3), tweenInfo : Dictionary = {
 	"Time": 1,
 	"Transition": Tween.TRANS_SINE
 }, _reset : bool = false):
+	
+	Busy = true
 	
 	CurrentCamera.reparent(get_tree().current_scene)
 	
@@ -50,6 +57,8 @@ func zoomTo(where : Vector2 = Vector2(0,0) , howFar : Vector2 = Vector2(3,3), tw
 
 func resetCameraBackToPlayer():
 	
+	Busy = true
+	
 	Player.emit_signal("disableMovement")
 	
 	var cameraTween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_parallel(true)
@@ -62,4 +71,5 @@ func resetCameraBackToPlayer():
 	CurrentCamera.reparent(Player)
 	Player.emit_signal("enableMovement")
 	
+	Busy = false
 	return cameraTween

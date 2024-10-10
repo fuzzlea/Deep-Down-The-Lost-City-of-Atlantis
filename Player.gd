@@ -63,7 +63,9 @@ var pushDirectionHashmap : Dictionary = {
 
 var relicWheelOpen : bool :
 	set(value):
+		if CAMERA.Busy: return
 		relicWheelOpen = value
+		initRelicWheel()
 		
 		if value == true:
 			
@@ -87,6 +89,14 @@ var relicsForWheel = {
 	"2" = {"Name": "Golden Magnet", "Img": "res://Assets/Singles (Misc)/Collectibles/Relics/Golden Magnet.png", "RelicSet": "Magnet"},
 	"3" = {"Name": "Hydro Battery", "Img": "res://Assets/Singles (Misc)/Collectibles/Relics/Hydro Battery.png", "RelicSet": "Battery"},
 	"4" = {"Name": "Poseidons Trident", "Img": "res://Assets/Singles (Misc)/Collectibles/Relics/Poseidons Trident.png", "RelicSet": "Trident"},
+}
+
+var relicSetsToRelicNames = {
+	"Push": "Pressure Gloves",
+	"Lobber": "Aqua Lobber",
+	"Magnet": "Golden Magnet",
+	"Battery": "Hydro Battery",
+	"Trident": "Poseidons Trident"
 }
 
 # Func #
@@ -172,6 +182,11 @@ func pickUpCollectable(collectable : Sprite2D):
 func useRelicAbility():
 	if relicWheelOpen == true: return
 	
+	var unlockedRelic : bool = DATA.Data["Relics"][relicSetsToRelicNames[RelicSelected]]
+	if not unlockedRelic: return
+	
+	print(RelicSelected)
+	
 	match RelicSelected:
 		"Push":
 			if areasInPushRange.size() <= 0: return # Make sure something is in range
@@ -213,11 +228,22 @@ func useRelicAbility():
 			currentRelicDB = false
 
 func initRelicWheel():
+	
+	for relic in RelicWheelHBOX.get_children():
+		relic.queue_free()
+	
 	for relic in relicsForWheel:
+		var unlockedRelic : bool = DATA.Data["Relics"][relicsForWheel[relic]["Name"]]
 		var newTemplate : MarginContainer = RelicWheelTemplate.duplicate()
+		
 		newTemplate.visible = true
 		newTemplate.name = relic
-		newTemplate.get_child(0).get_child(0).texture = load(relicsForWheel[relic]["Img"])
+		
+		if unlockedRelic:
+			newTemplate.get_child(0).get_child(0).texture = load(relicsForWheel[relic]["Img"])
+		else:
+			newTemplate.get_child(0).get_child(0).texture = load("res://Assets/Singles (Misc)/Lock.png")
+		
 		newTemplate.get_child(0).texture_normal = load("res://Assets/Singles (Misc)/Collectibles/Relics/Relic Border.png")
 		RelicWheelHBOX.add_child(newTemplate)
 

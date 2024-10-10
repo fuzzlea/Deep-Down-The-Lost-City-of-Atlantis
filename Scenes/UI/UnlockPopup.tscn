@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://c3cwt5m8xhmnu"]
+[gd_scene load_steps=10 format=3 uid="uid://c3cwt5m8xhmnu"]
 
+[ext_resource type="Script" path="res://Scripts/Controllers/Other/UnlockPopupController.gd" id="1_2lgnk"]
 [ext_resource type="Texture2D" uid="uid://dr4nxu7tkfrdi" path="res://Assets/UI/RadialSunburst.png" id="1_boabt"]
-[ext_resource type="Texture2D" uid="uid://c05cejccamcmm" path="res://milkgallon-300x300.jpg" id="2_rrkmg"]
+[ext_resource type="Texture2D" uid="uid://cd28sb23pafpg" path="res://Assets/Singles (Misc)/milkgallon-300x300.jpg" id="3_4y0jf"]
 [ext_resource type="FontFile" uid="uid://dlrq76jvfqwdr" path="res://Saves/Fonts/rubber-biscuit.bold.ttf" id="3_abddr"]
 
 [sub_resource type="Gradient" id="Gradient_6r65y"]
@@ -17,12 +18,23 @@ blend_mode = 1
 [sub_resource type="LabelSettings" id="LabelSettings_8d4yl"]
 font = ExtResource("3_abddr")
 font_size = 1280
+outline_size = 256
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 256
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(128, 128)
 
 [sub_resource type="LabelSettings" id="LabelSettings_5822o"]
 font = ExtResource("3_abddr")
 font_size = 800
+outline_size = 160
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 160
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(80, 80)
 
 [node name="UnlockPopup" type="CanvasLayer"]
+script = ExtResource("1_2lgnk")
 
 [node name="Background" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0.14902)
@@ -57,7 +69,7 @@ offset_bottom = 89.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(89, 89)
-texture = ExtResource("2_rrkmg")
+texture = ExtResource("3_4y0jf")
 expand_mode = 1
 
 [node name="Title" type="Label" parent="."]
@@ -71,7 +83,7 @@ offset_bottom = 911.0
 grow_horizontal = 2
 scale = Vector2(0.05, 0.05)
 pivot_offset = Vector2(11520, 768)
-text = "YOUR DAD"
+text = "https://www.milk.jpeg.png/4.com/0"
 label_settings = SubResource("LabelSettings_8d4yl")
 horizontal_alignment = 1
 vertical_alignment = 1

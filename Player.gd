@@ -182,7 +182,7 @@ func pickUpCollectable(collectable : Sprite2D):
 func useRelicAbility():
 	if relicWheelOpen == true: return
 	
-	var unlockedRelic : bool = DATA.Data["Relics"][relicSetsToRelicNames[RelicSelected]]
+	var unlockedRelic : bool = DATA.Data["Relics"][relicSetsToRelicNames[RelicSelected]][0]
 	if not unlockedRelic: return
 	
 	print(RelicSelected)
@@ -233,7 +233,7 @@ func initRelicWheel():
 		relic.queue_free()
 	
 	for relic in relicsForWheel:
-		var unlockedRelic : bool = DATA.Data["Relics"][relicsForWheel[relic]["Name"]]
+		var unlockedRelic : bool = DATA.Data["Relics"][relicsForWheel[relic]["Name"]][0]
 		var newTemplate : MarginContainer = RelicWheelTemplate.duplicate()
 		
 		newTemplate.visible = true

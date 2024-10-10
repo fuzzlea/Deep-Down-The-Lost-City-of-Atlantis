@@ -189,7 +189,7 @@ KelpLineNode = NodePath("")
 
 [node name="Crab" parent="." instance=ExtResource("4_n4asd")]
 z_index = 2
-position = Vector2(177, 255)
+position = Vector2(177, 247)
 AIUpdateTime = 0.75
 ForceDirection = "Right"
 

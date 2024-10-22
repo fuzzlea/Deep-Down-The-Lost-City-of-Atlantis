@@ -229,6 +229,8 @@ func useRelicAbility():
 			await get_tree().create_timer(1).timeout
 			
 			currentRelicDB = false
+		"Magnet":
+			pass
 
 func initRelicWheel():
 	

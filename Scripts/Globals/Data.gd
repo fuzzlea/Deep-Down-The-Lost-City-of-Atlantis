@@ -5,7 +5,7 @@ extends Node
 		
 		"Pressure Gloves": [true, "titleImage", "actualImage"],
 		"Aqua Lobber": [true, "titleImage", "actualImage"],
-		"Golden Magnet": [false, "titleImage", "actualImage"],
+		"Golden Magnet": [true, "titleImage", "actualImage"],
 		"Hydro Battery": [false, "titleImage", "actualImage"],
 		"Poseidons Trident": [false, "titleImage", "actualImage"],
 		

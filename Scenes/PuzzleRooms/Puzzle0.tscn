@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b3doegw7008ca" path="res://Scenes/Singles (Misc)/Collectable.tscn" id="6_djfop"]
 [ext_resource type="Texture2D" uid="uid://uxya43jb0sbl" path="res://Assets/Singles (Misc)/Collectibles/Common/Glass Coral Bead Necklace.png" id="7_x7hxo"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g062d"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_crq3n"]
 texture = ExtResource("1_p0u1e")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-1.6875, -3.4375, 1.6875, -6.1875, 8, -8, 6.1875, 6.5625, -5.8125, 8, -5.4375, 2.3125)
@@ -92,7 +92,7 @@ texture = ExtResource("1_p0u1e")
 physics_layer_0/collision_layer = 3
 physics_layer_0/collision_mask = 3
 physics_layer_1/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_g062d")
+sources/0 = SubResource("TileSetAtlasSource_crq3n")
 
 [node name="Puzzle0" type="Node2D"]
 script = ExtResource("1_cno2r")

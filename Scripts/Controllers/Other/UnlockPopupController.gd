@@ -10,8 +10,18 @@ extends CanvasLayer
 @onready var YouFound : Label = $YouFound
 
 func _ready():
-	Title.text = "A " + item
-	ItemIcon.texture = load(INVENTORY.ItemInformation[item]["Image"])
+	
+	if not isRelic:
+		YouFound.text = "You Found..."
+		Title.text = "A " + item
+		
+		ItemIcon.texture = load(INVENTORY.ItemInformation[item]["Image"])
+	else:
+		YouFound.text = "Relic Unlocked!"
+		Title.text = item
+		
+		ItemIcon.texture = load(DATA.Data["Relics"][item][1])
+	
 	BG.modulate = Color(1,1,1,0)
 	SpinWheel.scale = Vector2(0,0)
 	ItemIcon.scale = Vector2(0,0)

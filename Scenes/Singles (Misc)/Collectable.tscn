@@ -17,6 +17,7 @@ radius = 11.0
 texture = ExtResource("1_5veyg")
 metadata/Collectable = true
 metadata/CollectableName = "Test"
+metadata/IsRelic = false
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 modulate = Color(1, 1, 1, 0.0745098)

@@ -68,14 +68,29 @@ extends Node
 	# Legendary #
 }
 
+@export var relicInformation : Dictionary = {
+	
+	"Pressure Gloves": "res://Assets/Singles (Misc)/Collectibles/Relics/Pressure Gloves.png",
+	"Aqua Lobber": "res://Assets/Singles (Misc)/Collectibles/Relics/Aqua Lobber.png",
+	"Golden Magnet": "res://Assets/Singles (Misc)/Collectibles/Relics/Golden Magnet.png",
+	"Hydro Battery": "res://Assets/Singles (Misc)/Collectibles/Relics/Hydro Battery.png",
+	"Poseidons Trident": "res://Assets/Singles (Misc)/Collectibles/Relics/Poseidons Trident.png",
+	
+}
+
 @onready var popUpScene : PackedScene = preload("res://Scenes/UI/UnlockPopup.tscn")
 
 var Inventory = []
 
-func playFindAnimation(what : String):
+func playFindAnimation(what : String, isRelic : bool):
 	
 	var newPopup = popUpScene.instantiate()
 	newPopup.item = what
+	
+	if not isRelic:
+		newPopup.isRelic = false
+	else:
+		newPopup.isRelic = true
 	
 	get_tree().current_scene.add_child(newPopup)
 
@@ -84,7 +99,7 @@ func addToInventory(what : String , amount : int):
 		var item = findInInventory(what)
 		item[1] += amount
 	else:
-		playFindAnimation(what)
+		playFindAnimation(what, false)
 		var newInventoryLine = [what, amount]
 		Inventory.insert(0, newInventoryLine)
 
@@ -99,5 +114,14 @@ func findInInventory(what : String):
 	for item in Inventory:
 		if item[0] == what:
 			return item
+
+func unlockRelic(what : String):
+	if DATA.Data["Relics"][what][0] == true: return
+	if relicInformation[what]:
+		playFindAnimation(what, true)
+		DATA.Data["Relics"][what][0] = true
+		#print(DATA.Data["Relics"][what][1])
+	else:
+		print("Relic " + what + " not found")
 
 func returnInventory(): return Inventory

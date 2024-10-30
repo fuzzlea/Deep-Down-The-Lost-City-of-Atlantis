@@ -176,5 +176,6 @@ z_index = 1
 position = Vector2(3.00034, -112)
 
 [node name="Collectable" parent="." instance=ExtResource("6_8a4hv")]
-position = Vector2(494, 342)
-metadata/CollectableName = "Atlantean Chess Piece"
+position = Vector2(642, 385)
+metadata/CollectableName = "Pressure Gloves"
+metadata/IsRelic = true

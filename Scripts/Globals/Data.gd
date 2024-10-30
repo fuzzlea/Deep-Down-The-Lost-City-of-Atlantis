@@ -3,11 +3,11 @@ extends Node
 @export var Data : Dictionary = {
 	"Relics": {
 		
-		"Pressure Gloves": [true, "titleImage", "actualImage"],
-		"Aqua Lobber": [true, "titleImage", "actualImage"],
-		"Golden Magnet": [true, "titleImage", "actualImage"],
-		"Hydro Battery": [false, "titleImage", "actualImage"],
-		"Poseidons Trident": [false, "titleImage", "actualImage"],
+		"Pressure Gloves": [false, "res://Assets/Singles (Misc)/Collectibles/Relics/Pressure Gloves.png"],
+		"Aqua Lobber": [false, "res://Assets/Singles (Misc)/Collectibles/Relics/Aqua Lobber.png"],
+		"Golden Magnet": [false, "res://Assets/Singles (Misc)/Collectibles/Relics/Golden Magnet.png"],
+		"Hydro Battery": [false, "res://Assets/Singles (Misc)/Collectibles/Relics/Hydro Battery.png"],
+		"Poseidons Trident": [false, "res://Assets/Singles (Misc)/Collectibles/Relics/Poseidons Trident.png"],
 		
 	},
 	#"Item": {},

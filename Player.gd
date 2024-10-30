@@ -174,13 +174,19 @@ func enablePlayerControls(): # This will enable the player controls so they can 
 
 func pickUpCollectable(collectable : Sprite2D):
 	var itemName = collectable.get_meta("CollectableName")
-	INVENTORY.addToInventory(itemName, 1)
+	
+	if collectable.get_meta("IsRelic") == true: 
+		INVENTORY.unlockRelic(itemName)
+	else:
+		INVENTORY.addToInventory(itemName, 1)
 	
 	var itemTween = get_tree().create_tween().set_trans(Tween.TRANS_BACK).set_parallel(true)
 	itemTween.tween_property(collectable, "scale", Vector2(0,0), 0.5)
 	itemTween.tween_property(collectable.get_child(0), "modulate", Color(0,0,0,0), 0.5)
-	@warning_ignore("standalone_expression")
-	itemTween.tween_callback(func(): collectable.queue_free)
+	
+	await itemTween.finished
+	
+	collectable.queue_free()
 
 ## RELICS ##
 

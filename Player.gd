@@ -186,7 +186,8 @@ func pickUpCollectable(collectable : Sprite2D):
 	
 	await itemTween.finished
 	
-	collectable.queue_free()
+	if collectable:
+		collectable.queue_free()
 
 ## RELICS ##
 

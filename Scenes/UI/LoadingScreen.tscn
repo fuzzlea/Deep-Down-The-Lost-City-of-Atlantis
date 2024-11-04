@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccae6fmb26kc7"]
+
+[ext_resource type="Script" path="res://Scripts/Controllers/Other/LoadingScreen.gd" id="1_3yesm"]
+
+[sub_resource type="Gradient" id="Gradient_a8dgi"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.113725, 0.168627, 0.203922, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_elge5"]
+gradient = SubResource("Gradient_a8dgi")
+
+[node name="LoadingScreen" type="CanvasLayer"]
+layer = 5
+script = ExtResource("1_3yesm")
+
+[node name="BG" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_elge5")

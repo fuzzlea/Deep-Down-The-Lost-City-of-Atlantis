@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://44bu01d13ti"]
+[gd_scene load_steps=28 format=3 uid="uid://44bu01d13ti"]
 
 [ext_resource type="Script" path="res://Scripts/Controllers/Other/MainMenu.gd" id="1_kleeg"]
 [ext_resource type="Texture2D" uid="uid://bpf821picdnkb" path="res://Assets/UI/DeepDownLogo01.png" id="1_rqgfr"]
+[ext_resource type="Texture2D" uid="uid://dhdhjh26x741q" path="res://Assets/UI/MainMenu/ExampleBGSpritesheet.png" id="3_5y2sg"]
+[ext_resource type="Texture2D" uid="uid://cdtkhfartl6h5" path="res://Assets/UI/MainMenu/LButton Base.png" id="4_n2gvu"]
 
 [sub_resource type="Animation" id="Animation_x7t0e"]
 resource_name = "LogoBobLoop"
@@ -20,6 +22,23 @@ tracks/0/keys = {
 "values": [Vector2(479.5, 0), Vector2(479.5, -5.03), Vector2(479.5, 5.2)]
 }
 
+[sub_resource type="Animation" id="Animation_itfca"]
+resource_name = "PlayButtonLoop"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayButton:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.6, 3.76667, 6.03333, 8.23333, 9.96667),
+"transitions": PackedFloat32Array(1.1487, 1.1487, 1.1487, 1.1487, 1.1487, 1.1487),
+"update": 0,
+"values": [Vector2(696, 579), Vector2(691, 571), Vector2(708, 584), Vector2(692, 599), Vector2(721.3, 570.345), Vector2(696, 579)]
+}
+
 [sub_resource type="Animation" id="Animation_rdnrg"]
 length = 0.001
 tracks/0/type = "value"
@@ -32,14 +51,161 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(643, 0)]
+"values": [Vector2(479.5, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayButton:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(696, 579)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ffq5p"]
 _data = {
 "LogoBobLoop": SubResource("Animation_x7t0e"),
+"PlayButtonLoop": SubResource("Animation_itfca"),
 "RESET": SubResource("Animation_rdnrg")
 }
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0b8e7"]
+atlas = ExtResource("3_5y2sg")
+region = Rect2(0, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxtvo"]
+atlas = ExtResource("3_5y2sg")
+region = Rect2(1280, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4typp"]
+atlas = ExtResource("3_5y2sg")
+region = Rect2(2560, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46sx6"]
+atlas = ExtResource("3_5y2sg")
+region = Rect2(3840, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fj3lu"]
+atlas = ExtResource("3_5y2sg")
+region = Rect2(5120, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stdjg"]
+atlas = ExtResource("3_5y2sg")
+region = Rect2(6400, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgwo4"]
+atlas = ExtResource("3_5y2sg")
+region = Rect2(7680, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l22x8"]
+atlas = ExtResource("3_5y2sg")
+region = Rect2(8960, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61fhp"]
+atlas = ExtResource("3_5y2sg")
+region = Rect2(10240, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4tb5"]
+atlas = ExtResource("3_5y2sg")
+region = Rect2(11520, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ivho"]
+atlas = ExtResource("3_5y2sg")
+region = Rect2(12800, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrr3r"]
+atlas = ExtResource("3_5y2sg")
+region = Rect2(14080, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bjcx"]
+atlas = ExtResource("3_5y2sg")
+region = Rect2(15360, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5gvy"]
+atlas = ExtResource("3_5y2sg")
+region = Rect2(16640, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0vkb"]
+atlas = ExtResource("3_5y2sg")
+region = Rect2(17920, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aft0v"]
+atlas = ExtResource("3_5y2sg")
+region = Rect2(19200, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6kr7"]
+atlas = ExtResource("3_5y2sg")
+region = Rect2(20480, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nkee"]
+atlas = ExtResource("3_5y2sg")
+region = Rect2(21760, 0, 1280, 720)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3hevb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0b8e7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxtvo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4typp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46sx6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fj3lu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_stdjg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgwo4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l22x8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61fhp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4tb5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ivho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrr3r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3bjcx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5gvy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0vkb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aft0v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6kr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6nkee")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -55,8 +221,8 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -317.0
-offset_right = 644.0
+offset_left = -480.5
+offset_right = 480.5
 offset_bottom = 541.0
 grow_horizontal = 2
 texture = ExtResource("1_rqgfr")
@@ -67,3 +233,32 @@ stretch_mode = 5
 libraries = {
 "": SubResource("AnimationLibrary_ffq5p")
 }
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -1
+position = Vector2(960, 539)
+scale = Vector2(1.50156, 1.50556)
+sprite_frames = SubResource("SpriteFrames_3hevb")
+
+[node name="PlayButton" type="TextureButton" parent="."]
+modulate = Color(0.704617, 0.594752, 0.645224, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -264.0
+offset_top = 579.0
+offset_right = 299.0
+offset_bottom = 790.0
+grow_horizontal = 2
+pivot_offset = Vector2(281, 105)
+texture_normal = ExtResource("4_n2gvu")
+stretch_mode = 0
+
+[node name="BackgroundElements" type="Node" parent="."]
+
+[connection signal="button_down" from="PlayButton" to="." method="_on_play_button_button_down"]
+[connection signal="button_up" from="PlayButton" to="." method="_on_play_button_button_up"]
+[connection signal="mouse_entered" from="PlayButton" to="." method="_on_play_button_mouse_entered"]
+[connection signal="mouse_exited" from="PlayButton" to="." method="_on_play_button_mouse_exited"]
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]

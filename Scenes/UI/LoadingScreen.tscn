@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccae6fmb26kc7"]
+[gd_scene load_steps=9 format=3 uid="uid://ccae6fmb26kc7"]
 
 [ext_resource type="Script" path="res://Scripts/Controllers/Other/LoadingScreen.gd" id="1_3yesm"]
+[ext_resource type="Texture2D" uid="uid://5adx5uubjy50" path="res://Assets/UI/MainMenu/Boatalt.png" id="2_eeqjw"]
+[ext_resource type="Texture2D" uid="uid://tbnqmkewqr0o" path="res://Assets/UI/MainMenu/MiniBubbleL.png" id="3_vm80x"]
 
 [sub_resource type="Gradient" id="Gradient_a8dgi"]
 offsets = PackedFloat32Array(0)
@@ -8,6 +10,44 @@ colors = PackedColorArray(0.113725, 0.168627, 0.203922, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_elge5"]
 gradient = SubResource("Gradient_a8dgi")
+
+[sub_resource type="Animation" id="Animation_pviui"]
+resource_name = "BoatDrive"
+length = 15.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Boat:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 14.2667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-177.725, 922), Vector2(1905, 935)]
+}
+
+[sub_resource type="Animation" id="Animation_l4dng"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Boat:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-215, 933)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lmyne"]
+_data = {
+"BoatDrive": SubResource("Animation_pviui"),
+"RESET": SubResource("Animation_l4dng")
+}
 
 [node name="LoadingScreen" type="CanvasLayer"]
 layer = 5
@@ -20,3 +60,38 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture1D_elge5")
+
+[node name="Boat" type="TextureRect" parent="."]
+offset_left = -215.0
+offset_top = 933.0
+offset_right = -61.0
+offset_bottom = 1087.0
+pivot_offset = Vector2(77, 77)
+texture = ExtResource("2_eeqjw")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Boat"]
+z_index = 2
+position = Vector2(47, 90)
+amount = 10
+lifetime = 0.5
+texture = ExtResource("3_vm80x")
+emission_shape = 1
+emission_sphere_radius = 15.0
+direction = Vector2(-1, 0)
+spread = 104.15
+gravity = Vector2(0, 400)
+initial_velocity_min = 211.27
+initial_velocity_max = 211.27
+angular_velocity_min = 182.54
+angular_velocity_max = 182.54
+damping_min = 8.451
+damping_max = 8.451
+angle_min = 223.1
+angle_max = 223.1
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+
+[node name="BoatAnimations" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lmyne")
+}

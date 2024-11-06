@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ccae6fmb26kc7"]
+[gd_scene load_steps=10 format=3 uid="uid://ccae6fmb26kc7"]
 
 [ext_resource type="Script" path="res://Scripts/Controllers/Other/LoadingScreen.gd" id="1_3yesm"]
 [ext_resource type="Texture2D" uid="uid://5adx5uubjy50" path="res://Assets/UI/MainMenu/Boatalt.png" id="2_eeqjw"]
@@ -22,10 +22,10 @@ tracks/0/path = NodePath("Boat:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 14.2667),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.0666667, 14.2667, 14.9667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-177.725, 922), Vector2(1905, 935)]
+"values": [Vector2(-191, 1117), Vector2(-195, 921), Vector2(1905, 925.3), Vector2(1972, 1084)]
 }
 
 [sub_resource type="Animation" id="Animation_l4dng"]
@@ -43,10 +43,14 @@ tracks/0/keys = {
 "values": [Vector2(-215, 933)]
 }
 
+[sub_resource type="Animation" id="Animation_t6tcd"]
+resource_name = "new_animation"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lmyne"]
 _data = {
 "BoatDrive": SubResource("Animation_pviui"),
-"RESET": SubResource("Animation_l4dng")
+"RESET": SubResource("Animation_l4dng"),
+"new_animation": SubResource("Animation_t6tcd")
 }
 
 [node name="LoadingScreen" type="CanvasLayer"]
@@ -62,10 +66,10 @@ grow_vertical = 2
 texture = SubResource("GradientTexture1D_elge5")
 
 [node name="Boat" type="TextureRect" parent="."]
-offset_left = -215.0
-offset_top = 933.0
-offset_right = -61.0
-offset_bottom = 1087.0
+offset_left = -191.0
+offset_top = 1117.0
+offset_right = -37.0
+offset_bottom = 1271.0
 pivot_offset = Vector2(77, 77)
 texture = ExtResource("2_eeqjw")
 

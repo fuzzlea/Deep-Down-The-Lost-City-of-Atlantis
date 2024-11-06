@@ -18,6 +18,12 @@ func tweenBGOut():
 	
 	return tween
 
+func tweenBoatOut():
+	var tween = get_tree().create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT_IN)
+	tween.tween_property(Boat, "position", Vector2(Boat.position.x, Boat.position.y + 120), 2)
+	
+	return tween
+
 func tweenBoat():
 	BoatAnimations.play("BoatDrive")
 
@@ -37,7 +43,11 @@ func _process(_delta: float):
 		var newScene : PackedScene = ResourceLoader.load_threaded_get(nextScenePath)
 		get_tree().change_scene_to_packed(newScene)
 		
-		await get_tree().create_timer(10).timeout
+		await get_tree().create_timer(5).timeout
+		
+		BoatAnimations.stop(true)
+		
+		await tweenBoatOut().finished
 		await tweenBGOut().finished
 		
 		self.queue_free()

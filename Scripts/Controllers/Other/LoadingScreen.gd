@@ -19,8 +19,8 @@ func tweenBGOut():
 	return tween
 
 func tweenBoatOut():
-	var tween = get_tree().create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT_IN)
-	tween.tween_property(Boat, "position", Vector2(Boat.position.x, Boat.position.y + 120), 2)
+	var tween = get_tree().create_tween().set_trans(Tween.TRANS_BACK)
+	tween.tween_property(Boat, "position", Vector2(Boat.position.x, Boat.position.y + 200), 2)
 	
 	return tween
 

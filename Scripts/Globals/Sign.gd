@@ -21,6 +21,16 @@ func DisplayNew(text : String):
 	var newScene : CanvasLayer = SignScene.instantiate()
 	currentSignsUp[text] = newScene
 	
+	var signDisplay : TextureRect = newScene.get_child(0)
+	var signText : Label = signDisplay.get_child(0)
+	var signButton : Button = signDisplay.get_child(1)
+	
+	signButton.pressed.connect(func():
+		Remove(text)
+	)
+	
+	signText.text = text
+	
 	tweenIn(newScene)
 	
 	get_tree().current_scene.add_child(newScene)

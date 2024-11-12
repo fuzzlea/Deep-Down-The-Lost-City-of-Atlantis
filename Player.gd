@@ -27,6 +27,9 @@ var SPEED : float = 80.0 # Set as var so i can manipulate
 @onready var RelicWheelUI : TextureRect = $UI/RelicWheel
 @onready var RelicWheelHBOX : HBoxContainer = $UI/RelicWheel/HBoxContainer
 
+@onready var OverPlayerUI : Control = $OverPlayerUI
+@onready var InteractionIcon : TextureRect = $OverPlayerUI/InteractIcon
+
 @onready var Templates : Node2D = $Templates
 @onready var RelicWheelTemplate = $Templates/RelicWheelButton
 
@@ -38,6 +41,10 @@ var moveInput : Vector2 # The Player Movement Input Vector
 var prevState : String # The players previous state
 var prevDir : String # The players previous direction
 var currentMovementControls : bool = true
+
+## INTERACTIONS ##
+
+var itemsInInteractRange : Array = []
 
 ## RELICS ##
 
@@ -280,11 +287,29 @@ func relicWheelScroll(updown : String):
 		if relic.name == str(relicWheelSelected):
 			relic.create_tween().tween_property(relic, "scale", Vector2(1.2,1.2), 0.1).set_trans(Tween.TRANS_BACK)
 
+## INTERACTIONS ##
+
+func showInteractIcon():
+	
+	InteractionIcon.visible = true
+	
+	var tween = get_tree().create_tween().set_trans(Tween.TRANS_BACK)
+	tween.tween_property(InteractionIcon, "scale", Vector2(1,1), 0.2)
+
+func hideInteractIcon():
+	var tween = get_tree().create_tween().set_trans(Tween.TRANS_BACK)
+	tween.tween_property(InteractionIcon, "scale", Vector2(0,0), 0.1)
+	
+	tween.tween_callback(func(): InteractionIcon.visible = false)
+
 # Connectors #
 
 func _ready():
 	CAMERA.CurrentCamera = Camera
 	CAMERA.Player = self
+	
+	InteractionIcon.visible = false
+	InteractionIcon.scale = Vector2(0,0)
 	
 	relicWheelOpen = false
 	initRelicWheel()
@@ -304,8 +329,12 @@ func _physics_process(delta): # This function runs on every physics frame of the
 		if currentRelicDB == false: # Make sure the player is able to use their relic
 			useRelicAbility() # Use the ability of the relic selected
 	
-	## RELIC WHEEL ##
+	## INTERACTIONS ##
+	if Input.is_action_just_pressed("Player-Interaction"):
+		if itemsInInteractRange.size() > 0:
+			itemsInInteractRange[0].emit_signal("Interact")
 	
+	## RELIC WHEEL ##
 	if Input.is_action_just_pressed("Player-RelicWheel"):
 		relicWheelOpen = true
 	if Input.is_action_just_released("Player-RelicWheel"):
@@ -332,6 +361,7 @@ func _on_push_range_area_exited(area: Area2D): # This function removes the item 
 		areasInPushRange.erase(area)
 
 func _on_collectable_range_area_entered(area: Area2D) -> void:
+	if area.has_meta("Interactable"): return
 	if area.get_parent().get_meta("Collectable"):
 		pickUpCollectable(area.get_parent())
 
@@ -343,4 +373,8 @@ func _on_disable_movement() -> void:
 
 func _on_interaction_range_area_entered(area : Area2D):
 	if area.has_meta("Interactable"):
-		print("Interactable!")
+		showInteractIcon()
+		itemsInInteractRange.append(area)
+
+func _on_interaction_range_area_exited(area: Area2D) -> void:
+	if itemsInInteractRange.has(area): hideInteractIcon(); itemsInInteractRange.erase(area)

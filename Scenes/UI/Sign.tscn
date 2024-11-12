@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://cogh72ghln3dt"]
+
+[ext_resource type="FontFile" uid="uid://c0i0bwetryj44" path="res://Saves/Fonts/Code.ttf" id="1_i7sub"]
+
+[sub_resource type="Gradient" id="Gradient_a4n1y"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.490279, 0.333196, 0.23813, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qnalj"]
+gradient = SubResource("Gradient_a4n1y")
+width = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_ipo7l"]
+font = ExtResource("1_i7sub")
+font_size = 32
+font_color = Color(0, 0, 0, 0.27451)
+
+[node name="Sign" type="CanvasLayer"]
+
+[node name="SignDisplay" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -444.0
+offset_top = -240.0
+offset_right = 444.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(444, 240)
+texture = SubResource("GradientTexture1D_qnalj")
+
+[node name="Label" type="Label" parent="SignDisplay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 57.0
+offset_top = 31.0
+offset_right = -58.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "so if there were ot be a lot of text here, would this look good and fire and cool and tommy is gay as FUCK and hes so stupid and nobody really likes the freak hoe of a child, bro got dropped on his head when he was a baby, bro is a goober and almost only had one testicle. bro is codependant on savannah like a little bitch boy"
+label_settings = SubResource("LabelSettings_ipo7l")
+horizontal_alignment = 1
+autowrap_mode = 2

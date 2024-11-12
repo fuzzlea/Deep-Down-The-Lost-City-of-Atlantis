@@ -1,9 +1,8 @@
-[gd_scene load_steps=62 format=3 uid="uid://c63bbgxpu1o61"]
+[gd_scene load_steps=59 format=3 uid="uid://c63bbgxpu1o61"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_rpehc"]
 [ext_resource type="Texture2D" uid="uid://dqa8nlcufe1hs" path="res://Assets/Player/Spritesheet/Diver.png" id="2_ditjv"]
 [ext_resource type="Texture2D" uid="uid://i81ords4plhu" path="res://Assets/Singles (Misc)/Collectibles/Relics/Relic Border.png" id="3_4pl52"]
-[ext_resource type="FontFile" uid="uid://c0i0bwetryj44" path="res://Saves/Fonts/Code.ttf" id="3_54t48"]
 [ext_resource type="Texture2D" uid="uid://m8gy0mfsejsc" path="res://Assets/Singles (Misc)/Collectibles/Relics/Hydro Battery.png" id="4_vuiyn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bmbuh"]
@@ -509,6 +508,9 @@ animations = [{
 radius = 4.0
 height = 12.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_v3ikp"]
+radius = 13.0384
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_expxy"]
 radius = 9.0
 
@@ -518,19 +520,6 @@ colors = PackedColorArray(1, 1, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_2b75r"]
 gradient = SubResource("Gradient_n53dn")
-
-[sub_resource type="Gradient" id="Gradient_a4n1y"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.490279, 0.333196, 0.23813, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_3rbtq"]
-gradient = SubResource("Gradient_a4n1y")
-width = 1
-
-[sub_resource type="LabelSettings" id="LabelSettings_8kafo"]
-font = ExtResource("3_54t48")
-font_size = 32
-font_color = Color(0, 0, 0, 0.27451)
 
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
@@ -548,6 +537,12 @@ debug_color = Color(0.826959, 0.340239, 0.534014, 0.42)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+
+[node name="InteractionRange" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionRange"]
+shape = SubResource("CircleShape2D_v3ikp")
 
 [node name="PushRange" type="Area2D" parent="."]
 collision_layer = 2
@@ -598,37 +593,6 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="SignDisplay" type="TextureRect" parent="UI"]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -444.0
-offset_top = -240.0
-offset_right = 444.0
-offset_bottom = 240.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("GradientTexture1D_3rbtq")
-
-[node name="Label" type="Label" parent="UI/SignDisplay"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 57.0
-offset_top = 31.0
-offset_right = -58.0
-offset_bottom = -31.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "so if there were ot be a lot of text here, would this look good and fire and cool and tommy is gay as FUCK and hes so stupid and nobody really likes the freak hoe of a child, bro got dropped on his head when he was a baby, bro is a goober and almost only had one testicle. bro is codependant on savannah like a little bitch boy"
-label_settings = SubResource("LabelSettings_8kafo")
-horizontal_alignment = 1
-autowrap_mode = 2
-
 [node name="Templates" type="Node2D" parent="."]
 
 [node name="RelicWheelButton" type="MarginContainer" parent="Templates"]
@@ -661,6 +625,7 @@ texture = ExtResource("4_vuiyn")
 
 [connection signal="disableMovement" from="." to="." method="_on_disable_movement"]
 [connection signal="enableMovement" from="." to="." method="_on_enable_movement"]
+[connection signal="area_entered" from="InteractionRange" to="." method="_on_interaction_range_area_entered"]
 [connection signal="area_entered" from="PushRange" to="." method="_on_push_range_area_entered"]
 [connection signal="area_exited" from="PushRange" to="." method="_on_push_range_area_exited"]
 [connection signal="area_entered" from="CollectableRange" to="." method="_on_collectable_range_area_entered"]

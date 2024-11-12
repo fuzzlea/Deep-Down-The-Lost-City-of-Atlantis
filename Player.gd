@@ -340,3 +340,7 @@ func _on_enable_movement() -> void:
 
 func _on_disable_movement() -> void:
 	disablePlayerControls()
+
+func _on_interaction_range_area_entered(area : Area2D):
+	if area.has_meta("Interactable"):
+		print("Interactable!")

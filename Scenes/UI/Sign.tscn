@@ -1,19 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://cogh72ghln3dt"]
+[gd_scene load_steps=4 format=3 uid="uid://cogh72ghln3dt"]
 
+[ext_resource type="Texture2D" uid="uid://b6rv57dmrjvh" path="res://Assets/UI/SignUI.png" id="1_7gu1f"]
 [ext_resource type="FontFile" uid="uid://c0i0bwetryj44" path="res://Saves/Fonts/Code.ttf" id="1_i7sub"]
-
-[sub_resource type="Gradient" id="Gradient_a4n1y"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.490279, 0.333196, 0.23813, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_qnalj"]
-gradient = SubResource("Gradient_a4n1y")
-width = 1
 
 [sub_resource type="LabelSettings" id="LabelSettings_ipo7l"]
 font = ExtResource("1_i7sub")
 font_size = 32
 font_color = Color(0, 0, 0, 0.27451)
+outline_size = 2
+outline_color = Color(0, 0, 0, 0.270588)
+shadow_color = Color(0, 0, 0, 0.0745098)
+shadow_offset = Vector2(3, 3)
 
 [node name="Sign" type="CanvasLayer"]
 
@@ -30,7 +27,7 @@ offset_bottom = 240.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(444, 240)
-texture = SubResource("GradientTexture1D_qnalj")
+texture = ExtResource("1_7gu1f")
 
 [node name="Label" type="Label" parent="SignDisplay"]
 layout_mode = 1
@@ -56,10 +53,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -34.0
-offset_top = -29.0
-offset_right = -6.0
-offset_bottom = -5.0
+offset_left = -127.0
+offset_top = -87.0
+offset_right = -74.0
+offset_bottom = -18.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_colors/font_hover_pressed_color = Color(0.753984, 0.753984, 0.753984, 1)
@@ -67,5 +64,6 @@ theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.450648, 0.450648, 0.450648, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 0.372549)
 theme_override_fonts/font = ExtResource("1_i7sub")
+theme_override_font_sizes/font_size = 60
 text = ">"
 flat = true

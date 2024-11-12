@@ -183,3 +183,7 @@ metadata/IsRelic = true
 
 [node name="Sign" parent="." instance=ExtResource("7_gryvk")]
 position = Vector2(630, 349)
+
+[node name="Sign2" parent="." instance=ExtResource("7_gryvk")]
+position = Vector2(671, 338)
+DisplayText = "Tommy is dumb as FUCK"

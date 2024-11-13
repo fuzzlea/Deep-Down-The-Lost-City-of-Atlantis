@@ -362,6 +362,7 @@ func _on_push_range_area_exited(area: Area2D): # This function removes the item 
 
 func _on_collectable_range_area_entered(area: Area2D) -> void:
 	if area.has_meta("Interactable"): return
+	if area.has_meta("Pushable"): return
 	if area.get_parent().get_meta("Collectable"):
 		pickUpCollectable(area.get_parent())
 
@@ -377,4 +378,6 @@ func _on_interaction_range_area_entered(area : Area2D):
 		itemsInInteractRange.append(area)
 
 func _on_interaction_range_area_exited(area: Area2D) -> void:
-	if itemsInInteractRange.has(area): hideInteractIcon(); itemsInInteractRange.erase(area)
+	if itemsInInteractRange.has(area):
+		itemsInInteractRange.erase(area)
+		if itemsInInteractRange.size() == 0: hideInteractIcon()

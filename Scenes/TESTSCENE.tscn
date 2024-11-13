@@ -1,12 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://8vda2srjaiwx"]
+[gd_scene load_steps=17 format=3 uid="uid://8vda2srjaiwx"]
 
 [ext_resource type="Texture2D" uid="uid://ce287xw4w076n" path="res://Assets/Environment/Alantis.png" id="1_s8bq8"]
 [ext_resource type="PackedScene" uid="uid://c63bbgxpu1o61" path="res://Scenes/Player/Player.tscn" id="2_a4hjb"]
-[ext_resource type="PackedScene" uid="uid://cgwxc505nmthr" path="res://Scenes/Enemies/Crab.tscn" id="3_eya51"]
-[ext_resource type="PackedScene" uid="uid://bxsdn16tqpb2x" path="res://Scenes/Enemies/MiniCyclopes.tscn" id="4_ijnuf"]
-[ext_resource type="PackedScene" uid="uid://deacb8bdaifpi" path="res://Scenes/Singles (Misc)/Puzzle Mechanics/Recievers/Kelp.tscn" id="5_rec2c"]
+[ext_resource type="Texture2D" uid="uid://8gar31m7x5k5" path="res://Assets/Singles (Misc)/Collectibles/Common/Atlantean Feather Quill.png" id="4_ks04w"]
+[ext_resource type="Texture2D" uid="uid://doqf6am7de5q" path="res://Assets/Singles (Misc)/Collectibles/Relics/Pressure Gloves.png" id="5_o0tq1"]
+[ext_resource type="Texture2D" uid="uid://de1vt4gp8jt0i" path="res://Assets/Singles (Misc)/Collectibles/Common/Puzzle Piece.png" id="5_s3noe"]
 [ext_resource type="PackedScene" uid="uid://b3doegw7008ca" path="res://Scenes/Singles (Misc)/Collectable.tscn" id="6_8a4hv"]
+[ext_resource type="Texture2D" uid="uid://t2yrstyc3kkb" path="res://Assets/Singles (Misc)/Collectibles/Common/Sand Dollar.png" id="6_8pwnf"]
+[ext_resource type="Texture2D" uid="uid://btmnuqwea0005" path="res://Assets/Singles (Misc)/Collectibles/Relics/Aqua Lobber.png" id="6_kmnxf"]
+[ext_resource type="Texture2D" uid="uid://c44vkd16abyr7" path="res://Assets/Singles (Misc)/Collectibles/Common/Tadpole Statue.png" id="7_bht6j"]
+[ext_resource type="Texture2D" uid="uid://d0fim8xpsrh2e" path="res://Assets/Singles (Misc)/Collectibles/Relics/Golden Magnet.png" id="7_fren3"]
 [ext_resource type="PackedScene" uid="uid://bfyhdkkxtyov0" path="res://Scenes/Singles (Misc)/Sign.tscn" id="7_gryvk"]
+[ext_resource type="Texture2D" uid="uid://m8gy0mfsejsc" path="res://Assets/Singles (Misc)/Collectibles/Relics/Hydro Battery.png" id="8_a5wj0"]
+[ext_resource type="Texture2D" uid="uid://b0rqdakwfpsal" path="res://Assets/Singles (Misc)/Collectibles/Common/Atlantean Bath Token.png" id="8_cj1w8"]
+[ext_resource type="Texture2D" uid="uid://5afrtn7sabvx" path="res://Assets/Singles (Misc)/Collectibles/Relics/Poseidons Trident.png" id="9_3v4aa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c8vo7"]
 texture = ExtResource("1_s8bq8")
@@ -102,88 +109,72 @@ layer_2/tile_data = PackedInt32Array(2162701, 65537, 0, 2162702, 65537, 0, 21627
 
 [node name="Player" parent="." instance=ExtResource("2_a4hjb")]
 z_index = 1
-position = Vector2(580, 372)
-
-[node name="Crab" parent="." instance=ExtResource("3_eya51")]
-z_index = 1
-position = Vector2(710, 338)
-
-[node name="Mini Cyclopes" parent="." instance=ExtResource("4_ijnuf")]
-z_index = 1
-position = Vector2(402, 580)
-
-[node name="KelpLine" type="Node2D" parent="."]
-position = Vector2(728, 296)
-rotation = 1.57079
-
-[node name="Kelp" parent="KelpLine" node_paths=PackedStringArray("KelpLineNode") instance=ExtResource("5_rec2c")]
-z_index = 1
-position = Vector2(3, 6.10352e-05)
-KelpLineNode = NodePath("..")
-KelpImagePath = "res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Kelp Base.png"
-
-[node name="Kelp2" parent="KelpLine" instance=ExtResource("5_rec2c")]
-z_index = 1
-position = Vector2(3, -16)
-
-[node name="Kelp3" parent="KelpLine" instance=ExtResource("5_rec2c")]
-z_index = 1
-position = Vector2(3, -32)
-
-[node name="Kelp4" parent="KelpLine" instance=ExtResource("5_rec2c")]
-z_index = 1
-position = Vector2(3, -48)
-
-[node name="Kelp5" parent="KelpLine" instance=ExtResource("5_rec2c")]
-z_index = 1
-position = Vector2(3, -64)
-
-[node name="KelpLine2" type="Node2D" parent="."]
-position = Vector2(540, 312)
-rotation = 3.14159
-
-[node name="Kelp" parent="KelpLine2" node_paths=PackedStringArray("KelpLineNode") instance=ExtResource("5_rec2c")]
-z_index = 1
-position = Vector2(3, 6.10352e-05)
-KelpLineNode = NodePath("..")
-KelpImagePath = "res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Kelp Base.png"
-
-[node name="Kelp2" parent="KelpLine2" instance=ExtResource("5_rec2c")]
-z_index = 1
-position = Vector2(3, -16)
-
-[node name="Kelp3" parent="KelpLine2" instance=ExtResource("5_rec2c")]
-z_index = 1
-position = Vector2(3, -32)
-
-[node name="Kelp4" parent="KelpLine2" instance=ExtResource("5_rec2c")]
-z_index = 1
-position = Vector2(3, -48)
-
-[node name="Kelp5" parent="KelpLine2" instance=ExtResource("5_rec2c")]
-z_index = 1
-position = Vector2(3, -64)
-
-[node name="Kelp6" parent="KelpLine2" instance=ExtResource("5_rec2c")]
-z_index = 1
-position = Vector2(3.00034, -80)
-
-[node name="Kelp7" parent="KelpLine2" instance=ExtResource("5_rec2c")]
-z_index = 1
-position = Vector2(3.00034, -96)
-
-[node name="Kelp8" parent="KelpLine2" instance=ExtResource("5_rec2c")]
-z_index = 1
-position = Vector2(3.00034, -112)
+position = Vector2(391, 309)
 
 [node name="Collectable" parent="." instance=ExtResource("6_8a4hv")]
-position = Vector2(642, 385)
+position = Vector2(375, 231)
+texture = ExtResource("4_ks04w")
+metadata/CollectableName = "Atlantean Feather Quill"
+
+[node name="Collectable6" parent="." instance=ExtResource("6_8a4hv")]
+position = Vector2(329, 270)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("5_o0tq1")
 metadata/CollectableName = "Pressure Gloves"
 metadata/IsRelic = true
 
+[node name="Collectable7" parent="." instance=ExtResource("6_8a4hv")]
+position = Vector2(328, 302)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("6_kmnxf")
+metadata/CollectableName = "Aqua Lobber"
+metadata/IsRelic = true
+
+[node name="Collectable8" parent="." instance=ExtResource("6_8a4hv")]
+position = Vector2(328, 333)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("7_fren3")
+metadata/CollectableName = "Golden Magnet"
+metadata/IsRelic = true
+
+[node name="Collectable9" parent="." instance=ExtResource("6_8a4hv")]
+position = Vector2(328, 365)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("8_a5wj0")
+metadata/CollectableName = "Hydro Battery"
+metadata/IsRelic = true
+
+[node name="Collectable10" parent="." instance=ExtResource("6_8a4hv")]
+position = Vector2(328, 397)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("9_3v4aa")
+metadata/CollectableName = "Poseidons Trident"
+metadata/IsRelic = true
+
+[node name="Collectable2" parent="." instance=ExtResource("6_8a4hv")]
+position = Vector2(408, 231)
+texture = ExtResource("5_s3noe")
+metadata/CollectableName = "Puzzle Piece"
+
+[node name="Collectable3" parent="." instance=ExtResource("6_8a4hv")]
+position = Vector2(439, 231)
+texture = ExtResource("6_8pwnf")
+metadata/CollectableName = "Sand Dollar"
+
+[node name="Collectable4" parent="." instance=ExtResource("6_8a4hv")]
+position = Vector2(471, 231)
+texture = ExtResource("7_bht6j")
+metadata/CollectableName = "Tadpole Statue"
+
+[node name="Collectable5" parent="." instance=ExtResource("6_8a4hv")]
+position = Vector2(504, 231)
+texture = ExtResource("8_cj1w8")
+metadata/CollectableName = "Atlantean Bath Token"
+
 [node name="Sign" parent="." instance=ExtResource("7_gryvk")]
-position = Vector2(630, 349)
+position = Vector2(329, 230)
+DisplayText = "A couple 'Common' items."
 
 [node name="Sign2" parent="." instance=ExtResource("7_gryvk")]
-position = Vector2(671, 338)
-DisplayText = "Tommy is dumb as FUCK"
+position = Vector2(328, 432)
+DisplayText = "Relics :)"

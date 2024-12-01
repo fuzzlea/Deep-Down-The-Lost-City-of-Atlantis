@@ -1,0 +1,145 @@
+[gd_scene load_steps=6 format=3 uid="uid://brufip43g1cpk"]
+
+[ext_resource type="Texture2D" uid="uid://cnu2tf506vnud" path="res://Assets/UI/Notebook UI.png" id="1_v7bse"]
+[ext_resource type="FontFile" uid="uid://wcj7u7qbl68y" path="res://Saves/Fonts/handwriting_.ttf" id="2_du3qk"]
+
+[sub_resource type="Gradient" id="Gradient_1msgh"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_p3s47"]
+gradient = SubResource("Gradient_1msgh")
+width = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_3218i"]
+font = ExtResource("2_du3qk")
+font_size = 40
+font_color = Color(0.194349, 0.194349, 0.194349, 1)
+shadow_color = Color(0, 0, 0, 0.243137)
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.0745098)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_p3s47")
+
+[node name="Book" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_v7bse")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Profile" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -691.0
+offset_top = -218.0
+offset_right = -442.0
+offset_bottom = -165.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Profile"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "profile"
+label_settings = SubResource("LabelSettings_3218i")
+vertical_alignment = 1
+
+[node name="Collection" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -691.0
+offset_top = -170.0
+offset_right = -442.0
+offset_bottom = -117.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Collection"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "collection"
+label_settings = SubResource("LabelSettings_3218i")
+vertical_alignment = 1
+
+[node name="Tasks" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -691.0
+offset_top = -122.0
+offset_right = -442.0
+offset_bottom = -69.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Tasks"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "tasks"
+label_settings = SubResource("LabelSettings_3218i")
+vertical_alignment = 1
+
+[node name="Settings" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -691.0
+offset_top = -74.0
+offset_right = -442.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "settings"
+label_settings = SubResource("LabelSettings_3218i")
+vertical_alignment = 1

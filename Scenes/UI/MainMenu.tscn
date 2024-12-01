@@ -1,9 +1,10 @@
-[gd_scene load_steps=28 format=3 uid="uid://44bu01d13ti"]
+[gd_scene load_steps=30 format=3 uid="uid://44bu01d13ti"]
 
 [ext_resource type="Script" path="res://Scripts/Controllers/Other/MainMenu.gd" id="1_kleeg"]
 [ext_resource type="Texture2D" uid="uid://bpf821picdnkb" path="res://Assets/UI/DeepDownLogo01.png" id="1_rqgfr"]
 [ext_resource type="Texture2D" uid="uid://dhdhjh26x741q" path="res://Assets/UI/MainMenu/ExampleBGSpritesheet.png" id="3_5y2sg"]
 [ext_resource type="Texture2D" uid="uid://cdtkhfartl6h5" path="res://Assets/UI/MainMenu/LButton Base.png" id="4_n2gvu"]
+[ext_resource type="FontFile" uid="uid://dlrq76jvfqwdr" path="res://Saves/Fonts/rubber-biscuit.bold.ttf" id="5_m3kgs"]
 
 [sub_resource type="Animation" id="Animation_x7t0e"]
 resource_name = "LogoBobLoop"
@@ -207,6 +208,16 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="LabelSettings" id="LabelSettings_0510o"]
+font = ExtResource("5_m3kgs")
+font_size = 150
+font_color = Color(0.981599, 0.880126, 0.784192, 1)
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 20
+shadow_color = Color(0, 0, 0, 0.498039)
+shadow_offset = Vector2(10, 10)
+
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -241,7 +252,7 @@ scale = Vector2(1.50156, 1.50556)
 sprite_frames = SubResource("SpriteFrames_3hevb")
 
 [node name="PlayButton" type="TextureButton" parent="."]
-modulate = Color(0.704617, 0.594752, 0.645224, 1)
+self_modulate = Color(0.705882, 0.596078, 0.647059, 1)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -254,6 +265,20 @@ grow_horizontal = 2
 pivot_offset = Vector2(281, 105)
 texture_normal = ExtResource("4_n2gvu")
 stretch_mode = 0
+
+[node name="Label" type="Label" parent="PlayButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "PLAY"
+label_settings = SubResource("LabelSettings_0510o")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="BackgroundElements" type="Node" parent="."]
 

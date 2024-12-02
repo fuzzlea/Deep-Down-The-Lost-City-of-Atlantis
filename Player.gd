@@ -6,6 +6,8 @@ extends CharacterBody2D
 signal disableMovement
 @warning_ignore("unused_signal")
 signal enableMovement
+@warning_ignore("unused_signal")
+signal unpauseGame
 
 # Exports #
 
@@ -33,6 +35,8 @@ var SPEED : float = 80.0 # Set as var so i can manipulate
 @onready var Templates : Node2D = $Templates
 @onready var RelicWheelTemplate = $Templates/RelicWheelButton
 
+@onready var PauseScene : PackedScene = preload('res://Scenes/UI/PauseMenu.tscn')
+
 # Vars #
 
 ## MOVEMENT ##
@@ -41,6 +45,7 @@ var moveInput : Vector2 # The Player Movement Input Vector
 var prevState : String # The players previous state
 var prevDir : String # The players previous direction
 var currentMovementControls : bool = true
+var gamePaused : bool = false
 
 ## INTERACTIONS ##
 
@@ -302,6 +307,16 @@ func hideInteractIcon():
 	
 	tween.tween_callback(func(): InteractionIcon.visible = false)
 
+func pauseController():
+	if gamePaused: return
+	
+	gamePaused = true
+	
+	var newPause = PauseScene.instantiate()
+	UI.add_child(newPause)
+	
+	newPause.emit_signal("AnimateIn")
+
 # Connectors #
 
 func _ready():
@@ -339,6 +354,9 @@ func _physics_process(delta): # This function runs on every physics frame of the
 		relicWheelOpen = true
 	if Input.is_action_just_released("Player-RelicWheel"):
 		relicWheelOpen = false
+	
+	if Input.is_action_just_pressed("Player-Pause"):
+		pauseController()
 	
 	if Input.is_action_just_pressed("Player-RelicWheelScrollUp"):
 		if relicWheelOpen == false: return
@@ -381,3 +399,6 @@ func _on_interaction_range_area_exited(area: Area2D) -> void:
 	if itemsInInteractRange.has(area):
 		itemsInInteractRange.erase(area)
 		if itemsInInteractRange.size() == 0: hideInteractIcon()
+
+func _on_unpause_game() -> void:
+	gamePaused = false

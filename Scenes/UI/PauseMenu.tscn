@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://brufip43g1cpk"]
+[gd_scene load_steps=7 format=3 uid="uid://brufip43g1cpk"]
 
 [ext_resource type="Texture2D" uid="uid://cnu2tf506vnud" path="res://Assets/UI/Notebook UI.png" id="1_v7bse"]
+[ext_resource type="Script" path="res://Scripts/Controllers/Other/PauseMenu.gd" id="1_w7x2m"]
 [ext_resource type="FontFile" uid="uid://wcj7u7qbl68y" path="res://Saves/Fonts/handwriting_.ttf" id="2_du3qk"]
 
 [sub_resource type="Gradient" id="Gradient_1msgh"]
@@ -16,15 +17,17 @@ font_color = Color(0.194349, 0.194349, 0.194349, 1)
 shadow_color = Color(0, 0, 0, 0.243137)
 
 [node name="PauseMenu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_w7x2m")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color(1, 1, 1, 0.0745098)
+[node name="BG" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -44,21 +47,19 @@ texture = ExtResource("1_v7bse")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="Profile" type="TextureButton" parent="."]
+[node name="Profile" type="TextureButton" parent="Book"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -691.0
-offset_top = -218.0
-offset_right = -442.0
-offset_bottom = -165.0
-grow_horizontal = 2
+offset_left = 256.0
+offset_top = -194.5
+offset_right = 505.0
+offset_bottom = -141.5
 grow_vertical = 2
+toggle_mode = true
 
-[node name="Label" type="Label" parent="Profile"]
+[node name="Label" type="Label" parent="Book/Profile"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -69,21 +70,19 @@ text = "profile"
 label_settings = SubResource("LabelSettings_3218i")
 vertical_alignment = 1
 
-[node name="Collection" type="TextureButton" parent="."]
+[node name="Collection" type="TextureButton" parent="Book"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -691.0
-offset_top = -170.0
-offset_right = -442.0
-offset_bottom = -117.0
-grow_horizontal = 2
+offset_left = 256.0
+offset_top = -146.5
+offset_right = 505.0
+offset_bottom = -93.5
 grow_vertical = 2
+toggle_mode = true
 
-[node name="Label" type="Label" parent="Collection"]
+[node name="Label" type="Label" parent="Book/Collection"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -94,21 +93,19 @@ text = "collection"
 label_settings = SubResource("LabelSettings_3218i")
 vertical_alignment = 1
 
-[node name="Tasks" type="TextureButton" parent="."]
+[node name="Tasks" type="TextureButton" parent="Book"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -691.0
-offset_top = -122.0
-offset_right = -442.0
-offset_bottom = -69.0
-grow_horizontal = 2
+offset_left = 256.0
+offset_top = -98.5
+offset_right = 505.0
+offset_bottom = -45.5
 grow_vertical = 2
+toggle_mode = true
 
-[node name="Label" type="Label" parent="Tasks"]
+[node name="Label" type="Label" parent="Book/Tasks"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -119,21 +116,19 @@ text = "tasks"
 label_settings = SubResource("LabelSettings_3218i")
 vertical_alignment = 1
 
-[node name="Settings" type="TextureButton" parent="."]
+[node name="Settings" type="TextureButton" parent="Book"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -691.0
-offset_top = -74.0
-offset_right = -442.0
-offset_bottom = -21.0
-grow_horizontal = 2
+offset_left = 256.0
+offset_top = -50.5
+offset_right = 505.0
+offset_bottom = 2.5
 grow_vertical = 2
+toggle_mode = true
 
-[node name="Label" type="Label" parent="Settings"]
+[node name="Label" type="Label" parent="Book/Settings"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -143,3 +138,44 @@ grow_vertical = 2
 text = "settings"
 label_settings = SubResource("LabelSettings_3218i")
 vertical_alignment = 1
+
+[node name="Resume" type="TextureButton" parent="Book"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 256.0
+offset_top = 213.5
+offset_right = 505.0
+offset_bottom = 266.5
+grow_vertical = 2
+toggle_mode = true
+
+[node name="Label" type="Label" parent="Book/Resume"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "back"
+label_settings = SubResource("LabelSettings_3218i")
+vertical_alignment = 1
+
+[connection signal="AnimateIn" from="." to="." method="_on_animate_in"]
+[connection signal="AnimateOut" from="." to="." method="_on_animate_out"]
+[connection signal="mouse_entered" from="Book/Profile" to="." method="_on_profile_mouse_entered"]
+[connection signal="mouse_exited" from="Book/Profile" to="." method="_on_profile_mouse_exited"]
+[connection signal="pressed" from="Book/Profile" to="." method="_on_profile_pressed"]
+[connection signal="mouse_entered" from="Book/Collection" to="." method="_on_collection_mouse_entered"]
+[connection signal="mouse_exited" from="Book/Collection" to="." method="_on_collection_mouse_exited"]
+[connection signal="pressed" from="Book/Collection" to="." method="_on_collection_pressed"]
+[connection signal="mouse_entered" from="Book/Tasks" to="." method="_on_tasks_mouse_entered"]
+[connection signal="mouse_exited" from="Book/Tasks" to="." method="_on_tasks_mouse_exited"]
+[connection signal="pressed" from="Book/Tasks" to="." method="_on_tasks_pressed"]
+[connection signal="mouse_entered" from="Book/Settings" to="." method="_on_settings_mouse_entered"]
+[connection signal="mouse_exited" from="Book/Settings" to="." method="_on_settings_mouse_exited"]
+[connection signal="pressed" from="Book/Settings" to="." method="_on_settings_pressed"]
+[connection signal="mouse_entered" from="Book/Resume" to="." method="_on_resume_mouse_entered"]
+[connection signal="mouse_exited" from="Book/Resume" to="." method="_on_resume_mouse_exited"]
+[connection signal="pressed" from="Book/Resume" to="." method="_on_resume_pressed"]

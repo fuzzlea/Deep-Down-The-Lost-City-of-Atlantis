@@ -655,6 +655,7 @@ expand_mode = 1
 
 [connection signal="disableMovement" from="." to="." method="_on_disable_movement"]
 [connection signal="enableMovement" from="." to="." method="_on_enable_movement"]
+[connection signal="unpauseGame" from="." to="." method="_on_unpause_game"]
 [connection signal="area_entered" from="InteractionRange" to="." method="_on_interaction_range_area_entered"]
 [connection signal="area_exited" from="InteractionRange" to="." method="_on_interaction_range_area_exited"]
 [connection signal="area_entered" from="PushRange" to="." method="_on_push_range_area_entered"]

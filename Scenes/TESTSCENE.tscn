@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://8vda2srjaiwx"]
+[gd_scene load_steps=18 format=3 uid="uid://8vda2srjaiwx"]
 
 [ext_resource type="Texture2D" uid="uid://ce287xw4w076n" path="res://Assets/Environment/Alantis.png" id="1_s8bq8"]
 [ext_resource type="PackedScene" uid="uid://c63bbgxpu1o61" path="res://Scenes/Player/Player.tscn" id="2_a4hjb"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://m8gy0mfsejsc" path="res://Assets/Singles (Misc)/Collectibles/Relics/Hydro Battery.png" id="8_a5wj0"]
 [ext_resource type="Texture2D" uid="uid://b0rqdakwfpsal" path="res://Assets/Singles (Misc)/Collectibles/Common/Atlantean Bath Token.png" id="8_cj1w8"]
 [ext_resource type="Texture2D" uid="uid://5afrtn7sabvx" path="res://Assets/Singles (Misc)/Collectibles/Relics/Poseidons Trident.png" id="9_3v4aa"]
+[ext_resource type="PackedScene" uid="uid://cpda0n4yr0rjy" path="res://Scenes/Singles (Misc)/Telepad.tscn" id="15_k5k6g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c8vo7"]
 texture = ExtResource("1_s8bq8")
@@ -175,6 +176,22 @@ metadata/CollectableName = "Atlantean Bath Token"
 position = Vector2(329, 230)
 DisplayText = "A couple 'Common' items."
 
+[node name="Sign3" parent="." instance=ExtResource("7_gryvk")]
+position = Vector2(431, 268)
+DisplayText = "Puzzle Room 0"
+
+[node name="Sign4" parent="." instance=ExtResource("7_gryvk")]
+position = Vector2(464, 268)
+DisplayText = "Puzzle Room 1"
+
 [node name="Sign2" parent="." instance=ExtResource("7_gryvk")]
 position = Vector2(328, 432)
 DisplayText = "Relics :)"
+
+[node name="Telepad" parent="." instance=ExtResource("15_k5k6g")]
+position = Vector2(440, 296)
+pathToScene = "res://Scenes/PuzzleRooms/Puzzle0.tscn"
+
+[node name="Telepad2" parent="." instance=ExtResource("15_k5k6g")]
+position = Vector2(472, 296)
+pathToScene = "res://Scenes/PuzzleRooms/Puzzle1.tscn"

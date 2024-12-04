@@ -7,6 +7,7 @@ signal AnimateOut
 
 @onready var BG = $BG
 @onready var Book = $Book
+@onready var Content = $Book/Content
 
 func mouseOverButton(button):
 	var anim = button.create_tween()
@@ -17,10 +18,32 @@ func mouseLeaveButton(button):
 	anim.tween_property(button, "scale", Vector2(1,1), 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
 
 func initAllButtonPos():
+	
+	for child in Content.get_children():
+		Content.remove_child(child)
+	
 	$Book/Profile/Label.position.x = 0
 	$Book/Collection/Label.position.x = 0
 	$Book/Tasks/Label.position.x = 0
 	$Book/Settings/Label.position.x = 0
+
+func pageController(page):
+	var newPage
+	match page:
+		"Profile":
+			newPage = $Pages/ProfilePage
+		"Collection":
+			pass
+		"Tasks":
+			pass
+		"Resume":
+			pass
+		_: print("Page: | " + page + " |\nnot found")
+	
+	if not newPage: return
+	
+	var p = newPage.duplicate()
+	Content.add_child(p)
 
 func clickButton(button):
 	initAllButtonPos()
@@ -28,12 +51,16 @@ func clickButton(button):
 	match button.name:
 		"Profile":
 			$Book/Profile/Label.create_tween().tween_property($Book/Profile/Label, "position", Vector2(25,0), 0.25).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+			pageController("Profile")
 		"Collection":
 			$Book/Collection/Label.create_tween().tween_property($Book/Collection/Label, "position", Vector2(25,0), 0.25).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+			pageController("Collection")
 		"Tasks":
 			$Book/Tasks/Label.create_tween().tween_property($Book/Tasks/Label, "position", Vector2(25,0), 0.25).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+			pageController("Tasks")
 		"Settings":
 			$Book/Settings/Label.create_tween().tween_property($Book/Settings/Label, "position", Vector2(25,0), 0.25).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+			pageController("Settings")
 		"Resume":
 			get_parent().get_parent().emit_signal("unpauseGame")
 			emit_signal("AnimateOut")

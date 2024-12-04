@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://brufip43g1cpk"]
+[gd_scene load_steps=8 format=3 uid="uid://brufip43g1cpk"]
 
 [ext_resource type="Texture2D" uid="uid://cnu2tf506vnud" path="res://Assets/UI/Notebook UI.png" id="1_v7bse"]
 [ext_resource type="Script" path="res://Scripts/Controllers/Other/PauseMenu.gd" id="1_w7x2m"]
 [ext_resource type="FontFile" uid="uid://wcj7u7qbl68y" path="res://Saves/Fonts/handwriting_.ttf" id="2_du3qk"]
+[ext_resource type="Texture2D" uid="uid://cufph1m76igr2" path="res://Assets/UI/PlayerHeadshot.png" id="4_ebiom"]
 
 [sub_resource type="Gradient" id="Gradient_1msgh"]
 
@@ -159,6 +160,92 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "back"
+label_settings = SubResource("LabelSettings_3218i")
+vertical_alignment = 1
+
+[node name="Content" type="TextureRect" parent="Book"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -300.0
+offset_right = 294.0
+offset_bottom = 245.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Pages" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProfilePage" type="Control" parent="Pages"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 850.0
+offset_top = 240.0
+offset_right = 850.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerHeadshot" type="TextureRect" parent="Pages/ProfilePage"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -52.0
+offset_top = 24.0
+offset_right = 52.0
+offset_bottom = 128.0
+grow_horizontal = 2
+texture = ExtResource("4_ebiom")
+
+[node name="died" type="Label" parent="Pages/ProfilePage"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 32.0
+offset_top = -116.0
+offset_right = 98.0
+offset_bottom = -76.0
+grow_vertical = 2
+text = "died: 2"
+label_settings = SubResource("LabelSettings_3218i")
+vertical_alignment = 1
+
+[node name="collectables" type="Label" parent="Pages/ProfilePage"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 32.0
+offset_top = -76.0
+offset_right = 200.0
+offset_bottom = -36.0
+grow_vertical = 2
+text = "collectables: 49/50"
+label_settings = SubResource("LabelSettings_3218i")
+vertical_alignment = 1
+
+[node name="idk" type="Label" parent="Pages/ProfilePage"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 32.0
+offset_top = -36.0
+offset_right = 296.0
+offset_bottom = 4.0
+grow_vertical = 2
+text = "aura: 20,000,000"
 label_settings = SubResource("LabelSettings_3218i")
 vertical_alignment = 1
 

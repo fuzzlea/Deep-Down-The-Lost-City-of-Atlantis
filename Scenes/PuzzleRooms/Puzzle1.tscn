@@ -128,25 +128,21 @@ KelpImagePath = "res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Kelp Bas
 position = Vector2(232, 424)
 rotation = 1.57457
 KelpLineNode = NodePath("..")
-KelpImagePath = "C:/Users/000260926.AD/Documents/GitHub/Deep-Down-The-Lost-City-of-Atlantis/Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Kelp.png"
 
 [node name="Kelp3" parent="KelpLine" node_paths=PackedStringArray("KelpLineNode") instance=ExtResource("3_vjrjf")]
 position = Vector2(248, 424)
 rotation = 1.57457
 KelpLineNode = NodePath("..")
-KelpImagePath = "C:/Users/000260926.AD/Documents/GitHub/Deep-Down-The-Lost-City-of-Atlantis/Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Kelp.png"
 
 [node name="Kelp4" parent="KelpLine" node_paths=PackedStringArray("KelpLineNode") instance=ExtResource("3_vjrjf")]
 position = Vector2(264, 424)
 rotation = 1.57457
 KelpLineNode = NodePath("..")
-KelpImagePath = "C:/Users/000260926.AD/Documents/GitHub/Deep-Down-The-Lost-City-of-Atlantis/Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Kelp.png"
 
 [node name="Kelp5" parent="KelpLine" node_paths=PackedStringArray("KelpLineNode") instance=ExtResource("3_vjrjf")]
 position = Vector2(280, 424)
 rotation = 1.57457
 KelpLineNode = NodePath("..")
-KelpImagePath = "C:/Users/000260926.AD/Documents/GitHub/Deep-Down-The-Lost-City-of-Atlantis/Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Kelp.png"
 
 [node name="KelpLine2" type="Node2D" parent="."]
 position = Vector2(128, 0)
@@ -161,13 +157,11 @@ KelpImagePath = "res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Kelp Bas
 position = Vector2(232, 424)
 rotation = 1.57457
 KelpLineNode = NodePath("..")
-KelpImagePath = "C:/Users/000260926.AD/Documents/GitHub/Deep-Down-The-Lost-City-of-Atlantis/Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Kelp.png"
 
 [node name="Kelp3" parent="KelpLine2" node_paths=PackedStringArray("KelpLineNode") instance=ExtResource("3_vjrjf")]
 position = Vector2(248, 424)
 rotation = 1.57457
 KelpLineNode = NodePath("..")
-KelpImagePath = "C:/Users/000260926.AD/Documents/GitHub/Deep-Down-The-Lost-City-of-Atlantis/Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Kelp.png"
 
 [node name="Crab" parent="." instance=ExtResource("4_c103v")]
 position = Vector2(248, 360)

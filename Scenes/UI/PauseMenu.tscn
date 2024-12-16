@@ -94,7 +94,7 @@ text = "collection"
 label_settings = SubResource("LabelSettings_3218i")
 vertical_alignment = 1
 
-[node name="Tasks" type="TextureButton" parent="Book"]
+[node name="Controls" type="TextureButton" parent="Book"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -106,14 +106,14 @@ offset_bottom = -45.5
 grow_vertical = 2
 toggle_mode = true
 
-[node name="Label" type="Label" parent="Book/Tasks"]
+[node name="Label" type="Label" parent="Book/Controls"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "tasks"
+text = "controls"
 label_settings = SubResource("LabelSettings_3218i")
 vertical_alignment = 1
 
@@ -257,9 +257,9 @@ vertical_alignment = 1
 [connection signal="mouse_entered" from="Book/Collection" to="." method="_on_collection_mouse_entered"]
 [connection signal="mouse_exited" from="Book/Collection" to="." method="_on_collection_mouse_exited"]
 [connection signal="pressed" from="Book/Collection" to="." method="_on_collection_pressed"]
-[connection signal="mouse_entered" from="Book/Tasks" to="." method="_on_tasks_mouse_entered"]
-[connection signal="mouse_exited" from="Book/Tasks" to="." method="_on_tasks_mouse_exited"]
-[connection signal="pressed" from="Book/Tasks" to="." method="_on_tasks_pressed"]
+[connection signal="mouse_entered" from="Book/Controls" to="." method="_on_tasks_mouse_entered"]
+[connection signal="mouse_exited" from="Book/Controls" to="." method="_on_tasks_mouse_exited"]
+[connection signal="pressed" from="Book/Controls" to="." method="_on_tasks_pressed"]
 [connection signal="mouse_entered" from="Book/Settings" to="." method="_on_settings_mouse_entered"]
 [connection signal="mouse_exited" from="Book/Settings" to="." method="_on_settings_mouse_exited"]
 [connection signal="pressed" from="Book/Settings" to="." method="_on_settings_pressed"]

@@ -1,16 +1,20 @@
 extends Node
 
+@export var COMPLETED_INIT_PROCESS = true
+
 @export var Data : Dictionary = {
 	"Relics": {
 		
 		"Pressure Gloves": [true, "res://Assets/Singles (Misc)/Collectibles/Relics/Pressure Gloves.png"],
-		"Aqua Lobber": [false, "res://Assets/Singles (Misc)/Collectibles/Relics/Aqua Lobber.png"],
-		"Golden Magnet": [false, "res://Assets/Singles (Misc)/Collectibles/Relics/Golden Magnet.png"],
-		"Hydro Battery": [false, "res://Assets/Singles (Misc)/Collectibles/Relics/Hydro Battery.png"],
-		"Poseidons Trident": [false, "res://Assets/Singles (Misc)/Collectibles/Relics/Poseidons Trident.png"],
+		"Aqua Lobber": [true, "res://Assets/Singles (Misc)/Collectibles/Relics/Aqua Lobber.png"],
+		"Golden Magnet": [true, "res://Assets/Singles (Misc)/Collectibles/Relics/Golden Magnet.png"],
+		"Hydro Battery": [true, "res://Assets/Singles (Misc)/Collectibles/Relics/Hydro Battery.png"],
+		"Poseidons Trident": [true, "res://Assets/Singles (Misc)/Collectibles/Relics/Poseidons Trident.png"],
 		
 	},
-	#"Item": {},
+	"TutorialsCompleted": [
+		
+	],
 	#"Relics": {},
 	#"Relics": {},
 }

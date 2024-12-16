@@ -44,6 +44,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "so this would be dialogue if dialogue existed"
 label_settings = SubResource("LabelSettings_gm2hr")
+autowrap_mode = 2
 
 [node name="Next" type="Button" parent="BG"]
 layout_mode = 1

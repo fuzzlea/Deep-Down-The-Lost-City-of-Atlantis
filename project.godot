@@ -21,6 +21,7 @@ DATA="*res://Scripts/Globals/Data.gd"
 INVENTORY="*res://Scripts/Globals/Inventory.gd"
 CAMERA="*res://Scripts/Globals/CameraController.gd"
 SIGN="*res://Scripts/Globals/Sign.gd"
+DIALOGUE="*res://Scripts/Globals/Dialogue.gd"
 
 [display]
 

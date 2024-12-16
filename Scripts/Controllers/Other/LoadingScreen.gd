@@ -42,11 +42,13 @@ func _process(_delta: float):
 		
 		var newScene : PackedScene = ResourceLoader.load_threaded_get(nextScenePath)
 		
-		await get_tree().create_timer(5).timeout
+		await get_tree().create_timer(3).timeout
 		
 		BoatAnimations.stop(true)
 		
 		await tweenBoatOut().finished
+		
+		await get_tree().create_timer(0.5).timeout
 		
 		get_tree().change_scene_to_packed(newScene)
 		

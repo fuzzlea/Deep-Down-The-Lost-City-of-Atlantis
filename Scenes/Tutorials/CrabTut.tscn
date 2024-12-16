@@ -1,16 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://cl3p7j5m04wta"]
+[gd_scene load_steps=10 format=3 uid="uid://cl3p7j5m04wta"]
 
-[ext_resource type="Script" path="res://Scripts/Controllers/Puzzle Mechanics/Rooms/Puzzle0.gd" id="1_cno2r"]
-[ext_resource type="Texture2D" uid="uid://ce287xw4w076n" path="res://Assets/Environment/Alantis.png" id="1_p0u1e"]
-[ext_resource type="PackedScene" uid="uid://c63bbgxpu1o61" path="res://Scenes/Player/Player.tscn" id="2_7bmgd"]
-[ext_resource type="PackedScene" uid="uid://deacb8bdaifpi" path="res://Scenes/Singles (Misc)/Puzzle Mechanics/Recievers/Kelp.tscn" id="3_40xs7"]
-[ext_resource type="PackedScene" uid="uid://cgwxc505nmthr" path="res://Scenes/Enemies/Crab.tscn" id="4_n4asd"]
-[ext_resource type="PackedScene" uid="uid://b3doegw7008ca" path="res://Scenes/Singles (Misc)/Collectable.tscn" id="6_djfop"]
-[ext_resource type="Texture2D" uid="uid://doqf6am7de5q" path="res://Assets/Singles (Misc)/Collectibles/Relics/Pressure Gloves.png" id="7_s5liv"]
-[ext_resource type="PackedScene" uid="uid://bfyhdkkxtyov0" path="res://Scenes/Singles (Misc)/Sign.tscn" id="8_xdhqk"]
+[ext_resource type="Script" path="res://Scripts/Controllers/Puzzle Mechanics/Rooms/Puzzle0.gd" id="1_hklpk"]
+[ext_resource type="Texture2D" uid="uid://ce287xw4w076n" path="res://Assets/Environment/Alantis.png" id="2_0dsjm"]
+[ext_resource type="PackedScene" uid="uid://c63bbgxpu1o61" path="res://Scenes/Player/Player.tscn" id="3_yvsul"]
+[ext_resource type="PackedScene" uid="uid://deacb8bdaifpi" path="res://Scenes/Singles (Misc)/Puzzle Mechanics/Recievers/Kelp.tscn" id="4_u050u"]
+[ext_resource type="PackedScene" uid="uid://cgwxc505nmthr" path="res://Scenes/Enemies/Crab.tscn" id="5_jix6u"]
+[ext_resource type="PackedScene" uid="uid://cpda0n4yr0rjy" path="res://Scenes/Singles (Misc)/Telepad.tscn" id="7_oha2q"]
+[ext_resource type="PackedScene" uid="uid://bfyhdkkxtyov0" path="res://Scenes/Singles (Misc)/Sign.tscn" id="8_21nxe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_crq3n"]
-texture = ExtResource("1_p0u1e")
+texture = ExtResource("2_0dsjm")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-1.6875, -3.4375, 1.6875, -6.1875, 8, -8, 6.1875, 6.5625, -5.8125, 8, -5.4375, 2.3125)
 1:0/0 = 0
@@ -95,8 +94,8 @@ physics_layer_0/collision_mask = 3
 physics_layer_1/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_crq3n")
 
-[node name="Puzzle0" type="Node2D"]
-script = ExtResource("1_cno2r")
+[node name="CrabTut" type="Node2D"]
+script = ExtResource("1_hklpk")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_s27se")
@@ -116,7 +115,7 @@ layer_4/name = "GroundDeco"
 layer_4/z_index = 1
 layer_4/tile_data = PackedInt32Array(1769484, 65536, 9, 1835020, 0, 9, 1835021, 0, 9, 1835022, 0, 9, 1769488, 0, 9, 1769492, 65536, 9, 983052, 0, 9, 983058, 0, 9, 1245219, 65536, 9, 1179686, 65536, 9, 1376293, 0, 9, 1376294, 65536, 9, 1441830, 65536, 9, 1507356, 0, 9, 1507361, 0, 9, 1310730, 0, 9, 1310731, 65536, 9, 1441803, 65536, 9, 1572874, 0, 9, 1703946, 0, 9)
 
-[node name="Player" parent="." instance=ExtResource("2_7bmgd")]
+[node name="Player" parent="." instance=ExtResource("3_yvsul")]
 z_index = 2
 position = Vector2(238, 365)
 
@@ -124,75 +123,63 @@ position = Vector2(238, 365)
 z_index = 2
 position = Vector2(0, -6)
 
-[node name="Kelp" parent="KelpLine" node_paths=PackedStringArray("KelpLineNode") instance=ExtResource("3_40xs7")]
+[node name="Kelp" parent="KelpLine" node_paths=PackedStringArray("KelpLineNode") instance=ExtResource("4_u050u")]
 position = Vector2(378, 254)
 rotation = 3.14159
 mass = 1000.0
-freeze = true
 KelpLineNode = NodePath("..")
 KelpImagePath = "res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Kelp Base.png"
 
-[node name="Kelp2" parent="KelpLine" instance=ExtResource("3_40xs7")]
+[node name="Kelp2" parent="KelpLine" instance=ExtResource("4_u050u")]
 position = Vector2(378, 270)
 rotation = 3.14159
 mass = 1000.0
-freeze = true
 
-[node name="Kelp3" parent="KelpLine" instance=ExtResource("3_40xs7")]
+[node name="Kelp3" parent="KelpLine" instance=ExtResource("4_u050u")]
 position = Vector2(378, 286)
 rotation = 3.14159
 mass = 1000.0
-freeze = true
 
-[node name="Kelp4" parent="KelpLine" instance=ExtResource("3_40xs7")]
+[node name="Kelp4" parent="KelpLine" instance=ExtResource("4_u050u")]
 position = Vector2(378, 302)
 rotation = 3.14159
 mass = 1000.0
-freeze = true
 
-[node name="Kelp5" parent="KelpLine" instance=ExtResource("3_40xs7")]
+[node name="Kelp5" parent="KelpLine" instance=ExtResource("4_u050u")]
 position = Vector2(378, 318)
 rotation = 3.14159
 mass = 1000.0
-freeze = true
 
-[node name="Kelp6" parent="KelpLine" instance=ExtResource("3_40xs7")]
+[node name="Kelp6" parent="KelpLine" instance=ExtResource("4_u050u")]
 position = Vector2(378, 334)
 rotation = 3.14159
 mass = 1000.0
-freeze = true
 
-[node name="Kelp7" parent="KelpLine" instance=ExtResource("3_40xs7")]
+[node name="Kelp7" parent="KelpLine" instance=ExtResource("4_u050u")]
 position = Vector2(378, 350)
 rotation = 3.14159
 mass = 1000.0
-freeze = true
 
-[node name="Kelp8" parent="KelpLine" instance=ExtResource("3_40xs7")]
+[node name="Kelp8" parent="KelpLine" instance=ExtResource("4_u050u")]
 position = Vector2(378, 366)
 rotation = 3.14159
 mass = 1000.0
-freeze = true
 
-[node name="Kelp9" parent="KelpLine" instance=ExtResource("3_40xs7")]
+[node name="Kelp9" parent="KelpLine" instance=ExtResource("4_u050u")]
 position = Vector2(378, 382)
 rotation = 3.14159
 mass = 1000.0
-freeze = true
 
-[node name="Crab" parent="." instance=ExtResource("4_n4asd")]
+[node name="Crab" parent="." instance=ExtResource("5_jix6u")]
 z_index = 2
 position = Vector2(177, 247)
 AIUpdateTime = 0.75
 ForceDirection = "Right"
 
-[node name="Collectable" parent="." instance=ExtResource("6_djfop")]
-z_index = 2
-position = Vector2(584, 359)
-texture = ExtResource("7_s5liv")
-metadata/CollectableName = "Pressure Gloves"
-metadata/IsRelic = true
-
-[node name="Sign" parent="." instance=ExtResource("8_xdhqk")]
+[node name="Sign" parent="." instance=ExtResource("8_21nxe")]
 position = Vector2(168, 370)
 DisplayText = "Crabs can use their claws to cut through certain walls you can't pass through."
+
+[node name="Telepad" parent="." instance=ExtResource("7_oha2q")]
+position = Vector2(584, 360)
+pathToScene = "res://Scenes/MAIN.tscn"

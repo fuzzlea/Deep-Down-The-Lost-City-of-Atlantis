@@ -4,7 +4,10 @@ extends CanvasLayer
 @export var Index = 0
 @export var Busy = false
 
-func typeWrite(text : String, speed = 0.04):
+signal Completed
+signal NextButton
+
+func typeWrite(text : String, speed = 0.02):
 	$BG/Dialogue.text = ""
 	Busy = true
 	for c in text:
@@ -21,6 +24,7 @@ func killDialogue():
 	
 	Index = 0
 	Dialogue = []
+	Completed.emit()
 	queue_free()
 
 func nextButtonClicked():
@@ -30,6 +34,7 @@ func nextButtonClicked():
 		return
 	
 	Index += 1
+	NextButton.emit()
 	
 	typeWrite(Dialogue[Index])
 

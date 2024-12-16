@@ -38,6 +38,11 @@ func _ready():
 	
 	Crab.emit_signal("enableMovement")
 	Player.emit_signal("enableMovement")
+	
+	await $Telepad.Ran
+	
+	DATA.Data["TutorialsCompleted"].append("CrabsAndKelp")
+	print(DATA.Data)
 
 func _process(_delta: float) -> void:
 	if Crab.global_position.x >= 378:

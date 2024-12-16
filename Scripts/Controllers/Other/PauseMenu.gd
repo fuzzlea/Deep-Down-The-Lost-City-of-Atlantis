@@ -24,7 +24,7 @@ func initAllButtonPos():
 	
 	$Book/Profile/Label.position.x = 0
 	$Book/Collection/Label.position.x = 0
-	$Book/Tasks/Label.position.x = 0
+	$Book/Controls/Label.position.x = 0
 	$Book/Settings/Label.position.x = 0
 
 func page_Profile():
@@ -39,7 +39,9 @@ func pageController(page):
 			page_Profile()
 		"Collection":
 			pass
-		"Tasks":
+		"Controls":
+			pass
+		"Settings":
 			pass
 		"Resume":
 			pass
@@ -67,9 +69,9 @@ func clickButton(button):
 		"Collection":
 			$Book/Collection/Label.create_tween().tween_property($Book/Collection/Label, "position", Vector2(25,0), 0.25).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
 			pageController("Collection")
-		"Tasks":
-			$Book/Tasks/Label.create_tween().tween_property($Book/Tasks/Label, "position", Vector2(25,0), 0.25).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
-			pageController("Tasks")
+		"Controls":
+			$Book/Controls/Label.create_tween().tween_property($Book/Controls/Label, "position", Vector2(25,0), 0.25).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+			pageController("Controls")
 		"Settings":
 			$Book/Settings/Label.create_tween().tween_property($Book/Settings/Label, "position", Vector2(25,0), 0.25).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
 			pageController("Settings")
@@ -111,7 +113,7 @@ func _on_collection_mouse_entered() -> void:
 	mouseOverButton($Book/Collection)
 
 func _on_tasks_mouse_entered() -> void:
-	mouseOverButton($Book/Tasks)
+	mouseOverButton($Book/Controls)
 
 func _on_settings_mouse_entered() -> void:
 	mouseOverButton($Book/Settings)
@@ -127,7 +129,7 @@ func _on_collection_pressed() -> void:
 	clickButton($Book/Collection)
 
 func _on_tasks_pressed() -> void:
-	clickButton($Book/Tasks)
+	clickButton($Book/Controls)
 
 func _on_settings_pressed() -> void:
 	clickButton($Book/Settings)
@@ -142,7 +144,7 @@ func _on_collection_mouse_exited() -> void:
 	mouseLeaveButton($Book/Collection)
 
 func _on_tasks_mouse_exited() -> void:
-	mouseLeaveButton($Book/Tasks)
+	mouseLeaveButton($Book/Controls)
 
 func _on_settings_mouse_exited() -> void:
 	mouseLeaveButton($Book/Settings)

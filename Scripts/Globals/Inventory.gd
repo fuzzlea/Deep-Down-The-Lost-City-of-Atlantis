@@ -81,6 +81,9 @@ extends Node
 @onready var popUpScene : PackedScene = preload("res://Scenes/UI/UnlockPopup.tscn")
 
 var Inventory = []
+var Stats = {
+	"Died": 0
+}
 
 func playFindAnimation(what : String, isRelic : bool):
 	

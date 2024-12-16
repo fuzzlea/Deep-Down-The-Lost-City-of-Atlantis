@@ -31,6 +31,10 @@ func _ready():
 
 func animate():
 	
+	if CAMERA.Busy: return
+	
+	CAMERA.Busy = true
+	
 	var animateInTween = get_tree().create_tween().set_parallel(true)
 	animateInTween.tween_property(BG, "modulate", Color(1,1,1,0.149), 1).set_trans(Tween.TRANS_SINE)
 	animateInTween.tween_property(SpinWheel, "scale", Vector2(1,1), 0.25).set_trans(Tween.TRANS_BACK)
@@ -49,5 +53,7 @@ func animate():
 	animateOutTween.tween_property(YouFound, "modulate", Color(1,1,1,0), 1).set_trans(Tween.TRANS_SINE)
 	
 	await animateOutTween.finished
+	
+	CAMERA.Busy = false
 	
 	queue_free()

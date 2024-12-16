@@ -309,6 +309,7 @@ func hideInteractIcon():
 
 func pauseController():
 	if gamePaused: return
+	if CAMERA.Busy: return
 	
 	gamePaused = true
 	

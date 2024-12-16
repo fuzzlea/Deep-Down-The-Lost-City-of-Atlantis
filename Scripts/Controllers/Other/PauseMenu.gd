@@ -27,11 +27,16 @@ func initAllButtonPos():
 	$Book/Tasks/Label.position.x = 0
 	$Book/Settings/Label.position.x = 0
 
+func page_Profile():
+	$Pages/ProfilePage/collectables.text = "Collectables: " + str(INVENTORY.Inventory.size()) + " / " + str(INVENTORY.ItemInformation.size())
+	$Pages/ProfilePage/died.text = "Died: " + str(INVENTORY.Stats["Died"])
+
 func pageController(page):
 	var newPage
 	match page:
 		"Profile":
 			newPage = $Pages/ProfilePage
+			page_Profile()
 		"Collection":
 			pass
 		"Tasks":
@@ -43,7 +48,13 @@ func pageController(page):
 	if not newPage: return
 	
 	var p = newPage.duplicate()
-	p.position = Vector2(0,0)
+	p.position = Vector2(0,20)
+	p.modulate = Color(1,1,1,0)
+	
+	var nt = p.create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT).set_parallel(true)
+	nt.tween_property(p, "position", Vector2(0,0), 0.3)
+	nt.tween_property(p, "modulate", Color(1,1,1,1), 0.3)
+	
 	Content.add_child(p)
 
 func clickButton(button):

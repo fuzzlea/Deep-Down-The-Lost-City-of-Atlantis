@@ -46,7 +46,7 @@ func _on_play_button_button_up() -> void:
 	tweenUp.tween_property(PlayButton, "scale", Vector2(1,1),0.15)
 
 func _on_play_button_pressed() -> void:
-	DATA.loadSceneWithScreen("res://Scenes/PuzzleRooms/Puzzle0.tscn")
+	DATA.loadSceneWithScreen("res://Scenes/MAIN.tscn")
 
 func _ready():
 	resetAllElementsToInit()

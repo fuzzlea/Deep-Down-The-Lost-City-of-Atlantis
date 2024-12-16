@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3b4qopkfh2xw"]
+
+[ext_resource type="Script" path="res://Scripts/Controllers/Other/DialogueController.gd" id="1_43qsk"]
+[ext_resource type="FontFile" uid="uid://c0i0bwetryj44" path="res://Saves/Fonts/Code.ttf" id="2_m3sy5"]
+
+[sub_resource type="Gradient" id="Gradient_168ei"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.404511, 0.404511, 0.404511, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4ocqh"]
+gradient = SubResource("Gradient_168ei")
+
+[sub_resource type="LabelSettings" id="LabelSettings_gm2hr"]
+font = ExtResource("2_m3sy5")
+font_size = 32
+
+[node name="Dialogue" type="CanvasLayer"]
+script = ExtResource("1_43qsk")
+
+[node name="BG" type="TextureRect" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -777.0
+offset_top = -259.0
+offset_right = 777.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("GradientTexture1D_4ocqh")
+
+[node name="Dialogue" type="Label" parent="BG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = 22.0
+offset_right = -22.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "so this would be dialogue if dialogue existed"
+label_settings = SubResource("LabelSettings_gm2hr")
+
+[node name="Next" type="Button" parent="BG"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -53.0
+offset_top = -39.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Next"
+flat = true
+
+[connection signal="pressed" from="BG/Next" to="." method="_on_next_pressed"]

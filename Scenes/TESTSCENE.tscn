@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://5afrtn7sabvx" path="res://Assets/Singles (Misc)/Collectibles/Relics/Poseidons Trident.png" id="9_3v4aa"]
 [ext_resource type="PackedScene" uid="uid://cpda0n4yr0rjy" path="res://Scenes/Singles (Misc)/Telepad.tscn" id="15_k5k6g"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c8vo7"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o4w40"]
 texture = ExtResource("1_s8bq8")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 1.1875, -8, -3.0625, -3.1875, -8, 8, 1.1875, 8, 1.9375, 1.1875, 8, -2.3125)
@@ -90,7 +90,7 @@ texture = ExtResource("1_s8bq8")
 [sub_resource type="TileSet" id="TileSet_rejgt"]
 physics_layer_0/collision_layer = 3
 physics_layer_0/collision_mask = 3
-sources/1 = SubResource("TileSetAtlasSource_c8vo7")
+sources/1 = SubResource("TileSetAtlasSource_o4w40")
 
 [node name="Node2D" type="Node2D"]
 

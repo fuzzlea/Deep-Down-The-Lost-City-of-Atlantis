@@ -24,8 +24,6 @@ func _ready():
 	Player.emit_signal("disableMovement")
 	Crab.emit_signal("disableMovement")
 	
-	await get_tree().create_timer(7).timeout
-	
 	var firstTween = CAMERA.zoomTo(Vector2(177,255), Vector2(5,5), {"Time": 1.5, "Transition": Tween.TRANS_SINE})
 	
 	await firstTween.finished

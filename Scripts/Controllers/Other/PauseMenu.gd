@@ -43,6 +43,7 @@ func pageController(page):
 	if not newPage: return
 	
 	var p = newPage.duplicate()
+	p.position = Vector2(0,0)
 	Content.add_child(p)
 
 func clickButton(button):

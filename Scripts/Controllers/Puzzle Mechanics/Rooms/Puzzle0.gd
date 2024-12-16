@@ -5,6 +5,8 @@ extends Node2D
 @onready var Kelp = $KelpLine
 @onready var Crab = $Crab
 
+var LoadingScreen
+
 var crabReachedKelp : bool = false:
 	set(val):
 		if val == true:
@@ -18,9 +20,11 @@ var crabReachedKelp : bool = false:
 			CAMERA.resetCameraBackToPlayer()
 
 func _ready():
+	
+	Player.emit_signal("disableMovement")
 	Crab.emit_signal("disableMovement")
 	
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(7).timeout
 	
 	var firstTween = CAMERA.zoomTo(Vector2(177,255), Vector2(5,5), {"Time": 1.5, "Transition": Tween.TRANS_SINE})
 	
@@ -35,6 +39,7 @@ func _ready():
 	CAMERA.resetCameraBackToPlayer()
 	
 	Crab.emit_signal("enableMovement")
+	Player.emit_signal("enableMovement")
 
 func _process(_delta: float) -> void:
 	if Crab.global_position.x >= 378:

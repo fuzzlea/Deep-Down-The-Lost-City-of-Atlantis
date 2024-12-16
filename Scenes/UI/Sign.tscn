@@ -1,0 +1,69 @@
+[gd_scene load_steps=4 format=3 uid="uid://cogh72ghln3dt"]
+
+[ext_resource type="Texture2D" uid="uid://b6rv57dmrjvh" path="res://Assets/UI/SignUI.png" id="1_7gu1f"]
+[ext_resource type="FontFile" uid="uid://c0i0bwetryj44" path="res://Saves/Fonts/Code.ttf" id="1_i7sub"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ipo7l"]
+font = ExtResource("1_i7sub")
+font_size = 32
+font_color = Color(0, 0, 0, 0.27451)
+outline_size = 2
+outline_color = Color(0, 0, 0, 0.270588)
+shadow_color = Color(0, 0, 0, 0.0745098)
+shadow_offset = Vector2(3, 3)
+
+[node name="Sign" type="CanvasLayer"]
+
+[node name="SignDisplay" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -444.0
+offset_top = -240.0
+offset_right = 444.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(444, 240)
+texture = ExtResource("1_7gu1f")
+
+[node name="Label" type="Label" parent="SignDisplay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 57.0
+offset_top = 31.0
+offset_right = -58.0
+offset_bottom = -67.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "so if there were ot be a lot of text here, would this look good and fire and cool and tommy is gay as FUCK and hes so stupid and nobody really likes the freak hoe of a child, bro got dropped on his head when he was a baby, bro is a goober and almost only had one testicle. bro is codependant on savannah like a little bitch boy"
+label_settings = SubResource("LabelSettings_ipo7l")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="SignDisplay"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -127.0
+offset_top = -87.0
+offset_right = -74.0
+offset_bottom = -18.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_hover_pressed_color = Color(0.753984, 0.753984, 0.753984, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.450648, 0.450648, 0.450648, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 0.372549)
+theme_override_fonts/font = ExtResource("1_i7sub")
+theme_override_font_sizes/font_size = 60
+text = ">"
+flat = true

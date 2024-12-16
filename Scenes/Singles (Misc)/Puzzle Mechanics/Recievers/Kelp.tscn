@@ -17,6 +17,7 @@ height = 16.0
 
 [node name="Kelp" type="RigidBody2D"]
 gravity_scale = 0.0
+freeze = true
 script = ExtResource("2_qv77d")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]

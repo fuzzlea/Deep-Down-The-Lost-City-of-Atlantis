@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cl3p7j5m04wta"]
+[gd_scene load_steps=11 format=3 uid="uid://cl3p7j5m04wta"]
 
 [ext_resource type="Script" path="res://Scripts/Controllers/Puzzle Mechanics/Rooms/Puzzle0.gd" id="1_cno2r"]
 [ext_resource type="Texture2D" uid="uid://ce287xw4w076n" path="res://Assets/Environment/Alantis.png" id="1_p0u1e"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cgwxc505nmthr" path="res://Scenes/Enemies/Crab.tscn" id="4_n4asd"]
 [ext_resource type="PackedScene" uid="uid://b3doegw7008ca" path="res://Scenes/Singles (Misc)/Collectable.tscn" id="6_djfop"]
 [ext_resource type="Texture2D" uid="uid://doqf6am7de5q" path="res://Assets/Singles (Misc)/Collectibles/Relics/Pressure Gloves.png" id="7_s5liv"]
+[ext_resource type="PackedScene" uid="uid://bfyhdkkxtyov0" path="res://Scenes/Singles (Misc)/Sign.tscn" id="8_xdhqk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_crq3n"]
 texture = ExtResource("1_p0u1e")
@@ -117,7 +118,7 @@ layer_4/tile_data = PackedInt32Array(1769484, 65536, 9, 1835020, 0, 9, 1835021, 
 
 [node name="Player" parent="." instance=ExtResource("2_7bmgd")]
 z_index = 2
-position = Vector2(190, 358)
+position = Vector2(238, 365)
 
 [node name="KelpLine" type="Node2D" parent="."]
 z_index = 2
@@ -191,3 +192,7 @@ position = Vector2(584, 359)
 texture = ExtResource("7_s5liv")
 metadata/CollectableName = "Pressure Gloves"
 metadata/IsRelic = true
+
+[node name="Sign" parent="." instance=ExtResource("8_xdhqk")]
+position = Vector2(168, 370)
+DisplayText = "Crabs can use their claws to cut through certain walls you can't pass through."

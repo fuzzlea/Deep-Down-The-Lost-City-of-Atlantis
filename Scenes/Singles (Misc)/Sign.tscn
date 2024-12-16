@@ -7,10 +7,15 @@
 radius = 15.1327
 
 [node name="Sign" type="Area2D"]
+monitoring = false
+priority = 2
 script = ExtResource("1_ovj5t")
+metadata/Interactable = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_gij4e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_gmjr6")
+
+[connection signal="Interact" from="." to="." method="_on_interact"]

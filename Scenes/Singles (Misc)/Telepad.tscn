@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpda0n4yr0rjy"]
+
+[ext_resource type="Script" path="res://Scripts/Controllers/Other/Telepad.gd" id="1_icaax"]
+[ext_resource type="Texture2D" uid="uid://7k1b1a25qr01" path="res://Assets/Singles (Misc)/Puzzle Mechanics/Senders/Telepad ON.png" id="2_yg102"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w62q8"]
+radius = 15.1327
+
+[node name="Telepad" type="Area2D"]
+script = ExtResource("1_icaax")
+metadata/Interactable = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_w62q8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_yg102")
+
+[connection signal="Interact" from="." to="." method="_on_interact"]

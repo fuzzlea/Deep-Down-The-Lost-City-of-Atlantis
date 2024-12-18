@@ -42,7 +42,7 @@ func _ready():
 	await $Telepad.Ran
 	
 	DATA.Data["TutorialsCompleted"].append("CrabsAndKelp")
-	print(DATA.Data)
+	
 
 func _process(_delta: float) -> void:
 	if Crab.global_position.x >= 378:

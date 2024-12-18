@@ -66,10 +66,10 @@ grow_vertical = 2
 texture = SubResource("GradientTexture1D_elge5")
 
 [node name="Boat" type="TextureRect" parent="."]
-offset_left = -215.0
-offset_top = 933.0
-offset_right = -61.0
-offset_bottom = 1087.0
+offset_left = -191.0
+offset_top = 1117.0
+offset_right = -37.0
+offset_bottom = 1271.0
 pivot_offset = Vector2(77, 77)
 texture = ExtResource("2_eeqjw")
 

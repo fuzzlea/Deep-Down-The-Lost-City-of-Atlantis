@@ -62,7 +62,7 @@ func resetCameraBackToPlayer():
 	Player.emit_signal("disableMovement")
 	
 	var cameraTween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_parallel(true)
-	cameraTween.tween_property(CurrentCamera, "zoom", Vector2(3,3), 0.5)
+	cameraTween.tween_property(CurrentCamera, "zoom", Vector2(3.5,3.5), 0.5)
 	cameraTween.tween_property(CurrentCamera, "position", Vector2(0,0), 0.5)
 	cameraTween.tween_property(CurrentCamera, "global_position", Player.global_position, 0.5)
 	

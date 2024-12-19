@@ -18,7 +18,7 @@ func typeWrite(text : String, speed = 0.02):
 
 func killDialogue(): 
 	var t = $BG.create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BACK)
-	t.tween_property($BG, "position", Vector2(183, 1100), 0.5)
+	t.tween_property($BG, "position", Vector2(160, 1000), 0.5)
 	
 	await t.finished
 	
@@ -41,13 +41,13 @@ func nextButtonClicked():
 func animateIn():
 	var t = $BG.create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK).set_parallel(true)
 	
-	t.tween_property($BG, "position", Vector2(183, 821), 0.5)
+	t.tween_property($BG, "position", Vector2(160, 680), 0.5)
 	
 	return t
 
 func _ready():
 	
-	$BG.position = Vector2(183, 1100)
+	$BG.position = Vector2(160, 1000)
 	$BG/Dialogue.text = ""
 	
 	await animateIn().finished

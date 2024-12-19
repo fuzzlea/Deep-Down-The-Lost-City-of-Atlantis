@@ -7,6 +7,9 @@ signal Ran
 @export var pathToScene : String
 
 func Telepad():
+	
+	var t = CAMERA.zoomTo(self.position, Vector2(10,10))
+	
 	DATA.loadSceneWithScreen(pathToScene)
 	Ran.emit()
 

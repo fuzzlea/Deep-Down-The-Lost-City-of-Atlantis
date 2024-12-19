@@ -5,5 +5,3 @@ USER ERROR: Condition "f.is_null()" is true.
 
 USER WARNING: Target object freed before starting, aborting Tweener.
    at: start (scene/animation/tween.cpp:550)
-USER WARNING: Target object freed before starting, aborting Tweener.
-   at: start (scene/animation/tween.cpp:550)

@@ -282,8 +282,19 @@ vertical_alignment = 1
 
 [node name="BackgroundElements" type="Node" parent="."]
 
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -56.0
+offset_right = 243.0
+grow_vertical = 0
+text = "crash"
+
 [connection signal="button_down" from="PlayButton" to="." method="_on_play_button_button_down"]
 [connection signal="button_up" from="PlayButton" to="." method="_on_play_button_button_up"]
 [connection signal="mouse_entered" from="PlayButton" to="." method="_on_play_button_mouse_entered"]
 [connection signal="mouse_exited" from="PlayButton" to="." method="_on_play_button_mouse_exited"]
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

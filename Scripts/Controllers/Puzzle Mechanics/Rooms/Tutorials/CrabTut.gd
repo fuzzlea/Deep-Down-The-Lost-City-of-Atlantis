@@ -26,6 +26,11 @@ func _ready():
 	
 	var firstTween = CAMERA.zoomTo(Vector2(177,255), Vector2(5,5), {"Time": 1.5, "Transition": Tween.TRANS_SINE})
 	
+	DIALOGUE.newDialogue([
+		"Crabs are going to be crucial during your exploration.",
+		"They can cut through any leafy / weak object."
+		])
+	
 	await firstTween.finished
 	await get_tree().create_timer(0.5).timeout
 	
@@ -41,7 +46,7 @@ func _ready():
 	
 	await $Telepad.Ran
 	
-	DATA.Data["TutorialsCompleted"].append("CrabsAndKelp")
+	if not DATA.Data["TutorialsCompleted"].has("CrabsAndKelp"): DATA.Data["TutorialsCompleted"].append("CrabsAndKelp")
 	
 
 func _process(_delta: float) -> void:

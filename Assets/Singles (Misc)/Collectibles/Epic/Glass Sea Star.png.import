@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://shdd0i6njer3"
-path="res://.godot/imported/Golden Spork.png-510616fcb17c7589a9c7cd7197cfa8f2.ctex"
+uid="uid://b3wypqshfi2dn"
+path="res://.godot/imported/Glass Sea Star.png-072b3c3f37dce79ae53a213f58ac4eb2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Singles (Misc)/Collectibles/Legendary/Golden Spork.png"
-dest_files=["res://.godot/imported/Golden Spork.png-510616fcb17c7589a9c7cd7197cfa8f2.ctex"]
+source_file="res://Assets/Singles (Misc)/Collectibles/Epic/Glass Sea Star.png"
+dest_files=["res://.godot/imported/Glass Sea Star.png-072b3c3f37dce79ae53a213f58ac4eb2.ctex"]
 
 [params]
 

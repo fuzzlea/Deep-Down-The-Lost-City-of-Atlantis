@@ -23,11 +23,16 @@ CAMERA="*res://Scripts/Globals/CameraController.gd"
 SIGN="*res://Scripts/Globals/Sign.gd"
 DIALOGUE="*res://Scripts/Globals/Dialogue.gd"
 
+[debug]
+
+file_logging/enable_file_logging=true
+file_logging/log_path="./logs"
+
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=2
+window/size/mode=3
 window/size/resizable=false
 
 [dotnet]
@@ -113,6 +118,10 @@ Player-Pause={
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Enemy"
 2d_physics/layer_3="Walls"
+
+[navigation]
+
+baking/use_crash_prevention_checks=false
 
 [rendering]
 

@@ -115,28 +115,29 @@ position = Vector2(202, 476)
 [node name="TutorialArea" type="Node" parent="."]
 
 [node name="Telepad" parent="TutorialArea" instance=ExtResource("4_ab80a")]
-position = Vector2(167, 471)
+position = Vector2(168, 471)
+pathToScene = "res://Scenes/Tutorials/BasicMovementTut.tscn"
 
 [node name="Telepad2" parent="TutorialArea" instance=ExtResource("4_ab80a")]
-position = Vector2(232, 472)
+position = Vector2(232, 471)
 pathToScene = "res://Scenes/Tutorials/CrabTut.tscn"
 
 [node name="Telepad3" parent="TutorialArea" instance=ExtResource("4_ab80a")]
-position = Vector2(297, 472)
+position = Vector2(296, 471)
 
 [node name="Sign" parent="TutorialArea" instance=ExtResource("4_hnptm")]
-position = Vector2(141, 446)
+position = Vector2(142, 446)
 DisplayText = "Basic Movement Tutorial"
 
 [node name="Sign2" parent="TutorialArea" instance=ExtResource("4_hnptm")]
-position = Vector2(208, 446)
+position = Vector2(208, 445)
 DisplayText = "Crabs and Kelp"
 
 [node name="Sign3" parent="TutorialArea" instance=ExtResource("4_hnptm")]
-position = Vector2(273, 446)
+position = Vector2(272, 445)
 DisplayText = "Relics Tutorial"
 
 [node name="Sign" parent="." instance=ExtResource("4_hnptm")]
-z_index = 3
+z_index = 1
 position = Vector2(218, 681)
 DisplayText = "Pause the game using  ESC  "

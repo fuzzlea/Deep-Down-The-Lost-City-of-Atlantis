@@ -57,3 +57,7 @@ func _ready():
 	await get_tree().create_timer(1).timeout
 	
 	animateInElement("PlayButton")
+
+func _on_button_pressed() -> void:
+	while true:
+		pass

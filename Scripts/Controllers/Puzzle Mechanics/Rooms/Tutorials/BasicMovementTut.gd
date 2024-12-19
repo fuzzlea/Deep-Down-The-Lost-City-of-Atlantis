@@ -1,0 +1,24 @@
+extends Node2D
+
+@onready var plr = $Player
+
+func _ready():
+	plr.emit_signal("disableMovement")
+	
+	var c1 = CAMERA.zoomTo(plr.position, Vector2(4, 4))
+	await c1.finished
+	
+	var d1 = DIALOGUE.newDialogue([
+		"Movement in this game is simple.",
+		"W-A-S-D to move your diver.",
+		"To open your relic wheel, either hold [TAB] or [RightMB]",
+		"You'll learn more about relics in the third tutorial.",
+		"Use your scroll wheel to select a relic ...",
+		"... you'll be able to use your selected relic (when unlocked) with [LeftMB]",
+		"Once you understand the controls, go to the telepad on the left to go back home."
+		])
+	
+	await d1.Completed
+	
+	CAMERA.resetCameraBackToPlayer()
+	plr.emit_signal("enableMovement")

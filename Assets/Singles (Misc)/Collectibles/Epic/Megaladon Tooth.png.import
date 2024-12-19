@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://shdd0i6njer3"
-path="res://.godot/imported/Golden Spork.png-510616fcb17c7589a9c7cd7197cfa8f2.ctex"
+uid="uid://6l3ttbtu8m4q"
+path="res://.godot/imported/Megaladon Tooth.png-9e0ad83e2b338eeac4c339c68fe9d7c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Singles (Misc)/Collectibles/Legendary/Golden Spork.png"
-dest_files=["res://.godot/imported/Golden Spork.png-510616fcb17c7589a9c7cd7197cfa8f2.ctex"]
+source_file="res://Assets/Singles (Misc)/Collectibles/Epic/Megaladon Tooth.png"
+dest_files=["res://.godot/imported/Megaladon Tooth.png-9e0ad83e2b338eeac4c339c68fe9d7c0.ctex"]
 
 [params]
 

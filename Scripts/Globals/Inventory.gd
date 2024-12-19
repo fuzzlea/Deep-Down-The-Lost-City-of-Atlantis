@@ -57,15 +57,80 @@ extends Node
 	
 	"Tadpole Statue": {
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Tadpole Statue.png"
-	}
+	},
 	
 	# Uncommon #
 	
+	"Checkers Piece": {
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Uncommon/Checkers Piece.png"
+	},
+	
+	"Conch Shell": {
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Uncommon/Conch Shell.png"
+	},
+	
+	"Fork": {
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Uncommon/Fork.png"
+	},
+	
+	"Gull Statue": {
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Uncommon/Gull Statue.png"
+	},
+	
+	"Knights Helm": {
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Uncommon/Knights Helm.png"
+	},
+	
+	"Pearl Beads": {
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Uncommon/Peral Beads.png"
+	},
+	
 	# Rare #
+	
+	"Golden Mask": {
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Rare/Golden Mask.png"
+	},
+	
+	"Sunfish Statue": {
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Rare/Sunfish Satue.png"
+	},
+	
+	"Tidal Mosaic Tile": {
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Rare/Sunfish Satue.png"
+	},
 	
 	# Epic #
 	
+	"Ceremonial Sea Shell": {
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Epic/Ceremonial Sea Shell.png"
+	},
+	
+	"Glass Sea Star": {
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Epic/Glass Sea Star.png"
+	},
+	
+	"Megaladon Tooth": {
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Epic/Megaladon Tooth.png"
+	},
+	
+	"Obsidian Necklace": {
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Epic/Obsidian Necklace.png"
+	},
+	
 	# Legendary #
+	
+	"Coral Crown Fragment": {
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Legendary/Coral Crown Fragment.png"
+	},
+	
+	"Golden Spork": {
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Legendary/Golden Spork.png"
+	},
+	
+	"Poseidons Crown": {
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Legendary/Poseidons Crown.png"
+	},
+	
 }
 
 @export var relicInformation : Dictionary = {

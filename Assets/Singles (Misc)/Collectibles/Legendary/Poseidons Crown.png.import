@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://csidrlosfxytp"
-path="res://.godot/imported/Poseidons Crown.png-9bfa19410a9720cd5b021a53edb5ace6.ctex"
+path="res://.godot/imported/Poseidons Crown.png-d764e6648506aecc12f999b516cfddbb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Singles (Misc)/Collectibles/Rare/Poseidons Crown.png"
-dest_files=["res://.godot/imported/Poseidons Crown.png-9bfa19410a9720cd5b021a53edb5ace6.ctex"]
+source_file="res://Assets/Singles (Misc)/Collectibles/Legendary/Poseidons Crown.png"
+dest_files=["res://.godot/imported/Poseidons Crown.png-d764e6648506aecc12f999b516cfddbb.ctex"]
 
 [params]
 

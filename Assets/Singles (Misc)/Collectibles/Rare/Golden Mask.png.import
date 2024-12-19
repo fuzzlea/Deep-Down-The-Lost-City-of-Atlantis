@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://orp2fa5evclt"
-path="res://.godot/imported/Chess Piece.png-700224ff8572dcfab3886b454c1ff604.ctex"
+uid="uid://3ataxmubssrm"
+path="res://.godot/imported/Golden Mask.png-4769634d1689948ce609c86e86159908.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Singles (Misc)/Collectibles/Rare/Chess Piece.png"
-dest_files=["res://.godot/imported/Chess Piece.png-700224ff8572dcfab3886b454c1ff604.ctex"]
+source_file="res://Assets/Singles (Misc)/Collectibles/Rare/Golden Mask.png"
+dest_files=["res://.godot/imported/Golden Mask.png-4769634d1689948ce609c86e86159908.ctex"]
 
 [params]
 

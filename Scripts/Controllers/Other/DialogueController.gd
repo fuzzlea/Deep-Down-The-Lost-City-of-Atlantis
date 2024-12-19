@@ -58,4 +58,8 @@ func _ready():
 	typeWrite(Dialogue[Index])
 
 func _on_next_pressed() -> void:
+	
 	nextButtonClicked()
+	
+	if Input.is_key_pressed(KEY_SHIFT):
+		killDialogue()

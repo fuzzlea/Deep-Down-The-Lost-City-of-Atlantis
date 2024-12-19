@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://shdd0i6njer3"
-path="res://.godot/imported/Golden Spork.png-510616fcb17c7589a9c7cd7197cfa8f2.ctex"
+uid="uid://bite7sh2l1pww"
+path="res://.godot/imported/Obsidian Necklace.png-776aa626212a2ae2dc5d7fd4be155732.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Singles (Misc)/Collectibles/Legendary/Golden Spork.png"
-dest_files=["res://.godot/imported/Golden Spork.png-510616fcb17c7589a9c7cd7197cfa8f2.ctex"]
+source_file="res://Assets/Singles (Misc)/Collectibles/Epic/Obsidian Necklace.png"
+dest_files=["res://.godot/imported/Obsidian Necklace.png-776aa626212a2ae2dc5d7fd4be155732.ctex"]
 
 [params]
 

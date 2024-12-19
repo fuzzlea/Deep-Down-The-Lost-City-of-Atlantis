@@ -19,10 +19,11 @@ extends Node
 	#"Relics": {},
 }
 
-@onready var loadingScreen = preload("res://Scenes/UI/LoadingScreen.tscn")
-
 func loadSceneWithScreen(scenePath : String):
+	
+	var loadingScreen = preload("res://Scenes/UI/LoadingScreen.tscn")
+	
 	var newLoadingScreen = loadingScreen.instantiate()
 	newLoadingScreen.nextScenePath = scenePath
 	
-	get_tree().get_root().add_child(newLoadingScreen)
+	if newLoadingScreen: get_tree().get_root().add_child(newLoadingScreen)

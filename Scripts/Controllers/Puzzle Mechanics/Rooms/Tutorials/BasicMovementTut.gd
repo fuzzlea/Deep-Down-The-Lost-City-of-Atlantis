@@ -22,3 +22,6 @@ func _ready():
 	
 	CAMERA.resetCameraBackToPlayer()
 	plr.emit_signal("enableMovement")
+
+func _on_telepad_ran() -> void:
+	if not DATA.Data["TutorialsCompleted"].has("BasicMovement"): DATA.Data["TutorialsCompleted"].append("BasicMovement")

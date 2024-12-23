@@ -124,6 +124,7 @@ pathToScene = "res://Scenes/Tutorials/CrabTut.tscn"
 
 [node name="Telepad3" parent="TutorialArea" instance=ExtResource("4_ab80a")]
 position = Vector2(296, 471)
+pathToScene = "res://Scenes/Tutorials/RelicTut.tscn"
 
 [node name="Sign" parent="TutorialArea" instance=ExtResource("4_hnptm")]
 position = Vector2(142, 446)

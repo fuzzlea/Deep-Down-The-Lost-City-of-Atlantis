@@ -22,6 +22,14 @@ var Dialogues = {
 	]
 }
 
+func checkData():
+	if DATA.Data["TutorialsCompleted"].has("BasicMovement"):
+		$TutorialArea/Telepad.get_child(1).texture = load("res://Assets/Singles (Misc)/Puzzle Mechanics/Senders/Telepad OFF.png")
+		$TutorialArea/Telepad.get_child(2).queue_free()
+	if DATA.Data["TutorialsCompleted"].has("CrabsAndKelp"):
+		$TutorialArea/Telepad2.get_child(1).texture = load("res://Assets/Singles (Misc)/Puzzle Mechanics/Senders/Telepad OFF.png")
+		$TutorialArea/Telepad2.get_child(2).queue_free()
+
 func _ready():
 	if DATA.COMPLETED_INIT_PROCESS == false:
 		plr.emit_signal("disableMovement")
@@ -49,3 +57,5 @@ func _ready():
 		
 		plr.emit_signal("enableMovement")
 		DATA.COMPLETED_INIT_PROCESS = true
+	
+	checkData()

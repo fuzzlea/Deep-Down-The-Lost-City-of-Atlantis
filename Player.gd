@@ -77,7 +77,7 @@ var pushDirectionHashmap : Dictionary = {
 
 var relicWheelOpen : bool :
 	set(value):
-		if CAMERA.Busy: return
+		#if CAMERA.Busy: return
 		relicWheelOpen = value
 		
 		initRelicWheel()
@@ -328,6 +328,8 @@ func _ready():
 	InteractionIcon.scale = Vector2(0,0)
 	
 	relicWheelOpen = false
+	#RelicWheelUI.position = Vector2(get_viewport().size.x / 2 - (RelicWheelUI.size.x / 2), get_viewport().size.y)
+	
 	initRelicWheel()
 	relicWheelScroll("None")
 

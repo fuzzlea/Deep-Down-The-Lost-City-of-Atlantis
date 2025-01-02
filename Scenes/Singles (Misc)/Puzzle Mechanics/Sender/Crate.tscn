@@ -9,7 +9,7 @@ _data = [Vector2(0.0280899, 1), 0.0, 0.0, 0, 0, Vector2(0.792135, 1), 0.0, 0.0, 
 point_count = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cegv3"]
-size = Vector2(16, 16)
+size = Vector2(14, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3v4j"]
 size = Vector2(16, 16)
@@ -19,7 +19,7 @@ y_sort_enabled = true
 mass = 10.0
 gravity_scale = 0.0
 lock_rotation = true
-linear_damp = 5.0
+linear_damp = 10.0
 script = ExtResource("1_byfhj")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]

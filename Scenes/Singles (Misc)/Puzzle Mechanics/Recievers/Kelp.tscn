@@ -52,4 +52,5 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitRange"]
 shape = SubResource("CapsuleShape2D_spoem")
 
+[connection signal="Recieve" from="." to="." method="_on_recieve"]
 [connection signal="area_entered" from="HitRange" to="." method="_on_hit_range_area_entered"]

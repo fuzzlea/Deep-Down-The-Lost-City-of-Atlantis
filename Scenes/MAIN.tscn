@@ -127,15 +127,15 @@ position = Vector2(296, 471)
 pathToScene = "res://Scenes/Tutorials/RelicTut.tscn"
 
 [node name="Sign" parent="TutorialArea" instance=ExtResource("4_hnptm")]
-position = Vector2(142, 446)
+position = Vector2(150, 454)
 DisplayText = "Basic Movement Tutorial"
 
 [node name="Sign2" parent="TutorialArea" instance=ExtResource("4_hnptm")]
-position = Vector2(208, 445)
+position = Vector2(216, 453)
 DisplayText = "Crabs and Kelp"
 
 [node name="Sign3" parent="TutorialArea" instance=ExtResource("4_hnptm")]
-position = Vector2(272, 445)
+position = Vector2(280, 453)
 DisplayText = "Relics Tutorial"
 
 [node name="Sign" parent="." instance=ExtResource("4_hnptm")]

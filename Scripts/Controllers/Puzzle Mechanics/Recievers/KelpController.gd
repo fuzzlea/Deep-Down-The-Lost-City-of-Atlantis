@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+signal Recieve
+
 @export var KelpLineNode : Node2D
 @export var KelpImagePath : String = "res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Kelp.png"
 
@@ -54,3 +56,7 @@ func _on_hit_range_area_entered(area: Area2D) -> void:
 				return
 			_:
 				pass
+
+func _on_recieve() -> void:
+	print("Recieved")
+	cut("n/a")

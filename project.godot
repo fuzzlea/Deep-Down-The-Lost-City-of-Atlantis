@@ -45,7 +45,8 @@ folder_colors={
 "res://Assets/": "red",
 "res://Saves/": "purple",
 "res://Scenes/": "blue",
-"res://Scripts/": "green"
+"res://Scripts/": "green",
+"res://Sounds/": "pink"
 }
 
 [gui]

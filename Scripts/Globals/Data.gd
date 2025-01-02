@@ -1,6 +1,6 @@
 extends Node
 
-@export var COMPLETED_INIT_PROCESS = true
+@export var COMPLETED_INIT_PROCESS = false
 
 @export var Data : Dictionary = {
 	"Relics": {

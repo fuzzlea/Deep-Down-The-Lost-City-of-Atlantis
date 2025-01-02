@@ -28,8 +28,8 @@ func initAllButtonPos():
 	$Book/Settings/Label.position.x = 0
 
 func page_Profile():
-	$Pages/ProfilePage/collectables.text = "Collectables: " + str(INVENTORY.Inventory.size()) + " / " + str(INVENTORY.ItemInformation.size())
-	$Pages/ProfilePage/died.text = "Died: " + str(INVENTORY.Stats["Died"])
+	$Pages/ProfilePage/collectables.text = "collectables: " + str(INVENTORY.Inventory.size()) + " / " + str(INVENTORY.ItemInformation.size())
+	$Pages/ProfilePage/died.text = "died: " + str(INVENTORY.Stats["Died"])
 
 func pageController(page):
 	var newPage

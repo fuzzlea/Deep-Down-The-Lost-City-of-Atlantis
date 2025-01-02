@@ -38,6 +38,18 @@ func nextButtonClicked():
 	
 	typeWrite(Dialogue[Index])
 
+func resetButtonScale():
+	var tween = self.create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+	tween.tween_property($BG/Next, "scale", Vector2(1,1),.2)
+
+func scaleButtonDown():
+	var tween = self.create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+	tween.tween_property($BG/Next, "scale", Vector2(.95,.95),.2)
+
+func scaleButtonUp():
+	var tween = self.create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+	tween.tween_property($BG/Next, "scale", Vector2(1.2,1.2),.2)
+
 func animateIn():
 	var t = $BG.create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK).set_parallel(true)
 	

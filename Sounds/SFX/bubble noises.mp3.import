@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://nbhwxiji5eku"
+path="res://.godot/imported/bubble noises.mp3-945d08ec956cdc16ef5bcede883dd503.mp3str"
+
+[deps]
+
+source_file="res://Sounds/SFX/bubble noises.mp3"
+dest_files=["res://.godot/imported/bubble noises.mp3-945d08ec956cdc16ef5bcede883dd503.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

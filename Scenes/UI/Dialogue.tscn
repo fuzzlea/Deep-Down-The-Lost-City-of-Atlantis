@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3b4qopkfh2xw"]
+[gd_scene load_steps=6 format=3 uid="uid://b3b4qopkfh2xw"]
 
 [ext_resource type="Script" path="res://Scripts/Controllers/Other/DialogueController.gd" id="1_43qsk"]
 [ext_resource type="Texture2D" uid="uid://djxbo1rjjemfe" path="res://Assets/UI/Text Box.png" id="2_d0lvg"]
 [ext_resource type="FontFile" uid="uid://cposao4wfhx0p" path="res://Saves/Fonts/DigitalDisco.ttf" id="3_udsog"]
+[ext_resource type="Texture2D" uid="uid://cpauhr1c0lfxp" path="res://Assets/UI/Text Box Next.png" id="4_mnr0u"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gm2hr"]
 font = ExtResource("3_udsog")
@@ -42,20 +43,25 @@ text = "so this would be dialogue if dialogue existed"
 label_settings = SubResource("LabelSettings_gm2hr")
 autowrap_mode = 2
 
-[node name="Next" type="Button" parent="BG"]
+[node name="Next" type="TextureButton" parent="BG"]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -22.5
-offset_top = -63.0
-offset_right = 22.5
-offset_bottom = -32.0
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = 122.5
+offset_right = 54.0
+offset_bottom = 230.5
 grow_horizontal = 2
-grow_vertical = 0
-text = "Next"
-flat = true
+grow_vertical = 2
+pivot_offset = Vector2(54, 54)
+texture_normal = ExtResource("4_mnr0u")
+stretch_mode = 0
 
+[connection signal="button_down" from="BG/Next" to="." method="scaleButtonDown"]
+[connection signal="button_up" from="BG/Next" to="." method="scaleButtonUp"]
+[connection signal="mouse_entered" from="BG/Next" to="." method="scaleButtonUp"]
+[connection signal="mouse_exited" from="BG/Next" to="." method="resetButtonScale"]
 [connection signal="pressed" from="BG/Next" to="." method="_on_next_pressed"]

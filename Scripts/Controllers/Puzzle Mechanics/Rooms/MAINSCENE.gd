@@ -23,12 +23,23 @@ var Dialogues = {
 }
 
 func checkData():
+	
+	for telepad in $PuzzleArea/Telepads.get_children():
+		if DATA.Data["CurrentPuzzle"] >= int(str(telepad.name)):
+			telepad.Locked = false
+			if DATA.Data["CurrentPuzzle"] != int(str(telepad.name)):
+				telepad.get_child(1).texture = load("res://Assets/Singles (Misc)/Puzzle Mechanics/Senders/TelepadCompleted.png")
+				telepad.get_child(2).color = Color.from_string("#25885a", Color())
+	
 	if DATA.Data["TutorialsCompleted"].has("BasicMovement"):
-		$TutorialArea/Telepad.get_child(1).texture = load("res://Assets/Singles (Misc)/Puzzle Mechanics/Senders/Telepad OFF.png")
-		$TutorialArea/Telepad.get_child(2).queue_free()
+		$TutorialArea/Telepad.get_child(1).texture = load("res://Assets/Singles (Misc)/Puzzle Mechanics/Senders/TelepadCompleted.png")
+		$TutorialArea/Telepad.get_child(2).color = Color.from_string("#25885a", Color())
 	if DATA.Data["TutorialsCompleted"].has("CrabsAndKelp"):
-		$TutorialArea/Telepad2.get_child(1).texture = load("res://Assets/Singles (Misc)/Puzzle Mechanics/Senders/Telepad OFF.png")
-		$TutorialArea/Telepad2.get_child(2).queue_free()
+		$TutorialArea/Telepad2.get_child(1).texture = load("res://Assets/Singles (Misc)/Puzzle Mechanics/Senders/TelepadCompleted.png")
+		$TutorialArea/Telepad2.get_child(2).color = Color.from_string("#25885a", Color())
+	if DATA.Data["TutorialsCompleted"].has("RelicTutorial"):
+		$TutorialArea/Telepad3.get_child(1).texture = load("res://Assets/Singles (Misc)/Puzzle Mechanics/Senders/TelepadCompleted.png")
+		$TutorialArea/Telepad3.get_child(2).color = Color.from_string("#25885a", Color())
 
 func _ready():
 	if DATA.COMPLETED_INIT_PROCESS == false:
@@ -58,4 +69,5 @@ func _ready():
 		plr.emit_signal("enableMovement")
 		DATA.COMPLETED_INIT_PROCESS = true
 	
+	CAMERA.resetCameraBackToPlayer()
 	checkData()

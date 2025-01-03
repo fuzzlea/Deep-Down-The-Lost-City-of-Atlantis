@@ -12,11 +12,12 @@ blend_mode = 1
 light_mode = 1
 
 [sub_resource type="Gradient" id="Gradient_2trs5"]
-colors = PackedColorArray(0.521569, 1, 1, 0.682353, 1, 1, 1, 0)
+colors = PackedColorArray(1, 1, 1, 0.682353, 1, 1, 1, 0)
 
 [node name="Telepad" type="Area2D"]
 script = ExtResource("1_icaax")
 metadata/Interactable = true
+metadata/Telepad = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_w62q8")
@@ -44,7 +45,7 @@ orbit_velocity_min = -1.0
 orbit_velocity_max = 1.0
 scale_amount_min = 0.1
 scale_amount_max = 0.2
-color = Color(0.521569, 1, 1, 1)
+color = Color(0.0601733, 0.430174, 0.896936, 1)
 color_ramp = SubResource("Gradient_2trs5")
 
 [connection signal="Interact" from="." to="." method="_on_interact"]

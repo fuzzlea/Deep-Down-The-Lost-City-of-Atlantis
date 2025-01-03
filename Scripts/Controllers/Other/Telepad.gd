@@ -5,6 +5,13 @@ signal Interact(scenePath)
 signal Ran
 
 @export var pathToScene : String
+@export var Locked : bool :
+	set(v):
+		Locked = v
+		
+		if !v:
+			$Sprite2D.texture = load("res://Assets/Singles (Misc)/Puzzle Mechanics/Senders/Telepad ON.png")
+			$CPUParticles2D.visible = true
 
 func Telepad():
 	
@@ -12,6 +19,9 @@ func Telepad():
 	
 	DATA.loadSceneWithScreen(pathToScene)
 	Ran.emit()
+
+func _ready():
+	if Locked: $Sprite2D.texture = load("res://Assets/Singles (Misc)/Puzzle Mechanics/Senders/Telepad OFF.png"); $CPUParticles2D.visible = false
 
 func _on_interact() -> void:
 	Telepad()

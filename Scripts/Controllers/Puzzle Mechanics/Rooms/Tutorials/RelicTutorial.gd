@@ -5,6 +5,7 @@ extends Node2D
 @onready var crate = $Crate
 @onready var button = $Button
 @onready var relic = $Collectable
+@onready var telepad = $Telepad
 
 var Dialogues = {
 	0: [
@@ -66,3 +67,7 @@ func _ready():
 	await CAMERA.resetCameraBackToPlayer()
 	
 	button.Recieve.connect(buttonPressed)
+	
+	telepad.Ran.connect(func():
+		if not DATA.Data["TutorialsCompleted"].has("RelicTutorial"): DATA.Data["TutorialsCompleted"].append("RelicTutorial")
+	)

@@ -395,6 +395,10 @@ func _on_disable_movement() -> void:
 
 func _on_interaction_range_area_entered(area : Area2D):
 	if area.has_meta("Interactable"):
+		
+		if area.has_meta("Telepad"):
+			if area.Locked: return
+		
 		showInteractIcon()
 		itemsInInteractRange.append(area)
 

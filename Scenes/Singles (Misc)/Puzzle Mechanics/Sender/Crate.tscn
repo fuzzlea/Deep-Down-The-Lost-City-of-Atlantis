@@ -9,7 +9,7 @@ _data = [Vector2(0.0280899, 1), 0.0, 0.0, 0, 0, Vector2(0.792135, 1), 0.0, 0.0, 
 point_count = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cegv3"]
-size = Vector2(14, 14)
+size = Vector2(12, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3v4j"]
 size = Vector2(16, 16)

@@ -5,6 +5,8 @@ signal AnimateIn
 @warning_ignore("unused_signal")
 signal AnimateOut
 
+signal PageLoaded
+
 @onready var BG = $BG
 @onready var Book = $Book
 @onready var Content = $Book/Content
@@ -30,6 +32,29 @@ func initAllButtonPos():
 func page_Profile():
 	$Pages/ProfilePage/collectables.text = "collectables: " + str(INVENTORY.Inventory.size()) + " / " + str(INVENTORY.ItemInformation.size())
 	$Pages/ProfilePage/died.text = "died: " + str(INVENTORY.Stats["Died"])
+	$Pages/ProfilePage/puzzles.text = "puzzles completed: " + str(DATA.Data["CurrentPuzzle"])
+
+func page_Collection():
+	
+	await PageLoaded
+	
+	print(INVENTORY.Inventory)
+	
+	for item in INVENTORY.ItemInformation:
+		var newTemp = $Pages/CollectionPage/Templates/ItemTemplate.duplicate()
+		$Book/Content/ContentPage/ScrollContainer/BoxContainer.add_child(newTemp)
+		newTemp.name = item
+		newTemp.get_child(0).texture = load(INVENTORY.ItemInformation[item]["Image"])
+		newTemp.get_child(1).text = "???"
+		newTemp.get_child(2).text = INVENTORY.ItemInformation[item]["Rarity"]
+		newTemp.color = INVENTORY.RarityColors[INVENTORY.ItemInformation[item]["Rarity"]]
+		
+		for itemInInv in INVENTORY.Inventory:
+			if item == itemInInv[0]:
+				newTemp.get_child(1).text = item
+				newTemp.self_modulate = Color.from_string("#ffffff8b", Color())
+				break
+		
 
 func pageController(page):
 	var newPage
@@ -38,13 +63,14 @@ func pageController(page):
 			newPage = $Pages/ProfilePage
 			page_Profile()
 		"Collection":
-			pass
+			newPage = $Pages/CollectionPage
+			page_Collection()
 		"Controls":
-			pass
+			newPage = $Pages/CreditsPage
 		"Settings":
-			pass
+			newPage = $Pages/SettingsPage
 		"Resume":
-			pass
+			pass # keep pass
 		_: print("Page: | " + page + " |\nnot found")
 	
 	if not newPage: return
@@ -52,12 +78,14 @@ func pageController(page):
 	var p = newPage.duplicate()
 	p.position = Vector2(0,20)
 	p.modulate = Color(1,1,1,0)
+	p.name = "ContentPage"
 	
 	var nt = p.create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT).set_parallel(true)
 	nt.tween_property(p, "position", Vector2(0,0), 0.3)
 	nt.tween_property(p, "modulate", Color(1,1,1,1), 0.3)
 	
 	Content.add_child(p)
+	emit_signal("PageLoaded")
 
 func clickButton(button):
 	initAllButtonPos()

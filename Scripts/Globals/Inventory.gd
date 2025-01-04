@@ -1,134 +1,174 @@
 extends Node
 
+@export var RarityColors : Dictionary = {
+	
+	"Common": Color(0.867, 0.863, 0.91),
+	"Uncommon": Color(0.584, 0.922, 0.627),
+	"Rare": Color(0.592, 0.886, 1),
+	"Epic": Color(0.843, 0.592, 1),
+	"Legendary": Color(1, 0.867, 0.42),
+	
+}
+
 @export var ItemInformation : Dictionary = {
 	# Common #
 	
 	"Anchor Pendent": {
-		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Anchor Pendent.png"
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Anchor Pendent.png",
+		"Rarity": "Common"
 	},
 	
 	"Atlantean Bath Token": {
-		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Atlantean Bath Token.png"
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Atlantean Bath Token.png",
+		"Rarity": "Common"
 	},
 	
 	"Atlantean Chess Piece": {
-		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Atlantean Chess Piece.png"
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Atlantean Chess Piece.png",
+		"Rarity": "Common"
 	},
 	
 	"Atlantean Clay Idol": {
-		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Atlantean Clay Idol.png"
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Atlantean Clay Idol.png",
+		"Rarity": "Common"
 	},
 	
 	"Atlantean Feather Quill": {
-		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Atlantean Feather Quill.png"
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Atlantean Feather Quill.png",
+		"Rarity": "Common"
 	},
 	
 	"Atlantean Pottery Shard": {
-		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Atlantean Pottery Shard.png"
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Atlantean Pottery Shard.png",
+		"Rarity": "Common"
 	},
 	
 	"Fish-Scale Hairpin": {
-		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Fish-Scale Hairpin.png"
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Fish-Scale Hairpin.png",
+		"Rarity": "Common"
 	},
 	
 	"Glass Coral Bead Necklace": {
-		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Glass Coral Bead Necklace.png"
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Glass Coral Bead Necklace.png",
+		"Rarity": "Common"
 	},
 	
 	"Puzzle Piece": {
-		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Puzzle Piece.png"
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Puzzle Piece.png",
+		"Rarity": "Common"
 	},
 	
 	"Sand Dollar": {
-		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Sand Dollar.png"
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Sand Dollar.png",
+		"Rarity": "Common"
 	},
 	
 	"Seaweed-Wrapped Scroll": {
-		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Seaweed-Wrapped Scroll.png"
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Seaweed-Wrapped Scroll.png",
+		"Rarity": "Common"
 	},
 	
 	"Spoon": {
-		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Spoon.png"
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Spoon.png",
+		"Rarity": "Common"
 	},
 	
 	"Starfish Clay Plate": {
-		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Starfish Clay Plate.png"
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Starfish Clay Plate.png",
+		"Rarity": "Common"
 	},
 	
 	"Tadpole Statue": {
-		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Tadpole Statue.png"
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Tadpole Statue.png",
+		"Rarity": "Common"
 	},
 	
 	# Uncommon #
 	
 	"Checkers Piece": {
-		"Image": "res://Assets/Singles (Misc)/Collectibles/Uncommon/Checkers Piece.png"
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Uncommon/Checkers Piece.png",
+		"Rarity": "Uncommon"
 	},
 	
 	"Conch Shell": {
-		"Image": "res://Assets/Singles (Misc)/Collectibles/Uncommon/Conch Shell.png"
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Uncommon/Conch Shell.png",
+		"Rarity": "Uncommon"
 	},
 	
 	"Fork": {
-		"Image": "res://Assets/Singles (Misc)/Collectibles/Uncommon/Fork.png"
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Uncommon/Fork.png",
+		"Rarity": "Uncommon"
 	},
 	
 	"Gull Statue": {
-		"Image": "res://Assets/Singles (Misc)/Collectibles/Uncommon/Gull Statue.png"
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Uncommon/Gull Statue.png",
+		"Rarity": "Uncommon"
 	},
 	
 	"Knights Helm": {
-		"Image": "res://Assets/Singles (Misc)/Collectibles/Uncommon/Knights Helm.png"
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Uncommon/Knights Helm.png",
+		"Rarity": "Uncommon"
 	},
 	
 	"Pearl Beads": {
-		"Image": "res://Assets/Singles (Misc)/Collectibles/Uncommon/Peral Beads.png"
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Uncommon/Peral Beads.png",
+		"Rarity": "Uncommon"
 	},
 	
 	# Rare #
 	
 	"Golden Mask": {
-		"Image": "res://Assets/Singles (Misc)/Collectibles/Rare/Golden Mask.png"
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Rare/Golden Mask.png",
+		"Rarity": "Rare"
 	},
 	
 	"Sunfish Statue": {
-		"Image": "res://Assets/Singles (Misc)/Collectibles/Rare/Sunfish Satue.png"
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Rare/Sunfish Satue.png",
+		"Rarity": "Rare"
 	},
 	
 	"Tidal Mosaic Tile": {
-		"Image": "res://Assets/Singles (Misc)/Collectibles/Rare/Sunfish Satue.png"
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Rare/Tidal Mosaic Tile.png",
+		"Rarity": "Rare"
 	},
 	
 	# Epic #
 	
 	"Ceremonial Sea Shell": {
-		"Image": "res://Assets/Singles (Misc)/Collectibles/Epic/Ceremonial Sea Shell.png"
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Epic/Ceremonial Sea Shell.png",
+		"Rarity": "Epic"
 	},
 	
 	"Glass Sea Star": {
-		"Image": "res://Assets/Singles (Misc)/Collectibles/Epic/Glass Sea Star.png"
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Epic/Glass Sea Star.png",
+		"Rarity": "Epic"
 	},
 	
 	"Megaladon Tooth": {
-		"Image": "res://Assets/Singles (Misc)/Collectibles/Epic/Megaladon Tooth.png"
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Epic/Megaladon Tooth.png",
+		"Rarity": "Epic"
 	},
 	
 	"Obsidian Necklace": {
-		"Image": "res://Assets/Singles (Misc)/Collectibles/Epic/Obsidian Necklace.png"
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Epic/Obsidian Necklace.png",
+		"Rarity": "Epic"
 	},
 	
 	# Legendary #
 	
 	"Coral Crown Fragment": {
-		"Image": "res://Assets/Singles (Misc)/Collectibles/Legendary/Coral Crown Fragment.png"
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Legendary/Coral Crown Fragment.png",
+		"Rarity": "Legendary"
 	},
 	
 	"Golden Spork": {
-		"Image": "res://Assets/Singles (Misc)/Collectibles/Legendary/Golden Spork.png"
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Legendary/Golden Spork.png",
+		"Rarity": "Legendary"
 	},
 	
 	"Poseidons Crown": {
-		"Image": "res://Assets/Singles (Misc)/Collectibles/Legendary/Poseidons Crown.png"
+		"Image": "res://Assets/Singles (Misc)/Collectibles/Legendary/Poseidons Crown.png",
+		"Rarity": "Legendary"
 	},
 	
 }

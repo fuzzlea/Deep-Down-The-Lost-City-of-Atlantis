@@ -108,7 +108,10 @@ layer_2/tile_data = PackedInt32Array(3145742, 65537, 2, 3145743, 262145, 2, 3145
 [node name="CamPos" type="Node" parent="."]
 
 [node name="CamPos1" type="Node2D" parent="CamPos"]
-position = Vector2(504, 615)
+position = Vector2(488, 519)
+
+[node name="CamPos3" type="Node2D" parent="CamPos"]
+position = Vector2(583, 648)
 
 [node name="CamPos2" type="Node2D" parent="CamPos"]
 position = Vector2(202, 524)

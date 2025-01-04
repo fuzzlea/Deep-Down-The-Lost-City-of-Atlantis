@@ -5,19 +5,22 @@ extends Node2D
 var Dialogues = {
 	0: [
 		"Welcome to Deep Down: The Lost City of Atlantis.",
-		"Your goal is to complete intricate puzzles ...",
-		"... and discover lost artifacts!",
+		"Your goal is to complete intricate puzzles, and complete your collection of lost artifacts!",
 		"Let's dive in, shall we?"
 	],
 	1: [
-		"Over here you'll find different puzzle rooms for you to complete.",
-		"Be sure to be on the lookout for artifacts to add to your collection!"
+		"Over here you'll find different puzzles for you to complete.",
+	],
+	"1a": [
+		"There are different sections of puzzles, each requiring a different relic to complete.",
+		"You can unlock relics by completing puzzles."
 	],
 	2: [
 		"If you need a tutorial on how to play the game, come over here.",
 		"This will teach you all you need to know about the base mechanics of the game."
 	],
 	3: [
+		"You can view your collection at any time by going to the pause menu.",
 		"Good luck diver!"
 	]
 }
@@ -54,6 +57,12 @@ func _ready():
 		
 		var dialogue2 = DIALOGUE.newDialogue(Dialogues[1])
 		await dialogue2.Completed
+		
+		var camTween1a = CAMERA.zoomTo($CamPos/CamPos3.position, Vector2(4,4))
+		await camTween1a.finished
+		
+		var dialogue2a = DIALOGUE.newDialogue(Dialogues["1a"])
+		await dialogue2a.Completed
 		
 		var camTween2 = CAMERA.zoomTo($CamPos/CamPos2.position, Vector2(4,4))
 		await camTween2.finished

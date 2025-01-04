@@ -44,7 +44,7 @@ func _process(_delta: float):
 		
 		get_tree().unload_current_scene()
 		
-		await get_tree().create_timer(3).timeout
+		await get_tree().create_timer(1.5).timeout
 		
 		BoatAnimations.stop(true)
 		

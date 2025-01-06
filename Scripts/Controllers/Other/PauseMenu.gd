@@ -31,7 +31,7 @@ func initAllButtonPos():
 
 func page_Profile():
 	$Pages/ProfilePage/collectables.text = "collectables: " + str(INVENTORY.Inventory.size()) + " / " + str(INVENTORY.ItemInformation.size())
-	$Pages/ProfilePage/died.text = "died: " + str(INVENTORY.Stats["Died"])
+	$Pages/ProfilePage/died.text = "died: " + str(DATA.Data["Died"])
 	$Pages/ProfilePage/puzzles.text = "puzzles completed: " + str(DATA.Data["CurrentPuzzle"])
 
 func page_Collection():

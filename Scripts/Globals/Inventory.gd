@@ -187,7 +187,7 @@ extends Node
 
 var Inventory = []
 var Stats = {
-	"Died": 0
+	
 }
 
 func playFindAnimation(what : String, isRelic : bool):

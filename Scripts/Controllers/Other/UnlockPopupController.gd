@@ -31,7 +31,7 @@ func _ready():
 
 func animate():
 	
-	if CAMERA.Busy: return
+	if CAMERA.Busy: queue_free(); return
 	
 	CAMERA.Busy = true
 	

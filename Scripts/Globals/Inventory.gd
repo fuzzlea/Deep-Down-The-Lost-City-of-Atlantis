@@ -202,12 +202,13 @@ func playFindAnimation(what : String, isRelic : bool):
 	
 	get_tree().current_scene.add_child(newPopup)
 
-func addToInventory(what : String , amount : int):
+func addToInventory(what : String , amount : int, silent : bool = false):
 	if findInInventory(what):
 		var item = findInInventory(what)
 		item[1] += amount
 	else:
-		playFindAnimation(what, false)
+		if not silent:
+			playFindAnimation(what, false)
 		var newInventoryLine = [what, amount]
 		Inventory.insert(0, newInventoryLine)
 

@@ -2,7 +2,6 @@ extends Node
 
 signal LOAD_DATA
 signal SAVE_DATA
-signal DATA_SAVED
 
 @export var COMPLETED_INIT_PROCESS = false
 @export var HAS_DATA = false
@@ -66,7 +65,17 @@ func saveData():
 	
 	#inventory
 	
+	print("SAVING: Inventory Data")
+	
+	db.query("DELETE FROM inventory;")
+	
+	if not INVENTORY.Inventory.is_empty():
+		for arr in INVENTORY.Inventory:
+			db.insert_row("inventory", {"name": arr[0], "quantity": arr[1]})
+	
 	#player data
+	
+	print("SAVING: Player Data")
 	
 	db.update_rows("player_data", "id=1", {
 		"current_puzzle": Data["CurrentPuzzle"],
@@ -78,6 +87,8 @@ func saveData():
 	
 	#relics
 	
+	print("SAVING: Relic Data")
+	
 	db.update_rows("relics", "name='Pressure Gloves'", {"owned": returnTFtoInt(Data["Relics"]["Pressure Gloves"][0])})
 	db.update_rows("relics", "name='Aqua Lobber'", {"owned": returnTFtoInt(Data["Relics"]["Aqua Lobber"][0])})
 	db.update_rows("relics", "name='Golden Magnet'", {"owned": returnTFtoInt(Data["Relics"]["Golden Magnet"][0])})
@@ -86,15 +97,30 @@ func saveData():
 	
 	#tutorials
 	
+	print("SAVING: Tutorial Data")
+	
 	if not Data["TutorialsCompleted"].is_empty():
 		for tut in Data["TutorialsCompleted"]:
 			db.update_rows("tutorials", "name='" + tut + "'", {"completed": 1})
+	
+	print("SAVING: Complete")
 
 func loadData():
 	
 	#inventory
 	
+	print("LOADING: Inventory Data")
+	
+	db.query("SELECT * FROM inventory;")
+	var inv_data = db.query_result
+	
+	if inv_data != []:
+		for table in inv_data:
+			INVENTORY.addToInventory(table["name"], table["quantity"], true)
+	
 	#player data
+	
+	print("LOADING: Player Data")
 	
 	db.query("SELECT * FROM player_data;")
 	var player_data = db.query_result
@@ -105,6 +131,8 @@ func loadData():
 	COMPLETED_INIT_PROCESS = returnInttoTF(player_data[0]["completed_init"])
 	
 	#relics
+	
+	print("LOADING: Relic Data")
 	
 	db.query("SELECT * FROM relics")
 	var relic_data = db.query_result
@@ -119,6 +147,8 @@ func loadData():
 	
 	#tutorials
 	
+	print("LOADING: Tutorial Data")
+	
 	db.query("SELECT * FROM tutorials")
 	var tut_data = db.query_result
 	
@@ -130,6 +160,8 @@ func loadData():
 	for tut in tut_namespaces:
 		if tut_namespaces[tut] == true:
 			Data["TutorialsCompleted"].append(tut)
+	
+	print("LOADING: Complete")
 
 func initDataTable():
 	

@@ -330,6 +330,8 @@ func _ready():
 	relicWheelOpen = false
 	#RelicWheelUI.position = Vector2(get_viewport().size.x / 2 - (RelicWheelUI.size.x / 2), get_viewport().size.y)
 	
+	get_tree().auto_accept_quit = false
+	
 	initRelicWheel()
 	relicWheelScroll("None")
 
@@ -365,6 +367,8 @@ func _physics_process(delta): # This function runs on every physics frame of the
 	
 	if Input.is_action_just_pressed("Player-Pause"):
 		pauseController()
+	if Input.is_action_just_pressed("Player-SaveData"):
+		DATA.emit_signal("SAVE_DATA")
 	
 	if Input.is_action_just_pressed("Player-RelicWheelScrollUp"):
 		if relicWheelOpen == false: return
@@ -414,9 +418,15 @@ func _on_interaction_range_area_exited(area: Area2D) -> void:
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		
 		if get_tree().current_scene.name == "Main":
 			DATA.Data["LastPosInMain"] = position
-			DATA.emit_signal("SAVE_DATA")
+		
+		DATA.emit_signal("SAVE_DATA")
+		
+		await get_tree().create_timer(0.5).timeout
+		
+		get_tree().quit()
 
 func _on_unpause_game() -> void:
 	gamePaused = false

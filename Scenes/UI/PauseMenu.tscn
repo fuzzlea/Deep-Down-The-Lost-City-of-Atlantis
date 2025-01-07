@@ -153,6 +153,29 @@ text = "settings"
 label_settings = SubResource("LabelSettings_3218i")
 vertical_alignment = 1
 
+[node name="Quit" type="TextureButton" parent="Book"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 256.0
+offset_top = -106.5
+offset_right = 505.0
+offset_bottom = -53.5
+grow_vertical = 2
+toggle_mode = true
+
+[node name="Label" type="Label" parent="Book/Quit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "quit"
+label_settings = SubResource("LabelSettings_3218i")
+vertical_alignment = 1
+
 [node name="Resume" type="TextureButton" parent="Book"]
 layout_mode = 1
 anchors_preset = 4
@@ -434,6 +457,9 @@ text_overrun_behavior = 3
 [connection signal="mouse_entered" from="Book/Settings" to="." method="_on_settings_mouse_entered"]
 [connection signal="mouse_exited" from="Book/Settings" to="." method="_on_settings_mouse_exited"]
 [connection signal="pressed" from="Book/Settings" to="." method="_on_settings_pressed"]
+[connection signal="mouse_entered" from="Book/Quit" to="." method="_on_settings_mouse_entered"]
+[connection signal="mouse_exited" from="Book/Quit" to="." method="_on_settings_mouse_exited"]
+[connection signal="pressed" from="Book/Quit" to="." method="_on_settings_pressed"]
 [connection signal="mouse_entered" from="Book/Resume" to="." method="_on_resume_mouse_entered"]
 [connection signal="mouse_exited" from="Book/Resume" to="." method="_on_resume_mouse_exited"]
 [connection signal="pressed" from="Book/Resume" to="." method="_on_resume_pressed"]

@@ -4,9 +4,8 @@ signal LOAD_DATA
 signal SAVE_DATA
 signal DATA_SAVED
 
-signal UPDATE_POSITION(pos : Vector2)
-
 @export var COMPLETED_INIT_PROCESS = false
+@export var HAS_DATA = false
 
 var db : SQLite
 
@@ -40,6 +39,7 @@ func _init():
 		if db.query_result == []:
 			initDataTable()
 		else:
+			HAS_DATA = true
 			loadData()
 	)
 

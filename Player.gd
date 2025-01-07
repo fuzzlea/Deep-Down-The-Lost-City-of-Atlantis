@@ -412,5 +412,11 @@ func _on_interaction_range_area_exited(area: Area2D) -> void:
 		itemsInInteractRange.erase(area)
 		if itemsInInteractRange.size() == 0: hideInteractIcon()
 
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		if get_tree().current_scene.name == "Main":
+			DATA.Data["LastPosInMain"] = position
+			DATA.emit_signal("SAVE_DATA")
+
 func _on_unpause_game() -> void:
 	gamePaused = false

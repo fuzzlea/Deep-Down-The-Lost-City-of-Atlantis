@@ -13,9 +13,12 @@ signal Ran
 			$Sprite2D.texture = load("res://Assets/Singles (Misc)/Puzzle Mechanics/Senders/Telepad ON.png")
 			$CPUParticles2D.visible = true
 
-func Telepad():
+func Telepad(player):
 	
 	var _t = CAMERA.zoomTo(self.position, Vector2(10,10))
+	
+	if get_tree().current_scene.name == "Main":
+		DATA.Data["LastPosInMain"] = player.position
 	
 	DATA.loadSceneWithScreen(pathToScene)
 	Ran.emit()
@@ -23,5 +26,5 @@ func Telepad():
 func _ready():
 	if Locked: $Sprite2D.texture = load("res://Assets/Singles (Misc)/Puzzle Mechanics/Senders/Telepad OFF.png"); $CPUParticles2D.visible = false
 
-func _on_interact() -> void:
-	Telepad()
+func _on_interact(player) -> void:
+	Telepad(player)

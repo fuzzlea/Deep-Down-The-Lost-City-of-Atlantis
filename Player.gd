@@ -350,6 +350,11 @@ func _physics_process(delta): # This function runs on every physics frame of the
 	## INTERACTIONS ##
 	if Input.is_action_just_pressed("Player-Interaction"):
 		if itemsInInteractRange.size() > 0:
+			if itemsInInteractRange[0].has_meta("Telepad"):
+				
+				itemsInInteractRange[0].emit_signal("Interact", self)
+				return
+				
 			itemsInInteractRange[0].emit_signal("Interact")
 	
 	## RELIC WHEEL ##

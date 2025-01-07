@@ -45,6 +45,9 @@ func checkData():
 		$TutorialArea/Telepad3.get_child(2).color = Color.from_string("#25885a", Color())
 
 func _ready():
+	
+	plr.position = DATA["Data"]["LastPosInMain"]
+	
 	if DATA.COMPLETED_INIT_PROCESS == false:
 		plr.emit_signal("disableMovement")
 		CAMERA.zoomTo($Player.position, Vector2(5,5))

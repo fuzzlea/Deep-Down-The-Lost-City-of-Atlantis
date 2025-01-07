@@ -106,6 +106,8 @@ func clickButton(button):
 		"Resume":
 			get_parent().get_parent().emit_signal("unpauseGame")
 			emit_signal("AnimateOut")
+		"Quit":
+			get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
 		_: print("Button | " + button.name + " | \nnot found")
 
 func init():
@@ -149,6 +151,10 @@ func _on_settings_mouse_entered() -> void:
 func _on_resume_mouse_entered() -> void:
 	mouseOverButton($Book/Resume)
 
+func _on_quit_mouse_entered() -> void:
+	mouseOverButton($Book/Quit)
+
+#333
 
 func _on_profile_pressed() -> void:
 	clickButton($Book/Profile)
@@ -165,6 +171,11 @@ func _on_settings_pressed() -> void:
 func _on_resume_pressed() -> void:
 	clickButton($Book/Resume)
 
+func _on_quit_pressed() -> void:
+	clickButton($Book/Quit)
+
+#333
+
 func _on_profile_mouse_exited() -> void:
 	mouseLeaveButton($Book/Profile)
 
@@ -179,3 +190,6 @@ func _on_settings_mouse_exited() -> void:
 
 func _on_resume_mouse_exited() -> void:
 	mouseLeaveButton($Book/Resume)
+
+func _on_quit_mouse_exited() -> void:
+	mouseLeaveButton($Book/Quit)

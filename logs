@@ -12,9 +12,16 @@ SAVING: Player Data
 SAVING: Relic Data
 SAVING: Tutorial Data
 SAVING: Complete
+[["Atlantean Feather Quill", 1], ["Puzzle Piece", 1], ["Sand Dollar", 1], ["Tadpole Statue", 1], ["Atlantean Bath Token", 1]]
+[["Atlantean Feather Quill", 1], ["Puzzle Piece", 1], ["Sand Dollar", 1], ["Tadpole Statue", 1], ["Atlantean Bath Token", 1]]
 SAVING: Inventory Data
 SAVING: Player Data
 SAVING: Relic Data
 SAVING: Tutorial Data
 SAVING: Complete
 Closed database (C:/Users/AJ/Documents/GitHub/Deep-Down-The-Lost-City-of-Atlantis/data.db)
+USER WARNING: 266 RIDs of type "CanvasItem" were leaked.
+   at: _free_rids (servers/rendering/renderer_canvas_cull.cpp:2485)
+ERROR: 38 RID allocations of type 'N10RendererRD14TextureStorage7TextureE' were leaked at exit.
+USER WARNING: 69 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:5758)

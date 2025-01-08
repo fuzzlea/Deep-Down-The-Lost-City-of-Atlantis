@@ -1,180 +1,22 @@
 Godot Engine v4.3.stable.mono.official.77dcf97d8 - https://godotengine.org
-TextServer: Added interface "Dummy"
-TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)"
-Devices:
-  #0: Intel Intel(R) Iris(TM) Plus Graphics 645 - Supported, Integrated
-Optional extension VK_KHR_fragment_shading_rate not found
-- Vulkan Variable Rate Shading not supported
-- Vulkan multiview supported:
-  max view count: 32
-  max instances: 134217727
-- Vulkan subgroup:
-  size: 32
-  min size: 32
-  max size: 32
-  stages: STAGE_TESSELLATION_CONTROL, STAGE_FRAGMENT, STAGE_COMPUTE
-  supported ops: FEATURE_BASIC, FEATURE_VOTE, FEATURE_ARITHMETIC, FEATURE_BALLOT, FEATURE_SHUFFLE, FEATURE_SHUFFLE_RELATIVE, FEATURE_QUAD
-  quad operations in all stages
 Vulkan 1.2.283 - Forward+ - Using Device #0: Intel - Intel(R) Iris(TM) Plus Graphics 645
-Startup PSO cache (1.2 MiB)
-Using "default" pen tablet driver...
-Creating VMA small objects pool for memory type index 0
-Shader 'CanvasSdfShaderRD' (group 0) SHA256: 7f559eafdc475b5f5af01a3a73112126f07dd1bc14594b5ec0b0f08f361abee9
-Shader 'SkeletonShaderRD' (group 0) SHA256: 9ab5fe9c153d99f97a3f0258afef340fce6f8e6562d927fa0240b166c8104059
-Shader 'SortShaderRD' (group 0) SHA256: 13e8b7591fdfbb598bce5cacb3c7f7d84bbd030c25d4a980ca836187a518bf5c
-Shader 'ParticlesShaderRD' (group 0) SHA256: 36890ea5354f8e6b6a868ad9e3a3ccf841ade36cc323f83f9c1b25561aeeee1c
-Shader 'ParticlesCopyShaderRD' (group 0) SHA256: fee2dac40257951234b49fecd3fdba204634ddb4cb6875ba352c3a393e1cf0e2
-Shader 'CanvasShaderRD' (group 0) SHA256: d6673cbcf8b39d9481c7d696561369db5abdaf3590eaa5616f7d4a8181c757bc
-Shader 'CanvasOcclusionShaderRD' (group 0) SHA256: b26941f53da182ed872909c0e2f1f790a732642f3ed66d0f797b8f0163bca0f7
-Shader 'ClusterRenderShaderRD' (group 0) SHA256: c307061706d8e0574999e4f5200352169c32b538e3318a6b4c8d08bfdce2cb78
-Shader 'ClusterStoreShaderRD' (group 0) SHA256: 8d4d45f42c5e347d228795ba04fb424c441d977aca550357afedf1949cff591e
-Shader 'ClusterDebugShaderRD' (group 0) SHA256: 59872e0952ef4283c512739d650ad6d79ca43d8178e18500ecffc74cb3605613
-Shader 'SceneForwardClusteredShaderRD' (group 0) SHA256: 0e441f00e17f738756592eeb4937465250ced33965febc96859342b292679ff8
-Shader 'SceneForwardClusteredShaderRD' (group 1) SHA256: cfff61d4e4da4a4ca72b4ab2a4dd911222f3569f6964bb28c5de93e99a734eaf
-Shader 'SceneForwardClusteredShaderRD' (group 2) SHA256: 4add074bd6fccf035c8312144b6213a697a0b9d59127c9ba7b8ea8721ba65a76
-Shader 'SceneForwardClusteredShaderRD' (group 3) SHA256: 3607991083a9fca57745a2d1775fc953fd18618845efa4a36d3609c4c7e7d5e1
-Shader 'BestFitNormalShaderRD' (group 0) SHA256: c7bf994ba40ba37d722a3e8c552007677460b9597aba07358f13aa8b3ffd42f7
-Shader 'ResolveShaderRD' (group 0) SHA256: 753d673f03b800b6ae20677e61578bb97643ccd27eabd84b08fe89d50c547f92
-Shader 'TaaResolveShaderRD' (group 0) SHA256: a3b3dc0386f0ea7063239b9deb39e99857a5313359bde3ad92cd23a0ddaab482
-Shader 'Fsr2DepthClipPassShaderRD' (group 0) SHA256: 006d33c0209ccfde3d27bf72ff334d7569da1bed48529b5c2e5620268e62521e
-Shader 'Fsr2ReconstructPreviousDepthPassShaderRD' (group 0) SHA256: c0b192e36771cdae9e3ca84bd28c54f9750dc083dab62d26b613d922eee9b9c3
-Shader 'Fsr2LockPassShaderRD' (group 0) SHA256: af7378d9d3d8df62d605028b23258445f0146d0b304e21a91a6b699bc67ddd67
-Shader 'Fsr2AccumulatePassShaderRD' (group 0) SHA256: 0104c963bfa3a723f201907391ab4a199301cc4f5a8419b836cf031155cd1d6e
-Shader 'Fsr2RcasPassShaderRD' (group 0) SHA256: f306c9618c8e370ae08edf537977d99854f1d15354e78691ca3ab853914e49d4
-Shader 'Fsr2ComputeLuminancePyramidPassShaderRD' (group 0) SHA256: fd8461e0bf744ab445c425884301912826f9a7f16b8e73f2e13a64d324f92096
-Shader 'Fsr2AutogenReactivePassShaderRD' (group 0) SHA256: e2c413aafa48442a82a921692cc1671adaa91828cd49cccd727a3e5920009d65
-Shader 'Fsr2TcrAutogenPassShaderRD' (group 0) SHA256: 08b638c9d332e273e22254e71b4e7332bb590c613c03cd17bc9f4046371c8720
-Shader 'SsEffectsDownsampleShaderRD' (group 0) SHA256: ba34b7711687edaf2ac1e5ed15f551b5543af99a389d583fd6203182f1597d12
-Shader 'SsilShaderRD' (group 0) SHA256: c4f7436837f8e170b8c5c1b81e29c7628ecec4328fd29efba74dbe8fc3a41f88
-Shader 'SsilImportanceMapShaderRD' (group 0) SHA256: 458868b88d27944f9cc3bb22d520d79cf3d4c2eeeb7d37eb995a9e4101cf4830
-Shader 'SsilBlurShaderRD' (group 0) SHA256: 8c8a8622fa78975105caffddea3b0ea5d175fa1f30bf22d1e2650a4f60b3f1e5
-Shader 'SsilInterleaveShaderRD' (group 0) SHA256: 0500527945b5dc9b27bb091b53e179263ebbd8e6716b92d2964011bf46a81a48
-Shader 'SsaoShaderRD' (group 0) SHA256: 866badd886e9ef77bf19f239689d5b71861ad753ac798944f1fd3a58ec533dcb
-Shader 'SsaoImportanceMapShaderRD' (group 0) SHA256: 524e79eeb73f94e2ee43ca9e1adb6144bfaf7252b3eb8be6de34277207fb5d02
-Shader 'SsaoBlurShaderRD' (group 0) SHA256: 5512692237f86990f1cdd7213d6b0c62fe6845d3b360535823d1354781d1b7fb
-Shader 'SsaoInterleaveShaderRD' (group 0) SHA256: 6318289d6d047df33fd477612591ccbe4b21cfd59dc338b093561268066c8dfd
-Shader 'ScreenSpaceReflectionScaleShaderRD' (group 0) SHA256: a8e3e9b7e31e239615b1f3d39e3ade084f30ca177100daceb26a5b3d2699235c
-Shader 'ScreenSpaceReflectionShaderRD' (group 0) SHA256: 95c57551bf79073e1cf0395d22c7153d6fd23520a5c261f8e0d37cbd3147f4e8
-Shader 'ScreenSpaceReflectionFilterShaderRD' (group 0) SHA256: a3ee0693efd0b262507d3127c9539b55d77fa6a3e44b906e23fbbcbf5f9a40d9
-Shader 'SubsurfaceScatteringShaderRD' (group 0) SHA256: bc8b9e331a07f97a016185cebcf702dbd3f7f24ab83374fb2fe3ecc1ac13e4de
-Shader 'SkyShaderRD' (group 0) SHA256: 4e6f964d620cd42c35eee38c9308240e21fe1558964a2a01418d3a8af0d4712d
-Shader 'VoxelGiShaderRD' (group 0) SHA256: cb2e99e9978bcbaeaffcc5c040b4d5b03243a41aab335932643e5e9973c3ce35
-Shader 'VoxelGiDebugShaderRD' (group 0) SHA256: dbc972ddda3eb39c4404c7a292ab5d1af91272b1e4e32daa390be39c86ab8b3e
-Shader 'SdfgiPreprocessShaderRD' (group 0) SHA256: 20b129631e3731606d76f8888cd4cf114e508bbad33dc192e59bb500763e7bc5
-Shader 'SdfgiDirectLightShaderRD' (group 0) SHA256: be1839706842b8a583cd4f46e8c114664ee6b9c46c0937724b68e5d8963dd4c1
-Shader 'SdfgiIntegrateShaderRD' (group 0) SHA256: a32ed1911f69365489921290b5de139083c92bc9dd051d192ad527d52684212b
-Shader 'GiShaderRD' (group 0) SHA256: 87cf5cd08b02bb33fee09ebf43bf3701507173c1a56ada58bb0ab074ab885723
-Shader 'SdfgiDebugShaderRD' (group 0) SHA256: 8d70fb2c5e23108d555ae400ac11bb35bc5d34a88abbd0563a3ba367ac8ea901
-Shader 'SdfgiDebugProbesShaderRD' (group 0) SHA256: b8879bc3b259a448c35f10b6cf87330a70de56b81132203dfa685bca8d2a5b97
-Shader 'VolumetricFogShaderRD' (group 0) SHA256: 7f3e144fd8abc282c46fb2efec25d9b39dbb718f3670b065d3d991b33fcccc6f
-Shader 'VolumetricFogProcessShaderRD' (group 0) SHA256: f12cd488e48d3095f3a738d05aa5e46744b18bdf247ac7b06fc6c84975c2d9a0
-Shader 'BokehDofShaderRD' (group 0) SHA256: 9cec3902afefd60f710af7e58d932439510d020561ccd7582913c15d1f752737
-Shader 'CopyShaderRD' (group 0) SHA256: a7cd1fae386c582cd9732e4b608d417257853cf01b9a5f5f118cb6611eb3233c
-Shader 'CopyToFbShaderRD' (group 0) SHA256: 1e50d2a0275f1192ce999d52caffdc7bd4847d2971e9bfd1c81a6a5108905c09
-Shader 'CubeToDpShaderRD' (group 0) SHA256: 9fe2d69a828e6613d39540c6437f85a874f4b717d8658bfdb55361a5d519ad69
-Shader 'CubemapDownsamplerShaderRD' (group 0) SHA256: abb58ca563659a900981dd4613fc9c19ffb807b31a1ccae073f45ffda94fcc21
-Shader 'CubemapFilterShaderRD' (group 0) SHA256: 386bffdd1c4933169e382aa66097cc1736ee0cc9fc23bb59905aa6a3c606b5bf
-Shader 'CubemapRoughnessShaderRD' (group 0) SHA256: 221aa14ea945dcb556b6313bb6aae973ece46de33c73046d466aa2d978cec810
-Shader 'SpecularMergeShaderRD' (group 0) SHA256: 4890c959489c5a8e840d19a9c977bd16c5d1ac06a34ee142262dc8b609858d43
-Shader 'ShadowFrustumShaderRD' (group 0) SHA256: e5815f4f7d4c8d15e706503f3bd50ebf00e78b83d0a3de83f071910c19648dc2
-Shader 'MotionVectorsShaderRD' (group 0) SHA256: 5cb24bee59ed41a9b90b58ec85952a094371f158ecc6222c98d0c2e513b2b090
-Shader 'LuminanceReduceShaderRD' (group 0) SHA256: aacb65b68c130240b46771dd640de6cb0d1336f1f5463010e7c651f63eca3698
-Shader 'TonemapShaderRD' (group 0) SHA256: 299b3a2046af448f84f0b89123e82fd6e0a3ca004c421459bb61ce2b848e8738
-Shader 'FsrUpscaleShaderRD' (group 0) SHA256: 007119dfbaa5f4344e152717d45ca826c420e9dfd071408a3324dbe9c172f2cf
-Shader 'BlitShaderRD' (group 0) SHA256: 44f7ce4243a67108e3bda7936edd1832d7a600995985c86ab9fb3c428aebde8c
-CoreAudio: detected 2 channels
-CoreAudio: audio buffer frames: 512 calculated latency: 11ms
 
-Using present mode: Enabled
-TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)".
-CameraServer: Registered camera FaceTime HD Camera (Built-in) with ID 1 and position 0 at index 0
-.NET: Initializing module...
-Found hostfxr: /usr/local/share/dotnet/host/fxr/9.0.0/libhostfxr.dylib
-.NET: hostfxr initialized
-.NET: GodotPlugins initialized
-.NET: Failed to load project assembly
-CORE API HASH: 4070621931
-EDITOR API HASH: 591096730
 Opened database successfully (/Users/aj/Documents/GitHub/Deep-Down-The-Lost-City-of-Atlantis/data.db)
-Loaded system CA certificates
 LOADING: Inventory Data
 LOADING: Player Data
 LOADING: Relic Data
 LOADING: Tutorial Data
 LOADING: Complete
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
-load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
 SAVING: Inventory Data
 SAVING: Player Data
 SAVING: Relic Data
 SAVING: Tutorial Data
 SAVING: Complete
+USER WARNING: Target object freed before starting, aborting Tweener.
+   at: start (scene/animation/tween.cpp:550)
 SAVING: Inventory Data
 SAVING: Player Data
 SAVING: Relic Data
 SAVING: Tutorial Data
 SAVING: Complete
 Closed database (/Users/aj/Documents/GitHub/Deep-Down-The-Lost-City-of-Atlantis/data.db)
-Unloading: Disposing tracked instances...
-Unloading: Finished disposing tracked instances.
-XR: Clearing primary interface
-XR: Removed interface "Native mobile"
-XR: Removed interface "OpenXR"

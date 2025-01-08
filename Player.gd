@@ -86,14 +86,14 @@ var relicWheelOpen : bool :
 		if value == true:
 			
 			var relicWheelTween = get_tree().create_tween().set_trans(Tween.TRANS_CIRC)
-			relicWheelTween.tween_property(RelicWheelUI, "position", Vector2(get_viewport().size.x / 2 - (RelicWheelUI.size.x / 2) , get_viewport().size.y - (RelicWheelUI.size.y + 40)), 0.2)
+			relicWheelTween.tween_property(RelicWheelUI, "position", Vector2(592,975), 0.2)
 			
 			disablePlayerControls()
 			
 		elif value == false:
 			
 			var relicWheelTween = get_tree().create_tween().set_trans(Tween.TRANS_CIRC)
-			relicWheelTween.tween_property(RelicWheelUI, "position", Vector2(get_viewport().size.x / 2 - (RelicWheelUI.size.x / 2), get_viewport().size.y), 0.2)
+			relicWheelTween.tween_property(RelicWheelUI, "position", Vector2(592,1200), 0.2)
 			
 			enablePlayerControls()
 

@@ -97,6 +97,7 @@ CORE API HASH: 4070621931
 EDITOR API HASH: 591096730
 Opened database successfully (/Users/aj/Documents/GitHub/Deep-Down-The-Lost-City-of-Atlantis/data.db)
 Loaded system CA certificates
+Using present mode: Enabled
 LOADING: Inventory Data
 LOADING: Player Data
 LOADING: Relic Data
@@ -162,11 +163,13 @@ load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAI
 load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
 load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
 load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
+load_threaded_get_status(): No threaded load for resource path 'res://Scenes/MAIN.tscn' has been initiated or its result has already been collected.
 SAVING: Inventory Data
 SAVING: Player Data
 SAVING: Relic Data
 SAVING: Tutorial Data
 SAVING: Complete
+Using present mode: Enabled
 SAVING: Inventory Data
 SAVING: Player Data
 SAVING: Relic Data

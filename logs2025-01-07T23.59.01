@@ -16,7 +16,7 @@ Optional extension VK_KHR_fragment_shading_rate not found
   supported ops: FEATURE_BASIC, FEATURE_VOTE, FEATURE_ARITHMETIC, FEATURE_BALLOT, FEATURE_SHUFFLE, FEATURE_SHUFFLE_RELATIVE, FEATURE_QUAD
   quad operations in all stages
 Vulkan 1.2.283 - Forward+ - Using Device #0: Intel - Intel(R) Iris(TM) Plus Graphics 645
-Startup PSO cache (1.2 MiB)
+Startup PSO cache (0.0 MiB)
 Using "default" pen tablet driver...
 Creating VMA small objects pool for memory type index 0
 Shader 'CanvasSdfShaderRD' (group 0) SHA256: 7f559eafdc475b5f5af01a3a73112126f07dd1bc14594b5ec0b0f08f361abee9
@@ -167,6 +167,7 @@ SAVING: Player Data
 SAVING: Relic Data
 SAVING: Tutorial Data
 SAVING: Complete
+Using present mode: Enabled
 SAVING: Inventory Data
 SAVING: Player Data
 SAVING: Relic Data
@@ -178,3 +179,4 @@ Unloading: Finished disposing tracked instances.
 XR: Clearing primary interface
 XR: Removed interface "Native mobile"
 XR: Removed interface "OpenXR"
+Updated PSO cache (1.2 MiB)

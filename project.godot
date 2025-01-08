@@ -34,6 +34,8 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/mode=2
 window/size/resizable=false
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [dotnet]
 
@@ -137,4 +139,5 @@ baking/use_crash_prevention_checks=false
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+textures/webp_compression/compression_method=4
 anti_aliasing/screen_space_roughness_limiter/enabled=false

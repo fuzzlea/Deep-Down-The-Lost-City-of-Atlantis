@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhdhjh26x741q"
-path="res://.godot/imported/ExampleBGSpritesheet.png-ea98112523281e79b9cbb6f9a425d955.ctex"
+uid="uid://c751x6lcbkh4y"
+path="res://.godot/imported/row-1-column-12.png-9cd9997950a2b51a7590e2e3a98fe677.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/MainMenu/ExampleBGSpritesheet.png"
-dest_files=["res://.godot/imported/ExampleBGSpritesheet.png-ea98112523281e79b9cbb6f9a425d955.ctex"]
+source_file="res://Assets/UI/MainMenu/AnimatedBG/row-1-column-12.png"
+dest_files=["res://.godot/imported/row-1-column-12.png-9cd9997950a2b51a7590e2e3a98fe677.ctex"]
 
 [params]
 

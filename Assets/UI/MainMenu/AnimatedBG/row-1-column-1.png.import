@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8gw1b5olw4u8"
-path="res://.godot/imported/Notebook UI.jpg-eec2218ba642d8d4808cd1348686fe63.ctex"
+uid="uid://dhammnw74xwcu"
+path="res://.godot/imported/row-1-column-1.png-28b13a70c396efcfbc288d3153addf15.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/Notebook UI.jpg"
-dest_files=["res://.godot/imported/Notebook UI.jpg-eec2218ba642d8d4808cd1348686fe63.ctex"]
+source_file="res://Assets/UI/MainMenu/AnimatedBG/row-1-column-1.png"
+dest_files=["res://.godot/imported/row-1-column-1.png-28b13a70c396efcfbc288d3153addf15.ctex"]
 
 [params]
 

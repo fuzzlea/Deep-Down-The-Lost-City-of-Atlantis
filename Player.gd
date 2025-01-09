@@ -430,3 +430,8 @@ func _notification(what: int) -> void:
 
 func _on_unpause_game() -> void:
 	gamePaused = false
+
+func _on_footstep_timer_timeout() -> void:
+	if State == "Walk":
+		var randint = randi_range(1,11)
+		SOUNDS.playSound("foot" + str(randint))

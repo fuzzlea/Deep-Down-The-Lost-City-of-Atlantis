@@ -1,8 +1,9 @@
-[gd_scene load_steps=60 format=3 uid="uid://c63bbgxpu1o61"]
+[gd_scene load_steps=59 format=3 uid="uid://c63bbgxpu1o61"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_rpehc"]
 [ext_resource type="Texture2D" uid="uid://dqa8nlcufe1hs" path="res://Assets/Player/Spritesheet/Diver.png" id="2_ditjv"]
 [ext_resource type="Texture2D" uid="uid://i81ords4plhu" path="res://Assets/Singles (Misc)/Collectibles/Relics/Relic Border.png" id="3_4pl52"]
+[ext_resource type="Texture2D" uid="uid://dwfuqhvmpvn6w" path="res://Assets/UI/Relic Wheel.png" id="3_lj5li"]
 [ext_resource type="Texture2D" uid="uid://m8gy0mfsejsc" path="res://Assets/Singles (Misc)/Collectibles/Relics/Hydro Battery.png" id="4_vuiyn"]
 [ext_resource type="Texture2D" uid="uid://c75pnch4a2j5t" path="res://Assets/UI/E_Key.png" id="5_521ol"]
 
@@ -515,13 +516,6 @@ radius = 7.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_expxy"]
 radius = 9.0
 
-[sub_resource type="Gradient" id="Gradient_n53dn"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(1, 1, 1, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_2b75r"]
-gradient = SubResource("Gradient_n53dn")
-
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
 script = ExtResource("1_rpehc")
@@ -578,7 +572,7 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = SubResource("GradientTexture1D_2b75r")
+texture = ExtResource("3_lj5li")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/RelicWheel"]
 layout_mode = 1
@@ -653,6 +647,10 @@ pivot_offset = Vector2(5, 5)
 texture = ExtResource("5_521ol")
 expand_mode = 1
 
+[node name="FootstepTimer" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+
 [connection signal="disableMovement" from="." to="." method="_on_disable_movement"]
 [connection signal="enableMovement" from="." to="." method="_on_enable_movement"]
 [connection signal="unpauseGame" from="." to="." method="_on_unpause_game"]
@@ -661,3 +659,4 @@ expand_mode = 1
 [connection signal="area_entered" from="PushRange" to="." method="_on_push_range_area_entered"]
 [connection signal="area_exited" from="PushRange" to="." method="_on_push_range_area_exited"]
 [connection signal="area_entered" from="CollectableRange" to="." method="_on_collectable_range_area_entered"]
+[connection signal="timeout" from="FootstepTimer" to="." method="_on_footstep_timer_timeout"]

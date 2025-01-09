@@ -2,8 +2,18 @@ extends Node
 
 @export var Data = {
 	"SFX": {
-		"ui_click01" : {"Stream": "res://Sounds/SFX/casual-click-pop-ui-3-262120.mp3", "Volume": -4.0},
-		"ui_tick01" : {"Stream": "res://Sounds/SFX/light-switch-flip-272436.mp3", "Volume": -4.0},
+		
+		# ui
+		
+		"ui_click01" : {"Stream": "res://Sounds/SFX/casual-click-pop-ui-3-262120.mp3", "Volume": -8.0},
+		"ui_tick01" : {"Stream": "res://Sounds/SFX/light-switch-flip-272436.mp3", "Volume": -8.0},
+		"ui_swoop" : {"Stream": "res://Sounds/SFX/swing-whoosh-11-198503.mp3", "Volume": 2.0},
+		"ui_droop" : {"Stream": "res://Sounds/SFX/sci-fi-bubble-pop-89059-[AudioTrimmer.com]-2.mp3", "Volume": -3.0},
+		"ui_pop" : {"Stream": "res://Sounds/SFX/multi-pop-1-188165-[AudioTrimmer.com].mp3", "Volume": -3.0},
+		
+		# other
+		
+		"tp" : {"Stream": "res://Sounds/SFX/bubbles-108320.mp3", "Volume": -12.0},
 		
 		# footsteps
 		
@@ -19,7 +29,10 @@ extends Node
 		"foot10": {"Stream": "res://Sounds/SFX/Footsteps/foot10.mp3", "Volume": 0.0},
 		"foot11": {"Stream": "res://Sounds/SFX/Footsteps/foot11.mp3", "Volume": 0.0}
 	},
-	"Music": {}
+	"Music": {
+		"underwater ambience": {"Stream": "res://Sounds/Music/underwater ambience.mp3", "Volume": -10.0},
+		"menu music": {"Stream": "res://Sounds/Music/sound-on-dreammp3-271820.mp3", "Volume": -8.0}
+	}
 }
 
 @export var SFXVol : float = 0.0
@@ -39,7 +52,7 @@ func _init():
 	add_child(musicNode)
 
 func playSound(what : String):
-	if not Data["SFX"].has(what.to_lower()): print('nf'); return
+	if not Data["SFX"].has(what.to_lower()): return
 	
 	var newAudio = AudioStreamPlayer2D.new()
 	get_child(0).add_child(newAudio)
@@ -52,4 +65,36 @@ func playSound(what : String):
 	newAudio.finished.connect(func(): newAudio.queue_free())
 
 func playMusic(what : String):
-	pass
+	if not Data["Music"].has(what.to_lower()): return
+	
+	if get_child(1).find_child(what.to_lower(), true, false):
+		fadeMusic(what)
+	
+	var newAudio = AudioStreamPlayer2D.new()
+	get_child(1).add_child(newAudio)
+	
+	newAudio.volume_db = Data["Music"][what.to_lower()]["Volume"]
+	newAudio.stream = load(Data["Music"][what.to_lower()]["Stream"])
+	newAudio.name = what.to_lower()
+	
+	newAudio.play()
+
+func fadeMusic(what: String):
+	var fadeOut = get_tree().create_tween()
+	fadeOut.tween_property(get_child(1).find_child(what.to_lower(), true, false), "volume_db", -100.0, 3)
+	fadeOut.tween_callback(func(): get_child(1).find_child(what.to_lower(), true, false).queue_free())
+
+func fadeAll():
+	if not get_child(1).get_children().is_empty():
+		for music in get_child(1).get_children():
+			fadeMusic(music.name)
+
+func pauseMusic():
+	if not get_child(1).get_children().is_empty():
+		for music : AudioStreamPlayer2D in get_child(1).get_children():
+			music.stream_paused = true
+
+func resumeMusic():
+	if not get_child(1).get_children().is_empty():
+		for music : AudioStreamPlayer2D in get_child(1).get_children():
+			music.stream_paused = false

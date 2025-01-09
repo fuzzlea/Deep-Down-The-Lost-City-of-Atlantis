@@ -30,6 +30,8 @@ func tweenBoat():
 func _ready():
 	BG.modulate = Color(1,1,1,0)
 	
+	SOUNDS.fadeAll()
+	
 	await tweenBGIn().finished
 	
 	tweenBoat()

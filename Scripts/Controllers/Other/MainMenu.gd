@@ -60,6 +60,8 @@ func _ready():
 	animateInElement("Logo")
 	animateLoopedElement("BG")
 	
+	SOUNDS.playMusic("menu music")
+	
 	await get_tree().create_timer(1).timeout
 	
 	animateInElement("PlayButton")

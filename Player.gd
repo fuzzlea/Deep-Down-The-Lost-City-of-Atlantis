@@ -46,6 +46,7 @@ var prevState : String # The players previous state
 var prevDir : String # The players previous direction
 var currentMovementControls : bool = true
 var gamePaused : bool = false
+var lastFootStepInt = 0
 
 ## INTERACTIONS ##
 
@@ -352,10 +353,9 @@ func _physics_process(delta): # This function runs on every physics frame of the
 	## INTERACTIONS ##
 	if Input.is_action_just_pressed("Player-Interaction"):
 		if itemsInInteractRange.size() > 0:
+			SOUNDS.playSound("ui_pop")
 			if itemsInInteractRange[0].has_meta("Telepad"):
-				
-				itemsInInteractRange[0].emit_signal("Interact", self)
-				return
+				itemsInInteractRange[0].emit_signal("Interact", self); return
 				
 			itemsInInteractRange[0].emit_signal("Interact")
 	
@@ -368,8 +368,7 @@ func _physics_process(delta): # This function runs on every physics frame of the
 	if Input.is_action_just_pressed("Player-Pause"):
 		pauseController()
 	if Input.is_action_just_pressed("Player-SaveData"):
-		SOUNDS.playSound("ui_click01")
-	
+		DATA.SAVE_DATA.emit()
 	if Input.is_action_just_pressed("Player-RelicWheelScrollUp"):
 		if relicWheelOpen == false: return
 		relicWheelScroll("Down")
@@ -409,6 +408,7 @@ func _on_interaction_range_area_entered(area : Area2D):
 			if area.Locked: return
 		
 		showInteractIcon()
+		SOUNDS.playSound("ui_droop")
 		itemsInInteractRange.append(area)
 
 func _on_interaction_range_area_exited(area: Area2D) -> void:

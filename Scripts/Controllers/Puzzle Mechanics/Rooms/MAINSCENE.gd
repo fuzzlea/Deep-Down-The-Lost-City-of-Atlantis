@@ -47,6 +47,8 @@ func checkData():
 func _ready():
 	
 	plr.position = DATA["Data"]["LastPosInMain"]
+	SOUNDS.playMusic("underwater ambience")
+	
 	
 	if DATA.COMPLETED_INIT_PROCESS == false:
 		plr.emit_signal("disableMovement")

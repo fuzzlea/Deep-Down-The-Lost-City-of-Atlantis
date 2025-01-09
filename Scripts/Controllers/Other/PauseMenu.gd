@@ -12,6 +12,7 @@ signal PageLoaded
 @onready var Content = $Book/Content
 
 func mouseOverButton(button):
+	if not get_tree().paused: return
 	var anim = button.create_tween()
 	SOUNDS.playSound("ui_tick01")
 	anim.tween_property(button, "scale", Vector2(1.1,1.1), 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
@@ -88,6 +89,8 @@ func pageController(page):
 func clickButton(button):
 	initAllButtonPos()
 	
+	if not get_tree().paused: return
+	
 	SOUNDS.playSound("ui_click01")
 	
 	match button.name:
@@ -122,6 +125,9 @@ func init():
 func _on_animate_in() -> void:
 	get_tree().paused = true
 	
+	SOUNDS.playSound("ui_swoop")
+	SOUNDS.pauseMusic()
+	
 	init()
 	
 	var animateTween = self.create_tween().set_parallel(true)
@@ -132,6 +138,8 @@ func _on_animate_in() -> void:
 
 func _on_animate_out() -> void:
 	var animateTween = self.create_tween().set_parallel(true)
+	
+	SOUNDS.resumeMusic()
 	
 	animateTween.tween_property(BG, "modulate", Color.from_string("ffffff00", Color()), 1)
 	animateTween.tween_property(Book, "modulate", Color.from_string("ffffff00", Color()), 0.2)

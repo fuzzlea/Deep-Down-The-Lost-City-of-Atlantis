@@ -17,6 +17,8 @@ func Telepad(player):
 	
 	var _t = CAMERA.zoomTo(self.position, Vector2(10,10))
 	
+	SOUNDS.playSound("tp")
+	
 	if get_tree().current_scene.name == "Main":
 		DATA.Data["LastPosInMain"] = player.position
 	

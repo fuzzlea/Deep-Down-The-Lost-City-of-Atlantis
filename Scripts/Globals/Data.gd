@@ -62,6 +62,8 @@ func returnInttoTF(i : int):
 
 func saveData():
 	
+	if not db: return
+	
 	#inventory
 	
 	print("SAVING: Inventory Data")

@@ -13,6 +13,7 @@ signal PageLoaded
 
 func mouseOverButton(button):
 	var anim = button.create_tween()
+	SOUNDS.playSound("ui_tick01")
 	anim.tween_property(button, "scale", Vector2(1.1,1.1), 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
 
 func mouseLeaveButton(button):
@@ -37,8 +38,6 @@ func page_Profile():
 func page_Collection():
 	
 	await PageLoaded
-	
-	print(INVENTORY.Inventory)
 	
 	for item in INVENTORY.ItemInformation:
 		var newTemp = $Pages/CollectionPage/Templates/ItemTemplate.duplicate()
@@ -89,6 +88,8 @@ func pageController(page):
 
 func clickButton(button):
 	initAllButtonPos()
+	
+	SOUNDS.playSound("ui_click01")
 	
 	match button.name:
 		"Profile":

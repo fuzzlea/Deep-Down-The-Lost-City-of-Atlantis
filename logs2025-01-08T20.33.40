@@ -12,5 +12,10 @@ SAVING: Player Data
 SAVING: Relic Data
 SAVING: Tutorial Data
 SAVING: Complete
-USER WARNING: Target object freed before starting, aborting Tweener.
-   at: start (scene/animation/tween.cpp:550)
+[]
+SAVING: Inventory Data
+SAVING: Player Data
+SAVING: Relic Data
+SAVING: Tutorial Data
+SAVING: Complete
+Closed database (/Users/aj/Documents/GitHub/Deep-Down-The-Lost-City-of-Atlantis/data.db)

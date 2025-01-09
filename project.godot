@@ -17,9 +17,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-DATA="*res://Scripts/Globals/Data.gd"
 INVENTORY="*res://Scripts/Globals/Inventory.gd"
+DATA="*res://Scripts/Globals/Data.gd"
 CAMERA="*res://Scripts/Globals/CameraController.gd"
+SOUNDS="*res://Scripts/Globals/SoundManager.gd"
 SIGN="*res://Scripts/Globals/Sign.gd"
 DIALOGUE="*res://Scripts/Globals/Dialogue.gd"
 

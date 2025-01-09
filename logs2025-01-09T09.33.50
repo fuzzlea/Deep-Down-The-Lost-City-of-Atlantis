@@ -7,13 +7,8 @@ LOADING: Player Data
 LOADING: Relic Data
 LOADING: Tutorial Data
 LOADING: Complete
-SAVING: Inventory Data
 USER WARNING: Target object freed before starting, aborting Tweener.
    at: start (scene/animation/tween.cpp:550)
-SAVING: Player Data
-SAVING: Relic Data
-SAVING: Tutorial Data
-SAVING: Complete
 Closed database (/Users/aj/Documents/GitHub/Deep-Down-The-Lost-City-of-Atlantis/data.db)
 ERROR: 34 RID allocations of type 'P12GodotShape2D' were leaked at exit.
 USER ERROR: 1 shaders of type CanvasShaderRD were never freed
@@ -24,3 +19,8 @@ ERROR: 16 RID allocations of type 'N10RendererRD14TextureStorage7TextureE' were 
 ERROR: 1 RID allocations of type 'N10RendererRD14TextureStorage13CanvasTextureE' were leaked at exit.
 USER WARNING: 32 RIDs of type "Texture" were leaked.
    at: finalize (servers/rendering/rendering_device.cpp:5758)
+ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.
+USER WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+   at: cleanup (core/object/object.cpp:2284)
+USER ERROR: 105 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:604)

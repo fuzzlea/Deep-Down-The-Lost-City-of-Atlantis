@@ -8,8 +8,6 @@ LOADING: Relic Data
 LOADING: Tutorial Data
 LOADING: Complete
 SAVING: Inventory Data
-USER WARNING: Target object freed before starting, aborting Tweener.
-   at: start (scene/animation/tween.cpp:550)
 SAVING: Player Data
 SAVING: Relic Data
 SAVING: Tutorial Data

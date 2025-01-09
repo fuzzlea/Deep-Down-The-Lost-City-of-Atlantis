@@ -53,7 +53,6 @@ func page_Collection():
 				newTemp.get_child(1).text = item
 				newTemp.self_modulate = Color.from_string("#ffffff8b", Color())
 				break
-		
 
 func pageController(page):
 	var newPage
@@ -110,6 +109,9 @@ func clickButton(button):
 		"Quit":
 			get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
 		_: print("Button | " + button.name + " | \nnot found")
+
+func _init():
+	process_mode = PROCESS_MODE_ALWAYS
 
 func init():
 	BG.modulate = Color.from_string("ffffff00", Color())

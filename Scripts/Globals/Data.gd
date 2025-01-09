@@ -6,6 +6,8 @@ signal SAVE_DATA
 @export var COMPLETED_INIT_PROCESS = false
 @export var HAS_DATA = false
 
+var loadingScreen = preload("res://Scenes/UI/LoadingScreen.tscn")
+
 var db : SQLite
 
 @export var Data : Dictionary = {
@@ -31,8 +33,6 @@ func _init():
 	db.path = "res://data.db"; 
 	db.open_db(); 
 	
-	SAVE_DATA.connect(saveData)
-	
 	LOAD_DATA.connect(func():
 		db.query("select * from player_data")
 		if db.query_result == []:
@@ -41,11 +41,10 @@ func _init():
 			HAS_DATA = true
 			loadData()
 	)
+	
+	SAVE_DATA.connect(saveData)
 
 func loadSceneWithScreen(scenePath : String):
-	
-	var loadingScreen = preload("res://Scenes/UI/LoadingScreen.tscn")
-	
 	var newLoadingScreen = loadingScreen.instantiate()
 	newLoadingScreen.nextScenePath = scenePath
 	
@@ -67,11 +66,17 @@ func saveData():
 	
 	print("SAVING: Inventory Data")
 	
-	db.query("DELETE FROM inventory;")
+	db.query("SELECT * FROM inventory")
+	var inv_temp_res = db.query_result
+	
+	if inv_temp_res != []:
+		db.query("DELETE FROM inventory;")
 	
 	if not INVENTORY.Inventory.is_empty():
 		for arr in INVENTORY.Inventory:
 			db.insert_row("inventory", {"name": arr[0], "quantity": arr[1]})
+	
+	await get_tree().create_timer(0.1).timeout
 	
 	#player data
 	
@@ -85,6 +90,8 @@ func saveData():
 		"completed_init": returnTFtoInt(COMPLETED_INIT_PROCESS)
 		})
 	
+	await get_tree().create_timer(0.1).timeout
+	
 	#relics
 	
 	print("SAVING: Relic Data")
@@ -95,6 +102,8 @@ func saveData():
 	db.update_rows("relics", "name='Hydro Battery'", {"owned": returnTFtoInt(Data["Relics"]["Hydro Battery"][0])})
 	db.update_rows("relics", "name='Poseidons Trident'", {"owned": returnTFtoInt(Data["Relics"]["Poseidons Trident"][0])})
 	
+	await get_tree().create_timer(0.1).timeout
+	
 	#tutorials
 	
 	print("SAVING: Tutorial Data")
@@ -102,6 +111,8 @@ func saveData():
 	if not Data["TutorialsCompleted"].is_empty():
 		for tut in Data["TutorialsCompleted"]:
 			db.update_rows("tutorials", "name='" + tut + "'", {"completed": 1})
+	
+	await get_tree().create_timer(0.1).timeout
 	
 	print("SAVING: Complete")
 

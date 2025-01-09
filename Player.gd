@@ -368,7 +368,7 @@ func _physics_process(delta): # This function runs on every physics frame of the
 	if Input.is_action_just_pressed("Player-Pause"):
 		pauseController()
 	if Input.is_action_just_pressed("Player-SaveData"):
-		DATA.emit_signal("SAVE_DATA")
+		SOUNDS.playSound("ui_click01")
 	
 	if Input.is_action_just_pressed("Player-RelicWheelScrollUp"):
 		if relicWheelOpen == false: return

@@ -1,0 +1,25 @@
+Godot Engine v4.3.stable.mono.official.77dcf97d8 - https://godotengine.org
+Vulkan 1.2.283 - Forward+ - Using Device #0: Intel - Intel(R) Iris(TM) Plus Graphics 645
+
+Opened database successfully (/Users/aj/Documents/GitHub/Deep-Down-The-Lost-City-of-Atlantis/data.db)
+LOADING: Inventory Data
+LOADING: Player Data
+LOADING: Relic Data
+LOADING: Tutorial Data
+LOADING: Complete
+
+================================================================
+handle_crash: Program crashed with signal 11
+Engine version: Godot Engine v4.3.stable.mono.official (77dcf97d82cbfe4e4615475fa52ca03da645dbd8)
+Dumping the backtrace. Please include this when reporting the bug to the project developer.
+[1] invoke_previous_action(sigaction*, int, __siginfo*, void*, bool)
+[2] 2   libsystem_platform.dylib            0x00007ff80da17e9d _sigtramp + 29
+[3] 3   ???                                 0x00026ffb00000050 0x0 + 686073780895824
+[4] WorkerThreadPool::_process_task(WorkerThreadPool::Task*) (in Godot) + 635
+[5] WorkerThreadPool::_thread_function(void*) (in Godot) + 253
+[6] Thread::callback(unsigned long long, Thread::Settings const&, void (*)(void*), void*) (in Godot) + 91
+[7] Thread::~Thread()
+[8] 8   libsystem_pthread.dylib             0x00007ff80d9e3253 _pthread_start + 99
+[9] 9   libsystem_pthread.dylib             0x00007ff80d9debef thread_start + 15
+-- END OF BACKTRACE --
+================================================================

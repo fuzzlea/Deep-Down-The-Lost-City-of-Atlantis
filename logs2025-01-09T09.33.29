@@ -7,13 +7,8 @@ LOADING: Player Data
 LOADING: Relic Data
 LOADING: Tutorial Data
 LOADING: Complete
-SAVING: Inventory Data
 USER WARNING: Target object freed before starting, aborting Tweener.
    at: start (scene/animation/tween.cpp:550)
-SAVING: Player Data
-SAVING: Relic Data
-SAVING: Tutorial Data
-SAVING: Complete
 Closed database (/Users/aj/Documents/GitHub/Deep-Down-The-Lost-City-of-Atlantis/data.db)
 ERROR: 34 RID allocations of type 'P12GodotShape2D' were leaked at exit.
 USER ERROR: 1 shaders of type CanvasShaderRD were never freed

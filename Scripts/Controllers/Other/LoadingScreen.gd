@@ -42,7 +42,7 @@ func _process(_delta: float):
 		
 		var newScene : PackedScene = ResourceLoader.load_threaded_get(nextScenePath)
 		
-		get_tree().unload_current_scene()
+		if get_tree().current_scene: get_tree().unload_current_scene()
 		
 		DATA.emit_signal("SAVE_DATA")
 		
@@ -58,3 +58,5 @@ func _process(_delta: float):
 		await get_tree().create_timer(0.2).timeout
 		
 		self.queue_free()
+	else:
+		pass

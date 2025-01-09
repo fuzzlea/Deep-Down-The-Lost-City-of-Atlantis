@@ -14,13 +14,9 @@ SAVING: Player Data
 SAVING: Relic Data
 SAVING: Tutorial Data
 SAVING: Complete
+SAVING: Inventory Data
+SAVING: Player Data
+SAVING: Relic Data
+SAVING: Tutorial Data
+SAVING: Complete
 Closed database (/Users/aj/Documents/GitHub/Deep-Down-The-Lost-City-of-Atlantis/data.db)
-ERROR: 34 RID allocations of type 'P12GodotShape2D' were leaked at exit.
-USER ERROR: 1 shaders of type CanvasShaderRD were never freed
-   at: ~ShaderRD (servers/rendering/renderer_rd/shader_rd.cpp:845)
-ERROR: 1 RID allocations of type 'N10RendererRD15MaterialStorage8MaterialE' were leaked at exit.
-ERROR: 1 RID allocations of type 'N10RendererRD15MaterialStorage6ShaderE' were leaked at exit.
-ERROR: 16 RID allocations of type 'N10RendererRD14TextureStorage7TextureE' were leaked at exit.
-ERROR: 1 RID allocations of type 'N10RendererRD14TextureStorage13CanvasTextureE' were leaked at exit.
-USER WARNING: 32 RIDs of type "Texture" were leaked.
-   at: finalize (servers/rendering/rendering_device.cpp:5758)

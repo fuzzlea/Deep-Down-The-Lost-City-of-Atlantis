@@ -26,7 +26,7 @@ DIALOGUE="*res://Scripts/Globals/Dialogue.gd"
 
 [debug]
 
-file_logging/enable_file_logging=true
+file_logging/enable_file_logging.pc=false
 file_logging/log_path="./logs"
 
 [display]

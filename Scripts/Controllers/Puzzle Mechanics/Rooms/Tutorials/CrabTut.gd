@@ -23,6 +23,7 @@ func _ready():
 	
 	Player.emit_signal("disableMovement")
 	Crab.emit_signal("disableMovement")
+	SOUNDS.playMusic("underwater ambience")
 	
 	var firstTween = CAMERA.zoomTo(Vector2(177,255), Vector2(5,5), {"Time": 1.5, "Transition": Tween.TRANS_SINE})
 	

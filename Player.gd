@@ -224,6 +224,8 @@ func useRelicAbility():
 			itemToPush.apply_central_impulse(dirToPush) # Apply a force to the item, emulating a push
 			itemToPush.set_meta("Pushed", true) # Set the metadata of the pushed item
 			
+			SOUNDS.playSound("ui_swoop")
+			
 			await get_tree().create_timer(timeBetweenPush).timeout # Wait timeBetweenPush
 			
 			currentRelicDB = false
@@ -361,6 +363,7 @@ func _physics_process(delta): # This function runs on every physics frame of the
 	
 	## RELIC WHEEL ##
 	if Input.is_action_just_pressed("Player-RelicWheel"):
+		SOUNDS.playSound("ui_swoop")
 		relicWheelOpen = true
 	if Input.is_action_just_released("Player-RelicWheel"):
 		relicWheelOpen = false
@@ -371,10 +374,12 @@ func _physics_process(delta): # This function runs on every physics frame of the
 		DATA.SAVE_DATA.emit()
 	if Input.is_action_just_pressed("Player-RelicWheelScrollUp"):
 		if relicWheelOpen == false: return
+		SOUNDS.playSound("ui_tick01")
 		relicWheelScroll("Down")
 	
 	if Input.is_action_just_pressed("Player-RelicWheelScrollDown"):
 		if relicWheelOpen == false: return
+		SOUNDS.playSound("ui_tick01")
 		relicWheelScroll("Up")
 	
 	## GLOBAL ##

@@ -204,12 +204,10 @@ KelpImagePath = "res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Kelp Bas
 [node name="Kelp2" parent="PuzzleArea/KelpSeperator1" instance=ExtResource("6_7uios")]
 position = Vector2(504, 567)
 rotation = 1.57079
-KelpLineNode = NodePath("")
 
 [node name="Kelp3" parent="PuzzleArea/KelpSeperator1" instance=ExtResource("6_7uios")]
 position = Vector2(520, 567)
 rotation = 1.57079
-KelpLineNode = NodePath("")
 
 [node name="Sign" parent="." instance=ExtResource("4_hnptm")]
 z_index = 1

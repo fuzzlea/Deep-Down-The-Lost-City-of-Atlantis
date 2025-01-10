@@ -1,5 +1,6 @@
 extends RigidBody2D
 
+@warning_ignore("unused_signal")
 signal Recieve
 
 @export var KelpLineNode : Node2D
@@ -20,10 +21,12 @@ func deleteKelp(kelp : RigidBody2D):
 
 func playParticles(where : RigidBody2D):
 	var cpuParticle : CPUParticles2D = where.get_child(0)
+	
 	cpuParticle.emitting = true
 	cpuParticle.finished.connect(deleteKelp.bind(where))
 
 func cut(_whatCut):
+	SOUNDS.playSound("kelp_cut")
 	if KelpLine.size() > 0:
 		for kelp : RigidBody2D in KelpLine:
 			kelp.collision_layer = 0

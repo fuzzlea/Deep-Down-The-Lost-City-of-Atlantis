@@ -12,6 +12,7 @@ func typeWrite(text : String, speed = 0.02):
 	Busy = true
 	for c in text:
 		$BG/Dialogue.text += c
+		SOUNDS.playSound("ui_lettertick")
 		await get_tree().create_timer(speed).timeout
 		
 	Busy = false
@@ -29,6 +30,9 @@ func killDialogue():
 
 func nextButtonClicked():
 	if Busy: return
+	
+	SOUNDS.playSound("ui_click01")
+	
 	if Dialogue.size() - 1 == Index:
 		killDialogue()
 		return
@@ -47,6 +51,7 @@ func scaleButtonDown():
 	tween.tween_property($BG/Next, "scale", Vector2(.95,.95),.2)
 
 func scaleButtonUp():
+	SOUNDS.playSound("ui_tick01")
 	var tween = self.create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
 	tween.tween_property($BG/Next, "scale", Vector2(1.2,1.2),.2)
 

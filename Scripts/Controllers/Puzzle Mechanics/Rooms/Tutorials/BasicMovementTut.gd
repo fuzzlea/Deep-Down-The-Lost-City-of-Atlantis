@@ -4,6 +4,7 @@ extends Node2D
 
 func _ready():
 	plr.emit_signal("disableMovement")
+	SOUNDS.playMusic("underwater ambience")
 	
 	var c1 = CAMERA.zoomTo(plr.position, Vector2(4, 4))
 	await c1.finished

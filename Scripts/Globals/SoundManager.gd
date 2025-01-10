@@ -5,15 +5,19 @@ extends Node
 		
 		# ui
 		
-		"ui_click01" : {"Stream": "res://Sounds/SFX/casual-click-pop-ui-3-262120.mp3", "Volume": -8.0},
-		"ui_tick01" : {"Stream": "res://Sounds/SFX/light-switch-flip-272436.mp3", "Volume": -8.0},
+		"ui_click01" : {"Stream": "res://Sounds/SFX/casual-click-pop-ui-3-262120.mp3", "Volume": -12.0},
+		"ui_tick01" : {"Stream": "res://Sounds/SFX/light-switch-flip-272436.mp3", "Volume": -12.0},
 		"ui_swoop" : {"Stream": "res://Sounds/SFX/swing-whoosh-11-198503.mp3", "Volume": 2.0},
 		"ui_droop" : {"Stream": "res://Sounds/SFX/sci-fi-bubble-pop-89059-[AudioTrimmer.com]-2.mp3", "Volume": -3.0},
 		"ui_pop" : {"Stream": "res://Sounds/SFX/multi-pop-1-188165-[AudioTrimmer.com].mp3", "Volume": -3.0},
+		"ui_lettertick": {"Stream": "res://Sounds/SFX/letter tick.mp3", "Volume": -3.0},
 		
 		# other
 		
 		"tp" : {"Stream": "res://Sounds/SFX/bubbles-108320.mp3", "Volume": -12.0},
+		"button_click" : {"Stream": "res://Sounds/SFX/old-radio-button-click-97549.mp3", "Volume": -6.0},
+		"kelp_cut": {"Stream": "res://Sounds/SFX/plastic-crunch-83779.mp3", "Volume": 0.0},
+		"item_found": {"Stream": "res://Sounds/SFX/level-up-4-243762.mp3", "Volume": -5.0},
 		
 		# footsteps
 		

@@ -16,6 +16,7 @@ func send():
 
 func recieve():
 	texture = pushedImage
+	SOUNDS.playSound("button_click")
 	
 	if not SendTo: return
 	

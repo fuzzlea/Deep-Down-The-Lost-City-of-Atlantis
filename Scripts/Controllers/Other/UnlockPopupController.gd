@@ -27,6 +27,7 @@ func _ready():
 	ItemIcon.scale = Vector2(0,0)
 	Title.modulate = Color(1,1,1,0)
 	YouFound.modulate = Color(1,1,1,0)
+	SOUNDS.playSound("item_found")
 	animate()
 
 func animate():

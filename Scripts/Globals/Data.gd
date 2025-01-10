@@ -48,6 +48,9 @@ func loadSceneWithScreen(scenePath : String):
 	var newLoadingScreen = loadingScreen.instantiate()
 	newLoadingScreen.nextScenePath = scenePath
 	
+	if get_tree().get_root().find_child("LoadingScreen",true,false):
+		return
+	
 	if newLoadingScreen: get_tree().get_root().add_child(newLoadingScreen)
 
 func returnTFtoInt(b : bool):

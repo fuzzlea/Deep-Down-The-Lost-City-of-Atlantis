@@ -39,6 +39,7 @@ func buttonPressed():
 func _ready():
 	
 	plr.emit_signal("disableMovement")
+	SOUNDS.playMusic("underwater ambience")
 	
 	CAMERA.zoomTo(plr.position, Vector2(5,5))
 	var d1 = DIALOGUE.newDialogue(Dialogues[0])

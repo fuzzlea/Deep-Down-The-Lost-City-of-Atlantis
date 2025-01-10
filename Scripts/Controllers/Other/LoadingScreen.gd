@@ -19,6 +19,7 @@ func tweenBGOut():
 	return tween
 
 func tweenBoatOut():
+	SOUNDS.fadeAll()
 	var tween = get_tree().create_tween().set_trans(Tween.TRANS_BACK)
 	tween.tween_property(Boat, "position", Vector2(Boat.position.x, Boat.position.y + 200), 2)
 	
@@ -36,6 +37,8 @@ func _ready():
 	
 	tweenBoat()
 	
+	SOUNDS.playMusic("loadingscreen bubbles")
+	
 	ResourceLoader.load_threaded_request(nextScenePath)
 
 func _process(_delta: float):
@@ -51,6 +54,8 @@ func _process(_delta: float):
 		await get_tree().create_timer(1.5).timeout
 		
 		BoatAnimations.stop(true)
+		
+		get_tree().create_timer(0.1).timeout.connect(func(): SOUNDS.playSound("boat_toot"))
 		
 		await tweenBoatOut().finished
 		

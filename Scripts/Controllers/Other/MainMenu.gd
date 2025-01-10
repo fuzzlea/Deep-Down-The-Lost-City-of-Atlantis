@@ -30,6 +30,7 @@ func animateLoopedElement(elementName : String):
 			AnimPlayer.play("PlayButtonLoop")
 
 func _on_play_button_mouse_entered() -> void:
+	SOUNDS.playSound("ui_tick01")
 	var tweenUp = get_tree().create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	tweenUp.tween_property(PlayButton, "scale", Vector2(1.15,1.15),0.15)
 
@@ -48,6 +49,8 @@ func _on_play_button_button_up() -> void:
 func _on_play_button_pressed() -> void:
 	
 	DATA.emit_signal("LOAD_DATA")
+	
+	SOUNDS.playSound("ui_click01")
 	
 	if DATA.HAS_DATA:
 		DATA.loadSceneWithScreen("res://Scenes/MAIN.tscn")

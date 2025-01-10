@@ -18,6 +18,7 @@ extends Node
 		"button_click" : {"Stream": "res://Sounds/SFX/old-radio-button-click-97549.mp3", "Volume": -6.0},
 		"kelp_cut": {"Stream": "res://Sounds/SFX/plastic-crunch-83779.mp3", "Volume": 0.0},
 		"item_found": {"Stream": "res://Sounds/SFX/level-up-4-243762.mp3", "Volume": -5.0},
+		"boat_toot": {"Stream": "res://Sounds/SFX/toot_toot.mp3", "Volume": -13.0},
 		
 		# footsteps
 		
@@ -35,7 +36,8 @@ extends Node
 	},
 	"Music": {
 		"underwater ambience": {"Stream": "res://Sounds/Music/underwater ambience.mp3", "Volume": -10.0},
-		"menu music": {"Stream": "res://Sounds/Music/sound-on-dreammp3-271820.mp3", "Volume": -8.0}
+		"menu music": {"Stream": "res://Sounds/Music/sound-on-dreammp3-271820.mp3", "Volume": -8.0},
+		"loadingscreen bubbles": {"Stream": "res://Sounds/SFX/water-bubbles-257594.mp3", "Volume": -15.0}
 	}
 }
 
@@ -86,7 +88,7 @@ func playMusic(what : String):
 func fadeMusic(what: String):
 	var fadeOut = get_tree().create_tween()
 	fadeOut.tween_property(get_child(1).find_child(what.to_lower(), true, false), "volume_db", -100.0, 3)
-	fadeOut.tween_callback(func(): get_child(1).find_child(what.to_lower(), true, false).queue_free())
+	fadeOut.tween_callback(func(): if get_child(1).find_child(what.to_lower(), true, false): get_child(1).find_child(what.to_lower(), true, false).queue_free())
 
 func fadeAll():
 	if not get_child(1).get_children().is_empty():

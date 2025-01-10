@@ -10,7 +10,7 @@ extends Node
 		"ui_swoop" : {"Stream": "res://Sounds/SFX/swing-whoosh-11-198503.mp3", "Volume": 2.0},
 		"ui_droop" : {"Stream": "res://Sounds/SFX/sci-fi-bubble-pop-89059-[AudioTrimmer.com]-2.mp3", "Volume": -3.0},
 		"ui_pop" : {"Stream": "res://Sounds/SFX/multi-pop-1-188165-[AudioTrimmer.com].mp3", "Volume": -3.0},
-		"ui_lettertick": {"Stream": "res://Sounds/SFX/letter tick.mp3", "Volume": -3.0},
+		"ui_lettertick": {"Stream": "res://Sounds/SFX/letter tick.mp3", "Volume": -5.0},
 		
 		# other
 		

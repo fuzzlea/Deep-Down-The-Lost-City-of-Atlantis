@@ -201,6 +201,7 @@ func pickUpCollectable(collectable : Sprite2D):
 	
 	if collectable:
 		collectable.queue_free()
+	else: return
 
 ## RELICS ##
 
@@ -397,6 +398,7 @@ func _on_push_range_area_exited(area: Area2D): # This function removes the item 
 func _on_collectable_range_area_entered(area: Area2D) -> void:
 	if area.has_meta("Interactable"): return
 	if area.has_meta("Pushable"): return
+	if CAMERA.Busy: return
 	if area.get_parent().get_meta("Collectable"):
 		pickUpCollectable(area.get_parent())
 

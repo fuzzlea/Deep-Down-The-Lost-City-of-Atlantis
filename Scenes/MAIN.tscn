@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cxp780kixqot7"]
+[gd_scene load_steps=10 format=3 uid="uid://cxp780kixqot7"]
 
 [ext_resource type="Texture2D" uid="uid://ce287xw4w076n" path="res://Assets/Environment/Alantis.png" id="1_4l52y"]
 [ext_resource type="Script" path="res://Scripts/Controllers/Puzzle Mechanics/Rooms/MAINSCENE.gd" id="1_jmvao"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cpda0n4yr0rjy" path="res://Scenes/Singles (Misc)/Telepad.tscn" id="4_ab80a"]
 [ext_resource type="PackedScene" uid="uid://bfyhdkkxtyov0" path="res://Scenes/Singles (Misc)/Sign.tscn" id="4_hnptm"]
 [ext_resource type="PackedScene" uid="uid://deacb8bdaifpi" path="res://Scenes/Singles (Misc)/Puzzle Mechanics/Recievers/Kelp.tscn" id="6_7uios"]
+[ext_resource type="PackedScene" uid="uid://bso1mv0vi6c0u" path="res://Scenes/Singles (Misc)/Pot.tscn" id="7_rrqda"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ouew5"]
 texture = ExtResource("1_4l52y")
@@ -213,3 +214,47 @@ rotation = 1.57079
 z_index = 1
 position = Vector2(218, 681)
 DisplayText = "Pause the game using  ESC  "
+
+[node name="Pot" parent="." instance=ExtResource("7_rrqda")]
+z_index = 2
+position = Vector2(280, 675)
+PotNumber = 2
+PotType = "Detailed"
+Item = "Glass Coral Bead Necklace"
+
+[node name="Pot2" parent="." instance=ExtResource("7_rrqda")]
+z_index = 2
+position = Vector2(312, 550)
+PotType = "Detailed"
+
+[node name="Pot6" parent="." instance=ExtResource("7_rrqda")]
+z_index = 2
+position = Vector2(391, 551)
+PotNumber = 2
+PotType = "Detailed"
+
+[node name="Pot7" parent="." instance=ExtResource("7_rrqda")]
+z_index = 2
+position = Vector2(569, 480)
+PotNumber = 2
+PotType = "Detailed"
+Item = "Sand Dollar"
+
+[node name="Pot3" parent="." instance=ExtResource("7_rrqda")]
+z_index = 2
+position = Vector2(184, 480)
+PotNumber = 4
+PotType = "Detailed"
+Item = "Spoon"
+
+[node name="Pot4" parent="." instance=ExtResource("7_rrqda")]
+z_index = 2
+position = Vector2(248, 480)
+PotType = "Detailed"
+
+[node name="Pot5" parent="." instance=ExtResource("7_rrqda")]
+z_index = 2
+position = Vector2(120, 551)
+PotNumber = 3
+PotType = "Golden"
+Item = "Golden Mask"

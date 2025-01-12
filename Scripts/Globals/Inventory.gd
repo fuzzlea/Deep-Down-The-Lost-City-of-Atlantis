@@ -48,7 +48,7 @@ extends Node
 		"Rarity": "Common"
 	},
 	
-	"Glass Coral Bead Necklace": {
+	"Glass Coral Bead Necklace": { #DONE
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Glass Coral Bead Necklace.png",
 		"Rarity": "Common"
 	},
@@ -68,7 +68,7 @@ extends Node
 		"Rarity": "Common"
 	},
 	
-	"Spoon": {
+	"Spoon": { #DONE
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Spoon.png",
 		"Rarity": "Common"
 	},
@@ -117,7 +117,7 @@ extends Node
 	
 	# Rare #
 	
-	"Golden Mask": {
+	"Golden Mask": { #DONE
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Rare/Golden Mask.png",
 		"Rarity": "Rare"
 	},

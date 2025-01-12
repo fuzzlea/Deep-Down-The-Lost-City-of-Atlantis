@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://bso1mv0vi6c0u"]
+
+[ext_resource type="Texture2D" uid="uid://b4tjiieb3k8r3" path="res://Assets/Environment/Pot1.png" id="1_8u5ex"]
+[ext_resource type="Script" path="res://Scripts/Controllers/Other/Pot.gd" id="1_gaeg3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1dg33"]
+radius = 8.0
+
+[sub_resource type="Animation" id="Animation_0rf1u"]
+resource_name = "shake"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-0.48, 0), Vector2(1.13, 0), Vector2(-0.86, 0), Vector2(0.64, 0), Vector2(-1.9, 0), Vector2(0.72, 0), Vector2(-0.6, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ajmpc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k4tpw"]
+_data = {
+"RESET": SubResource("Animation_ajmpc"),
+"shake": SubResource("Animation_0rf1u")
+}
+
+[node name="Pot" type="Area2D"]
+monitoring = false
+priority = 2
+script = ExtResource("1_gaeg3")
+PotType = " "
+metadata/Interactable = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8u5ex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1dg33")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_k4tpw")
+}
+
+[connection signal="Interact" from="." to="." method="_on_interact"]

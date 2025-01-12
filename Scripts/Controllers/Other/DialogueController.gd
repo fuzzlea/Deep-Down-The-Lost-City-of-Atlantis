@@ -12,7 +12,7 @@ func typeWrite(text : String, speed = 0.02):
 	Busy = true
 	for c in text:
 		$BG/Dialogue.text += c
-		SOUNDS.playSound("ui_lettertick")
+		SOUNDS.playSound("ui_lettertick",true)
 		await get_tree().create_timer(speed).timeout
 		
 	Busy = false

@@ -57,7 +57,7 @@ func _init():
 	add_child(sfxNode)
 	add_child(musicNode)
 
-func playSound(what : String):
+func playSound(what : String, randpitch : bool = false):
 	if not Data["SFX"].has(what.to_lower()): return
 	
 	var newAudio = AudioStreamPlayer2D.new()
@@ -66,6 +66,9 @@ func playSound(what : String):
 	newAudio.volume_db = SFXVol + Data["SFX"][what.to_lower()]["Volume"]
 	newAudio.stream = load(Data["SFX"][what.to_lower()]["Stream"])
 	newAudio.name = what + str(SFXVol)
+	
+	if randpitch:
+		newAudio.pitch_scale = randf_range(0.9,1.1)
 	
 	newAudio.play()
 	newAudio.finished.connect(func(): newAudio.queue_free())

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cl3p7j5m04wta"]
+[gd_scene load_steps=11 format=3 uid="uid://cl3p7j5m04wta"]
 
 [ext_resource type="Script" path="res://Scripts/Controllers/Puzzle Mechanics/Rooms/Tutorials/CrabTut.gd" id="1_hklpk"]
 [ext_resource type="Texture2D" uid="uid://ce287xw4w076n" path="res://Assets/Environment/Alantis.png" id="2_0dsjm"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cgwxc505nmthr" path="res://Scenes/Enemies/Crab.tscn" id="5_jix6u"]
 [ext_resource type="PackedScene" uid="uid://cpda0n4yr0rjy" path="res://Scenes/Singles (Misc)/Telepad.tscn" id="7_oha2q"]
 [ext_resource type="PackedScene" uid="uid://bfyhdkkxtyov0" path="res://Scenes/Singles (Misc)/Sign.tscn" id="8_21nxe"]
+[ext_resource type="PackedScene" uid="uid://bso1mv0vi6c0u" path="res://Scenes/Singles (Misc)/Pot.tscn" id="8_bfdlf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t20xo"]
 texture = ExtResource("2_0dsjm")
@@ -183,3 +184,20 @@ DisplayText = "Crabs can use their claws to cut through certain walls you can't 
 [node name="Telepad" parent="." instance=ExtResource("7_oha2q")]
 position = Vector2(584, 360)
 pathToScene = "res://Scenes/MAIN.tscn"
+
+[node name="Pot" parent="." instance=ExtResource("8_bfdlf")]
+position = Vector2(168, 456)
+PotType = "Detailed"
+Item = "Atlantean Pottery Shard"
+
+[node name="Pot2" parent="." instance=ExtResource("8_bfdlf")]
+position = Vector2(553, 408)
+PotNumber = 3
+PotType = "Detailed"
+Item = "Atlantean Chess Piece"
+
+[node name="Pot3" parent="." instance=ExtResource("8_bfdlf")]
+z_index = 1
+position = Vector2(617, 306)
+PotNumber = 3
+PotType = "Detailed"

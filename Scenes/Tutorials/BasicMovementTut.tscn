@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://c33kwxarncbnt"]
+[gd_scene load_steps=9 format=3 uid="uid://c33kwxarncbnt"]
 
 [ext_resource type="Texture2D" uid="uid://ce287xw4w076n" path="res://Assets/Environment/Alantis.png" id="1_p1uwh"]
 [ext_resource type="Script" path="res://Scripts/Controllers/Puzzle Mechanics/Rooms/Tutorials/BasicMovementTut.gd" id="1_y3exf"]
 [ext_resource type="PackedScene" uid="uid://c63bbgxpu1o61" path="res://Scenes/Player/Player.tscn" id="2_nhbk5"]
 [ext_resource type="PackedScene" uid="uid://cpda0n4yr0rjy" path="res://Scenes/Singles (Misc)/Telepad.tscn" id="4_jfnak"]
 [ext_resource type="PackedScene" uid="uid://bfyhdkkxtyov0" path="res://Scenes/Singles (Misc)/Sign.tscn" id="5_ct1l0"]
+[ext_resource type="PackedScene" uid="uid://bso1mv0vi6c0u" path="res://Scenes/Singles (Misc)/Pot.tscn" id="6_58gyy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_22v1o"]
 texture = ExtResource("1_p1uwh")
@@ -124,7 +125,54 @@ pathToScene = "res://Scenes/MAIN.tscn"
 
 [node name="Sign" parent="." instance=ExtResource("5_ct1l0")]
 z_index = 1
-position = Vector2(489, 241)
+position = Vector2(504, 241)
 DisplayText = "If you hold [SHIFT] while pressing 'Next' for dialogue, you can skip it!"
+
+[node name="Pot" parent="." instance=ExtResource("6_58gyy")]
+position = Vector2(408, 243)
+PotType = "Detailed"
+Item = "Puzzle Piece"
+
+[node name="Pot2" parent="." instance=ExtResource("6_58gyy")]
+position = Vector2(375, 290)
+PotNumber = 3
+PotType = "Detailed"
+
+[node name="Pot6" parent="." instance=ExtResource("6_58gyy")]
+position = Vector2(376, 340)
+PotNumber = 3
+PotType = "Detailed"
+
+[node name="Pot3" parent="." instance=ExtResource("6_58gyy")]
+position = Vector2(535, 378)
+PotNumber = 2
+PotType = "Detailed"
+Item = "Fish-Scale Hairpin"
+
+[node name="Pot4" parent="." instance=ExtResource("6_58gyy")]
+position = Vector2(503, 378)
+PotNumber = 2
+PotType = "Detailed"
+
+[node name="Pot7" parent="." instance=ExtResource("6_58gyy")]
+position = Vector2(556, 335)
+PotNumber = 2
+PotType = "Detailed"
+
+[node name="Pot8" parent="." instance=ExtResource("6_58gyy")]
+position = Vector2(557, 288)
+PotNumber = 2
+PotType = "Detailed"
+
+[node name="Pot5" parent="." instance=ExtResource("6_58gyy")]
+position = Vector2(280, 474)
+PotNumber = 4
+PotType = "Golden"
+Item = "Fork"
+
+[node name="Pot9" parent="." instance=ExtResource("6_58gyy")]
+position = Vector2(649, 163)
+PotNumber = 2
+PotType = "Detailed"
 
 [connection signal="Ran" from="Telepad" to="." method="_on_telepad_ran"]

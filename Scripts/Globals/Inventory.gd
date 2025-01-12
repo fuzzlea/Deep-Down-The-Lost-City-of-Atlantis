@@ -23,7 +23,7 @@ extends Node
 		"Rarity": "Common"
 	},
 	
-	"Atlantean Chess Piece": {
+	"Atlantean Chess Piece": { #DONE
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Atlantean Chess Piece.png",
 		"Rarity": "Common"
 	},
@@ -38,12 +38,12 @@ extends Node
 		"Rarity": "Common"
 	},
 	
-	"Atlantean Pottery Shard": {
+	"Atlantean Pottery Shard": { #DONE
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Atlantean Pottery Shard.png",
 		"Rarity": "Common"
 	},
 	
-	"Fish-Scale Hairpin": {
+	"Fish-Scale Hairpin": { #DONE
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Fish-Scale Hairpin.png",
 		"Rarity": "Common"
 	},
@@ -53,12 +53,12 @@ extends Node
 		"Rarity": "Common"
 	},
 	
-	"Puzzle Piece": {
+	"Puzzle Piece": { #DONE
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Puzzle Piece.png",
 		"Rarity": "Common"
 	},
 	
-	"Sand Dollar": {
+	"Sand Dollar": { #DONE
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Sand Dollar.png",
 		"Rarity": "Common"
 	},
@@ -95,7 +95,7 @@ extends Node
 		"Rarity": "Uncommon"
 	},
 	
-	"Fork": {
+	"Fork": { #DONE
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Uncommon/Fork.png",
 		"Rarity": "Uncommon"
 	},

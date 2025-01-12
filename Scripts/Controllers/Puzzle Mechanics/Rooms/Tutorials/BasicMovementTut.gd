@@ -14,8 +14,8 @@ func _ready():
 		"W-A-S-D to move your diver.",
 		"To open your relic wheel, either hold [TAB] or [RightMB]",
 		"You'll learn more about relics in the third tutorial.",
-		"Use your scroll wheel to select a relic ...",
-		"... you'll be able to use your selected relic (when unlocked) with [LeftMB]",
+		"Use your scroll wheel or your arrow keys to select a relic ...",
+		"... you'll be able to use your selected relic (when unlocked) with [LeftMB] or [SPACE]",
 		"Once you understand the controls, go to the telepad on the left to go back home."
 		])
 	

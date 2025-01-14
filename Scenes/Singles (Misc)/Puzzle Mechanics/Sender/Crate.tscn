@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://b1nyhnpy2awm8"]
+
+[ext_resource type="Script" path="res://Scripts/Controllers/Puzzle Mechanics/Recievers/Crate.gd" id="1_byfhj"]
+[ext_resource type="Texture2D" uid="uid://btbvgpwryf2yf" path="res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Wooden Crate.png" id="1_mpto7"]
+[ext_resource type="Texture2D" uid="uid://blg8h73kwmucd" path="res://Assets/Particles/Wooden Shard.png" id="2_i38gg"]
+
+[sub_resource type="Curve" id="Curve_ftrpi"]
+_data = [Vector2(0.0280899, 1), 0.0, 0.0, 0, 0, Vector2(0.792135, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cegv3"]
+size = Vector2(12, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j3v4j"]
+size = Vector2(16, 16)
+
+[node name="Crate" type="RigidBody2D"]
+y_sort_enabled = true
+mass = 10.0
+gravity_scale = 0.0
+lock_rotation = true
+linear_damp = 10.0
+script = ExtResource("1_byfhj")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+z_index = 3
+emitting = false
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("2_i38gg")
+emission_shape = 2
+emission_sphere_radius = 4.0
+direction = Vector2(0, -1)
+gravity = Vector2(0, 245)
+initial_velocity_min = 50.51
+initial_velocity_max = 50.51
+angular_velocity_min = -10.0
+angular_velocity_max = 10.0
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+angle_min = -43.6
+angle_max = 130.9
+scale_amount_curve = SubResource("Curve_ftrpi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
+texture = ExtResource("1_mpto7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cegv3")
+
+[node name="HitRange" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+metadata/Pushable = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitRange"]
+shape = SubResource("RectangleShape2D_j3v4j")
+debug_color = Color(0.694792, 0.344897, 0.894274, 0.42)
+
+[connection signal="area_entered" from="HitRange" to="." method="_on_hit_range_area_entered"]

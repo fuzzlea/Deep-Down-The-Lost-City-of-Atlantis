@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://8vda2srjaiwx"]
+[gd_scene load_steps=19 format=3 uid="uid://8vda2srjaiwx"]
 
 [ext_resource type="Texture2D" uid="uid://ce287xw4w076n" path="res://Assets/Environment/Alantis.png" id="1_s8bq8"]
 [ext_resource type="PackedScene" uid="uid://c63bbgxpu1o61" path="res://Scenes/Player/Player.tscn" id="2_a4hjb"]
@@ -15,8 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://b0rqdakwfpsal" path="res://Assets/Singles (Misc)/Collectibles/Common/Atlantean Bath Token.png" id="8_cj1w8"]
 [ext_resource type="Texture2D" uid="uid://5afrtn7sabvx" path="res://Assets/Singles (Misc)/Collectibles/Relics/Poseidons Trident.png" id="9_3v4aa"]
 [ext_resource type="PackedScene" uid="uid://cpda0n4yr0rjy" path="res://Scenes/Singles (Misc)/Telepad.tscn" id="15_k5k6g"]
+[ext_resource type="PackedScene" uid="uid://bso1mv0vi6c0u" path="res://Scenes/Singles (Misc)/Pot.tscn" id="16_e6ceh"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c8vo7"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o4w40"]
 texture = ExtResource("1_s8bq8")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 1.1875, -8, -3.0625, -3.1875, -8, 8, 1.1875, 8, 1.9375, 1.1875, 8, -2.3125)
@@ -90,7 +91,7 @@ texture = ExtResource("1_s8bq8")
 [sub_resource type="TileSet" id="TileSet_rejgt"]
 physics_layer_0/collision_layer = 3
 physics_layer_0/collision_mask = 3
-sources/1 = SubResource("TileSetAtlasSource_c8vo7")
+sources/1 = SubResource("TileSetAtlasSource_o4w40")
 
 [node name="Node2D" type="Node2D"]
 
@@ -195,3 +196,9 @@ pathToScene = "res://Scenes/PuzzleRooms/Puzzle0.tscn"
 [node name="Telepad2" parent="." instance=ExtResource("15_k5k6g")]
 position = Vector2(472, 296)
 pathToScene = "res://Scenes/PuzzleRooms/Puzzle1.tscn"
+
+[node name="Pot" parent="." instance=ExtResource("16_e6ceh")]
+position = Vector2(361, 264)
+PotNumber = 3
+PotType = "Detailed"
+Item = "Anchor Pendent"

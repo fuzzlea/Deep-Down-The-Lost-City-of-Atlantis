@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-# Signals #
+# SIGNALS
 
 @warning_ignore("unused_signal")
 signal disableMovement
@@ -9,18 +9,18 @@ signal enableMovement
 @warning_ignore("unused_signal")
 signal unpauseGame
 
-# Exports #
+# EXPORTS
 
 @export var State : String = "Idle"
 @export var Direction : String = "Down"
 @export var RelicSelected : String = "Push"
 
-# Const #
+# CONST
 
 const ACCEL : float = 10.0 # Player Acceleration Value
 var SPEED : float = 80.0 # Set as var so i can manipulate
 
-# Onready #
+# ONREADY
 
 @onready var AnimatedSprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var Camera : Camera2D = $Camera2D
@@ -37,26 +37,19 @@ var SPEED : float = 80.0 # Set as var so i can manipulate
 
 @onready var PauseScene : PackedScene = preload('res://Scenes/UI/PauseMenu.tscn')
 
-# Vars #
+# VAR
 
-## MOVEMENT ##
-
-var moveInput : Vector2 # The Player Movement Input Vector
-var prevState : String # The players previous state
-var prevDir : String # The players previous direction
+var moveInput : Vector2 
+var prevState : String 
+var prevDir : String 
 var currentMovementControls : bool = true
 var gamePaused : bool = false
-
-## INTERACTIONS ##
+var lastFootStepInt = 0
 
 var itemsInInteractRange : Array = []
 
-## RELICS ##
-
 var currentRelicDB : bool = false
 var aquaLobberScene = preload("res://Scenes/Singles (Misc)/AquaLobber.tscn")
-
-## PUSHING ##
 
 var timeBetweenPush : float = 0.5
 var pushForce : float = -115
@@ -73,11 +66,10 @@ var pushDirectionHashmap : Dictionary = {
 	"DownRight": Vector2(0.5,0.5)
 }
 
-## RELIC WHEEL ##
-
+# This setget function will update the relic wheels position
 var relicWheelOpen : bool :
 	set(value):
-		if CAMERA.Busy: return
+		#if CAMERA.Busy: return
 		relicWheelOpen = value
 		
 		initRelicWheel()
@@ -86,14 +78,14 @@ var relicWheelOpen : bool :
 		if value == true:
 			
 			var relicWheelTween = get_tree().create_tween().set_trans(Tween.TRANS_CIRC)
-			relicWheelTween.tween_property(RelicWheelUI, "position", Vector2(get_viewport().size.x / 2 - (RelicWheelUI.size.x / 2) , get_viewport().size.y - (RelicWheelUI.size.y + 40)), 0.2)
+			relicWheelTween.tween_property(RelicWheelUI, "position", Vector2(592,975), 0.2)
 			
 			disablePlayerControls()
 			
 		elif value == false:
 			
 			var relicWheelTween = get_tree().create_tween().set_trans(Tween.TRANS_CIRC)
-			relicWheelTween.tween_property(RelicWheelUI, "position", Vector2(get_viewport().size.x / 2 - (RelicWheelUI.size.x / 2), get_viewport().size.y), 0.2)
+			relicWheelTween.tween_property(RelicWheelUI, "position", Vector2(592,1200), 0.2)
 			
 			enablePlayerControls()
 
@@ -115,14 +107,15 @@ var relicSetsToRelicNames = {
 	"Trident": "Poseidons Trident"
 }
 
-# Func #
+# FUNC
 
-## MOVEMENT / ANIMATION ##
-func animatePlayer(): # This function animates the player
-	var animString = State + Direction # Composes a string of the state and the direction to play the correct animation
-	AnimatedSprite.play(animString) # Plays the animation
+# This function animates the player according to the state and the direction
+func animatePlayer():
+	var animString = State + Direction
+	AnimatedSprite.play(animString)
 
-func setDirection(): # This function sets the export var 'Direction' depending on the players movement
+# This function sets the direction given the players movement input
+func setDirection():
 	var movementInput : Vector2 = getMovementInput()
 	if movementInput.x > 0:
 		if movementInput.y < 0:
@@ -151,12 +144,13 @@ func setDirection(): # This function sets the export var 'Direction' depending o
 		Direction = "Up"
 		return
 
-func setState(): # This function sets the export var 'State' of the player
+# This function sets the state of the player according to the movement vector
+func setState():
 	if currentMovementControls == false: return
 	
 	var movementInput : Vector2 = getMovementInput()
 	
-	if movementInput != Vector2.ZERO: # If the player is moving
+	if movementInput != Vector2.ZERO:
 		State = "Walk"
 	else:
 		State = "Idle"
@@ -164,26 +158,28 @@ func setState(): # This function sets the export var 'State' of the player
 	if currentRelicDB == true:
 		State = RelicSelected
 	
-	if prevState != State || prevDir != Direction: # Check when the state or direction changes, animate & update those previous variables
+	if prevState != State || prevDir != Direction:
 		animatePlayer()
 		prevState = State
 		prevDir = Direction
 
-func getMovementInput(): # This function gets the movement vector of the player depending on what keys they press
+# This function returns the normalized vector of the players movement || Vector2(0.3123,0.21851) -> Vector2(0.5,0.5) 
+func getMovementInput():
 	moveInput.x = Input.get_action_strength("Player-MoveRight") - Input.get_action_strength("Player-MoveLeft")
 	moveInput.y = Input.get_action_strength("Player-MoveDown") - Input.get_action_strength("Player-MoveUp")
 	return moveInput.normalized() # This will return the Vector clamped from -1 to 1 which gives access to using speed variables
 
-func disablePlayerControls(): # This will disable the player controls so they cannot move
+# Disable the players ability to move
+func disablePlayerControls():
 	currentMovementControls = false
 	State = "Idle"
 	animatePlayer()
 
-func enablePlayerControls(): # This will enable the player controls so they can move
+# Enable the players ability to move
+func enablePlayerControls():
 	currentMovementControls = true
 
-## COLLECTABLES ##
-
+# This function will pick up a collectable, and depending on the type of collectable, call to the inventory accordingly
 func pickUpCollectable(collectable : Sprite2D):
 	var itemName = collectable.get_meta("CollectableName")
 	
@@ -200,9 +196,9 @@ func pickUpCollectable(collectable : Sprite2D):
 	
 	if collectable:
 		collectable.queue_free()
+	else: return
 
-## RELICS ##
-
+# This function will run whenever the player tries to use their relic, and perform a different action according to the selected relic
 func useRelicAbility():
 	if relicWheelOpen == true: return
 	
@@ -211,19 +207,21 @@ func useRelicAbility():
 	
 	match RelicSelected:
 		"Push":
-			if areasInPushRange.size() <= 0: return # Make sure something is in range
+			if areasInPushRange.size() <= 0: return
 			
 			currentRelicDB = true
 			
-			velocity = getMovementInput() * pushForce # Move the player back for a little bounce
+			velocity = getMovementInput() * pushForce
 			
-			var itemToPush : RigidBody2D = areasInPushRange[0].get_parent() # Get the item to push
-			var dirToPush : Vector2 = pushDirectionHashmap[Direction] * abs(pushForce) # Get the direction to push that item
+			var itemToPush : RigidBody2D = areasInPushRange[0].get_parent()
+			var dirToPush : Vector2 = pushDirectionHashmap[Direction] * abs(pushForce)
 			
-			itemToPush.apply_central_impulse(dirToPush) # Apply a force to the item, emulating a push
-			itemToPush.set_meta("Pushed", true) # Set the metadata of the pushed item
+			itemToPush.apply_central_impulse(dirToPush)
+			itemToPush.set_meta("Pushed", true)
 			
-			await get_tree().create_timer(timeBetweenPush).timeout # Wait timeBetweenPush
+			SOUNDS.playSound("ui_swoop")
+			
+			await get_tree().create_timer(timeBetweenPush).timeout
 			
 			currentRelicDB = false
 			itemToPush.set_meta("Pushed", false)
@@ -251,6 +249,7 @@ func useRelicAbility():
 		"Magnet":
 			pass
 
+# This function will initialize the relic wheel to off screen
 func initRelicWheel():
 	
 	for relic in RelicWheelHBOX.get_children():
@@ -273,6 +272,7 @@ func initRelicWheel():
 	
 	relicWheelScroll("_")
 
+# This function will run whenever the relic wheel scroll keybind is pressed (in this case, mouse wheel scroll up / down) 
 func relicWheelScroll(updown : String):
 	match updown:
 		"Up":
@@ -292,8 +292,7 @@ func relicWheelScroll(updown : String):
 		if relic.name == str(relicWheelSelected):
 			relic.create_tween().tween_property(relic, "scale", Vector2(1.2,1.2), 0.1).set_trans(Tween.TRANS_BACK)
 
-## INTERACTIONS ##
-
+# This function will show the interaction icon
 func showInteractIcon():
 	
 	InteractionIcon.visible = true
@@ -301,14 +300,17 @@ func showInteractIcon():
 	var tween = get_tree().create_tween().set_trans(Tween.TRANS_BACK)
 	tween.tween_property(InteractionIcon, "scale", Vector2(1,1), 0.2)
 
+# This function will hide the interaction icon
 func hideInteractIcon():
 	var tween = get_tree().create_tween().set_trans(Tween.TRANS_BACK)
 	tween.tween_property(InteractionIcon, "scale", Vector2(0,0), 0.1)
 	
 	tween.tween_callback(func(): InteractionIcon.visible = false)
 
+# This function will pause the game
 func pauseController():
 	if gamePaused: return
+	if CAMERA.Busy: return
 	
 	gamePaused = true
 	
@@ -317,8 +319,9 @@ func pauseController():
 	
 	newPause.emit_signal("AnimateIn")
 
-# Connectors #
+# CONNECTORS
 
+# This function essentially works as an initializer, setting all of the variables and updating certain game rules
 func _ready():
 	CAMERA.CurrentCamera = Camera
 	CAMERA.Player = self
@@ -327,78 +330,118 @@ func _ready():
 	InteractionIcon.scale = Vector2(0,0)
 	
 	relicWheelOpen = false
+	
+	get_tree().auto_accept_quit = false
+	
 	initRelicWheel()
 	relicWheelScroll("None")
 
-func _physics_process(delta): # This function runs on every physics frame of the game
+# This function runs every frame, checking for differnet keybind inputs, and running certain functions accordingly
+func _physics_process(delta):
 	
-	## MOVEMENT ##
 	if currentMovementControls:
 		var movementInput = getMovementInput()
 		
-		velocity = lerp(velocity, movementInput * SPEED, delta * ACCEL) # Smoothly update the velocity of the player
-		move_and_slide() # A godot built in function for CharacterBody2D nodes to allow for phsyics based positioning
+		velocity = lerp(velocity, movementInput * SPEED, delta * ACCEL)
+		move_and_slide() 
 	
-	## PUSHING ##
-	if Input.is_action_just_pressed("Player-Push"): # Check if the player pushes the key for the mechanic of whatever relic they have selected
-		if currentRelicDB == false: # Make sure the player is able to use their relic
-			useRelicAbility() # Use the ability of the relic selected
+	if Input.is_action_just_pressed("Player-Push"):
+		if currentRelicDB == false:
+			useRelicAbility()
 	
-	## INTERACTIONS ##
 	if Input.is_action_just_pressed("Player-Interaction"):
 		if itemsInInteractRange.size() > 0:
+			SOUNDS.playSound("ui_pop")
+			if itemsInInteractRange[0].has_meta("Telepad"):
+				itemsInInteractRange[0].emit_signal("Interact", self); return
+				
 			itemsInInteractRange[0].emit_signal("Interact")
 	
-	## RELIC WHEEL ##
 	if Input.is_action_just_pressed("Player-RelicWheel"):
+		SOUNDS.playSound("ui_swoop")
 		relicWheelOpen = true
 	if Input.is_action_just_released("Player-RelicWheel"):
 		relicWheelOpen = false
 	
 	if Input.is_action_just_pressed("Player-Pause"):
 		pauseController()
-	
+	if Input.is_action_just_pressed("Player-SaveData"):
+		DATA.SAVE_DATA.emit()
 	if Input.is_action_just_pressed("Player-RelicWheelScrollUp"):
 		if relicWheelOpen == false: return
+		SOUNDS.playSound("ui_tick01")
 		relicWheelScroll("Down")
 	
 	if Input.is_action_just_pressed("Player-RelicWheelScrollDown"):
 		if relicWheelOpen == false: return
+		SOUNDS.playSound("ui_tick01")
 		relicWheelScroll("Up")
 	
-	## GLOBAL ##
 	setState()
 	setDirection()
 
-func _on_push_range_area_entered(area: Area2D): # This function adds everything that is pushable to an array
+# This function will add an item to the pushable items IF in range, and able to be pushed
+func _on_push_range_area_entered(area: Area2D):
 	if area.get_meta("Pushable"):
 		areasInPushRange.insert(0, area)
 
-func _on_push_range_area_exited(area: Area2D): # This function removes the item from the array
+# This function will remove the item from the above function
+func _on_push_range_area_exited(area: Area2D):
 	if area.get_meta("Pushable"):
 		areasInPushRange.erase(area)
 
+# This function runs when anything collectable has entered the range of the player
 func _on_collectable_range_area_entered(area: Area2D) -> void:
 	if area.has_meta("Interactable"): return
 	if area.has_meta("Pushable"): return
+	if CAMERA.Busy: return
 	if area.get_parent().get_meta("Collectable"):
 		pickUpCollectable(area.get_parent())
 
+# This function runs on the 'enableMovement' signal
 func _on_enable_movement() -> void:
 	enablePlayerControls()
 
+# This function runs on the 'disableMovement' signal
 func _on_disable_movement() -> void:
 	disablePlayerControls()
 
+# This function runs when something enters the interaction range, and handles all of that logic accordingly
 func _on_interaction_range_area_entered(area : Area2D):
 	if area.has_meta("Interactable"):
+		
+		if area.has_meta("Telepad"):
+			if area.Locked: return
+		
 		showInteractIcon()
+		SOUNDS.playSound("ui_droop")
 		itemsInInteractRange.append(area)
 
+# This does the same as above, except when something exits the interaction range
 func _on_interaction_range_area_exited(area: Area2D) -> void:
 	if itemsInInteractRange.has(area):
 		itemsInInteractRange.erase(area)
 		if itemsInInteractRange.size() == 0: hideInteractIcon()
 
+# This function runs when the application recieves a notification from the OS, for example, to close the window 
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		
+		if get_tree().current_scene.name == "Main":
+			DATA.Data["LastPosInMain"] = position
+		
+		DATA.emit_signal("SAVE_DATA")
+		
+		await get_tree().create_timer(0.5).timeout
+		
+		get_tree().quit()
+
+# This function unpauses the game
 func _on_unpause_game() -> void:
 	gamePaused = false
+
+# This function runs when the footstep timer ticks
+func _on_footstep_timer_timeout() -> void:
+	if State == "Walk":
+		var randint = randi_range(1,11)
+		SOUNDS.playSound("foot" + str(randint))

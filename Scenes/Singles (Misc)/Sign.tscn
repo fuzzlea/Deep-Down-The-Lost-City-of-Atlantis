@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://xedawkcapr2d" path="res://Assets/Singles (Misc)/Sign.png" id="2_gij4e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gmjr6"]
-radius = 15.1327
+radius = 11.0454
 
 [node name="Sign" type="Area2D"]
 monitoring = false

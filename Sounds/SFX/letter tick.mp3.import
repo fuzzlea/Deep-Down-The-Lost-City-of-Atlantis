@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://s6u0a4q8ynq5"
+path="res://.godot/imported/letter tick.mp3-a98c9e57d0e779e5d259bc46a5c0cbbd.mp3str"
+
+[deps]
+
+source_file="res://Sounds/SFX/letter tick.mp3"
+dest_files=["res://.godot/imported/letter tick.mp3-a98c9e57d0e779e5d259bc46a5c0cbbd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

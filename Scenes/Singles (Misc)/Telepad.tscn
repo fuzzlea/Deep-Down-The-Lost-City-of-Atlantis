@@ -1,19 +1,51 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpda0n4yr0rjy"]
+[gd_scene load_steps=7 format=3 uid="uid://cpda0n4yr0rjy"]
 
 [ext_resource type="Script" path="res://Scripts/Controllers/Other/Telepad.gd" id="1_icaax"]
 [ext_resource type="Texture2D" uid="uid://7k1b1a25qr01" path="res://Assets/Singles (Misc)/Puzzle Mechanics/Senders/Telepad ON.png" id="2_yg102"]
+[ext_resource type="Texture2D" uid="uid://dq4sxm8t7y672" path="res://Assets/Singles (Misc)/spotlight_5.png" id="3_5s3lr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w62q8"]
-radius = 15.1327
+radius = 11.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_e0qyo"]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_2trs5"]
+colors = PackedColorArray(1, 1, 1, 0.682353, 1, 1, 1, 0)
 
 [node name="Telepad" type="Area2D"]
 script = ExtResource("1_icaax")
 metadata/Interactable = true
+metadata/Telepad = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_w62q8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_yg102")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+modulate = Color(1, 1, 1, 0.329412)
+material = SubResource("CanvasItemMaterial_e0qyo")
+amount = 70
+speed_scale = 0.5
+randomness = 0.1
+texture = ExtResource("3_5s3lr")
+emission_shape = 1
+emission_sphere_radius = 14.23
+direction = Vector2(0, 0)
+spread = 97.73
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 20.0
+angular_velocity_min = -378.18
+angular_velocity_max = 334.55
+orbit_velocity_min = -1.0
+orbit_velocity_max = 1.0
+scale_amount_min = 0.1
+scale_amount_max = 0.2
+color = Color(0.0601733, 0.430174, 0.896936, 1)
+color_ramp = SubResource("Gradient_2trs5")
 
 [connection signal="Interact" from="." to="." method="_on_interact"]

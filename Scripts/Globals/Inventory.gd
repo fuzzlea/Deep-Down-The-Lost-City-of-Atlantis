@@ -1,5 +1,7 @@
 extends Node
 
+# EXPORTS
+
 @export var RarityColors : Dictionary = {
 	
 	"Common": Color(0.867, 0.863, 0.91),
@@ -183,13 +185,20 @@ extends Node
 	
 }
 
+# ONREADY
+
 @onready var popUpScene : PackedScene = preload("res://Scenes/UI/UnlockPopup.tscn")
+
+# VAR
 
 var Inventory = []
 var Stats = {
 	
 }
 
+# FUNC
+
+# This function plays the animation that displays a new item, whenever a new item is unlocked
 func playFindAnimation(what : String, isRelic : bool):
 	
 	var newPopup = popUpScene.instantiate()
@@ -202,6 +211,7 @@ func playFindAnimation(what : String, isRelic : bool):
 	
 	get_tree().current_scene.add_child(newPopup)
 
+# This function adds an item to the inventory
 func addToInventory(what : String , amount : int, silent : bool = false):
 	if findInInventory(what):
 		var item = findInInventory(what)
@@ -212,6 +222,7 @@ func addToInventory(what : String , amount : int, silent : bool = false):
 		var newInventoryLine = [what, amount]
 		Inventory.insert(0, newInventoryLine)
 
+# This function removes an item from the inventory
 func removeItemInInventory(what : String , amount : int):
 	if findInInventory(what):
 		var item = findInInventory(what)
@@ -219,11 +230,13 @@ func removeItemInInventory(what : String , amount : int):
 	else:
 		return null
 
+# This function finds an item in the inventory
 func findInInventory(what : String):
 	for item in Inventory:
 		if item[0] == what:
 			return item
 
+# This function unlocks a relic
 func unlockRelic(what : String):
 	if DATA.Data["Relics"][what][0] == true: return
 	if relicInformation[what]:
@@ -233,4 +246,5 @@ func unlockRelic(what : String):
 	else:
 		print("Relic " + what + " not found")
 
+# This function returns the inventory
 func returnInventory(): return Inventory

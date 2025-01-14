@@ -1,14 +1,21 @@
 extends Node
 
+# SIGNAL
+
 signal LOAD_DATA
 signal SAVE_DATA
+
+# EXPORT
 
 @export var COMPLETED_INIT_PROCESS = false
 @export var HAS_DATA = false
 
-var loadingScreen = preload("res://Scenes/UI/LoadingScreen.tscn")
+# VAR
 
+var loadingScreen = preload("res://Scenes/UI/LoadingScreen.tscn")
 var db : SQLite
+
+# EXPORTS
 
 @export var Data : Dictionary = {
 	"Relics": {
@@ -28,22 +35,9 @@ var db : SQLite
 	"LastPosInMain": Vector2(249,708)
 }
 
-func _init(): 
-	db = SQLite.new(); 
-	db.path = "res://data.db"; 
-	db.open_db(); 
-	
-	LOAD_DATA.connect(func():
-		db.query("select * from player_data")
-		if db.query_result == []:
-			initDataTable()
-		else:
-			HAS_DATA = true
-			loadData()
-	)
-	
-	SAVE_DATA.connect(saveData)
+# FUNC
 
+# This function will load a scene on the back end, and create a loading screen to hide the scene changing
 func loadSceneWithScreen(scenePath : String):
 	var newLoadingScreen = loadingScreen.instantiate()
 	newLoadingScreen.nextScenePath = scenePath
@@ -53,16 +47,19 @@ func loadSceneWithScreen(scenePath : String):
 	
 	if newLoadingScreen: get_tree().get_root().add_child(newLoadingScreen)
 
+# Returns True -> 1 ; False -> 0
 func returnTFtoInt(b : bool):
 	if b: return 1
 	else: return 0
 
+# Returns 1 -> True ; 0 -> False
 func returnInttoTF(i : int):
 	if i == 1:
 		return true
 	elif i == 0:
 		return false
 
+# Saves the data in order of the database's creation with Raw SQL injections / queries, and built in plugin methods
 func saveData():
 	
 	if not db: return
@@ -121,6 +118,7 @@ func saveData():
 	
 	print("SAVING: Complete")
 
+# This function loads the data in the same order the database is created & saved with raw SQL injections / queries and built in plugin methods
 func loadData():
 	
 	#inventory
@@ -179,6 +177,7 @@ func loadData():
 	
 	print("LOADING: Complete")
 
+# This function will initiazlize the database if no data is detected using the SQLite plugin for Godot (more info in the documentation)
 func initDataTable():
 	
 	print("INIT DATA")
@@ -230,3 +229,22 @@ func initDataTable():
 	db.create_table("player_data", playerTable)
 	
 	db.insert_row("player_data", {"current_puzzle": 0, "died": 0, "last_pos_y": 708, "last_pos_x": 249, "completed_init": 0})
+
+# CONNECTORS
+
+# This function will run when the Data.gd script is loaded by the engine. This opens the database, checks for data, and initializes / loads the data accordingly
+func _init(): 
+	db = SQLite.new(); 
+	db.path = "res://data.db"; 
+	db.open_db(); 
+	
+	LOAD_DATA.connect(func():
+		db.query("select * from player_data")
+		if db.query_result == []:
+			initDataTable()
+		else:
+			HAS_DATA = true
+			loadData()
+	)
+	
+	SAVE_DATA.connect(saveData)

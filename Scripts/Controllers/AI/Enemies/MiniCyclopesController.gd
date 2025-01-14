@@ -1,28 +1,30 @@
 extends RigidBody2D
 
-# Exports #
+# EXPORTS
 
 @export var State : String
 @export var States : Array
 @export var AIUpdateTime : float = 0.5
 
-# Onready #
+# ONREADY
 
 @onready var AI_Timer : Timer = $AI_Timer
 @onready var AnimSprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var HitRange : Area2D = $HitRange
 
-# Var #
+# VAR
 
 var currentlyMoving : bool = false
 var ableToMove : bool = true
 var nextDirection = null
 
-# Func #
+# FUNC
 
+# This function returns a random state from [States]
 func pickRandomState():
 	return States[randi_range(0,States.size() - 1)]
 
+# This function moves the cyclopes randomly (Very similar, if not the exact same as the crab)
 func moveRandomly():
 	
 	if not ableToMove: return
@@ -41,7 +43,8 @@ func moveRandomly():
 	
 	currentlyMoving = false
 
-func update(): # This function will run every set amount of seconds (AIUpdateTime), and will be the AI Controller
+# This function runs every time the AI Timer ticks
+func update(): 
 	
 	if not ableToMove: return
 	if currentlyMoving: return
@@ -59,13 +62,15 @@ func update(): # This function will run every set amount of seconds (AIUpdateTim
 		_:
 			pass
 
-# Connectors #
+# CONNECTORS
 
-func _ready(): # This function runs when the scene is instantiated
+# This function will start the update timer when the cyclopes scene is ready
+func _ready():
 	
 	AI_Timer.wait_time = AIUpdateTime
 	AI_Timer.start()
 
+# This function checks every frame if the cyclopse was pushed, and update its ability to move accordingly
 func _process(_delta : float):
 	
 	if get_meta("Pushed") == true:
@@ -77,16 +82,19 @@ func _process(_delta : float):
 		
 		ableToMove = true
 
-func _on_ai_timer_timeout(): # This function runs every time the timer 'AI_Timer' finishes
+# This function connects the timer to the update function
+func _on_ai_timer_timeout():
 	update()
 
-func _on_hit_range_body_entered(body: Node2D): # This function runs whenever something enters the HitRange
+# This function checks for the cyclopes hitting a wall, and moves it accordingly
+func _on_hit_range_body_entered(body: Node2D):
 	if body is TileMap:
 		if body.global_position.x - global_position.x > 0:
-			nextDirection = "Right" # Opposite of the position of the wall (Left)
+			nextDirection = "Right"
 		else:
-			nextDirection = "Left" # Opposite of the position of the wall (Right)
+			nextDirection = "Left"
 
-func _on_hit_range_body_exited(body: Node2D): # This function runs whenever something leaves the HitRange
+# This function immediately sets next direction to nothing, fixing an error the above function was giving
+func _on_hit_range_body_exited(body: Node2D):
 	if body is TileMap:
 		nextDirection = null

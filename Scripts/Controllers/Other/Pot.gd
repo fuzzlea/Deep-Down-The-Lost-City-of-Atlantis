@@ -1,6 +1,10 @@
 extends Area2D
 
+# SIGNAL
+
 signal Interact
+
+# EXPORTS
 
 @export_enum("0","1","2","3","4") var PotNumber : int = 1
 @export_enum(" ", "Detailed", "Golden") var PotType : String = ""
@@ -9,11 +13,15 @@ signal Interact
 @export var IsRelic : bool
 @export var Opened : bool = false
 
+# ONREADY
+
 @onready var sprite = $Sprite2D
 @onready var anim = $AnimationPlayer
-
 @onready var collectible = preload("res://Scenes/Singles (Misc)/Collectable.tscn")
 
+# FUNC
+
+# This function runs when the pot is interacted with
 func interact():
 	anim.play("shake")
 	
@@ -39,11 +47,15 @@ func interact():
 	newCol.z_index = z_index
 	newCol.texture = load(INVENTORY.ItemInformation[Item]["Image"])
 
+# CONNECTORS
+
+# This function sets the texture to the correct one according to the [PotType] & [PotNumber]
 func _ready() -> void:
 	if PotType == " ":
 		sprite.texture = load("res://Assets/Environment/Pot" + str(PotNumber) + ".png")
 	else:
 		sprite.texture = load("res://Assets/Environment/" + PotType + "Pot" + str(PotNumber) + ".png")
 
+# This function connects the Interaction signal to the interaction function
 func _on_interact() -> void:
 	interact()

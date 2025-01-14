@@ -1,26 +1,34 @@
 extends Control
 
+# SIGNALS
+
 @warning_ignore("unused_signal")
 signal AnimateIn
 @warning_ignore("unused_signal")
 signal AnimateOut
-
 signal PageLoaded
+
+# ONREADY
 
 @onready var BG = $BG
 @onready var Book = $Book
 @onready var Content = $Book/Content
 
+# FUNC
+
+# This function will play a sound and tween the buttons size
 func mouseOverButton(button):
 	if not get_tree().paused: return
 	var anim = button.create_tween()
 	SOUNDS.playSound("ui_tick01")
 	anim.tween_property(button, "scale", Vector2(1.1,1.1), 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
 
+# This function will tween the buttons size
 func mouseLeaveButton(button):
 	var anim = button.create_tween()
 	anim.tween_property(button, "scale", Vector2(1,1), 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
 
+# This function sets all of the buttons into the correct positions, an error with godot caused me to have to do this
 func initAllButtonPos():
 	
 	for child in Content.get_children():
@@ -31,11 +39,13 @@ func initAllButtonPos():
 	$Book/Controls/Label.position.x = 0
 	$Book/Settings/Label.position.x = 0
 
+# This function runs whenever the Profile page is opened, and updates all of the contents within
 func page_Profile():
 	$Pages/ProfilePage/collectables.text = "collectables: " + str(INVENTORY.Inventory.size()) + " / " + str(INVENTORY.ItemInformation.size())
 	$Pages/ProfilePage/died.text = "died: " + str(DATA.Data["Died"])
 	$Pages/ProfilePage/puzzles.text = "puzzles completed: " + str(DATA.Data["CurrentPuzzle"])
 
+# This function runs whenever the Collection page is opened, and updates all of the contents within
 func page_Collection():
 	
 	await PageLoaded
@@ -55,6 +65,7 @@ func page_Collection():
 				newTemp.self_modulate = Color.from_string("#ffffff8b", Color())
 				break
 
+# This function is essentially the hub for all of the pages & buttons to connect / display their contents
 func pageController(page):
 	var newPage
 	match page:
@@ -86,6 +97,7 @@ func pageController(page):
 	Content.add_child(p)
 	emit_signal("PageLoaded")
 
+# This function will run when a button is clicked, and do different actions depending on which button clicked
 func clickButton(button):
 	initAllButtonPos()
 	
@@ -113,15 +125,20 @@ func clickButton(button):
 			get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
 		_: print("Button | " + button.name + " | \nnot found")
 
-func _init():
-	process_mode = PROCESS_MODE_ALWAYS
-
+# This function initializes the pause menu, making it easily animateable
 func init():
 	BG.modulate = Color.from_string("ffffff00", Color())
 	Book.position = Vector2(0,540)
 	Book.modulate = Color.from_string("ffffff00", Color())
 	visible = true
 
+# CONNECTORS
+
+# This function makes sure the pause menu is always able to run
+func _init():
+	process_mode = PROCESS_MODE_ALWAYS
+
+# This function runs when the signal 'AnimateIn' is emitted, animating the pause menu in
 func _on_animate_in() -> void:
 	get_tree().paused = true
 	
@@ -136,6 +153,7 @@ func _on_animate_in() -> void:
 	animateTween.tween_property(Book, "modulate", Color.from_string("ffffff", Color()), 0.2)
 	animateTween.tween_property(Book, "position", Vector2(0,0), 1).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
+# This function runs on the 'AnimateOut' signal, and animates the pause menu out
 func _on_animate_out() -> void:
 	var animateTween = self.create_tween().set_parallel(true)
 	
@@ -146,6 +164,10 @@ func _on_animate_out() -> void:
 	animateTween.tween_property(Book, "position", Vector2(0,540), 1).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	
 	get_tree().paused = false
+
+# --- # <- Seperators to make the multitude of connections a little easier to read
+
+# Regarding all the functions below, they all connect mouse events to certain buttons
 
 func _on_profile_mouse_entered() -> void:
 	mouseOverButton($Book/Profile)
@@ -165,7 +187,7 @@ func _on_resume_mouse_entered() -> void:
 func _on_quit_mouse_entered() -> void:
 	mouseOverButton($Book/Quit)
 
-#333
+# --- #
 
 func _on_profile_pressed() -> void:
 	clickButton($Book/Profile)
@@ -185,7 +207,7 @@ func _on_resume_pressed() -> void:
 func _on_quit_pressed() -> void:
 	clickButton($Book/Quit)
 
-#333
+# --- #
 
 func _on_profile_mouse_exited() -> void:
 	mouseLeaveButton($Book/Profile)

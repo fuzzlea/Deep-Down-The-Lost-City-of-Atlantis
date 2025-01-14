@@ -1,12 +1,17 @@
 extends Node2D
 
+# ONREADY
+
 @onready var World = $TileMap
 @onready var Player = $Player
 @onready var Kelp = $KelpLine
 @onready var Crab = $Crab
 
+# VAR
+
 var LoadingScreen
 
+# This setget function will run when the variable value changes, and when it does, an animation will play
 var crabReachedKelp : bool = false:
 	set(val):
 		if val == true:
@@ -19,6 +24,9 @@ var crabReachedKelp : bool = false:
 			
 			CAMERA.resetCameraBackToPlayer()
 
+# CONNECTORS
+
+# When the map loads, teh player and crab are unable to move, and a cinematic plays. When finished, the player and crab are able to move again
 func _ready():
 	
 	Player.emit_signal("disableMovement")
@@ -50,6 +58,7 @@ func _ready():
 	if not DATA.Data["TutorialsCompleted"].has("CrabsAndKelp"): DATA.Data["TutorialsCompleted"].append("CrabsAndKelp")
 	
 
+# This function runs every frame, checking if the crabs position is beyond the kelp, and if it is, it updates the [crabReachedKelp] var
 func _process(_delta: float) -> void:
 	if Crab.global_position.x >= 378:
 		set_process(false)

@@ -1,13 +1,21 @@
 extends RigidBody2D
 
+# SIGNAL
+
 @warning_ignore("unused_signal")
 signal Recieve
+
+# EXPORTS
 
 @export var KelpLineNode : Node2D
 @export var KelpImagePath : String = "res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Kelp.png"
 
+# ONREADY
+
 @onready var Particles : CPUParticles2D = $CPUParticles2D
 @onready var Sprite : Sprite2D = $Sprite2D
+
+# VAR
 
 var Cuttables = [
 	"Crab",
@@ -16,15 +24,20 @@ var Cuttables = [
 
 var KelpLine : Array
 
+# FUNC
+
+# This function deletes the kelp
 func deleteKelp(kelp : RigidBody2D):
 	kelp.queue_free()
 
+# Plays the kelp particles
 func playParticles(where : RigidBody2D):
 	var cpuParticle : CPUParticles2D = where.get_child(0)
 	
 	cpuParticle.emitting = true
 	cpuParticle.finished.connect(deleteKelp.bind(where))
 
+# Cut the kelp
 func cut(_whatCut):
 	SOUNDS.playSound("kelp_cut")
 	if KelpLine.size() > 0:
@@ -35,18 +48,14 @@ func cut(_whatCut):
 			
 			playParticles(kelp)
 	else: Sprite.visible = false
-	
-	#var tween = CAMERA.zoomTo(global_position, Vector2(4,4), {"Time": 1, "Transition": Tween.TRANS_SINE})
-	#
-	#await tween.finished
-	#
-	#CAMERA.resetCameraBackToPlayer()
 
+# Updates the texture to the [KelpImagePath] texture
 func _ready():
 	if KelpLineNode:
 		KelpLine = KelpLineNode.get_children()
 		Sprite.texture = load(KelpImagePath)
 
+# This function will check if anything that can cut the kelp is in range, and react accordingly
 func _on_hit_range_area_entered(area: Area2D) -> void:
 	var parentOfCollider = area.get_parent()
 	
@@ -60,6 +69,7 @@ func _on_hit_range_area_entered(area: Area2D) -> void:
 			_:
 				pass
 
+# This function will run whenever the signal 'Recieve' is emitted
 func _on_recieve() -> void:
 	print("Recieved")
 	cut("n/a")

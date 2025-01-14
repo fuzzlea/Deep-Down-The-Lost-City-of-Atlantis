@@ -1,14 +1,22 @@
 extends Node
 
+# ONREADY
+
 @onready var CurrentCamera : Camera2D
 @onready var Player : CharacterBody2D
 
+# EXPORT
+
 @export var Busy : bool = false
 
+# FUNC
+
+# Sets the camera to the player camera, making it easier to select and manipulate
 func setCamera(camera : Camera2D):
 	CurrentCamera = camera
 	CurrentCamera.make_current()
 
+# This function moves the camera to [where], in [waitTime] seconds
 func moveCameraTo(where : Vector2, waitTime : int = 0, tweenInfo : Dictionary = {
 	"Time": 1,
 	"Transition": Tween.TRANS_SINE
@@ -38,6 +46,7 @@ func moveCameraTo(where : Vector2, waitTime : int = 0, tweenInfo : Dictionary = 
 	Busy = false
 	return newCamTween
 
+# This function does the same as the above function, but will also zoom in the camera [howFar] much
 func zoomTo(where : Vector2 = Vector2(0,0) , howFar : Vector2 = Vector2(3,3), tweenInfo : Dictionary = {
 	"Time": 1,
 	"Transition": Tween.TRANS_SINE
@@ -55,6 +64,7 @@ func zoomTo(where : Vector2 = Vector2(0,0) , howFar : Vector2 = Vector2(3,3), tw
 	
 	return cameraTween
 
+# This function resets the camera back to the players position
 func resetCameraBackToPlayer():
 	
 	Busy = true

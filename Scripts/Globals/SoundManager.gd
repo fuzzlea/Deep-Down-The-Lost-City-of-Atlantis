@@ -1,5 +1,7 @@
 extends Node
 
+# EXPORT 
+
 @export var Data = {
 	"SFX": {
 		
@@ -44,19 +46,9 @@ extends Node
 @export var SFXVol : float = 0.0
 @export var MusicVol : float = 0.0
 
-func _init():
-	
-	process_mode = PROCESS_MODE_ALWAYS
-	
-	var sfxNode = Node.new()
-	var musicNode = Node.new()
-	
-	sfxNode.name = "SFX"
-	musicNode.name = "Music"
-	
-	add_child(sfxNode)
-	add_child(musicNode)
+# FUNC
 
+# This function plays a sound effect
 func playSound(what : String, randpitch : bool = false):
 	if not Data["SFX"].has(what.to_lower()): return
 	
@@ -73,6 +65,7 @@ func playSound(what : String, randpitch : bool = false):
 	newAudio.play()
 	newAudio.finished.connect(func(): newAudio.queue_free())
 
+# This function plays music
 func playMusic(what : String):
 	if not Data["Music"].has(what.to_lower()): return
 	
@@ -88,22 +81,42 @@ func playMusic(what : String):
 	
 	newAudio.play()
 
+# This function will fade a given song out
 func fadeMusic(what: String):
 	var fadeOut = get_tree().create_tween()
 	fadeOut.tween_property(get_child(1).find_child(what.to_lower(), true, false), "volume_db", -100.0, 3)
 	fadeOut.tween_callback(func(): if get_child(1).find_child(what.to_lower(), true, false): get_child(1).find_child(what.to_lower(), true, false).queue_free())
 
+# This function will fade out all the music in the scene
 func fadeAll():
 	if not get_child(1).get_children().is_empty():
 		for music in get_child(1).get_children():
 			fadeMusic(music.name)
 
+# This function will pause all the music playing
 func pauseMusic():
 	if not get_child(1).get_children().is_empty():
 		for music : AudioStreamPlayer2D in get_child(1).get_children():
 			music.stream_paused = true
 
+# This function will resume all of the paused music
 func resumeMusic():
 	if not get_child(1).get_children().is_empty():
 		for music : AudioStreamPlayer2D in get_child(1).get_children():
 			music.stream_paused = false
+
+# CONNECTOR
+
+# This function will run when the application initializes the sound manager script
+func _init():
+	
+	process_mode = PROCESS_MODE_ALWAYS
+	
+	var sfxNode = Node.new()
+	var musicNode = Node.new()
+	
+	sfxNode.name = "SFX"
+	musicNode.name = "Music"
+	
+	add_child(sfxNode)
+	add_child(musicNode)

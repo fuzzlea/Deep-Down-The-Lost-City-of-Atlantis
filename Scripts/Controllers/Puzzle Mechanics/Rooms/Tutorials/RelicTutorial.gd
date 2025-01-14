@@ -1,11 +1,15 @@
 extends Node2D
 
+# ONREADY 
+
 @onready var plr = $Player
 @onready var kelp = $Kelp
 @onready var crate = $Crate
 @onready var button = $Button
 @onready var relic = $Collectable
 @onready var telepad = $Telepad
+
+# VAR
 
 var Dialogues = {
 	0: [
@@ -28,6 +32,9 @@ var Dialogues = {
 	]
 }
 
+# FUNC
+
+# This function will run when the button is pressed
 func buttonPressed():
 	plr.emit_signal("disableMovement")
 	
@@ -36,6 +43,9 @@ func buttonPressed():
 	await get_tree().create_timer(2).timeout
 	await CAMERA.resetCameraBackToPlayer()
 
+# INIT
+
+# This function will run when the map is ready, and will disable the players movement, and begin a cutscene
 func _ready():
 	
 	plr.emit_signal("disableMovement")

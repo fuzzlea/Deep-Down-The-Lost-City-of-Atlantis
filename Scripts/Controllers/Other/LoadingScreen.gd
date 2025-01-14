@@ -1,23 +1,31 @@
 extends CanvasLayer
 
+# EXPORT
+
 @export_file("*.tscn") var nextScenePath : String
 
-@onready var BG : TextureRect = $BG
+# ONREADY
 
+@onready var BG : TextureRect = $BG
 @onready var Boat : TextureRect = $Boat
 @onready var BoatAnimations = $BoatAnimations
 
+# FUNC
+
+# This function tweens the background in
 func tweenBGIn():
 	var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE)
 	tween.tween_property(BG, "modulate", Color(1,1,1,1), 1)
 	return tween
 
+# This function tweens the background out
 func tweenBGOut():
 	var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE)
 	tween.tween_property(BG, "modulate", Color(1,1,1,0), 1)
 	
 	return tween
 
+# This function tweens the boat out
 func tweenBoatOut():
 	SOUNDS.fadeAll()
 	var tween = get_tree().create_tween().set_trans(Tween.TRANS_BACK)
@@ -25,9 +33,13 @@ func tweenBoatOut():
 	
 	return tween
 
+# This function begins the Boat Driving Animation
 func tweenBoat():
 	BoatAnimations.play("BoatDrive")
 
+# CONNECTORS
+
+# This function runs when the loading screen is instantiated
 func _ready():
 	BG.modulate = Color(1,1,1,0)
 	
@@ -41,6 +53,7 @@ func _ready():
 	
 	ResourceLoader.load_threaded_request(nextScenePath)
 
+# This function runs every frame, checking for when the next scene is ready to be loaded. When the next scene is ready to be loaded, a series of animations / sounds are played to spice up the loading screen
 func _process(_delta: float):
 	if ResourceLoader.load_threaded_get_status(nextScenePath) == ResourceLoader.THREAD_LOAD_LOADED:
 		set_process(false)

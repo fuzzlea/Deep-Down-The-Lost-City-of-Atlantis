@@ -1,6 +1,10 @@
 extends Node2D
 
+# ONREADY
+
 @onready var plr = $Player
+
+# VAR
 
 var Dialogues = {
 	0: [
@@ -25,6 +29,9 @@ var Dialogues = {
 	]
 }
 
+# FUNC
+
+# This function checks the players data, manipulating the main map accordingly
 func checkData():
 	
 	for telepad in $PuzzleArea/Telepads.get_children():
@@ -44,6 +51,9 @@ func checkData():
 		$TutorialArea/Telepad3.get_child(1).texture = load("res://Assets/Singles (Misc)/Puzzle Mechanics/Senders/TelepadCompleted.png")
 		$TutorialArea/Telepad3.get_child(2).color = Color.from_string("#25885a", Color())
 
+# CONNECTOR
+
+# This function will set the players position to the last saved position, and give a short tutorial if the player doesn't have any data
 func _ready():
 	
 	plr.position = DATA["Data"]["LastPosInMain"]

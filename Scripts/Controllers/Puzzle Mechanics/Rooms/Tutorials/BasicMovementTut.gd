@@ -1,7 +1,12 @@
 extends Node2D
 
+# ONREADY
+
 @onready var plr = $Player
 
+# CONNECTORS
+
+# When the map loads, the player is stopped from moving, and a cutscene plays
 func _ready():
 	plr.emit_signal("disableMovement")
 	SOUNDS.playMusic("underwater ambience")
@@ -24,5 +29,6 @@ func _ready():
 	CAMERA.resetCameraBackToPlayer()
 	plr.emit_signal("enableMovement")
 
+# When the telepad is used, a value is added to the data set for the tutorials, so the game knows if the player has completed the tutorial.
 func _on_telepad_ran() -> void:
 	if not DATA.Data["TutorialsCompleted"].has("BasicMovement"): DATA.Data["TutorialsCompleted"].append("BasicMovement")

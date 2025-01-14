@@ -1,37 +1,39 @@
 extends RigidBody2D
 
-# Signal #
+# SIGNAL
 
 @warning_ignore("unused_signal")
 signal disableMovement
 @warning_ignore("unused_signal")
 signal enableMovement
 
-# Exports #
+# EXPORT
 
 @export var State : String
 @export var States : Array
 @export var AIUpdateTime : float = 1.0
 @export var ForceDirection : String = "null"
 
-# Onready #
+# ONREADY
 
 @onready var AI_Timer : Timer = $AI_Timer
 @onready var AnimSprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var HitRange : Area2D = $HitRange
 
-# Var #
+# VAR
 
 var currentlyMoving : bool = false
 var ableToMove : bool = true
 var nextDirection = null
 var currentlyDisabled : bool = false
 
-# Func #
+# FUNC
 
+# Returns a random state from the array of States - [States]
 func pickRandomState():
 	return States[randi_range(0,States.size() - 1)]
 
+# Moves the crab in a random direction
 func moveRandomly():
 	
 	if not ableToMove: return
@@ -50,7 +52,8 @@ func moveRandomly():
 	
 	currentlyMoving = false
 
-func update(): # This function will run every set amount of seconds (AIUpdateTime), and will be the AI Controller
+# This function runs everytime the AI timer ticks [AIUpdateTime]
+func update():
 	
 	if not ableToMove: return
 	if currentlyMoving: return
@@ -70,9 +73,10 @@ func update(): # This function will run every set amount of seconds (AIUpdateTim
 		_:
 			pass
 
-# Connectors #
+# CONNECTOR
 
-func _ready(): # This function runs when the scene is instantiated
+# Checks if theres a forced direction for the crab to go, and starts the update timer
+func _ready():
 	
 	if ForceDirection != "null":
 		nextDirection = ForceDirection
@@ -80,6 +84,7 @@ func _ready(): # This function runs when the scene is instantiated
 	AI_Timer.wait_time = AIUpdateTime
 	AI_Timer.start()
 
+# This function checks if the crab is pushed every frame, and updates its ability to move accordingly
 func _process(_delta : float):
 	
 	if currentlyDisabled: return
@@ -96,24 +101,29 @@ func _process(_delta : float):
 	if ForceDirection != "null":
 		nextDirection = ForceDirection
 
-func _on_ai_timer_timeout(): # This function runs every time the timer 'AI_Timer' finishes
+# Connects the timer to the update function
+func _on_ai_timer_timeout():
 	update()
 
-func _on_hit_range_body_entered(body: Node2D): # This function runs whenever something enters the HitRange
+# Checks when the crab hits a wall, and depending on what direction the crab hits the wall, it'll move in the opposite
+func _on_hit_range_body_entered(body: Node2D):
 	if body is TileMap:
 		if body.global_position.x - global_position.x > 0:
-			nextDirection = "Right" # Opposite of the position of the wall (Left)
+			nextDirection = "Right"
 		else:
-			nextDirection = "Left" # Opposite of the position of the wall (Right)
+			nextDirection = "Left"
 
-func _on_hit_range_body_exited(body: Node2D): # This function runs whenever something leaves the HitRange
+# Checks when the crab hits a wall, and sets its movement to nothing, giving the function above room to be able to set the next direction and not have any issues
+func _on_hit_range_body_exited(body: Node2D):
 	if body is TileMap:
 		nextDirection = null
 
+# When the crab is able to move again, this function will run
 func _on_enable_movement() -> void:
 	ableToMove = true
 	currentlyDisabled = false
 
+# Same as the above function, but for disabling movement / when the crab can't move
 func _on_disable_movement() -> void:
 	ableToMove = false
 	currentlyDisabled = true

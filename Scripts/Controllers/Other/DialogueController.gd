@@ -1,12 +1,19 @@
 extends CanvasLayer
 
+# EXPORTS
+
 @export var Dialogue = []
 @export var Index = 0
 @export var Busy = false
 
+# SIGNALS
+
 signal Completed
 signal NextButton
 
+# FUNC
+
+# This function creates a typewriter effect for the dialogue displayed
 func typeWrite(text : String, speed = 0.02):
 	$BG/Dialogue.text = ""
 	Busy = true
@@ -17,6 +24,7 @@ func typeWrite(text : String, speed = 0.02):
 		
 	Busy = false
 
+# This function will get rid of the dialogue box
 func killDialogue(): 
 	var t = $BG.create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BACK)
 	t.tween_property($BG, "position", Vector2(160, 1000), 0.5)
@@ -28,6 +36,7 @@ func killDialogue():
 	Completed.emit()
 	queue_free()
 
+# This function updates the dialogue to be displayed when the button is clicked to progress
 func nextButtonClicked():
 	if Busy: return
 	
@@ -42,19 +51,23 @@ func nextButtonClicked():
 	
 	typeWrite(Dialogue[Index])
 
+# This function returns the buttons scale back to normal
 func resetButtonScale():
 	var tween = self.create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
 	tween.tween_property($BG/Next, "scale", Vector2(1,1),.2)
 
+# This function will scale the button down
 func scaleButtonDown():
 	var tween = self.create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
 	tween.tween_property($BG/Next, "scale", Vector2(.95,.95),.2)
 
+# This function will scale the button up
 func scaleButtonUp():
 	SOUNDS.playSound("ui_tick01")
 	var tween = self.create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
 	tween.tween_property($BG/Next, "scale", Vector2(1.2,1.2),.2)
 
+# This function animates the dialogue box for when it comes in
 func animateIn():
 	var t = $BG.create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK).set_parallel(true)
 	
@@ -62,6 +75,9 @@ func animateIn():
 	
 	return t
 
+# CONNECTORS
+
+# Initializes the dialogue box, and sets the text to be displayed
 func _ready():
 	
 	$BG.position = Vector2(160, 1000)
@@ -74,6 +90,7 @@ func _ready():
 	
 	typeWrite(Dialogue[Index])
 
+# Runs when the next button is clicked
 func _on_next_pressed() -> void:
 	
 	nextButtonClicked()

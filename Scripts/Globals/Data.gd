@@ -7,7 +7,7 @@ signal SAVE_DATA
 
 # EXPORT
 
-@export var COMPLETED_INIT_PROCESS = false
+@export var COMPLETED_INIT_PROCESS = true
 @export var HAS_DATA = false
 
 # VAR
@@ -20,7 +20,7 @@ var db : SQLite
 @export var Data : Dictionary = {
 	"Relics": {
 		
-		"Pressure Gloves": [true, "res://Assets/Singles (Misc)/Collectibles/Relics/Pressure Gloves.png"],
+		"Pressure Gloves": [false, "res://Assets/Singles (Misc)/Collectibles/Relics/Pressure Gloves.png"],
 		"Aqua Lobber": [false, "res://Assets/Singles (Misc)/Collectibles/Relics/Aqua Lobber.png"],
 		"Golden Magnet": [false, "res://Assets/Singles (Misc)/Collectibles/Relics/Golden Magnet.png"],
 		"Hydro Battery": [false, "res://Assets/Singles (Misc)/Collectibles/Relics/Hydro Battery.png"],

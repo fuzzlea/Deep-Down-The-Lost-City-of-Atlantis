@@ -455,6 +455,16 @@ offset_bottom = 381.0
 texture = ExtResource("4_7tfen")
 expand_mode = 1
 
+[node name="HSlider" type="HSlider" parent="Pages/SettingsPage/Sticky1"]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 147.0
+offset_right = 280.0
+offset_bottom = 163.0
+min_value = -10.0
+max_value = 10.0
+step = 0.0
+
 [node name="Sticky2" type="TextureRect" parent="Pages/SettingsPage"]
 layout_mode = 0
 offset_left = -10.0
@@ -463,6 +473,16 @@ offset_right = 467.0
 offset_bottom = 656.0
 texture = ExtResource("5_kyknr")
 expand_mode = 1
+
+[node name="HSlider2" type="HSlider" parent="Pages/SettingsPage/Sticky2"]
+layout_mode = 0
+offset_left = 223.0
+offset_top = 194.0
+offset_right = 339.0
+offset_bottom = 210.0
+min_value = -10.0
+max_value = 10.0
+step = 0.0
 
 [node name="Pin1" type="TextureRect" parent="Pages/SettingsPage"]
 layout_mode = 0

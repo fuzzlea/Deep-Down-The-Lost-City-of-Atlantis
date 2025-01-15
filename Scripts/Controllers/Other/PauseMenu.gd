@@ -65,6 +65,30 @@ func page_Collection():
 				newTemp.self_modulate = Color.from_string("#ffffff8b", Color())
 				break
 
+func page_Settings():
+	
+	await PageLoaded
+	
+	var musicslider : HSlider = $Book/Content/ContentPage/Sticky1/HSlider
+	var sfxslider : HSlider = $Book/Content/ContentPage/Sticky2/HSlider2
+	
+	musicslider.value = SOUNDS.MusicVol
+	sfxslider.value = SOUNDS.SFXVol
+	
+	sfxslider.drag_ended.connect(func(v):
+		if sfxslider.value != -10:
+			SOUNDS.SFXVol = sfxslider.value
+		else:
+			SOUNDS.SFXVol = -1000
+	)
+	
+	musicslider.drag_ended.connect(func(v):
+		if musicslider.value != -10:
+			SOUNDS.MusicVol = musicslider.value
+		else:
+			SOUNDS.MusicVol = -1000
+	)
+
 # This function is essentially the hub for all of the pages & buttons to connect / display their contents
 func pageController(page):
 	var newPage
@@ -79,6 +103,7 @@ func pageController(page):
 			newPage = $Pages/CreditsPage
 		"Settings":
 			newPage = $Pages/SettingsPage
+			page_Settings()
 		"Resume":
 			pass # keep pass
 		_: print("Page: | " + page + " |\nnot found")

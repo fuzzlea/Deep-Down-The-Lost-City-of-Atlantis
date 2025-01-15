@@ -15,12 +15,12 @@ extends Node
 @export var ItemInformation : Dictionary = {
 	# Common #
 	
-	"Anchor Pendent": {
+	"Anchor Pendent": { #DONE
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Anchor Pendent.png",
 		"Rarity": "Common"
 	},
 	
-	"Atlantean Bath Token": {
+	"Atlantean Bath Token": { #DONE
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Atlantean Bath Token.png",
 		"Rarity": "Common"
 	},
@@ -30,12 +30,12 @@ extends Node
 		"Rarity": "Common"
 	},
 	
-	"Atlantean Clay Idol": {
+	"Atlantean Clay Idol": { #DONE
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Atlantean Clay Idol.png",
 		"Rarity": "Common"
 	},
 	
-	"Atlantean Feather Quill": {
+	"Atlantean Feather Quill": { #DONE
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Atlantean Feather Quill.png",
 		"Rarity": "Common"
 	},
@@ -65,7 +65,7 @@ extends Node
 		"Rarity": "Common"
 	},
 	
-	"Seaweed-Wrapped Scroll": {
+	"Seaweed-Wrapped Scroll": { #DONE
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Seaweed-Wrapped Scroll.png",
 		"Rarity": "Common"
 	},
@@ -75,24 +75,24 @@ extends Node
 		"Rarity": "Common"
 	},
 	
-	"Starfish Clay Plate": {
+	"Starfish Clay Plate": { #DONE
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Starfish Clay Plate.png",
 		"Rarity": "Common"
 	},
 	
-	"Tadpole Statue": {
+	"Tadpole Statue": { #DONE
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Tadpole Statue.png",
 		"Rarity": "Common"
 	},
 	
 	# Uncommon #
 	
-	"Checkers Piece": {
+	"Checkers Piece": { #DONE
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Uncommon/Checkers Piece.png",
 		"Rarity": "Uncommon"
 	},
 	
-	"Conch Shell": {
+	"Conch Shell": { #DONE
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Uncommon/Conch Shell.png",
 		"Rarity": "Uncommon"
 	},
@@ -102,17 +102,17 @@ extends Node
 		"Rarity": "Uncommon"
 	},
 	
-	"Gull Statue": {
+	"Gull Statue": { #DONE
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Uncommon/Gull Statue.png",
 		"Rarity": "Uncommon"
 	},
 	
-	"Knights Helm": {
+	"Knights Helm": { #DONE
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Uncommon/Knights Helm.png",
 		"Rarity": "Uncommon"
 	},
 	
-	"Pearl Beads": {
+	"Pearl Beads": { #DONE
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Uncommon/Peral Beads.png",
 		"Rarity": "Uncommon"
 	},
@@ -124,19 +124,19 @@ extends Node
 		"Rarity": "Rare"
 	},
 	
-	"Sunfish Statue": {
+	"Sunfish Statue": { #DONE
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Rare/Sunfish Satue.png",
 		"Rarity": "Rare"
 	},
 	
-	"Tidal Mosaic Tile": {
+	"Tidal Mosaic Tile": { #DONE
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Rare/Tidal Mosaic Tile.png",
 		"Rarity": "Rare"
 	},
 	
 	# Epic #
 	
-	"Ceremonial Sea Shell": {
+	"Ceremonial Sea Shell": { #DONE
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Epic/Ceremonial Sea Shell.png",
 		"Rarity": "Epic"
 	},

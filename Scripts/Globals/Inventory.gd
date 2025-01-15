@@ -15,7 +15,7 @@ extends Node
 @export var ItemInformation : Dictionary = {
 	# Common #
 	
-	"Anchor Pendent": {
+	"Anchor Pendent": { #DONE
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Anchor Pendent.png",
 		"Rarity": "Common"
 	},
@@ -30,12 +30,12 @@ extends Node
 		"Rarity": "Common"
 	},
 	
-	"Atlantean Clay Idol": {
+	"Atlantean Clay Idol": { #DONE
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Atlantean Clay Idol.png",
 		"Rarity": "Common"
 	},
 	
-	"Atlantean Feather Quill": {
+	"Atlantean Feather Quill": { #DONE
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Atlantean Feather Quill.png",
 		"Rarity": "Common"
 	},
@@ -65,7 +65,7 @@ extends Node
 		"Rarity": "Common"
 	},
 	
-	"Seaweed-Wrapped Scroll": {
+	"Seaweed-Wrapped Scroll": { #DONE
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Seaweed-Wrapped Scroll.png",
 		"Rarity": "Common"
 	},
@@ -87,7 +87,7 @@ extends Node
 	
 	# Uncommon #
 	
-	"Checkers Piece": {
+	"Checkers Piece": { #DONE
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Uncommon/Checkers Piece.png",
 		"Rarity": "Uncommon"
 	},
@@ -107,7 +107,7 @@ extends Node
 		"Rarity": "Uncommon"
 	},
 	
-	"Knights Helm": {
+	"Knights Helm": { #DONE
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Uncommon/Knights Helm.png",
 		"Rarity": "Uncommon"
 	},
@@ -124,12 +124,12 @@ extends Node
 		"Rarity": "Rare"
 	},
 	
-	"Sunfish Statue": {
+	"Sunfish Statue": { #DONE
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Rare/Sunfish Satue.png",
 		"Rarity": "Rare"
 	},
 	
-	"Tidal Mosaic Tile": {
+	"Tidal Mosaic Tile": { #DONE
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Rare/Tidal Mosaic Tile.png",
 		"Rarity": "Rare"
 	},

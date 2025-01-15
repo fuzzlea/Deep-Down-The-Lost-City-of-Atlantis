@@ -1,0 +1,575 @@
+[gd_scene load_steps=17 format=3 uid="uid://llq1wqwprmq8"]
+
+[ext_resource type="Texture2D" uid="uid://ce287xw4w076n" path="res://Assets/Environment/Alantis.png" id="1_ketus"]
+[ext_resource type="Script" path="res://Scripts/Controllers/Puzzle Mechanics/Rooms/Puzzle01.gd" id="1_vwy7g"]
+[ext_resource type="PackedScene" uid="uid://c63bbgxpu1o61" path="res://Scenes/Player/Player.tscn" id="2_3wwos"]
+[ext_resource type="PackedScene" uid="uid://deacb8bdaifpi" path="res://Scenes/Singles (Misc)/Puzzle Mechanics/Recievers/Kelp.tscn" id="3_1thsm"]
+[ext_resource type="PackedScene" uid="uid://cvh4paxkisqsa" path="res://Scenes/Singles (Misc)/Puzzle Mechanics/Recievers/Button.tscn" id="4_kos4d"]
+[ext_resource type="PackedScene" uid="uid://b1nyhnpy2awm8" path="res://Scenes/Singles (Misc)/Puzzle Mechanics/Sender/Crate.tscn" id="5_c12u1"]
+[ext_resource type="PackedScene" uid="uid://bso1mv0vi6c0u" path="res://Scenes/Singles (Misc)/Pot.tscn" id="6_beaie"]
+[ext_resource type="PackedScene" uid="uid://cgwxc505nmthr" path="res://Scenes/Enemies/Crab.tscn" id="8_0pejn"]
+[ext_resource type="PackedScene" uid="uid://cpda0n4yr0rjy" path="res://Scenes/Singles (Misc)/Telepad.tscn" id="9_l70q6"]
+[ext_resource type="PackedScene" uid="uid://b3doegw7008ca" path="res://Scenes/Singles (Misc)/Collectable.tscn" id="10_i23eh"]
+[ext_resource type="Texture2D" uid="uid://csidrlosfxytp" path="res://Assets/Singles (Misc)/Collectibles/Legendary/Poseidons Crown.png" id="11_nci6r"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kkkmg"]
+texture = ExtResource("1_ketus")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 1.1875, -8, -3.0625, -3.1875, -8, 8, 1.1875, 8, 1.9375, 1.1875, 8, -2.3125)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -1.1875, -8, 3.0625, -3.1875, 8, 8, -1.1875, 8, -1.9375, 1.1875, -8, -2.3125)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 1.1875, -8, -3.0625, -3.1875, -8, 8, 1.1875, 8, 1.9375, 1.1875, 8, -2.3125)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -1.1875, -8, 3.0625, -3.1875, 8, 8, -1.1875, 8, -1.9375, 1.1875, -8, -2.3125)
+7:0/0 = 0
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 8, 8, 8)
+1:1/0 = 0
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 8, 8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 8, 8, 8)
+4:1/0 = 0
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 8, 8, 8)
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 8, 1.1875, 8, -3.0625, 3.1875, -8, -8, 1.1875, -8, 1.9375, -1.1875, 8, 2.3125)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 8, 8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, -1.1875, 8, 3.0625, 3.1875, 8, -8, -1.1875, -8, -1.9375, -1.1875, -8, 2.3125)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 8, 1.1875, 8, -3.0625, 3.1875, -8, -8, 1.1875, -8, 1.9375, -1.1875, 8, 2.3125)
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 8, 8, 8)
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, -1.1875, 8, 3.0625, 3.1875, 8, -8, -1.1875, -8, -1.9375, -1.1875, -8, 2.3125)
+7:2/0 = 0
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 4.75, 8, 4.75)
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_76k8u"]
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
+sources/1 = SubResource("TileSetAtlasSource_kkkmg")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xr525"]
+size = Vector2(84, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qr0d"]
+size = Vector2(20, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xbaf1"]
+size = Vector2(84, 36)
+
+[node name="Puzzle01" type="Node2D"]
+script = ExtResource("1_vwy7g")
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(0, -1)
+tile_set = SubResource("TileSet_76k8u")
+format = 2
+layer_0/name = "Abyss"
+layer_0/z_index = -2
+layer_0/tile_data = PackedInt32Array(1245450, 65537, 4, -196584, 262145, 4, -131048, 262145, 4, -65512, 262145, 4, 24, 262145, 4, 65560, 262145, 4, 131096, 262145, 4, -196583, 262145, 4, -131047, 262145, 4, -65511, 262145, 4, 25, 262145, 4, 65561, 262145, 4, 131097, 262145, 4, -196582, 262145, 4, -131046, 262145, 4, -65510, 262145, 4, 26, 262145, 4, 65562, 262145, 4, 131098, 262145, 4, -196581, 262145, 4, -131045, 262145, 4, -65509, 262145, 4, 27, 262145, 4, 65563, 262145, 4, 131099, 262145, 4, -196580, 262145, 4, -131044, 262145, 4, -65508, 262145, 4, 28, 262145, 4, 65564, 262145, 4, 131100, 262145, 4, -196579, 262145, 4, -131043, 262145, 4, -65507, 262145, 4, 29, 262145, 4, 65565, 262145, 4, 131101, 262145, 4, -196578, 262145, 4, -131042, 262145, 4, -65506, 262145, 4, 30, 262145, 4, 65566, 262145, 4, 131102, 262145, 4, 196635, 262145, 4, 196634, 262145, 4, 196636, 262145, 4, -262117, 262145, 4, -262118, 262145, 4, -262116, 262145, 4, 196616, 262145, 4, 262152, 262145, 4, 327688, 262145, 4, 393224, 262145, 4, 196617, 262145, 4, 262153, 262145, 4, 327689, 262145, 4, 393225, 262145, 4, 196618, 262145, 4, 262154, 262145, 4, 327690, 262145, 4, 393226, 262145, 4, 196619, 262145, 4, 262155, 262145, 4, 327691, 262145, 4, 393227, 262145, 4, 196620, 262145, 4, 262156, 262145, 4, 327692, 262145, 4, 393228, 262145, 4, 196621, 262145, 4, 262157, 262145, 4, 327693, 262145, 4, 393229, 262145, 4, 196622, 262145, 4, 262158, 262145, 4, 327694, 262145, 4, 393230, 262145, 4)
+layer_1/name = "Ground"
+layer_1/modulate = Color(0.817521, 0.817521, 0.817521, 1)
+layer_1/z_index = -1
+layer_1/tile_data = PackedInt32Array(-458740, 65537, 1, -393204, 65537, 1, -327668, 65537, 1, -262132, 65537, 1, -196596, 65537, 1, -131060, 65537, 1, -65524, 65537, 1, 12, 65537, 1, 65548, 65537, 1, 131084, 65537, 1, 196620, 262145, 3, 393228, 262145, 5, 458764, 65537, 1, -458739, 65537, 1, -393203, 65537, 1, -327667, 65537, 1, -262131, 65537, 1, -196595, 65537, 1, -131059, 65537, 1, -65523, 65537, 1, 13, 65537, 1, 65549, 65537, 1, 131085, 65537, 1, 196621, 262145, 3, 393229, 262145, 5, 458765, 65537, 1, -458738, 65537, 1, -393202, 65537, 1, -327666, 65537, 1, -262130, 65537, 1, -196594, 65537, 1, -131058, 65537, 1, -65522, 65537, 1, 14, 65537, 1, 65550, 65537, 1, 131086, 65537, 1, 196622, 327681, 3, 262158, 327681, 4, 327694, 327681, 4, 393230, 327681, 5, 458766, 65537, 1, -458737, 65537, 1, -393201, 65537, 1, -327665, 65537, 1, -262129, 65537, 1, -196593, 65537, 1, -131057, 65537, 1, -65521, 65537, 1, 15, 65537, 1, 65551, 65537, 1, 131087, 65537, 1, 196623, 65537, 1, 262159, 65537, 1, 327695, 65537, 1, 393231, 65537, 1, 458767, 65537, 1, -458736, 65537, 1, -393200, 65537, 1, -327664, 65537, 1, -262128, 65537, 1, -196592, 65537, 1, -131056, 65537, 1, -65520, 65537, 1, 16, 65537, 1, 65552, 65537, 1, 131088, 65537, 1, 196624, 65537, 1, 262160, 65537, 1, 327696, 65537, 1, 393232, 65537, 1, 458768, 65537, 1, -458735, 65537, 1, -393199, 65537, 1, -327663, 65537, 1, -262127, 65537, 1, -196591, 65537, 1, -131055, 65537, 1, -65519, 65537, 1, 17, 65537, 1, 65553, 65537, 1, 131089, 65537, 1, 196625, 65537, 1, 262161, 65537, 1, 327697, 65537, 1, 393233, 65537, 1, 458769, 65537, 1, -131054, 65537, 1, -65518, 65537, 1, 18, 65537, 1, 65554, 65537, 1, -131053, 65537, 1, -65517, 65537, 1, 19, 65537, 1, 65555, 65537, 1, -131052, 65537, 1, -65516, 65537, 1, 20, 65537, 1, 65556, 65537, 1, -131051, 65537, 1, -65515, 65537, 1, 21, 65537, 1, 65557, 65537, 1, -131050, 65537, 1, -65514, 65537, 1, 22, 65537, 1, 65558, 65537, 1, -327660, 65537, 1, -262124, 65537, 1, -196588, 65537, 1, -327659, 65537, 1, -262123, 65537, 1, -196587, 65537, 1, -327658, 65537, 1, -262122, 65537, 1, -196586, 65537, 1, 131092, 65537, 1, 131093, 65537, 1, 196629, 65537, 1, 196630, 65537, 1, 262166, 65537, 1, 262165, 65537, 1, 262164, 65537, 1, 196628, 65537, 1, 131094, 65537, 1, -524265, 65537, 1, -458729, 65537, 1, -393193, 65537, 1, -327657, 65537, 1, -262121, 65537, 1, -196585, 65537, 1, -131049, 65537, 1, -65513, 65537, 1, 23, 65537, 1, 65559, 65537, 1, 131095, 65537, 1, 196631, 65537, 1, 262167, 65537, 1, 327703, 65537, 1, 393239, 65537, 1, 458775, 65537, 1, -524264, 65537, 1, -458728, 65537, 1, -393192, 65537, 1, -327656, 65537, 1, -262120, 65537, 1, -196584, 65537, 1, -131048, 196609, 3, -65512, 196609, 4, 24, 196609, 4, 65560, 196609, 5, 131096, 65537, 1, 196632, 65537, 1, 262168, 65537, 1, 327704, 65537, 1, 393240, 65537, 1, 458776, 65537, 1, -524263, 65537, 1, -458727, 65537, 1, -393191, 65537, 1, -327655, 65537, 1, -262119, 65537, 1, -196583, 65537, 1, -131047, 262145, 3, 65561, 262145, 5, 131097, 65537, 1, 196633, 65537, 1, 262169, 65537, 1, 327705, 65537, 1, 393241, 65537, 1, 458777, 65537, 1, -524262, 65537, 1, -458726, 65537, 1, -393190, 65537, 1, -327654, 65537, 1, -262118, 196609, 3, -196582, 196609, 4, 131098, 196609, 4, 196634, 196609, 5, 262170, 65537, 1, 327706, 65537, 1, 393242, 65537, 1, 458778, 65537, 1, -524261, 65537, 1, -458725, 65537, 1, -393189, 65537, 1, -327653, 65537, 1, -262117, 262145, 3, 196635, 262145, 5, 262171, 65537, 1, 327707, 65537, 1, 393243, 65537, 1, 458779, 65537, 1, -524260, 65537, 1, -458724, 65537, 1, -393188, 65537, 1, -327652, 65537, 1, -262116, 327681, 3, -196580, 327681, 4, 131100, 327681, 4, 196636, 327681, 5, 262172, 65537, 1, 327708, 65537, 1, 393244, 65537, 1, 458780, 65537, 1, -524259, 65537, 1, -458723, 65537, 1, -393187, 65537, 1, -327651, 65537, 1, -262115, 65537, 1, -196579, 65537, 1, -131043, 262145, 3, 65565, 262145, 5, 131101, 65537, 1, 196637, 65537, 1, 262173, 65537, 1, 327709, 65537, 1, 393245, 65537, 1, 458781, 65537, 1, -524258, 65537, 1, -458722, 65537, 1, -393186, 65537, 1, -327650, 65537, 1, -262114, 65537, 1, -196578, 65537, 1, -131042, 327681, 3, -65506, 327681, 4, 30, 327681, 4, 65566, 327681, 5, 131102, 65537, 1, 196638, 65537, 1, 262174, 65537, 1, 327710, 65537, 1, 393246, 65537, 1, 458782, 65537, 1, -524257, 65537, 1, -458721, 65537, 1, -393185, 65537, 1, -327649, 65537, 1, -262113, 65537, 1, -196577, 65537, 1, -131041, 65537, 1, -65505, 65537, 1, 31, 65537, 1, 65567, 65537, 1, 131103, 65537, 1, 196639, 65537, 1, 262175, 65537, 1, 327711, 65537, 1, 393247, 65537, 1, 458783, 65537, 1, -327648, 65537, 1, -262112, 65537, 1, -196576, 65537, 1, -131040, 65537, 1, -65504, 65537, 1, 32, 65537, 1, 65568, 65537, 1, 131104, 65537, 1, 196640, 65537, 1, 262176, 65537, 1, -327647, 65537, 1, -262111, 65537, 1, -196575, 65537, 1, -131039, 65537, 1, -65503, 65537, 1, 33, 65537, 1, 65569, 65537, 1, 131105, 65537, 1, 196641, 65537, 1, 262177, 65537, 1, -327646, 65537, 1, -262110, 65537, 1, -196574, 65537, 1, -131038, 65537, 1, -65502, 65537, 1, 34, 65537, 1, 65570, 65537, 1, 131106, 65537, 1, 196642, 65537, 1, 262178, 65537, 1, -131037, 65537, 1, -65501, 65537, 1, 35, 65537, 1, 65571, 65537, 1, -131036, 65537, 1, -65500, 65537, 1, 36, 65537, 1, 65572, 65537, 1, -655334, 65537, 1, -589798, 65537, 1, -655333, 65537, 1, -589797, 65537, 1, -655332, 65537, 1, -589796, 65537, 1, 524314, 65537, 1, 589850, 65537, 1, 589851, 65537, 1, 589852, 65537, 1, 524316, 65537, 1, 524315, 65537, 1, -131046, 1, 3, -131044, 1, 3, 65562, 1, 3, 65564, 1, 3, -458746, 65537, 1, -393210, 65537, 1, -327674, 65537, 1, -262138, 65537, 1, -196602, 65537, 1, -131066, 65537, 1, -65530, 65537, 1, 6, 65537, 1, 65542, 65537, 1, 131078, 65537, 1, 196614, 65537, 1, -458745, 65537, 1, -393209, 65537, 1, -327673, 65537, 1, -262137, 65537, 1, -196601, 65537, 1, -131065, 65537, 1, -65529, 65537, 1, 7, 65537, 1, 65543, 65537, 1, 131079, 65537, 1, 196615, 65537, 1, -458744, 65537, 1, -393208, 65537, 1, -327672, 65537, 1, -262136, 65537, 1, -196600, 65537, 1, -131064, 65537, 1, -65528, 65537, 1, 8, 65537, 1, 65544, 65537, 1, 131080, 65537, 1, 196616, 196609, 3, -458743, 65537, 1, -393207, 65537, 1, -327671, 65537, 1, -262135, 65537, 1, -196599, 65537, 1, -131063, 65537, 1, -65527, 65537, 1, 9, 65537, 1, 65545, 65537, 1, 131081, 65537, 1, 196617, 262145, 3, -458742, 65537, 1, -393206, 65537, 1, -327670, 65537, 1, -262134, 65537, 1, -196598, 65537, 1, -131062, 65537, 1, -65526, 65537, 1, 10, 65537, 1, 65546, 65537, 1, 131082, 65537, 1, 196618, 262145, 3, -458741, 65537, 1, -393205, 65537, 1, -327669, 65537, 1, -262133, 65537, 1, -196597, 65537, 1, -131061, 65537, 1, -65525, 65537, 1, 11, 65537, 1, 65547, 65537, 1, 131083, 65537, 1, 196619, 262145, 3, 262150, 65537, 1, 327686, 65537, 1, 393222, 65537, 1, 458758, 65537, 1, 262151, 65537, 1, 327687, 65537, 1, 393223, 65537, 1, 458759, 65537, 1, 262152, 196609, 4, 327688, 196609, 4, 393224, 196609, 5, 458760, 65537, 1, 393225, 262145, 5, 458761, 65537, 1, 393226, 262145, 5, 458762, 65537, 1, 393227, 262145, 5, 458763, 65537, 1, -196572, 65537, 1, 131108, 65537, 1, -196571, 65537, 1, -131035, 65537, 1, -65499, 65537, 1, 37, 65537, 1, 65573, 65537, 1, 131109, 65537, 1, -196570, 65537, 1, -131034, 65537, 1, -65498, 65537, 1, 38, 65537, 1, 65574, 65537, 1, 131110, 65537, 1, -196569, 65537, 1, -131033, 65537, 1, -65497, 65537, 1, 39, 65537, 1, 65575, 65537, 1, 131111, 65537, 1, -196568, 65537, 1, -131032, 65537, 1, -65496, 65537, 1, 40, 65537, 1, 65576, 65537, 1, 131112, 65537, 1, -196567, 65537, 1, -131031, 65537, 1, -65495, 65537, 1, 41, 65537, 1, 65577, 65537, 1, 131113, 65537, 1, -196566, 65537, 1, -131030, 65537, 1, -65494, 65537, 1, 42, 65537, 1, 65578, 65537, 1, -196565, 65537, 1, -131029, 65537, 1, -65493, 65537, 1, 43, 65537, 1, 65579, 65537, 1, -196564, 65537, 1, -131028, 65537, 1, -65492, 65537, 1, 44, 65537, 1, 65580, 65537, 1, -196563, 65537, 1, -131027, 65537, 1, -65491, 65537, 1, 45, 65537, 1, 65581, 65537, 1, -196562, 65537, 1, -131026, 65537, 1, -65490, 65537, 1, 46, 65537, 1, 65582, 65537, 1, -196561, 65537, 1, -131025, 65537, 1, -65489, 65537, 1, 47, 65537, 1, 131119, 65537, 1, -196560, 65537, 1, -131024, 65537, 1, -65488, 65537, 1, 48, 65537, 1, 131120, 65537, 1, 65584, 65537, 1, 65583, 65537, 1, 131118, 65537, 1, 131117, 65537, 1, 131116, 65537, 1, 131115, 65537, 1, 131114, 65537, 1, -327631, 65537, 1, -262095, 65537, 1, -196559, 65537, 1, -131023, 65537, 1, -65487, 65537, 1, 49, 65537, 1, 65585, 65537, 1, 131121, 65537, 1, 196657, 65537, 1, 262193, 65537, 1, 327729, 65537, 1, 393265, 65537, 1, -327630, 65537, 1, -262094, 65537, 1, -196558, 65537, 1, -131022, 65537, 1, -65486, 65537, 1, 50, 65537, 1, 65586, 65537, 1, 131122, 65537, 1, 196658, 65537, 1, 262194, 65537, 1, 327730, 65537, 1, 393266, 65537, 1, -327629, 65537, 1, -262093, 65537, 1, -196557, 65537, 1, -131021, 65537, 1, -65485, 65537, 1, 51, 65537, 1, 65587, 65537, 1, 131123, 65537, 1, 196659, 65537, 1, 262195, 65537, 1, 327731, 65537, 1, 393267, 65537, 1, -1179627, 65537, 1, -1114091, 65537, 1, -1048555, 65537, 1, -983019, 65537, 1, -917483, 65537, 1, -851947, 65537, 1, -786411, 65537, 1, -1179626, 65537, 1, -1114090, 65537, 1, -1048554, 65537, 1, -983018, 65537, 1, -917482, 65537, 1, -851946, 65537, 1, -786410, 65537, 1, -1179625, 65537, 1, -1114089, 65537, 1, -1048553, 65537, 1, -983017, 65537, 1, -917481, 65537, 1, -851945, 65537, 1, -786409, 65537, 1, -1179624, 65537, 1, -1114088, 65537, 1, -1048552, 65537, 1, -983016, 65537, 1, -917480, 65537, 1, -851944, 65537, 1, -786408, 65537, 1, -1179623, 65537, 1, -1114087, 65537, 1, -1048551, 65537, 1, -983015, 65537, 1, -917479, 65537, 1, -851943, 65537, 1, -786407, 65537, 1, -1179622, 65537, 1, -1114086, 65537, 1, -1048550, 65537, 1, -983014, 65537, 1, -917478, 65537, 1, -851942, 65537, 1, -786406, 65537, 1, -1179621, 65537, 1, -1114085, 65537, 1, -1048549, 65537, 1, -983013, 65537, 1, -917477, 65537, 1, -851941, 65537, 1, -786405, 65537, 1, -1179620, 65537, 1, -1114084, 65537, 1, -1048548, 65537, 1, -983012, 65537, 1, -917476, 65537, 1, -851940, 65537, 1, -786404, 65537, 1, -1179619, 65537, 1, -1114083, 65537, 1, -1048547, 65537, 1, -983011, 65537, 1, -917475, 65537, 1, -851939, 65537, 1, -786403, 65537, 1, -1179618, 65537, 1, -1114082, 65537, 1, -1048546, 65537, 1, -983010, 65537, 1, -917474, 65537, 1, -851938, 65537, 1, -786402, 65537, 1, -1179617, 65537, 1, -1114081, 65537, 1, -1048545, 65537, 1, -983009, 65537, 1, -917473, 65537, 1, -851937, 65537, 1, -786401, 65537, 1, -1179616, 65537, 1, -1114080, 65537, 1, -1048544, 65537, 1, -983008, 65537, 1, -917472, 65537, 1, -851936, 65537, 1, -786400, 65537, 1, -1179615, 65537, 1, -1114079, 65537, 1, -1048543, 65537, 1, -983007, 65537, 1, -917471, 65537, 1, -851935, 65537, 1, -786399, 65537, 1, -720870, 65537, 1, -720869, 65537, 1, -720868, 65537, 1, 655386, 65537, 1, 655387, 65537, 1, 655388, 65537, 1, 720918, 65537, 1, 720917, 65537, 1, 786453, 65537, 1, 851989, 65537, 1, 917525, 65537, 1, 983061, 65537, 1, 1048597, 65537, 1, 1114133, 65537, 1, 786454, 65537, 1, 851990, 65537, 1, 917526, 65537, 1, 983062, 65537, 1, 1048598, 65537, 1, 1114134, 65537, 1, 720919, 65537, 1, 786455, 65537, 1, 851991, 65537, 1, 917527, 65537, 1, 983063, 65537, 1, 1048599, 65537, 1, 1114135, 65537, 1, 720920, 65537, 1, 786456, 65537, 1, 851992, 65537, 1, 917528, 65537, 1, 983064, 65537, 1, 1048600, 65537, 1, 1114136, 65537, 1, 720921, 65537, 1, 786457, 65537, 1, 851993, 65537, 1, 917529, 65537, 1, 983065, 65537, 1, 1048601, 65537, 1, 1114137, 65537, 1, 720922, 65537, 1, 786458, 65537, 1, 851994, 65537, 1, 917530, 65537, 1, 983066, 65537, 1, 1048602, 65537, 1, 1114138, 65537, 1, 720923, 65537, 1, 786459, 65537, 1, 851995, 65537, 1, 917531, 65537, 1, 983067, 65537, 1, 1048603, 65537, 1, 1114139, 65537, 1, 720924, 65537, 1, 786460, 65537, 1, 851996, 65537, 1, 917532, 65537, 1, 983068, 65537, 1, 1048604, 65537, 1, 1114140, 65537, 1, 720925, 65537, 1, 786461, 65537, 1, 851997, 65537, 1, 917533, 65537, 1, 983069, 65537, 1, 1048605, 65537, 1, 1114141, 65537, 1, 720926, 65537, 1, 786462, 65537, 1, 851998, 65537, 1, 917534, 65537, 1, 983070, 65537, 1, 1048606, 65537, 1, 1114142, 65537, 1, 720927, 65537, 1, 786463, 65537, 1, 851999, 65537, 1, 917535, 65537, 1, 983071, 65537, 1, 1048607, 65537, 1, 1114143, 65537, 1, 720928, 65537, 1, 786464, 65537, 1, 852000, 65537, 1, 917536, 65537, 1, 983072, 65537, 1, 1048608, 65537, 1, 1114144, 65537, 1, 720929, 65537, 1, 786465, 65537, 1, 852001, 65537, 1, 917537, 65537, 1, 983073, 65537, 1, 1048609, 65537, 1, 1114145, 65537, 1)
+layer_2/name = "Walls"
+layer_2/z_index = 1
+layer_2/tile_data = PackedInt32Array(458770, 1, 3, 393234, 327681, 1, 327698, 327681, 1, 262162, 327681, 1, 196626, 327681, 1, -524270, 1, 3, -458734, 327681, 1, -393198, 327681, 1, -327662, 131073, 1, -262126, 327681, 1, 131090, 1, 3, -196590, 1, 3, 131091, 1, 3, -196589, 1, 3, -262125, 1, 1, -327661, 196609, 1, -393194, 1, 3, -458730, 1, 1, -524266, 196609, 1, -589799, 1, 3, -655335, 1, 1, 196627, 196609, 1, 262163, 196609, 1, 327702, 1, 3, 393238, 196609, 1, 458774, 1, 1, 524313, 1, 3, 589849, 1, 1, -589795, 1, 3, -524256, 131073, 1, -458720, 327681, 1, -393184, 1, 3, -327645, 131073, 1, -262109, 327681, 1, -196573, 1, 3, 131107, 1, 3, 196643, 327681, 1, 262179, 327681, 1, 327712, 1, 3, 393248, 327681, 1, 458784, 327681, 1, 524317, 1, 3, 589853, 131073, 1, -393196, 262145, 0, -393195, 65537, 0, -589801, 65537, 0, -589800, 262145, 0, -589794, 65537, 0, -589793, 262145, 0, -393183, 65537, 0, -393182, 262145, 0, 327700, 65537, 2, 327701, 262145, 2, 524311, 65537, 2, 524312, 262145, 2, 524318, 262145, 2, 524319, 65537, 2, 327713, 65537, 2, 327714, 262145, 2, 131108, 1, 3, -196572, 1, 3, 524320, 1, 3, 327715, 1, 3, 524310, 1, 3, 327699, 1, 3, -393197, 1, 3, -589802, 1, 3, -589792, 1, 3, -393181, 1, 3, 458769, 65537, 2, 458768, 262145, 2, 458767, 65537, 2, 458766, 65537, 2, 458765, 262145, 2, 458764, 262145, 2, 458763, 262145, 2, 458762, 262145, 2, 458761, 65537, 2, 458760, 65537, 2, 458759, 262145, 2, 458758, 262145, 2, -524271, 65537, 0, -524272, 65537, 0, -524273, 262145, 0, -524274, 262145, 0, -524275, 65537, 0, -524276, 65537, 0, -524277, 65537, 0, -524278, 65537, 0, -524279, 262145, 0, -524280, 65537, 0, -524281, 65537, 0, -524282, 65537, 0, 458757, 1, 3, -524283, 1, 3, -458747, 196609, 1, -393211, 1, 1, -327675, 1, 1, -262139, 1, 1, -196603, 1, 1, -131067, 196609, 1, -65531, 1, 1, 5, 196609, 1, 65541, 1, 1, 131077, 1, 1, 196613, 196609, 1, 262149, 1, 1, 327685, 196609, 1, 393221, 1, 1, -196594, 1, 3, -393202, 1, 3, 131086, 1, 3, -196600, 1, 3, 8, 1, 3, 131080, 1, 3, 14, 1, 3, 131109, 65537, 2, 131110, 65537, 2, 131111, 262145, 2, 131113, 65537, 2, 131114, 262145, 2, 131115, 262145, 2, 131117, 65537, 2, 131118, 262145, 2, 131119, 262145, 2, -196571, 262145, 0, -196570, 262145, 0, -196569, 262145, 0, -196567, 262145, 0, -196566, 262145, 0, -196565, 262145, 0, -196563, 262145, 0, -196562, 262145, 0, -196561, 262145, 0, 131112, 1, 3, -196568, 1, 3, -196564, 1, 3, 131116, 1, 3, 131120, 1, 3, -196560, 1, 3, -262096, 1, 1, 196656, 1, 1, 262192, 1, 1, 327728, 196609, 1, 393264, 1, 1, 458800, 196609, 2, 458801, 65537, 2, 458802, 65537, 2, 458803, 65537, 2, 458804, 1, 3, 393268, 131073, 1, 327732, 327681, 1, 262196, 327681, 1, 196660, 131073, 1, 131124, 1, 3, 65588, 327681, 1, 52, 327681, 1, -65484, 131073, 1, -131020, 131073, 1, -196556, 1, 3, -262092, 131073, 1, -393168, 196609, 0, -393164, 327681, 0, -393167, 65537, 0, -393166, 65537, 0, -393165, 65537, 0, -327632, 1, 1, -327628, 131073, 1, -720871, 1, 3, -720872, 65537, 2, -720873, 262145, 2, -720874, 262145, 2, -720875, 65537, 2, -720876, 1, 3, -720867, 1, 3, -655331, 327681, 1, -720866, 65537, 2, -720865, 65537, 2, -720864, 65537, 2, -720863, 262145, 2, -720862, 1, 3, -786412, 1, 1, -851948, 1, 1, -917484, 1, 1, -983020, 1, 1, -1048556, 1, 3, -1114092, 1, 1, -1179628, 1, 1, -786398, 131073, 1, -851934, 131073, 1, -917470, 1, 3, -983006, 327681, 1, -1048542, 131073, 1, -1114078, 131073, 1, -1179614, 131073, 1, -1245164, 1, 3, -1245150, 1, 3, -1245163, 65537, 0, -1245162, 262145, 0, -1245161, 65537, 0, -1245160, 262145, 0, -1245159, 65537, 0, -1245158, 262145, 0, -1245157, 65537, 0, -1245156, 1, 3, -1245155, 65537, 0, -1245154, 262145, 0, -1245153, 262145, 0, -1245152, 65537, 0, -1245151, 65537, 0, 655385, 1, 3, 655389, 1, 3, 655384, 262145, 0, 655383, 65537, 0, 655382, 65537, 0, 655381, 262145, 0, 655390, 65537, 0, 655391, 65537, 0, 655392, 65537, 0, 655393, 262145, 0, 655394, 1, 3, 655380, 1, 3, 720916, 1, 1, 786452, 196609, 1, 851988, 196609, 1, 917524, 196609, 1, 983060, 1, 1, 1048596, 1, 1, 1114132, 196609, 1, 1179668, 1, 3, 1179682, 1, 3, 1114146, 327681, 1, 1048610, 327681, 1, 983074, 327681, 1, 917538, 327681, 1, 852002, 327681, 1, 786466, 327681, 1, 720930, 327681, 1, 1179681, 65537, 2, 1179680, 65537, 2, 1179679, 65537, 2, 1179678, 65537, 2, 1179677, 262145, 2, 1179676, 262145, 2, 1179675, 65537, 2, 1179674, 262145, 2, 1179673, 262145, 2, 1179672, 65537, 2, 1179671, 65537, 2, 1179670, 65537, 2, 1179669, 65537, 2, 917529, 1, 3, 917533, 1, 3, 851993, 327681, 1, 786457, 327681, 1, 720921, 131073, 1, 917530, 65537, 2, 917531, 65537, 2, 917532, 65537, 2, -1048550, 1, 3, -1048548, 1, 3, -917476, 1, 3, -1048549, 65537, 0, -983012, 131073, 1, -1048551, 262145, 2, -1048552, 262145, 2, -1048554, 262145, 2, -1048555, 262145, 2, -1048553, 1, 3)
+
+[node name="Player" parent="." instance=ExtResource("2_3wwos")]
+z_index = 5
+position = Vector2(199, -97)
+
+[node name="FirstRoom" type="Node" parent="."]
+
+[node name="TopRightCorner" type="Node" parent="FirstRoom"]
+
+[node name="KelpLine01" type="Node2D" parent="FirstRoom/TopRightCorner"]
+
+[node name="Kelp" parent="FirstRoom/TopRightCorner/KelpLine01" node_paths=PackedStringArray("KelpLineNode") instance=ExtResource("3_1thsm")]
+position = Vector2(137, -57)
+KelpLineNode = NodePath("..")
+KelpImagePath = "res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Kelp Base.png"
+
+[node name="Kelp2" parent="FirstRoom/TopRightCorner/KelpLine01" instance=ExtResource("3_1thsm")]
+position = Vector2(137, -73)
+
+[node name="Kelp3" parent="FirstRoom/TopRightCorner/KelpLine01" instance=ExtResource("3_1thsm")]
+position = Vector2(137, -89)
+
+[node name="Kelp4" parent="FirstRoom/TopRightCorner/KelpLine01" instance=ExtResource("3_1thsm")]
+position = Vector2(137, -105)
+
+[node name="KelpLine02" type="Node2D" parent="FirstRoom/TopRightCorner"]
+
+[node name="Kelp" parent="FirstRoom/TopRightCorner/KelpLine02" instance=ExtResource("3_1thsm")]
+position = Vector2(152, -41)
+rotation = 1.5708
+
+[node name="Kelp2" parent="FirstRoom/TopRightCorner/KelpLine02" instance=ExtResource("3_1thsm")]
+position = Vector2(168, -41)
+rotation = 1.5708
+
+[node name="Kelp3" parent="FirstRoom/TopRightCorner/KelpLine02" instance=ExtResource("3_1thsm")]
+position = Vector2(184, -41)
+rotation = 1.5708
+
+[node name="Kelp4" parent="FirstRoom/TopRightCorner/KelpLine02" instance=ExtResource("3_1thsm")]
+position = Vector2(200, -41)
+rotation = 1.5708
+
+[node name="Kelp5" parent="FirstRoom/TopRightCorner/KelpLine02" instance=ExtResource("3_1thsm")]
+position = Vector2(216, -41)
+rotation = 1.5708
+
+[node name="KelpLine03" type="Node2D" parent="FirstRoom/TopRightCorner"]
+
+[node name="Kelp" parent="FirstRoom/TopRightCorner/KelpLine03" instance=ExtResource("3_1thsm")]
+position = Vector2(232, -57)
+
+[node name="Kelp2" parent="FirstRoom/TopRightCorner/KelpLine03" instance=ExtResource("3_1thsm")]
+position = Vector2(232, -73)
+
+[node name="KelpLine04" type="Node2D" parent="FirstRoom/TopRightCorner"]
+
+[node name="Kelp" parent="FirstRoom/TopRightCorner/KelpLine04" instance=ExtResource("3_1thsm")]
+position = Vector2(248, -41)
+rotation = 1.5708
+
+[node name="Kelp2" parent="FirstRoom/TopRightCorner/KelpLine04" instance=ExtResource("3_1thsm")]
+position = Vector2(264, -41)
+rotation = 1.5708
+
+[node name="Kelp3" parent="FirstRoom/TopRightCorner/KelpLine04" instance=ExtResource("3_1thsm")]
+position = Vector2(280, -41)
+rotation = 1.5708
+
+[node name="Button" parent="FirstRoom/TopRightCorner" node_paths=PackedStringArray("SendTo") instance=ExtResource("4_kos4d")]
+position = Vector2(264, -74)
+SendTo = NodePath("../KelpLine01/Kelp")
+
+[node name="Crate" parent="FirstRoom/TopRightCorner" instance=ExtResource("5_c12u1")]
+z_index = 5
+position = Vector2(168, -74)
+mass = 0.75
+
+[node name="Center" type="Node" parent="FirstRoom"]
+
+[node name="KelpLine01" type="Node2D" parent="FirstRoom/Center"]
+
+[node name="Kelp" parent="FirstRoom/Center/KelpLine01" instance=ExtResource("3_1thsm")]
+position = Vector2(136, -25)
+
+[node name="Kelp2" parent="FirstRoom/Center/KelpLine01" instance=ExtResource("3_1thsm")]
+position = Vector2(136, -9)
+
+[node name="KelpLine02" type="Node2D" parent="FirstRoom/Center"]
+
+[node name="Kelp" parent="FirstRoom/Center/KelpLine02" instance=ExtResource("3_1thsm")]
+position = Vector2(152, 4)
+rotation = 1.5708
+
+[node name="Kelp2" parent="FirstRoom/Center/KelpLine02" instance=ExtResource("3_1thsm")]
+position = Vector2(168, 4)
+rotation = 1.5708
+
+[node name="Kelp3" parent="FirstRoom/Center/KelpLine02" instance=ExtResource("3_1thsm")]
+position = Vector2(184, 4)
+rotation = 1.5708
+
+[node name="Kelp4" parent="FirstRoom/Center/KelpLine02" instance=ExtResource("3_1thsm")]
+position = Vector2(200, 4)
+rotation = 1.5708
+
+[node name="Kelp5" parent="FirstRoom/Center/KelpLine02" instance=ExtResource("3_1thsm")]
+position = Vector2(216, 4)
+rotation = 1.5708
+
+[node name="KelpLine03" type="Node2D" parent="FirstRoom/Center"]
+
+[node name="Kelp" parent="FirstRoom/Center/KelpLine03" instance=ExtResource("3_1thsm")]
+position = Vector2(152, 42)
+rotation = 1.5708
+
+[node name="Kelp2" parent="FirstRoom/Center/KelpLine03" instance=ExtResource("3_1thsm")]
+position = Vector2(168, 42)
+rotation = 1.5708
+
+[node name="Kelp3" parent="FirstRoom/Center/KelpLine03" instance=ExtResource("3_1thsm")]
+position = Vector2(184, 42)
+rotation = 1.5708
+
+[node name="Kelp4" parent="FirstRoom/Center/KelpLine03" instance=ExtResource("3_1thsm")]
+position = Vector2(200, 42)
+rotation = 1.5708
+
+[node name="Kelp5" parent="FirstRoom/Center/KelpLine03" instance=ExtResource("3_1thsm")]
+position = Vector2(216, 42)
+rotation = 1.5708
+
+[node name="Button" parent="FirstRoom/Center" node_paths=PackedStringArray("SendTo") instance=ExtResource("4_kos4d")]
+position = Vector2(232, 23)
+SendTo = NodePath("../../KelpDoor/Kelp")
+
+[node name="KelpDoor" type="Node2D" parent="FirstRoom"]
+
+[node name="Kelp" parent="FirstRoom/KelpDoor" node_paths=PackedStringArray("KelpLineNode") instance=ExtResource("3_1thsm")]
+position = Vector2(305, -25)
+KelpLineNode = NodePath("..")
+
+[node name="Kelp2" parent="FirstRoom/KelpDoor" instance=ExtResource("3_1thsm")]
+position = Vector2(305, -9)
+
+[node name="Kelp3" parent="FirstRoom/KelpDoor" instance=ExtResource("3_1thsm")]
+position = Vector2(305, 7)
+
+[node name="Kelp4" parent="FirstRoom/KelpDoor" instance=ExtResource("3_1thsm")]
+position = Vector2(305, 23)
+
+[node name="Pot" parent="FirstRoom" instance=ExtResource("6_beaie")]
+z_index = 2
+position = Vector2(104, -106)
+PotNumber = 3
+PotType = "Golden"
+Item = "Tidal Mosaic Tile"
+
+[node name="Pot4" parent="FirstRoom" instance=ExtResource("6_beaie")]
+z_index = 2
+position = Vector2(120, -42)
+PotNumber = 3
+PotType = "Detailed"
+
+[node name="Pot5" parent="FirstRoom" instance=ExtResource("6_beaie")]
+z_index = 2
+position = Vector2(120, 7)
+PotNumber = 3
+PotType = "Detailed"
+Item = "Anchor Pendent"
+
+[node name="Pot6" parent="FirstRoom" instance=ExtResource("6_beaie")]
+z_index = 2
+position = Vector2(247, 7)
+PotNumber = 2
+PotType = "Detailed"
+
+[node name="Pot7" parent="FirstRoom" instance=ExtResource("6_beaie")]
+z_index = 2
+position = Vector2(153, -20)
+PotNumber = 4
+PotType = "Golden"
+Item = "Knights Helm"
+
+[node name="Pot8" parent="FirstRoom" instance=ExtResource("6_beaie")]
+z_index = 2
+position = Vector2(248, 39)
+PotNumber = 2
+PotType = "Detailed"
+Item = "Atlantean Clay Idol"
+
+[node name="Pot9" parent="FirstRoom" instance=ExtResource("6_beaie")]
+z_index = 2
+position = Vector2(104, 103)
+
+[node name="Pot10" parent="FirstRoom" instance=ExtResource("6_beaie")]
+z_index = 2
+position = Vector2(280, 102)
+PotNumber = 2
+PotType = "Detailed"
+
+[node name="Pot2" parent="FirstRoom" instance=ExtResource("6_beaie")]
+z_index = 2
+position = Vector2(216, -58)
+PotNumber = 2
+PotType = "Detailed"
+
+[node name="Pot3" parent="FirstRoom" instance=ExtResource("6_beaie")]
+z_index = 2
+position = Vector2(281, -106)
+
+[node name="CameraPos01" type="Node2D" parent="FirstRoom"]
+position = Vector2(186, 4)
+
+[node name="CameraPos02" type="Node2D" parent="FirstRoom"]
+position = Vector2(440, 0)
+
+[node name="CameraPos03" type="Node2D" parent="FirstRoom"]
+position = Vector2(440, -233)
+
+[node name="CameraPos04" type="Node2D" parent="FirstRoom"]
+position = Vector2(440, 231)
+
+[node name="CameraPos05" type="Node2D" parent="FirstRoom"]
+position = Vector2(680, -1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="FirstRoom"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstRoom/StaticBody2D"]
+position = Vector2(184, 79)
+shape = SubResource("RectangleShape2D_xr525")
+
+[node name="BottomRoom" type="Node" parent="."]
+
+[node name="Crab" parent="BottomRoom" instance=ExtResource("8_0pejn")]
+z_index = 2
+position = Vector2(472, 200)
+
+[node name="KelpLine01" type="Node2D" parent="BottomRoom"]
+
+[node name="Kelp" parent="BottomRoom/KelpLine01" node_paths=PackedStringArray("KelpLineNode") instance=ExtResource("3_1thsm")]
+position = Vector2(472, 247)
+rotation = -3.14445
+KelpLineNode = NodePath("..")
+KelpImagePath = "res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Kelp Base.png"
+
+[node name="Kelp2" parent="BottomRoom/KelpLine01" instance=ExtResource("3_1thsm")]
+position = Vector2(472, 263)
+
+[node name="Kelp3" parent="BottomRoom/KelpLine01" node_paths=PackedStringArray("KelpLineNode") instance=ExtResource("3_1thsm")]
+position = Vector2(472, 279)
+KelpLineNode = NodePath("..")
+KelpImagePath = "res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Kelp Base.png"
+
+[node name="KelpLine02" type="Node2D" parent="BottomRoom"]
+
+[node name="Kelp" parent="BottomRoom/KelpLine02" node_paths=PackedStringArray("KelpLineNode") instance=ExtResource("3_1thsm")]
+position = Vector2(408, 247)
+rotation = -3.14159
+KelpLineNode = NodePath("..")
+KelpImagePath = "res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Kelp Base.png"
+
+[node name="Kelp2" parent="BottomRoom/KelpLine02" instance=ExtResource("3_1thsm")]
+position = Vector2(408, 263)
+
+[node name="Kelp3" parent="BottomRoom/KelpLine02" node_paths=PackedStringArray("KelpLineNode") instance=ExtResource("3_1thsm")]
+position = Vector2(408, 279)
+KelpLineNode = NodePath("..")
+KelpImagePath = "res://Assets/Singles (Misc)/Puzzle Mechanics/Recievers/Kelp Base.png"
+
+[node name="Button" parent="BottomRoom" node_paths=PackedStringArray("SendTo") instance=ExtResource("4_kos4d")]
+position = Vector2(368, 199)
+SendTo = NodePath("../../EndHallway/KelpLine01/Kelp")
+
+[node name="Crate" parent="BottomRoom" instance=ExtResource("5_c12u1")]
+z_index = 4
+position = Vector2(433, 207)
+mass = 0.75
+
+[node name="EndHallway" type="Node" parent="."]
+
+[node name="KelpLine01" type="Node2D" parent="EndHallway"]
+
+[node name="Kelp" parent="EndHallway/KelpLine01" node_paths=PackedStringArray("KelpLineNode") instance=ExtResource("3_1thsm")]
+position = Vector2(649, -25)
+KelpLineNode = NodePath("..")
+
+[node name="Kelp2" parent="EndHallway/KelpLine01" instance=ExtResource("3_1thsm")]
+position = Vector2(649, -9)
+KelpLineNode = NodePath("")
+
+[node name="Kelp3" parent="EndHallway/KelpLine01" instance=ExtResource("3_1thsm")]
+position = Vector2(649, 7)
+KelpLineNode = NodePath("")
+
+[node name="Kelp4" parent="EndHallway/KelpLine01" instance=ExtResource("3_1thsm")]
+position = Vector2(649, 23)
+KelpLineNode = NodePath("")
+
+[node name="KelpLine02" type="Node2D" parent="EndHallway"]
+position = Vector2(64, 0)
+
+[node name="Kelp" parent="EndHallway/KelpLine02" node_paths=PackedStringArray("KelpLineNode") instance=ExtResource("3_1thsm")]
+position = Vector2(649, -25)
+KelpLineNode = NodePath("..")
+
+[node name="Kelp2" parent="EndHallway/KelpLine02" instance=ExtResource("3_1thsm")]
+position = Vector2(649, -9)
+KelpLineNode = NodePath("")
+
+[node name="Kelp3" parent="EndHallway/KelpLine02" instance=ExtResource("3_1thsm")]
+position = Vector2(649, 7)
+
+[node name="Kelp4" parent="EndHallway/KelpLine02" instance=ExtResource("3_1thsm")]
+position = Vector2(649, 23)
+
+[node name="Telepad" parent="EndHallway" instance=ExtResource("9_l70q6")]
+position = Vector2(808, -57)
+pathToScene = "res://Scenes/MAIN.tscn"
+
+[node name="Collectable" parent="EndHallway" instance=ExtResource("10_i23eh")]
+position = Vector2(808, 70)
+scale = Vector2(1.625, 1.625)
+texture = ExtResource("11_nci6r")
+metadata/CollectableName = "Poseidons Crown"
+
+[node name="TopRoom" type="Node" parent="."]
+
+[node name="KelpLine01" type="Node2D" parent="TopRoom"]
+
+[node name="Kelp" parent="TopRoom/KelpLine01" node_paths=PackedStringArray("KelpLineNode") instance=ExtResource("3_1thsm")]
+position = Vector2(472, -217)
+rotation = 1.5708
+KelpLineNode = NodePath("..")
+
+[node name="Kelp2" parent="TopRoom/KelpLine01" instance=ExtResource("3_1thsm")]
+position = Vector2(488, -217)
+rotation = 1.5708
+
+[node name="Kelp3" parent="TopRoom/KelpLine01" instance=ExtResource("3_1thsm")]
+position = Vector2(504, -217)
+rotation = 1.5708
+
+[node name="Kelp4" parent="TopRoom/KelpLine01" instance=ExtResource("3_1thsm")]
+position = Vector2(520, -217)
+rotation = 1.5708
+
+[node name="Kelp5" parent="TopRoom/KelpLine01" instance=ExtResource("3_1thsm")]
+position = Vector2(536, -217)
+rotation = 1.5708
+
+[node name="KelpLine02" type="Node2D" parent="TopRoom"]
+
+[node name="Kelp" parent="TopRoom/KelpLine02" node_paths=PackedStringArray("KelpLineNode") instance=ExtResource("3_1thsm")]
+position = Vector2(456, -265)
+KelpLineNode = NodePath("..")
+
+[node name="Kelp2" parent="TopRoom/KelpLine02" node_paths=PackedStringArray("KelpLineNode") instance=ExtResource("3_1thsm")]
+position = Vector2(456, -281)
+KelpLineNode = NodePath("..")
+
+[node name="Button" parent="TopRoom" node_paths=PackedStringArray("SendTo") instance=ExtResource("4_kos4d")]
+position = Vector2(432, -226)
+SendTo = NodePath("../KelpLine01/Kelp")
+
+[node name="Crate" parent="TopRoom" instance=ExtResource("5_c12u1")]
+z_index = 4
+position = Vector2(360, -200)
+mass = 0.75
+
+[node name="Crab" parent="TopRoom" instance=ExtResource("8_0pejn")]
+z_index = 2
+position = Vector2(513, -242)
+
+[node name="Button2" parent="TopRoom" node_paths=PackedStringArray("SendTo") instance=ExtResource("4_kos4d")]
+position = Vector2(354, -272)
+SendTo = NodePath("../../EndHallway/KelpLine02/Kelp")
+
+[node name="Center" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Center"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Center/StaticBody2D"]
+position = Vector2(440, -1)
+shape = SubResource("RectangleShape2D_6qr0d")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Center"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Center/StaticBody2D2"]
+position = Vector2(440, -1)
+shape = SubResource("RectangleShape2D_xbaf1")
+
+[node name="Pot" parent="Center" instance=ExtResource("6_beaie")]
+z_index = 2
+position = Vector2(328, -58)
+PotNumber = 2
+PotType = "Detailed"
+
+[node name="Pot9" parent="Center" instance=ExtResource("6_beaie")]
+z_index = 2
+position = Vector2(408, -28)
+PotType = "Detailed"
+Item = "Seaweed-Wrapped Scroll"
+
+[node name="Pot10" parent="Center" instance=ExtResource("6_beaie")]
+z_index = 2
+position = Vector2(472, 20)
+PotType = "Detailed"
+
+[node name="Pot11" parent="Center" instance=ExtResource("6_beaie")]
+z_index = 2
+position = Vector2(492, -3)
+PotNumber = 3
+PotType = "Detailed"
+
+[node name="Pot7" parent="Center" instance=ExtResource("6_beaie")]
+z_index = 2
+position = Vector2(553, -58)
+PotNumber = 2
+PotType = "Golden"
+Item = "Checkers Piece"
+
+[node name="Pot3" parent="Center" instance=ExtResource("6_beaie")]
+z_index = 2
+position = Vector2(376, -122)
+PotNumber = 3
+PotType = "Golden"
+Item = "res://Assets/Singles (Misc)/Collectibles/Rare/Sunfish Satue.png"
+
+[node name="Pot4" parent="Center" instance=ExtResource("6_beaie")]
+z_index = 2
+position = Vector2(376, 119)
+PotNumber = 3
+PotType = "Detailed"
+Item = "Atlantean Feather Quill"
+
+[node name="Pot5" parent="Center" instance=ExtResource("6_beaie")]
+z_index = 2
+position = Vector2(504, 119)
+PotNumber = 3
+PotType = "Detailed"
+
+[node name="Pot6" parent="Center" instance=ExtResource("6_beaie")]
+z_index = 2
+position = Vector2(504, -123)
+PotNumber = 3
+PotType = "Detailed"
+
+[node name="Pot2" parent="Center" instance=ExtResource("6_beaie")]
+z_index = 2
+position = Vector2(328, 54)
+PotNumber = 2
+PotType = "Detailed"
+
+[node name="Pot8" parent="Center" instance=ExtResource("6_beaie")]
+z_index = 2
+position = Vector2(554, 54)
+PotNumber = 2
+PotType = "Detailed"

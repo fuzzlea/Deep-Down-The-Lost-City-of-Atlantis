@@ -1,10 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://brufip43g1cpk"]
+[gd_scene load_steps=16 format=3 uid="uid://brufip43g1cpk"]
 
 [ext_resource type="Texture2D" uid="uid://cnu2tf506vnud" path="res://Assets/UI/Notebook UI.png" id="1_v7bse"]
 [ext_resource type="Script" path="res://Scripts/Controllers/Other/PauseMenu.gd" id="1_w7x2m"]
 [ext_resource type="FontFile" uid="uid://wcj7u7qbl68y" path="res://Saves/Fonts/handwriting_.ttf" id="2_du3qk"]
 [ext_resource type="Texture2D" uid="uid://b6kgxtwsmt7mc" path="res://Assets/UI/Purple Sticky Note.png" id="4_7tfen"]
-[ext_resource type="Texture2D" uid="uid://jlbioq6h7ojd" path="res://icon.svg" id="4_35mm8"]
+[ext_resource type="Texture2D" uid="uid://i7hlbk21exi7" path="res://icon.svg" id="4_35mm8"]
 [ext_resource type="Texture2D" uid="uid://cufph1m76igr2" path="res://Assets/UI/PlayerHeadshot.png" id="4_ebiom"]
 [ext_resource type="Texture2D" uid="uid://bh2hwrg4fv4al" path="res://Assets/UI/Sticky Note.png" id="5_kyknr"]
 [ext_resource type="Texture2D" uid="uid://dhhb102q0a2hi" path="res://Assets/UI/Push Pin.png" id="6_7xig6"]
@@ -30,6 +30,18 @@ shadow_color = Color(0, 0, 0, 0.243137)
 [sub_resource type="LabelSettings" id="LabelSettings_6xnvo"]
 font = ExtResource("2_du3qk")
 font_size = 20
+font_color = Color(0.194349, 0.194349, 0.194349, 1)
+shadow_color = Color(0, 0, 0, 0.243137)
+
+[sub_resource type="LabelSettings" id="LabelSettings_86uew"]
+font = ExtResource("2_du3qk")
+font_size = 30
+font_color = Color(0.194349, 0.194349, 0.194349, 1)
+shadow_color = Color(0, 0, 0, 0.243137)
+
+[sub_resource type="LabelSettings" id="LabelSettings_w5coo"]
+font = ExtResource("2_du3qk")
+font_size = 30
 font_color = Color(0.194349, 0.194349, 0.194349, 1)
 shadow_color = Color(0, 0, 0, 0.243137)
 
@@ -288,28 +300,6 @@ text = "aura: 20,000,000"
 label_settings = SubResource("LabelSettings_3218i")
 vertical_alignment = 1
 
-[node name="CreditsPage" type="Control" parent="Pages"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="Pages/CreditsPage"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -160.0
-offset_right = 160.0
-offset_bottom = 40.0
-grow_horizontal = 2
-text = "credits"
-label_settings = SubResource("LabelSettings_3218i")
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="CollectionPage" type="Control" parent="Pages"]
 layout_mode = 1
 anchors_preset = 15
@@ -501,6 +491,92 @@ offset_right = 293.0
 offset_bottom = 302.0
 texture = ExtResource("6_7xig6")
 expand_mode = 1
+
+[node name="CreditsPage" type="Control" parent="Pages"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 850.0
+offset_top = 240.0
+offset_right = 850.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Pages/CreditsPage"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.0
+offset_right = 160.0
+offset_bottom = 40.0
+grow_horizontal = 2
+text = "credits"
+label_settings = SubResource("LabelSettings_3218i")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Pages/CreditsPage"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.0
+offset_top = 88.0
+offset_right = 160.0
+offset_bottom = 128.0
+grow_horizontal = 2
+text = "AJ - Programming"
+label_settings = SubResource("LabelSettings_86uew")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Pages/CreditsPage"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.0
+offset_top = 136.0
+offset_right = 160.0
+offset_bottom = 176.0
+grow_horizontal = 2
+text = "Tommy - Game + Sound Design"
+label_settings = SubResource("LabelSettings_w5coo")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="Pages/CreditsPage"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -171.0
+offset_top = 184.0
+offset_right = 171.0
+offset_bottom = 224.0
+grow_horizontal = 2
+text = "Peyton - Hand Drawn Graphics"
+label_settings = SubResource("LabelSettings_w5coo")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="Pages/CreditsPage"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -171.0
+offset_top = 232.0
+offset_right = 171.0
+offset_bottom = 272.0
+grow_horizontal = 2
+text = "Hayden - Pixel Art Graphics"
+label_settings = SubResource("LabelSettings_w5coo")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="AnimateIn" from="." to="." method="_on_animate_in"]
 [connection signal="AnimateOut" from="." to="." method="_on_animate_out"]

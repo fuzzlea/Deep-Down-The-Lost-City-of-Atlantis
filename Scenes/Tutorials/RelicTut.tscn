@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dua52ng20o58"]
+[gd_scene load_steps=13 format=3 uid="uid://dua52ng20o58"]
 
 [ext_resource type="Script" path="res://Scripts/Controllers/Puzzle Mechanics/Rooms/Tutorials/RelicTutorial.gd" id="1_03cxc"]
 [ext_resource type="Texture2D" uid="uid://ce287xw4w076n" path="res://Assets/Environment/Alantis.png" id="1_fmyir"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b3doegw7008ca" path="res://Scenes/Singles (Misc)/Collectable.tscn" id="7_5tmwi"]
 [ext_resource type="Texture2D" uid="uid://doqf6am7de5q" path="res://Assets/Singles (Misc)/Collectibles/Relics/Pressure Gloves.png" id="8_uxvcr"]
 [ext_resource type="PackedScene" uid="uid://cpda0n4yr0rjy" path="res://Scenes/Singles (Misc)/Telepad.tscn" id="9_3u71l"]
+[ext_resource type="PackedScene" uid="uid://bfyhdkkxtyov0" path="res://Scenes/Singles (Misc)/Sign.tscn" id="10_g1nmt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c2cog"]
 texture = ExtResource("1_fmyir")
@@ -146,3 +147,7 @@ metadata/IsRelic = true
 [node name="Telepad" parent="." instance=ExtResource("9_3u71l")]
 position = Vector2(185, -7)
 pathToScene = "res://Scenes/MAIN.tscn"
+
+[node name="Sign" parent="." instance=ExtResource("10_g1nmt")]
+position = Vector2(-57, -57)
+DisplayText = "Use [LEFT MOUSE BUTTON] or [SPACE] to use your relic."

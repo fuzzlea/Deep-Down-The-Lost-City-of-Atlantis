@@ -18,7 +18,8 @@ var Dialogues = {
 		"... you can discover new relics throughout the game."
 	],
 	1: [
-		"Hayden I'm going to need a chest / searchable from you for this relic to be inside. :pray_emoji:"
+		"Here is the first relic ... The Pressure Gloves.",
+		"You can use these to push certain objects"
 	],
 	2: [
 		"The only way to get by the kelp and complete the tutorial ..."

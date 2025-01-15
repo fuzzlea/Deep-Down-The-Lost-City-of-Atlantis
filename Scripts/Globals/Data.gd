@@ -7,7 +7,7 @@ signal SAVE_DATA
 
 # EXPORT
 
-@export var COMPLETED_INIT_PROCESS = true
+@export var COMPLETED_INIT_PROCESS = false
 @export var HAS_DATA = false
 
 # VAR

@@ -1,10 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://brufip43g1cpk"]
+[gd_scene load_steps=14 format=3 uid="uid://brufip43g1cpk"]
 
 [ext_resource type="Texture2D" uid="uid://cnu2tf506vnud" path="res://Assets/UI/Notebook UI.png" id="1_v7bse"]
 [ext_resource type="Script" path="res://Scripts/Controllers/Other/PauseMenu.gd" id="1_w7x2m"]
 [ext_resource type="FontFile" uid="uid://wcj7u7qbl68y" path="res://Saves/Fonts/handwriting_.ttf" id="2_du3qk"]
+[ext_resource type="Texture2D" uid="uid://b6kgxtwsmt7mc" path="res://Assets/UI/Purple Sticky Note.png" id="4_7tfen"]
 [ext_resource type="Texture2D" uid="uid://jlbioq6h7ojd" path="res://icon.svg" id="4_35mm8"]
 [ext_resource type="Texture2D" uid="uid://cufph1m76igr2" path="res://Assets/UI/PlayerHeadshot.png" id="4_ebiom"]
+[ext_resource type="Texture2D" uid="uid://bh2hwrg4fv4al" path="res://Assets/UI/Sticky Note.png" id="5_kyknr"]
+[ext_resource type="Texture2D" uid="uid://dhhb102q0a2hi" path="res://Assets/UI/Push Pin.png" id="6_7xig6"]
 
 [sub_resource type="Gradient" id="Gradient_1msgh"]
 
@@ -307,32 +310,6 @@ label_settings = SubResource("LabelSettings_3218i")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SettingsPage" type="Control" parent="Pages"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 850.0
-offset_top = 240.0
-offset_right = 850.0
-offset_bottom = 240.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="Pages/SettingsPage"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -160.0
-offset_right = 160.0
-offset_bottom = 40.0
-grow_horizontal = 2
-text = "settings"
-label_settings = SubResource("LabelSettings_3218i")
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="CollectionPage" type="Control" parent="Pages"]
 layout_mode = 1
 anchors_preset = 15
@@ -442,6 +419,68 @@ label_settings = SubResource("LabelSettings_6xnvo")
 horizontal_alignment = 2
 vertical_alignment = 1
 text_overrun_behavior = 3
+
+[node name="SettingsPage" type="Control" parent="Pages"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 850.0
+offset_top = 240.0
+offset_right = 850.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Pages/SettingsPage"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.0
+offset_right = 160.0
+offset_bottom = 40.0
+grow_horizontal = 2
+text = "settings"
+label_settings = SubResource("LabelSettings_3218i")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sticky1" type="TextureRect" parent="Pages/SettingsPage"]
+layout_mode = 0
+offset_left = -63.0
+offset_top = 10.0
+offset_right = 308.0
+offset_bottom = 381.0
+texture = ExtResource("4_7tfen")
+expand_mode = 1
+
+[node name="Sticky2" type="TextureRect" parent="Pages/SettingsPage"]
+layout_mode = 0
+offset_left = -10.0
+offset_top = 179.0
+offset_right = 467.0
+offset_bottom = 656.0
+texture = ExtResource("5_kyknr")
+expand_mode = 1
+
+[node name="Pin1" type="TextureRect" parent="Pages/SettingsPage"]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 58.0
+offset_right = 177.0
+offset_bottom = 110.0
+texture = ExtResource("6_7xig6")
+expand_mode = 1
+
+[node name="Pin2" type="TextureRect" parent="Pages/SettingsPage"]
+layout_mode = 0
+offset_left = 237.0
+offset_top = 246.0
+offset_right = 293.0
+offset_bottom = 302.0
+texture = ExtResource("6_7xig6")
+expand_mode = 1
 
 [connection signal="AnimateIn" from="." to="." method="_on_animate_in"]
 [connection signal="AnimateOut" from="." to="." method="_on_animate_out"]

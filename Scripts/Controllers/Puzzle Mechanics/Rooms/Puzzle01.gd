@@ -23,6 +23,8 @@ func _ready():
 	
 	plr.emit_signal("disableMovement")
 	
+	SOUNDS.playMusic("underwater ambience")
+	
 	var ct01 = CAMERA.zoomTo(plr.position, Vector2(7,7))
 	await ct01.finished
 	

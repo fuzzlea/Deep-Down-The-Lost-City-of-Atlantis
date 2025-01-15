@@ -20,7 +20,7 @@ extends Node
 		"Rarity": "Common"
 	},
 	
-	"Atlantean Bath Token": {
+	"Atlantean Bath Token": { #DONE
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Atlantean Bath Token.png",
 		"Rarity": "Common"
 	},
@@ -75,12 +75,12 @@ extends Node
 		"Rarity": "Common"
 	},
 	
-	"Starfish Clay Plate": {
+	"Starfish Clay Plate": { #DONE
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Starfish Clay Plate.png",
 		"Rarity": "Common"
 	},
 	
-	"Tadpole Statue": {
+	"Tadpole Statue": { #DONE
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Common/Tadpole Statue.png",
 		"Rarity": "Common"
 	},
@@ -92,7 +92,7 @@ extends Node
 		"Rarity": "Uncommon"
 	},
 	
-	"Conch Shell": {
+	"Conch Shell": { #DONE
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Uncommon/Conch Shell.png",
 		"Rarity": "Uncommon"
 	},
@@ -102,7 +102,7 @@ extends Node
 		"Rarity": "Uncommon"
 	},
 	
-	"Gull Statue": {
+	"Gull Statue": { #DONE
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Uncommon/Gull Statue.png",
 		"Rarity": "Uncommon"
 	},
@@ -112,7 +112,7 @@ extends Node
 		"Rarity": "Uncommon"
 	},
 	
-	"Pearl Beads": {
+	"Pearl Beads": { #DONE
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Uncommon/Peral Beads.png",
 		"Rarity": "Uncommon"
 	},
@@ -136,7 +136,7 @@ extends Node
 	
 	# Epic #
 	
-	"Ceremonial Sea Shell": {
+	"Ceremonial Sea Shell": { #DONE
 		"Image": "res://Assets/Singles (Misc)/Collectibles/Epic/Ceremonial Sea Shell.png",
 		"Rarity": "Epic"
 	},
